@@ -1,0 +1,272 @@
+# Value-Creation Mechanics — the Canonical Catalog
+
+The foundational catalog of value-creation mechanics referenced from [value-creation.md §11](value-creation.md). Each mechanic is one operational way to raise the energy-efficiency ratio of a Solution × Job pairing (per [value-creation.md §3](value-creation.md)) — by raising **P** (probability the Solution performs the Job at criteria), raising **Outcome** (criteria-met-better), or lowering **Cost** (time, money, effort, cognitive load, negative emotion, Tax Jobs).
+
+> **For the full operational catalog of 100+ mechanics** across the four Next Move Theory pillars — with detailed how-tos, decision tables, per-mechanic risks, combinations, and adjacent business-task mechanics (retention, pricing, go-to-market, scaling) — see [`Next-Move-Theory/mechanics-catalog.md`](../Next-Move-Theory/mechanics-catalog.md) (internal-only).
+
+---
+
+### Kill a Job
+*Убить работу*
+
+**Lower-level Jobs disappear as a class.** The product performs the higher-level Job through fewer lower-level Jobs, or eliminates the lower-level Jobs entirely. One of the two highest-leverage moves in the catalog. The customer's brain weights the removal at roughly 2× the value of an equivalent feature addition (loss aversion applied to Jobs).
+
+**Examples:** AirPods killed *"untangle my headphones"*; Face ID killed *"type my password"*; Apple Pay killed *"reach for my wallet"*; Tesla's stripped-down interior killed *"find the right knob"*; Square's QR-tipping killed *"find cash to leave a tip"*; auto-pay killed *"remember to send the credit card payment by the 12th"*.
+
+**Deeper:** [value-creation.md §14.2](value-creation.md); [`Next-Move-Theory/subtraction.md`](../Next-Move-Theory/subtraction.md).
+
+---
+
+### Reduce time-gaps between Jobs → reach the Big Job faster
+*Уменьшать промежутки времени (гэпы) между работами*
+
+**Faster end-to-end delivery of the Big Job.** Wait-time between Jobs in the chain is felt as cost; compress it and the entire chain reads as a different Job to the brain. Threshold effects matter — many categories have a step-change point below which retention jumps.
+
+**Examples:** Just Eat's London experiment found dark-kitchen density below 25-min delivery produced a step-change in retention; DoorDash reduced kitchen-prep latency via restaurant tablets and unlocked courier capacity; Stripe shipped instant payouts where banks had taken 2–3 days; ChatGPT collapsed *"find template → format headings → draft → restructure"* from hours to seconds; modern checkouts collapsed *"enter address + card + verification"* into a single tap (Apple Pay, Shop Pay).
+
+**Deeper:** [`critical-chain.md §9`](critical-chain.md).
+
+---
+
+### Perform more Jobs with one Solution
+*Выполнять больше работ человека одним решением*
+
+The product performs several of the customer's Jobs with one Solution — raising value through reduced context-switching across tools. The mechanic isn't *"add features"* — it's *"absorb adjacent Jobs the customer was performing in another product."* Each absorbed Job is one less switch-cost paid.
+
+**Examples:** Figma absorbed *"share design with team," "comment in context," "review on a call"* into one canvas; Notion absorbed *"docs + databases + tasks + wikis"* into one workspace; Slack absorbed *"chat + huddles + Canvas + AI summaries"*; a modern hotel absorbed *"sleep + dine + meet + book a restaurant"*; AirPods added a microphone absorbing *"take a call without holding the phone."*
+
+---
+
+### Create new connections to higher-level Big Jobs
+*Создавать связи с новыми работами выше уровнем, которых раньше не было*
+
+**Connect your Core Job to a Big Job above it that wasn't previously linked.** The more Big Jobs your Core Job serves, the higher the customer's motivation to perform it with you. Adds a multiplicative motivation surface without changing the Core Job at all.
+
+**Examples:** Premium bottled water ($10/bottle) performs the Core Job *hydrate* but links to *"create aesthetics at my dinner table"*; Apple's MacBook performs *"do creative knowledge work"* and links to *"signal status and aesthetic taste"*; Patagonia links *outdoor clothing* to *"signal my values around environmental responsibility"*; an AJTBD course links *learn product methodology* to multiple Big Jobs at once — *grow my career, build a side project, consult, become a respected practitioner.*
+
+**Deeper:** [value-creation.md §16](value-creation.md).
+
+---
+
+### Adjust the customer's expectations
+*Корректировать ожидания*
+
+**Value is the delta against the customer's prediction, not the absolute level.** A real value delivery against inflated expectations registers as nothing or as a Problem; the same delivery against calibrated expectations registers as an Aha Moment. Manage the prediction *before* the customer experiences the product — through communication, pricing, brand framing, sales-call honesty.
+
+**Examples:** Tesla deliberately understates 0–60 acceleration in marketing for newer models so the test drive over-delivers; Wealthfront's onboarding sets explicit return expectations *below* historical S&P returns so the first quarter reads as positive; Lenny Rachitsky's newsletter explicitly says *"this is not a step-by-step playbook — it's a synthesis of patterns"* before the read; modern SaaS-onboarding screens that say *"this will take 4 minutes"* and then take 3.
+
+**Deeper:** [value-creation.md §6](value-creation.md).
+
+---
+
+### Ecosystem — combine products for unique combined value, raise switching cost
+*Экосистема — способ дать уникальную ценность при комбинации продуктов и поднять цену переключения*
+
+**Link several products so that 1 + 1 > 2.** When a customer uses multiple products, leaving one degrades the value of the others — raising the Switching Cost. The mechanic is *additive in connection points*, not in features. Each new Solution in the ecosystem lowers the cost of performing any Job already in the system, and the switching cost out of the ecosystem rises with every piece adopted.
+
+**Examples:** Apple ecosystem (iPhone + Mac + Watch + AirPods + iCloud — leave any one and several others lose half their value); Google Workspace (Gmail + Drive + Docs + Calendar + Meet); Microsoft 365; Amazon Prime (Shipping + Video + Music + Photos + Kindle); Salesforce Customer 360 (Sales + Service + Marketing + Commerce + Analytics).
+
+---
+
+### Lower the price
+*Снизить цену*
+
+**Cheaper performance of the Job.** A powerful lever, structurally hard to scale — at scale it requires either an order-of-magnitude cost-structure advantage or willingness to operate at a margin competitors won't. Often the first move teams reach for and the last move they should — value mechanics that don't compete on price usually beat price cuts on long-term defensibility.
+
+**Examples:** Costco runs a structurally cheaper supply chain (members pay annual fees that fund margin compression on goods); Robinhood's commission-free trading collapsed the per-trade fee from $10 to $0 across the industry; Vanguard's index funds operate at 0.03–0.10% expense ratios versus 1–2% for active managers; Aldi runs a 1,500-SKU range against Walmart's 100,000 to compress operational cost per dollar of revenue.
+
+---
+
+### Remove negative emotions and bring them to positive ones
+*Избавить от негативных эмоций и привести к позитивным*
+
+**Wherever the chain produces a negative emotion (anxiety, doubt, irritation, shame, fear of failure), remove it.** Emotions are the brain's signaling system about how a Job is being performed; removing a negative emotion registers as ~2× the value of adding an equivalent feature. The closer to the customer's underlying need, the stronger the emotional signal.
+
+**Examples:** Square's tip screen removed the awkwardness of choosing a tip while the barista watches; TurboTax removed *"am I doing this wrong"* by adding accuracy guarantees; insurance products sell *"peace of mind tonight,"* not *"fewer claims"*; therapy-matching services sell *"someone who actually understands me,"* not *"licensed therapist nearby"*; Wealthfront sells *"you'll be OK in retirement,"* not *"diversified asset allocation."*
+
+**Deeper:** [`scientific-foundations.md §13`](scientific-foundations.md) (loss aversion).
+
+---
+
+### Reduce role-to-role hand-offs in Critical Chains
+*Уменьшать количество переходов между разными людьми в критических цепочках*
+
+**Fewer roles in the chain → fewer break-boundaries → higher end-to-end completion probability.** Distinct from *Fix Critical Chain breaks between different people* (which repairs at existing boundaries); this mechanic *removes* the boundaries by collapsing roles.
+
+**Examples:** Tesla collapsed dealer + finance + service into one company; in-house procurement at large enterprises collapses *vendor → distributor → procurement → end-user*; Salesforce's full-suite play absorbs Marketo + Service Cloud + Tableau roles; Apple's vertical integration (chip → device → OS → store → service) collapses every traditional consumer-electronics hand-off.
+
+**Deeper:** [`critical-chain.md §11`](critical-chain.md).
+
+---
+
+### Lower Job/Solution Cost before the value lands
+*Снижать Job/Solution Cost до получения ценности*
+
+**Lower the customer's cost (time, money, effort, cognitive load) on the path to first value.** The chain `pay → integrate → configure → try → see-value` has a high abandonment rate at every step; collapsing the steps before value lands is a direct conversion lever *and* a direct value lever — the brain doesn't pay for value it never reached.
+
+**Examples:** Free trials and freemium tiers (Notion, Linear, ChatGPT free); *"first month free, no card"* in B2B SaaS; tripwire offerings — disproportionately high value at a low price for first-time customers; Skillshare's free-class introductory experience; Stripe's *"9 lines of code, test mode works without an account"* — value visible before money or onboarding.
+
+**Deeper:** [value-creation.md §8](value-creation.md).
+
+---
+
+### *"This value is only available with us"* — exclusive value
+*Эксклюзивная ценность — эта ценность доступна только у нас*
+
+**Lock unique value that competitors structurally cannot match.** Exclusivity sources: licensed content, proprietary technology, exclusive partnerships, regulatory protection, network effects past the tipping point. Builds the comparative anchor that makes the Solution the obvious hire.
+
+**Examples:** Spotify-exclusive podcasts (Joe Rogan early years); Apple TV+ exclusive content; Disney+'s Marvel/Star Wars libraries; HBO's exclusive HBO Originals; Bloomberg Terminal's proprietary data feeds; LinkedIn's professional graph (network effect past tipping point); Stripe's Atlas (regulatory-and-relationship infrastructure for company-formation that competitors cannot easily clone).
+
+---
+
+### Perform the Core Job at the level of the segment's expectations
+*Выполнить работу на уровне ожидаемых критериев успеха*
+
+The most-skipped baseline. **Until the Core Job lands at the focus segment's success criteria, every mechanic stacked on top is leverage on nothing.** Performing the Core Job *at the criteria the segment expects* is itself a value mechanic — most teams over-invest in adjacent features and under-invest in nailing the criteria. Without criteria, value is a wish.
+
+**Examples:** Chrome's address bar performs *"open the news site whose domain I half-remember"* with the criterion *"<3 seconds, no extra clicks"*; Wealthfront performs *"rebalance my portfolio quarterly without my involvement"* with the criterion *"I see the projected balance at 65 in plain English"*; Stripe performs *"accept online payments turnkey"* with the criterion *"integrate in one afternoon with 9 lines of code."*
+
+**Deeper:** [value-creation.md §9](value-creation.md).
+
+---
+
+### Start performing a Job that nobody currently performs well
+*Начать выполнять работу, которая не выполняется, хотя человек ищет решение*
+
+The Job exists, the customers exist, no acceptable Solution does. Whoever performs it first wins the segment outright — there is no incumbent to displace, only a vacuum the customer has been routing around with workarounds.
+
+**Examples:** Stripe in 2010 — *"accept online payments without spending two weeks integrating PayPal"* — the Job was real (every internet business wanted it); the existing options (PayPal Standard, Authorize.net) were broken for developers. Wealthfront in 2012 — *"manage my retirement turnkey at low cost"* — big banks charged 1%+ for a worse product. Bench in 2013 — *"do my small-business bookkeeping turnkey"* — existing options were either DIY in QuickBooks or a $400/month local CPA. ChatGPT in 2022 — *"generate a usable first draft of any short-form writing in 4 seconds"* — nobody else was performing this Job at this quality.
+
+---
+
+### Fix the Problems
+*Починить проблемы*
+
+Perform a Job without the Problem the customer has been hitting in their current Solution. **Especially high-leverage when the Problem sits inside the Critical Chain** — one broken Job halts the entire Big Job. Reconstruct the chain `Job → Solution → Problem` before fixing — the named Problem is rarely the root.
+
+**Examples:** Stripe Checkout fixed *"I don't know what an API key is"* for local merchants who had been blocked at integration; Plaid fixed *"upload bank statements as PDFs"* for digital mortgage applications; TurboTax fixed *"will the IRS catch a mistake"* by adding accuracy guarantees; modern telehealth fixed *"the video call won't connect after I've filled out a 30-minute intake form"* with end-to-end session reliability.
+
+**Deeper:** [`critical-chain.md §2, §11`](critical-chain.md).
+
+---
+
+### Fix unperformed Jobs in the Critical Chain (including Jobs outside our Core Jobs)
+*Чинить не выполняемые работы в критической цепочке, включая работы за пределами наших Core Jobs*
+
+**Find Jobs that break the chain — even Jobs outside your core competence — and fix them, even if it means owning a Job adjacent to your category.** Common during scaling into a new sub-segment: the chain breaks at a Job your product never touched in the launch segment. Repair the Job onto your product or partner with a vendor who reliably performs it.
+
+**Examples:** Stripe Checkout absorbed *"explain to a non-technical merchant how to integrate payments"* — a Job Stripe never had in their YC-stage launch market; Notion Enterprise absorbed *"pass IT security review with SOC 2, SAML, SCIM, audit log"* — Jobs Notion never had at the individual / small-team level; Zoom for Education absorbed *"FERPA-compliant waiting rooms, breakout rooms, locked meetings"* during 2020 K-12 expansion.
+
+**Deeper:** [`critical-chain.md §6, §11`](critical-chain.md).
+
+---
+
+### Take the Job off the customer entirely (done-for-you)
+*Забрать выполнение работы с человека*
+
+**Convert the product from a *tool* into a *service*.** The customer was performing the Job; now you perform it for them. The strongest form of value compression — the customer's chain shrinks by the entire Job, not just a step inside it. Carries a money premium that the *done-for-me-first* segment will pay (see [value-creation.md §10](value-creation.md)).
+
+**Examples:** Robot vacuum vs manual vacuuming; Wealthfront vs DIY rebalancing; Belong / Mynd vs self-managed rental property; DoorDash vs cooking; Bench vs DIY bookkeeping; modern AI agents performing entire workflows (code-review, customer-outreach, document-drafting) end-to-end.
+
+---
+
+### Perform the Next Job in the Critical Chain (cross-sell into adjacency)
+*Выполнять следующую работу в критической цепочке Core Jobs*
+
+**Take over the next Job the customer performs after your current Core Job lands.** Each absorbed Next Job is retention plus AOV growth — the customer doesn't have to leave to perform the Job; they don't return to a competitor's product for that adjacency.
+
+**Examples:** Typeform's natural next Job after *"build the form, collect responses"* is *"analyze and respond to responses"* — Typeform's Insights and integrations expand into this; Figma's natural next Job after design is implementation handoff — Dev Mode performs that Job; after-sale auto-service contracts on car sales; tax-advisor add-on after TurboTax filing; Carfax adding mortgage referral after vehicle-history report; a kitchen-and-bath remodel firm cross-selling appliances after the renovation.
+
+**Deeper:** [`critical-chain.md §9`](critical-chain.md).
+
+---
+
+### Perform Orientation Jobs (including explaining what the Job Graph looks like)
+*Выполнить ориентационные работы — включая объяснение того, как выглядит Job Graph*
+
+**Perform the meta-Jobs whose verbs are *understand, discover, find, choose, figure out*.** First-time customers facing a Big Job must perform an Orientation Job before they can pick a Solution — they don't know the Job Graph yet, don't know which Solutions exist, don't know how to evaluate them. The product that performs the Orientation Job becomes the customer's guide *and* routes them into its own Core Jobs.
+
+**Examples:** Lenny's Newsletter performs the Orientation Job *"understand how to be a great product person"* and routes paying readers to its courses and recommended tools; SmartAsset performs *"figure out my retirement plan"* and routes to advisor partners; Bench's blog performs *"understand small-business bookkeeping"* and routes to Bench's service; Coursera's recommendation engine performs *"choose what to learn next"* and routes to its catalog; The Wirecutter performs *"choose the best version of this product"* and routes to merchant affiliates.
+
+**Deeper:** [`job-types-and-properties.md`](job-types-and-properties.md); [`consideration-activators.md`](consideration-activators.md).
+
+---
+
+### Break value into slices and deliver parts of it earlier in the Critical Chain
+*Разбить пользу и давать части пользы поэтапно, раньше в критической цепочке работ*
+
+**Spread the cost of getting to value across multiple steps, each delivering a slice of value.** The mechanic is partial-value-delivery before commitment — lead magnet, free trial, MVP-with-basic-features, intro consultation. Customer pays less upfront, gets enough value to keep moving forward, completes the full chain over multiple sessions. The earlier the first slice lands, the smaller the abandonment window before the first Aha Moment.
+
+**Examples:** A free chapter of a book; free intro lesson on Coursera / Skillshare; the first analysis free at a market-research consultancy; chatbot products that deliver a partial answer in the free tier and full reasoning in the paid; financial advisors offering a free financial-plan review as the first slice; a CRM tool's *"see your top 10 leads scored — upgrade to see all 1,000."*
+
+**Deeper:** [value-creation.md §12](value-creation.md) (Aha Moment placement).
+
+---
+
+### Perform Jobs while simultaneously satisfying deeper needs
+*Выполняя работы, одновременно удовлетворять глубинные потребности*
+
+**Connect the Core Job to a base human need — status, autonomy, control, competence, belonging, safety, recognition, self-actualization.** Status in particular is enormous and routinely underweighted — people pay vast sums for status-coded objects and experiences. The mechanic: identify which need your focus segment is also paying to satisfy, and design the product to deliver against that need alongside the Core Job.
+
+**Examples:** Patek Philippe sells *"signal who I am to my peers"* through the watch; Tesla's interior + acceleration profile sell *"competence + status"* through the car; Apple Vision Pro sells *"belong to the early-adopter tribe"*; a Peloton bike sells *"competence in fitness"* visible to the household; Mercedes-Maybach sells *"status + autonomy"* (chauffeur-implied); premium bottled water (Voss, Fiji) sells *"aesthetics at my dinner table."*
+
+**Deeper:** [`scientific-foundations.md §5-7`](scientific-foundations.md).
+
+---
+
+### Better meet the success criteria of Core Jobs / Big Jobs
+*Лучше выполнять критерии успеха Core Jobs / Big Jobs*
+
+**Perform the same Job *better against the criteria the focus segment uses to evaluate it*.** Different segments value different criteria — the priority order over criteria is what makes them different segments ([`segmentation.md`](segmentation.md)). The mechanic is: identify which one or several criteria dominate for your focus segment, raise performance on those specifically.
+
+**Examples:** Uber's tariff ladder — same Big Job *get from A to B*, different criteria per tier: Comfort raises *clean cabin, recent-model car, quiet driver*; Black raises *luxury vehicle, driver in formal attire*; XL raises *6+ seats, room for luggage*. Apple raises *aesthetics, build quality, ecosystem coherence* against the same Core Job other phones perform. Bloomberg Terminal raises *latency, breadth of data feeds, keystroke speed* against the same financial-data Core Job.
+
+**Deeper:** [value-creation.md §9, §10, §11](value-creation.md).
+
+---
+
+### Perform Small Jobs for additional Big Jobs that emerged in the process
+*Выполнять Small Jobs для дополнительных Big Jobs, которые возникли в процессе*
+
+**During the chain-walk, the customer's other needs activate — safety, control, status, recognition — and new Jobs appear that the customer didn't predict at the start.** Perform these emergent Small Jobs in-flight. Criterion: the customer didn't know, at the start, that they'd need this Job done.
+
+**Examples:** During a used-car sale, the seller suddenly needs *"verify the buyer is real," "draft a watertight bill of sale," "check for liens before transferring title"* — Carfax and TruePeopleSearch absorb these. During a home renovation, the homeowner suddenly needs *"check the contractor's license," "review the change order I just received,"* — Houzz Pro and Angi expand into these. During an enterprise SaaS evaluation, the buyer suddenly needs *"a SOC-2 letter, a security questionnaire response"* — modern SaaS vendors pre-prepare these.
+
+---
+
+### Bundle multiple products / services together
+*Сделать бандл из нескольких продуктов / услуг*
+
+**Combine multiple products into one package at a combined price.** The customer pays less per individual product than buying them separately, but the total spend rises. Often used with cross-sell — bundle the Next Job in the chain (a service contract with the car).
+
+**Examples:** Adobe Creative Cloud (Photoshop + Illustrator + InDesign + Premiere + more, priced below the individual sum); Microsoft 365; AppleCare bundling extended warranty with accidental damage protection; insurance multi-line discounts (home + auto + umbrella); cable bundles (TV + internet + phone — declining but still common).
+
+---
+
+### Kill cycles in the Critical Chain — including across different people
+*Убивать циклы в критических цепочках — в том числе между разными людьми*
+
+**Eliminate customer-visible return-for-rework loops in the chain.** Cycles are the dominant break source — each return iteration is felt at ~2× the weight of forward progress, and three cycle iterations wipe out six forward Jobs' worth of perceived value. Default fix: front-load requirements so the customer provides everything upfront and the chain runs without returns.
+
+**Examples:** Plaid's instant account-linking killed the document-cycle in digital mortgage applications (lender requests doc A → submit → asks for B → submit → asks for C that could have been asked at A); modern PSA systems front-load tax requirements; SOC-2 audit firms that ask for the full evidence list upfront vs. iteratively; TurboTax's *"let's collect all your forms at once"* import flow replaced the cycle where the user had to re-enter when something was missing.
+
+**Deeper:** [`critical-chain.md §8`](critical-chain.md).
+
+---
+
+### Fix Critical Chain breaks between different people
+*Чинить разрывы критических цепочек между разными людьми*
+
+**Repair role-to-role hand-offs where ownership ambiguity, latency, and information loss cluster.** The majority of multi-role chain-breaks happen at role boundaries — not inside a single role's lane. Diagnostic order: map the chain → fix hand-offs first → kill cycles second → optimize single-role lanes last.
+
+**Examples:** Tesla owns sales + service + financing — collapses the typical car-buy hand-off sequence (dealer → finance → service department) into one company. Stripe owns merchant-onboarding + payments + reconciliation + dispute-handling. Warby Parker owns prescription + frames + retail. Zappos owns service + fulfillment. In healthcare, integrated systems (Kaiser Permanente, Mayo) collapse the GP → lab → specialist → primary-care hand-off chain that breaks routinely in fragmented systems.
+
+**Deeper:** [`critical-chain.md §7, §11`](critical-chain.md).
+
+---
+
+## How §11 picks from this catalog
+
+[value-creation.md §11](value-creation.md) maps each segment's priority criterion (or criteria) to the lead mechanic(s) to test first. The full set above is what §11 picks from. Real value-design sessions layer two or three mechanics, but the *lead* mechanic is chosen against the segment's priority criterion (per [value-creation.md §10](value-creation.md)).
+
+For operational how-tos — when to apply each mechanic, what to test before building, common failure modes, layered combinations, and the broader 100+ catalog including go-to-market, retention, pricing, scaling, exit-from-direct-competition — see internal-only [`Next-Move-Theory/mechanics-catalog.md`](../Next-Move-Theory/mechanics-catalog.md).
