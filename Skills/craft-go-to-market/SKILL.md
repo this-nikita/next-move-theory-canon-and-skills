@@ -21,7 +21,7 @@ It consumes a `/craft-value-proposition` result (best — it carries the positio
 ## What this skill produces
 
 **One file — the GTM communication pack** (`{product-slug}-craft-go-to-market-result.md`):
-- **Part 1 — Landing copy.** The canonical NMT landing sequence (`communication.md §8`, `position-product.md`), full ready-to-publish copy, no placeholders.
+- **Part 1 — Landing copy.** The canonical NMT landing sequence (`communication.md §8`), full ready-to-publish copy, no placeholders.
 - **Part 2 — Ad / creative copy.** The seven Job-language banner formulas with test-variant sets; visuals brief (show State B); the one-liner used everywhere.
 - **Part 3 — GTM / growth communication.** Acquisition-channel hypotheses (each loaded with Consideration Activators); Previous-Job lead magnets + Orientation-Job content + Viral-Job loops; cross-sell (Next Job) / upsell (Big Job) / retention (Aha-stream, frequency, habit-reuse) messaging.
 - **Appendix — the Consideration-Activators map:** which of the five components each asset loads, and the forces of behavior change worked.
@@ -36,37 +36,38 @@ It consumes a `/craft-value-proposition` result (best — it carries the positio
 
 The **only** source of methodology is the Next Move Theory canon, read at runtime (relative paths; the skill ships in the same repo). **Path note:** if a file is not found, retry with a `1-` prefix on the canon folder.
 
+**This is a public skill — it grounds only in the public canon.** Every file in the read sets below is a published canon file (the set whitelisted in `8-Tools/sync/PUBLIC_MANIFEST.yml`); the skill ships to the public mirror, where private files do not exist. **Never read or quote private canon** — e.g. the task-specific `Algorithms/*` (`position-product.md`, `increase-conversion.md`, `create-acquisition-channel.md`, `increase-retention.md`, `increase-average-check.md`). Their communication content lives in the public files below: positioning/landing/creatives in `communication.md`; conversion in `communication.md` + `customers-attention-management.md` + `barrier-removal.md`; acquisition/cross-sell/retention in `job-types-and-properties.md` + `critical-chain.md` + `consideration-activators.md`. This holds in **both** repos — even when running inside the Internal repo where those files exist on disk.
+
 **Core read set (every run):**
 
 | File | What the skill uses it for |
 |---|---|
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/communication.md` | Communication transmits validated value (§1); the 7 purchase assumptions (§2); the 3 base messages (§3); features-are-proof (§4); the one-liner (§5); the creative formulas (§6); landing = a short Critical Chain (§8); expectation management (§9) |
-| `Next-Move-Theory-Canon/Algorithms/position-product.md` | Landing structure, the 7 banner formulas, the specificity rule, positioning through several Core Jobs |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/communication.md` | The positioning + landing + creatives core: communication transmits validated value (§1); the 7 purchase assumptions (§2 — the conversion factors); the 3 base messages (§3 — value in criteria, not adjectives); features-are-proof (§4); the one-liner (§5); the 7 creative formulas (§6 — and visuals show State B); landing = a short Critical Chain (§8 — the canonical landing sequence + the conversion diagnostic); expectation management (§9) |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/consideration-activators.md` | The 5 Consideration-Activators components; sources; specific-stories; Class 1 vs Class 2 |
-| `Next-Move-Theory-Canon/Algorithms/increase-conversion.md` | 7 conversion factors, 8 conversion mechanics, Aha placement, lead magnet, the 7 factors of a successful sale |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/customers-attention-management.md` | The funnel as attention transitions — place the first Aha as far left as possible (§6), the Critical-Chain walk (§7–§8, most drop-off is interruption not rejection), Move-to-Previous-Job as upstream acquisition (§9); the partial-value taste-of-Aha |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/behaviour-change.md` | Communicate through the Big Job (§4); the seven triggers / receptivity windows (§8); the forces (§9); Class 1/2 (§10) |
-| `Next-Move-Theory-Canon/Algorithms/create-acquisition-channel.md` | Previous-Job channels, Viral Jobs, content loop, the three WoM mechanisms, lead magnets, opinion-leader segments |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/job-types-and-properties.md` | Viral / Orientation Jobs — the job-types behind content marketing, lead magnets, content loops, and viral loops |
 
 **As-needed read set:**
 
 | File | When |
 |---|---|
-| `Next-Move-Theory-Canon/Algorithms/increase-retention.md` | Retention messaging — Next Job, frequency, Aha-stream, habit reuse, ecosystem |
-| `Next-Move-Theory-Canon/Algorithms/increase-average-check.md` | Cross-sell / upsell messaging — Next Job, Big-Job upsell, super-app |
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/value-creation.md` | The value formula behind every criteria claim (§3, §9); deferred-value communication (§19) |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/critical-chain.md` | Previous Job / Next Job strategy — the chain moves behind acquisition (Previous Job), cross-sell and retention (Next Job) |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/barrier-removal.md` | Real Barriers vs. fears (§1, §3) — separating fears *about the Job* from fears *about our Solution* for the fear-reduction block |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/value-creation.md` | The value formula behind every criteria claim (§3, §9); move-up-a-level for upsell (§14); the Red Queen value-gap behind the Aha-stream (§6); deferred-value communication (§19) |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/b2b.md` | B2B — peer/institutional channels (§4), personal-Job messaging (§5–§6), the deal room (§3) |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/job-structure.md` | Fidelity levels — the headline is the Level-3 minimal Job (§15) |
 
 **Do NOT use generic JTBD from the internet or prior training.** Five mis-defaults to never propagate (per project `CLAUDE.md`): a **Job** is a desired transition (State A → expected outcome), not "a struggle for progress"; **value** is energy efficiency measured against the brain's prediction, the **Aha Moment** is value beating prediction (**never PPE/NPE** — Rule 22); `I want to + verb` is the primary element of an eight-element Job (each verb a separate Job — Rule 7); a **Problem** is a consequence of an underperforming Solution, not a root cause; a **Solution** is a real thing *and* a label for the Job Graph it installs.
 
 **Methodological invariants — the copy is invalid if any is violated:**
-- **Communicate through the Big Job** — motivation lives one level above the Core Job (`position-product.md`, `behaviour-change.md §4`). *Exception (Class 1, `behaviour-change.md §10`):* when our Core Job is already familiar to the segment, lead on the Core Job + criteria with the Big Job as reinforcement; when unfamiliar (Class 2), lead on the Big Job and back-fill the Core Job.
-- **Value in concrete success criteria, never adjectives** — *"fast / reliable / high-quality"* are bullshit-words; ask *"as in?"* → *"car arrives in under 4 minutes," "insured for $30M," "e-filed with error checks."* (`position-product.md`, `communication.md §3`.)
+- **Communicate through the Big Job** — motivation lives one level above the Core Job (`behaviour-change.md §4`, `communication.md §3`). *Exception (Class 1, `behaviour-change.md §10`):* when our Core Job is already familiar to the segment, lead on the Core Job + criteria with the Big Job as reinforcement; when unfamiliar (Class 2), lead on the Big Job and back-fill the Core Job.
+- **Value in concrete success criteria, never adjectives** — *"fast / reliable / high-quality"* are bullshit-words; ask *"as in?"* → *"car arrives in under 4 minutes," "insured for $30M," "e-filed with error checks."* (`communication.md §3`.)
 - **Features are proof, not the message** — a feature is communicable only after it's attached to a Job and a criterion (`communication.md §4`). Lead with the Job + value + fear reduction; use features as evidence.
 - **Never promise a Big Job the product only partially performs** — overpromise inflates the prediction and manufactures a Problem; the promise must match what the Critical Chain actually delivers (`communication.md §9`, `value-creation.md §6–§7`).
 - **Load all five Consideration-Activators components** — new Job Graph; value delta by criteria; named product + entry path; specific fears reduced; competing Job Graph fired (`consideration-activators.md §1`).
 - **Communication transmits validated value** — if value isn't proven (no sales / no Aha Moment yet), flag it; don't scale copy on a hypothesis (`communication.md §1`).
-- **Specific stories beat abstractions** (`consideration-activators.md §6`); **visuals show State B**, not the process (`position-product.md`, `communication.md §6`).
+- **Specific stories beat abstractions** (`consideration-activators.md §6`); **visuals show State B**, not the process (`communication.md §6`).
 
 Per `CLAUDE.md`: every named external source is a clickable Markdown link (Rule 2); two-part disclaimer at the top of the result (Rule 3); US-context analogs + the recognition test — only Tier A/B brands without a one-clause bridge (Rules 6, 19).
 
@@ -79,7 +80,7 @@ Per `CLAUDE.md`: every named external source is a clickable Markdown link (Rule 
 - ❌ *"This banner uses the Trigger → Core Job formula and fires the competing Job Graph…"*
 - ✅ *"This banner hits them right at the moment they feel the problem, then shows why the usual option falls short (formula:* Trigger → Core Job *+ firing the alternative)."*
 
-**Who reads it** — the focal segments (internal map: `Strategy/Segments-and-Jobs.md`): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
+**Who reads it** — the focal segments (internal map: `Strategy/Segments-and-Jobs.md` — private; the essentials are inline here so the skill stays self-contained and public-safe): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
 
 **Plain ↔ methodology** (say the left; add the right in parentheses only when it earns its place): the result they're after *(the Job / Big Job)* · the main thing the product does for them *(the Core Job)* · the step-by-step path the customer walks *(the Critical Chain)* · the exact step where they get stuck *(a Critical Chain break)* · the moment it clicks / feels worth it *(the Aha Moment)* · getting the result for less time, effort, money, or stress than expected *(value)* · a pleasant surprise / a letdown vs. what they expected *(Positive / Negative Prediction Error — never PPE/NPE)* · the few things they must learn or believe before switching *(Consideration Activators)* · a real blocker vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption / RAT)*.
 
@@ -96,6 +97,8 @@ Skill-Results/craft-go-to-market/{YYYY-MM-DD_HH-MM}_{product-slug}-craft-go-to-m
 ```
 
 Everything internal — the normalized input (source artifacts, segment, Big/Core Jobs + criteria, Aha, competitors, proof, fears), dropped variants, review-mining notes, and the self-critic verdicts — **stays in-context**; none of it is written to a separate file. The timestamp makes each run's file unique, so reruns never overwrite. Disclaimers (Rule 3) go at the top of this one file.
+
+**Attribution (Rule 23).** The GTM pack opens with the attribution top-line (the very first content, above the disclaimers) and closes with the attribution block — `utm_source=craft-go-to-market&utm_medium=skill-artifact`.
 
 ---
 
@@ -159,16 +162,16 @@ A landing page is a **short Critical Chain** whose State B is enough belief + mo
 3. **Context & trigger** — the visitor recognizes *"this is my situation"* (the segment's real context + trigger).
 4. **Value by concrete criteria** — how much more energy-efficiently the Jobs land; numbers/thresholds, never adjectives.
 5. **How it works** — the steps as the *proof* layer (features attached to Jobs + criteria), not as the message.
-6. **A taste of the Aha Moment** — give a slice of value on the page where possible (the partial-value mechanic, `increase-conversion.md`).
+6. **A taste of the Aha Moment** — give a slice of value on the page where possible (the partial-value mechanic; place the first Aha as far left as possible — `customers-attention-management.md §6`).
 7. **Problems with the current way** — why the existing Job Graph produces Problems / Tax Jobs / chain-breaks (fires the competing Graph — CA component 5).
-8. **Fear reduction** — the specific feared breaks (the *"what if…"* block): named, then shown prevented / absorbed / reversible / insured / irrelevant (CA component 4). Separate fears *about the Job* from fears *about our Solution* (`increase-conversion.md`, factors 4–5).
+8. **Fear reduction** — the specific feared breaks (the *"what if…"* block): named, then shown prevented / absorbed / reversible / insured / irrelevant (CA component 4). Separate real blockers from fears, and fears *about the Job* from fears *about our Solution* (`communication.md §2`; `barrier-removal.md §3`).
 9. **State B / Big-Job reminder** — what the result looks and feels like once the Big Job lands (the State-B emotion).
 10. **Consideration Activators + CTA** — named product, the first concrete step, low activation cost; CTA on every screen.
 
 > The sequence is a **diagnostic**, not decoration — if motivated traffic doesn't convert, name which transition failed (didn't recognize the context / value not concrete / proof didn't connect / a real blocker remained / a fear stayed active / competitor not fired / CTA cost too high before the first Aha) (`communication.md §8`).
 
 ### Part 2 — Ad & creative copy
-Creatives are **Job-language formulas selected by evidence, not inspiration** (`communication.md §6`, `position-product.md`). For each of the segment's main entry contexts, generate copy across the seven formulas, then mark which to test first:
+Creatives are **Job-language formulas selected by evidence, not inspiration** (`communication.md §6`). For each of the segment's main entry contexts, generate copy across the seven formulas, then mark which to test first:
 
 | # | Formula | Pattern |
 |---|---|---|
@@ -194,7 +197,7 @@ Three sub-parts, all routed through Jobs:
 |---|---|---|---|---|
 
 - Time outreach to **receptivity windows** — Critical-Chain breaks, life events, competitor failures — not steady-state habit (`behaviour-change.md §8`).
-- **Previous-Job channels:** a tool/content for the Job *before* the Core Job (calculator, estimator, aggregator, guide) that captures the customer earlier and shapes their Consideration Set (`create-acquisition-channel.md`).
+- **Previous-Job channels:** a tool/content for the Job *before* the Core Job (calculator, estimator, aggregator, guide) that captures the customer earlier and shapes their Consideration Set (`critical-chain.md §9.1` — Move to the Previous Job; `customers-attention-management.md §9` — upstream attention capture).
 - **Orientation-Job content:** content marketing = performing Orientation Jobs + stepping to the Previous Job; design the **content loop** (using the product generates content that performs Orientation Jobs for the next customer; the Aha Moment is the fuel).
 - **Lead magnet:** trade a contact for disproportionate free value (checklist, template, calculator) — the brain over-values "free."
 - **Viral Jobs:** if the Core Job is performed *for/with* others (decks, docs, boards, Looms), design the surface so being-seen-using-it is itself a value moment; prioritize segments rich in high-frequency Viral Jobs.
@@ -202,12 +205,12 @@ Three sub-parts, all routed through Jobs:
 
 **3b. Cross-sell / upsell messaging.**
 - **Cross-sell** = the **Next Job** in the Critical Chain (after our Core Job lands, the next Job the customer performs) — message it as the natural continuation.
-- **Upsell** = link to a higher **Big Job** / move up-market / bundle (`increase-average-check.md`).
+- **Upsell** = link to a higher **Big Job** / move up-market / bundle (`value-creation.md §14` — move up a level).
 
 **3c. Retention messaging.**
 - A **stream of Aha Moments** against the rising prediction bar; shift the first Aha as far left as possible.
 - **Reuse existing habits**, don't install new ones; embed in rituals the customer already runs.
-- **Frequency** + the **Next Job** (NRR > 100% is the "more Jobs / next Job" strategy in messaging form); ecosystem lock-in where it applies (`increase-retention.md`).
+- **Frequency** + the **Next Job** (NRR > 100% is the "more Jobs / next Job" strategy in messaging form); ecosystem lock-in where it applies (`critical-chain.md §9.2` — Move to the Next Job).
 
 ### Appendix — Consideration-Activators map & forces
 - A table: each landing block / ad / channel asset → which of the **five CA components** it loads (new Graph / value delta / named product + door / fear reduced / competitor fired).

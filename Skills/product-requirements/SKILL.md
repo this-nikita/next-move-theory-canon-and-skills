@@ -37,6 +37,8 @@ This skill is the **build** step. It takes a chosen segment with its Core Jobs a
 
 The **only** source of methodology is the Next Move Theory canon, read at runtime (relative paths; the skill ships in the same repo). **Path note:** if a file is not found, retry with a `1-` prefix on the canon folder (`1-Next-Move-Theory-Canon/...`) — the source repo orders folders with a numeric prefix the public repo strips.
 
+**This is a public skill — it grounds only in the public canon.** Every file in the read sets below is a published canon file (the set whitelisted in `8-Tools/sync/PUBLIC_MANIFEST.yml`); the skill ships to the public mirror, where private files do not exist. **Never read or quote private canon** — e.g. `UnitEconomics/*`, `Next-Move-Theory/mechanics-catalog.md`, `Next-Move-Theory/product-strategy.md`, `Next-Move-Theory/cases.md`, the task-specific `Algorithms/*` (the unit-economics theory and the per-task algorithms are folded into the public files above). This holds in **both** repos — even when running inside the Internal repo where those files exist on disk.
+
 **Core read set (every run):**
 
 | File | What the skill uses it for |
@@ -58,7 +60,7 @@ The **only** source of methodology is the Next Move Theory canon, read at runtim
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/job-graph.md` | When the Job-Graph slice needs care (level placement, many-to-many, directional moves) |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/segmentation.md` | Path D — sharpening a manually-described segment; confirming Core-Job level placement |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/behaviour-change.md` | Aha Moment placement, triggers, the seven behavior-change triggers |
-| `Next-Move-Theory-Canon/UnitEconomics/unit-economics.md` | The financial filter inside the challenge + ranking (filter only — not an output) |
+| `Next-Move-Theory-Canon/Next-Move-Theory/nmt-key-theses.md` | The unit-economics filter inside the challenge + ranking — §4 chain-to-profit (UE condition: LTV > CAC, payback, target margin per unit) and §5 Consequence 2 (segment budget supports the math). Filter only — not an output |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/b2b.md` | When the buyer is a company — role-chain edge cases, two parallel Job Graphs |
 
 **This skill runs no research and performs no segmentation.** With no upstream artifact it either **routes** the user to `/market-research` → `/craft-value-proposition` (the proper path), or takes a **manually-described** segment + Jobs + value (the fast path) and writes the PRD directly. The canon files above are read to *build the PRD on* a segment+value that already exists — not to discover one.
@@ -89,7 +91,7 @@ Per `CLAUDE.md`: every named external source is a clickable Markdown link (Rule 
 - ❌ *"Red Queen value-gap compression…"* · *"the Critical Chain breaks at M4"* · *"load the Consideration Activators."*
 - ✅ *"The free do-it-yourself option caught up, so your edge shrank even though you didn't get worse (in the methodology, a* Red Queen *effect)."*
 
-**Who reads it** — the focal segments (internal map: `Strategy/Segments-and-Jobs.md`): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
+**Who reads it** — the focal segments (internal map: `Strategy/Segments-and-Jobs.md` — private; the essentials are inline here so the skill stays self-contained and public-safe): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
 
 **Plain ↔ methodology** (say the left; add the right in parentheses only when it earns its place): the result they're after *(the Job / Big Job)* · the main thing the product does for them *(the Core Job)* · the step-by-step path the customer walks *(the Critical Chain)* · the exact step where they get stuck *(a Critical Chain break)* · the moment it clicks / feels worth it *(the Aha Moment)* · getting the result for less time, effort, money, or stress than expected *(value)* · a pleasant surprise / a letdown vs. what they expected *(Positive / Negative Prediction Error — never PPE/NPE)* · the few things they must learn or believe before switching *(Consideration Activators)* · a real blocker vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption / RAT)*.
 
@@ -106,6 +108,8 @@ Skill-Results/product-requirements/{YYYY-MM-DD_HH-MM}_{product-slug}-product-req
 ```
 
 Everything internal — the normalized input, the challenge (business-goal ladder, subtraction-first, the more-effective ways and which won, the locked build subject), the Critical Chain per Core Job, dropped alternatives, and the self-critic verdicts — **stays in-context**; none of it is written to a separate file. The timestamp makes each run's file unique, so reruns never overwrite. Disclaimers (Rule 3) go at the top of this one file.
+
+**Attribution (Rule 23).** The PRD opens with the attribution top-line (the very first content, above the disclaimers) and closes with the attribution block — `utm_source=product-requirements&utm_medium=skill-artifact`.
 
 ---
 

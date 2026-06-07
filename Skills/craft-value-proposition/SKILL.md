@@ -36,13 +36,13 @@ The bigger gift is **invention** — systematically generating the strongest / f
 **Methodological invariants this skill MUST enforce — output is invalid if any is violated:**
 
 - **Value = `Probability of the Outcome × Outcome − Cost`** (`value-creation.md §3`). Three levers: raise probability (guarantee/proof), raise outcome (move-up-a-level), lower cost (money/time/effort/cognitive/negative-emotion/Tax-Jobs). A value hypothesis names which lever it pulls.
-- **Mechanics operate over a Job Graph**, not against a Core Job in isolation (`create-value.md`, `job-graph.md §12`).
+- **Mechanics operate over a Job Graph**, not against a Core Job in isolation (`value-creation.md §11`, `job-graph.md §12`).
 - **Segmentation root = similar Core Jobs + similar success criteria, in a similar priority order.** The *priority order over criteria* is what makes a segment a segment (`segmentation.md §2`, `value-creation.md §10`). Big Job is motivation context, **never** the primary segmentation criterion. Demographics are second-order correlates.
 - **Habit cannot be fought head-on** — reuse it or sidestep it via an Aha Moment + loaded Consideration Activators (`behaviour-change.md §9–§11`). Never "beat the habit."
 - **Aha Moment is a specific positive-prediction-error event** — NOT signup, login, or first feature use. Place it as far left in the Critical Chain as possible.
 - **All switches go through the Big Job** — the value prop must be communicable through a Big-Job criterion (`behaviour-change.md §4`).
 - **Anti-segment must be nameable** — if everyone wants this, the value prop is too universal.
-- **Unit economics is a filter** — value that does not convert to margin (LTV > CAC, Job budget covers cost-to-serve) is not a product (`unit-economics.md`).
+- **Unit economics is a filter** — value that does not convert to margin (LTV > CAC, Job budget covers cost-to-serve) is not a product (`nmt-key-theses.md §4`).
 - **Risks compound** — a value prop stacking ≥5 unvalidated assumptions gets flagged (`rat-key-theses.md §1`).
 
 Per project `CLAUDE.md`: every named external source in any output is a clickable Markdown link `[Name](https://...)` (Rule 2). Disclaimers (numerical + hallucination) at the top of `result.md` (Rule 3). Outputs are written for a **US product audience** (Rule 6) — default to US-context analogs.
@@ -56,7 +56,7 @@ Per project `CLAUDE.md`: every named external source in any output is a clickabl
 - ❌ *"Red Queen value-gap compression…"* · *"the Critical Chain breaks at M4"* · *"load the Consideration Activators."*
 - ✅ *"The free do-it-yourself option caught up, so your edge shrank even though you didn't get worse (in the methodology, a* Red Queen *effect)."*
 
-**Who reads it** — the focal segments (internal map: `Strategy/Segments-and-Jobs.md`): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
+**Who reads it** — the focal segments (internal map: `Strategy/Segments-and-Jobs.md` — private; the essentials are inline here so the skill stays self-contained and public-safe): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
 
 **Plain ↔ methodology** (say the left; add the right in parentheses only when it earns its place): the result they're after *(the Job / Big Job)* · the main thing the product does for them *(the Core Job)* · the step-by-step path the customer walks *(the Critical Chain)* · the exact step where they get stuck *(a Critical Chain break)* · the moment it clicks / feels worth it *(the Aha Moment)* · getting the result for less time, effort, money, or stress than expected *(value)* · a pleasant surprise / a letdown vs. what they expected *(Positive / Negative Prediction Error — never PPE/NPE)* · the few things they must learn or believe before switching *(Consideration Activators)* · a real blocker vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption / RAT)*.
 
@@ -68,26 +68,27 @@ Per project `CLAUDE.md`: every named external source in any output is a clickabl
 
 Read these canon files at run start (relative paths; the skill ships in the same repo as the canon). **Path note:** if a file is not found, retry with a `1-` prefix on the canon folder (`1-Next-Move-Theory-Canon/...`) — the source repo orders folders with a numeric prefix the public repo strips.
 
+**This is a public skill — it grounds only in the public canon.** Every file in the read sets below is a published canon file (the set whitelisted in `8-Tools/sync/PUBLIC_MANIFEST.yml`); the skill ships to the public mirror, where private files do not exist. **Never read or quote private canon** — e.g. `Algorithms/create-value.md`, `UnitEconomics/*`, `Next-Move-Theory/mechanics-catalog.md` (the value-creation algorithm, the unit-economics theory, and the 100+ mechanics catalog are folded into the public files below). This holds in **both** repos — even when running inside the Internal repo where those files exist on disk.
+
 **Core read set (every run):**
 
 | File | What the skill uses it for |
 |---|---|
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/value-creation.md` | The value formula (§3), 6 cost dimensions (§8), success criteria (§9), the 8 criteria-priority orders (§10), **the criteria→mechanics map (§11)**, the Aha Moment (§12), move-up / kill-a-Job (§14), the invisible-product North Star (§20) |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/value-creation-mechanics.md` | The ~26 foundational mechanics (the generation catalog) |
-| `Next-Move-Theory-Canon/Algorithms/create-value.md` | The canonical algorithm this skill instantiates: graph → pick mechanics → apply over graph → RICE → strategy |
+| `Next-Move-Theory-Canon/Algorithms/the-algorithm.md` | The strategic spine this skill's value step sits inside (market → segment → value → de-risk); the value-creation sub-algorithm itself — graph → pick mechanics → apply over graph → RICE → strategy — lives in `value-creation.md §11–§14` |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/segmentation.md` | Segmentation root, sub-segment vs new segment |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/behaviour-change.md` | Forces of behaviour change, Consideration Activators, Class 1/2, habit reuse |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/critical-chain.md` | Critical Chain, breaks/cycles/hand-offs, Aha placement, Previous/Next Job |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/job-structure.md` | The 8 Job elements, success criteria (direction + level), 3 fidelity levels |
 | `Next-Move-Theory-Canon/Riskiest-Assumption-Test/rat-key-theses.md` | The RAT chain, the RAT formula, custom risks |
-| `Next-Move-Theory-Canon/UnitEconomics/unit-economics.md` | The feasibility / cost-to-serve / margin filter |
+| `Next-Move-Theory-Canon/Next-Move-Theory/nmt-key-theses.md` | The unit-economics filter — §4 chain-to-profit (LTV > CAC, payback, target margin per unit) + §5 Consequence 2 (segment budget covers cost-to-serve) |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/communication.md` | The one-liner formula and value-prop language (for the artifact) |
 
 **Extended read set (Deep mode, or when needed):**
 
 | File | When |
 |---|---|
-| `Next-Move-Theory-Canon/Next-Move-Theory/mechanics-catalog.md` | S3 generation — the broader ~80-mechanic catalog grouped by business task |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/job-graph.md` | When the graph substrate needs care (levels, many-to-many, directional moves) |
 | `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/consideration-activators.md` | When the value prop's Big-Job communication / fear reduction needs depth |
 
@@ -113,7 +114,7 @@ S5  De-risk (RAT cards) ──────────────────�
 S6  Synthesize artifact (US value-prop + appendix + impl spec) ► GATE-6 (panel) ──(human: ship)
 ```
 
-This is the `create-value.md` algorithm with `unit-economics.md` as the feasibility filter and `rat-key-theses.md` as the de-risking layer. The spine is a **prompt-chaining workflow with an evaluator-optimizer gate after each substantive stage** — not an autonomous agent.
+This is the value-creation algorithm (`value-creation.md §11–§14`, inside the `the-algorithm.md` strategic spine) with `nmt-key-theses.md §4` as the unit-economics filter and `rat-key-theses.md` as the de-risking layer. The spine is a **prompt-chaining workflow with an evaluator-optimizer gate after each substantive stage** — not an autonomous agent.
 
 ### The critic / gate design (shared by every GATE)
 
@@ -144,6 +145,8 @@ Skill-Results/craft-value-proposition/{YYYY-MM-DD_HH-MM}_{product-slug}-craft-va
 ```
 
 Everything else — the normalized input, the ranked criteria, the Job Graph, the raw hypotheses, the scored shortlist, the RAT inventory, dropped hypotheses, and every GATE verdict — **stays in-context across the stages**; none of it is written to a separate file. The timestamp makes each run's file unique, so reruns never overwrite. Disclaimers (Rule 3) go at the top of this one file.
+
+**Attribution (Rule 23).** The file opens with the attribution top-line (the very first content, above the disclaimers) and closes with the attribution block — `utm_source=craft-value-proposition&utm_medium=skill-artifact`.
 
 ---
 
@@ -258,7 +261,7 @@ breaks · cycles · role hand-offs · time-gaps · Tax Jobs.
 
 ## S3 — Value-hypothesis GENERATION (divergence)  → GATE-3
 
-**This is the core of the skill.** Walk the **full value-creation mechanics catalog** (the ~26 foundational in `value-creation-mechanics.md`; in Deep mode also the broader ~80 in `mechanics-catalog.md`) over `(dominant criteria × Job Graph × competitor weaknesses)`. For each applicable mechanic, ask: *"Where on this graph does this mechanic create the most value against the dominant criteria — and what is the strongest / fastest / cheapest way to deliver it?"*
+**This is the core of the skill.** Walk the **full value-creation mechanics catalog** in `value-creation-mechanics.md` over `(dominant criteria × Job Graph × competitor weaknesses)` — in Quick mode hit the foundational mechanics; in Deep mode walk the catalog exhaustively, applying every mechanic to every applicable graph node. For each applicable mechanic, ask: *"Where on this graph does this mechanic create the most value against the dominant criteria — and what is the strongest / fastest / cheapest way to deliver it?"*
 
 - **Generate the *way value is created*, concretely** — not an abstract mechanic. An app, a feature, a done-for-you service, an offline space, a flying/field service, a guarantee, a bundle, a marketplace, a concierge, a piece of content. Name the delivery format.
 - **Lead with the two dominant mechanics** — *move up a level* and *kill a Job* (`value-creation.md §14`) — and hold the invisible-product North Star (§20): *what would it look like for the customer to reach the outcome with no product to interact with at all?*
@@ -291,7 +294,7 @@ Aha Moment: {the specific positive-prediction-error event}.
 **This is the user-requested filter.** For each surviving hypothesis assess three things, then rank.
 
 1. **Build feasibility & cost-to-implement.** What does it actually take to build? Name the cheapest viable path (concierge / no-code / vibe-coding / partner) and the cheapest *probe* that proves value before the build. Flag any hypothesis whose realizability is genuinely uncertain (fusion-class impossible vs merely hard).
-2. **Unit-economics fit** (`unit-economics.md` as the filter). Does the value convert to margin? Compare cost-to-serve against the segment's **Job budget** and willingness-to-pay; sanity-check the LTV > CAC *direction*. A delightful hypothesis the segment can't profitably be served on is dropped (or flagged as a different-segment move).
+2. **Unit-economics fit** (`nmt-key-theses.md §4` as the filter). Does the value convert to margin? Compare cost-to-serve against the segment's **Job budget** and willingness-to-pay; sanity-check the LTV > CAC *direction*. A delightful hypothesis the segment can't profitably be served on is dropped (or flagged as a different-segment move).
 3. **Competitiveness** — does it actually beat the competitive set **on the dominant criteria**? Build / extend the **criteria × competitor matrix** across direct (Core-Job), indirect (Big-Job), and turnkey (Big-Job-level) competitors. The wedge is an *underserved criteria intersection*, not a single criterion. In Quick mode this is reasoning-grade; in Deep mode it is web-grounded on real reviews.
 
 Then **RICE-rank** the survivors:
@@ -423,7 +426,7 @@ Assemble the single output file in the structure below — **US-native front (§
 - **Mechanics applied (combination)** — the full table: Job × mechanic(s) × how the product performs it (typically 5–12 applications across the graph).
 - **The 4 dominant-criteria → mechanics mapping** used.
 - **Forces of behaviour change** for the primary: Added Value {lever} · Problems surfaced {how} · Fears {reduction lever} · Habit {reuse / sidestep — NOT fought}.
-- **Canon references:** value-creation.md (§3 formula, §11 map, §14 dominant mechanics), create-value.md, behaviour-change.md, critical-chain.md, rat-key-theses.md, unit-economics.md.
+- **Canon references:** value-creation.md (§3 formula, §11 map, §14 dominant mechanics), value-creation-mechanics.md, the-algorithm.md, behaviour-change.md, critical-chain.md, rat-key-theses.md, nmt-key-theses.md §4.
 
 ## Self-validation checklist
 - [ ] One-liner = [what it is] + [Core Jobs] + [value by criteria]
@@ -481,8 +484,8 @@ Wave 5 (sequential):            [SYN] synthesis → [GATE-6 panel] → (human: s
 - **[R] reviews-mining.** Given the segment + alternatives, fetch reviews from G2 / Reddit / Product Hunt / Trustpilot / Capterra. Return **raw signals only** (do NOT synthesize hypotheses): the specific Problems-with-current, which dominant criteria each competitor covers poorly, and 5–10 quotable quotes per competitor **with source URLs**. ≤12 fetches / ~10 min.
 - **[S1] dominant-criteria.** Given the normalized input + core canon, return the ranked dominant criteria + lead mechanics + Big-Job ladder per S1. No web.
 - **[S2] job-graph.** Given the input + the S1 result + `job-graph.md` + `critical-chain.md`, return the Job Graph + Critical Chain per S2. No web.
-- **[G1..Gk] mechanic-family generators (sectioning).** Each agent owns one mechanic family (e.g. *subtract/kill/move-up*; *take-off/done-for-you/chain-repair*; *emotion/expectation/need*; *price/cost/cognitive*; *Previous/Next/link-to-Big-Job*). Given the Job Graph + dominant criteria + the reviews signal + `value-creation-mechanics.md` + `mechanics-catalog.md`, return the strongest / fastest / cheapest hypotheses in their family in canonical form; the orchestrator merges them. Effort: 3–6 hypotheses per family.
-- **[F] feasibility · cost · competitiveness.** Given the merged hypotheses + the reviews signal + `unit-economics.md` + the read set, return the web-grounded criteria×competitor matrix, the feasibility + cost-to-build + unit-econ read per hypothesis, and the RICE ranking with bonuses + top 2. ≤6 fetches.
+- **[G1..Gk] mechanic-family generators (sectioning).** Each agent owns one mechanic family (e.g. *subtract/kill/move-up*; *take-off/done-for-you/chain-repair*; *emotion/expectation/need*; *price/cost/cognitive*; *Previous/Next/link-to-Big-Job*). Given the Job Graph + dominant criteria + the reviews signal + `value-creation-mechanics.md`, return the strongest / fastest / cheapest hypotheses in their family in canonical form; the orchestrator merges them. Effort: 3–6 hypotheses per family.
+- **[F] feasibility · cost · competitiveness.** Given the merged hypotheses + the reviews signal + `nmt-key-theses.md §4` + the read set, return the web-grounded criteria×competitor matrix, the feasibility + cost-to-build + unit-econ read per hypothesis, and the RICE ranking with bonuses + top 2. ≤6 fetches.
 - **[C] critic gates.** Given a stage's returned output + its acceptance criteria + the canon anchors, run the adversarial binary critic per GATE and return the verdict + `fix_instructions` for any failures (≤2 rounds, then escalate to the user).
 - **[RAT] RAT-card generator.** Given the chosen primary + `rat-key-theses.md`, return the top-3 RAT cards with web-validated cost-of-validation estimates. ≤3 fetches.
 - **[SYN] synthesis.** Given all stage returns, assemble the single output file per the §0–§12 template and run GATE-6 as a panel.
