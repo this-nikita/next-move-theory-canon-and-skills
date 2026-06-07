@@ -297,7 +297,7 @@ The pattern: once you perform your Core Jobs to their criteria, the next unit of
 
 ## 18. The mechanics catalog
 
-**The canonical catalog of value-creation mechanics — with detailed descriptions, example clusters, Russian translations, and cross-refs to deeper canon — lives in [Value-Creation Mechanics](value-creation-mechanics.md).** That file is the entry-level slice every product person should know cold; the broader 100+ Next Move Theory catalog (including go-to-market, retention, pricing, scaling, exit-from-direct-competition) lives in [Mechanics Catalog](../Next-Move-Theory/mechanics-catalog.md) — internal-only.
+**The canonical catalog of value-creation mechanics — with detailed descriptions, example clusters, Russian translations, and cross-refs to deeper canon — lives in [Value-Creation Mechanics](value-creation-mechanics.md).** That file is the entry-level slice every product person should know cold; the broader 100+ Next Move Theory catalog (including go-to-market, retention, pricing, scaling, exit-from-direct-competition) lives in the internal-only Mechanics Catalog.
 
 > **Each mechanic, without exception, grounds out into one of three things** — a coarser grouping of the six foundations in [AJTBD key theses §22](ajtbd-key-theses.md):
 > 1. Creating value — performing the Jobs of a focus segment more energy-efficiently against the Big Job's success criteria.
@@ -336,7 +336,6 @@ For deeper unpacks of specific topics referenced above:
 - [Scientific Foundations](scientific-foundations.md) — AJTBD's key hypothesis of value (§2), neural common currency (§3), purchase-decision neuroscience (§4), the AJTBD need taxonomy (§5), status as rank-position motivation (§6), identity-based motivation (§7), Jobs as need-serving goal representations (§8), habit physiology (§15), Immunity to Change (§16), variable-ratio reward loops (§18)
 - [Communication](communication.md) — how to convey delivered value, formulas, landing-page structure
 - [Subtraction](../Next-Move-Theory/subtraction.md) — subtraction as the meta-operator across all four NMT pillars; the four-way ROI asymmetry that makes removing beat adding; the invisible-product asymptote; the structural team bias against subtraction
-- [Create Value](../Algorithms/create-value.md) — step-by-step algorithm for applying these mechanics to a real product situation
 
 ---
 

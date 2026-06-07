@@ -4,19 +4,19 @@
 
 **Leading principle: the product is a single organism.** Marketing can't be changed in isolation from the product and the segment. The product itself doesn't care about the borders between functions — product, marketing, engineering, sales, support, R&D, finance. Every function performs Jobs for the same focus segment in the same shared language.
 
-**The methodology is being built with the goal of providing an algorithm for solving absolutely any business task.** It is in active development — significant parts already exist ([The Algorithm](../Algorithms/the-algorithm.md) for v1.0 of the cycle; ~80 strategies catalogued in [Mechanics Catalog](mechanics-catalog.md)); open frontiers include cross-function goal-setting alignment and the universal decision-tree tool. The goal is the *vector*, not the current state.
+**The methodology is being built with the goal of providing an algorithm for solving absolutely any business task.** It is in active development — significant parts already exist ([The Algorithm](../Algorithms/the-algorithm.md) for v1.0 of the cycle; ~80 strategies catalogued in the Mechanics Catalog); open frontiers include cross-function goal-setting alignment and the universal decision-tree tool. The goal is the *vector*, not the current state.
 
 ---
 
 ## 1. The unit of analysis is the Company Strategy — a sequence of cross-function actions leading the company toward an expected outcome
 
-**A Company Strategy is a sequence of actions of the company's different functions** — Discovery, Delivery, Marketing, Sales, Support, R&D, Finance — **that leads the company toward an expected outcome:** profit, revenue, market share, valuation, a position in a market, an acquisition exit, or any other named result. The sequence covers everything: which research is run, which experts are interviewed, what is learned from them, which quantitative validation is done, how the team aligns internally, how the segment-and-Job anchor is chosen, how the choice is translated into department-level goals and individual KPIs, who is hired, and how the work is executed quarter by quarter.
+**A Company Strategy is a sequence of actions of the company's different functions** — Discovery, Delivery, Marketing, Sales, Support, R&D, Finance — **that leads the company toward an expected outcome:** profit, revenue, market share, valuation, a position in a market, an acquisition exit, or any other named result. The sequence covers everything: which research is run, which experts are interviewed, what is learned from them, which quantitative validation is done, how the team aligns internally, how the segment-and-Job anchor is chosen, how the choice is translated into department-level and individual Company goals (OKR), who is hired, and how the work is executed quarter by quarter.
 
 **Multiple Company Strategies are always available to a company at any moment** — alternative sequences of cross-function actions that could lead to the same outcome through different paths, or to different outcomes entirely. **Next Move Theory's job is to make those alternative Company Strategies visible, comparable, and choosable, so the company can pick the most economically valuable one — the Chosen Company Strategy.** The set of alternatives is the analytical space; the Chosen Company Strategy is the one sequence the company is actually executing, tracked through quarterly cadence.
 
 Every product decision silently encodes a Company Strategy. The choice is not whether to embed one — it's whether the team picks one deliberately, with the alternatives visible and compared, or one by accident.
 
-**The Chosen Company Strategy is anchored on AJTBD: the choice of Jobs of segments.** *"Which Jobs of which people will we compete for, why these and not others, and why will we win?"* Without that anchor, a Company Strategy is just an action list. With it, every downstream decision (UE, RAT, ABCDX, hiring, KPIs) inherits the segment-and-Job foundation.
+**The Chosen Company Strategy is anchored on AJTBD: the choice of Jobs of segments.** *"Which Jobs of which people will we compete for, why these and not others, and why will we win?"* Without that anchor, a Company Strategy is just an action list. With it, every downstream decision — UE, RAT, ABCDX, hiring, Company goals (OKR) — inherits the segment-and-Job foundation.
 
 ---
 
@@ -27,7 +27,7 @@ Six methodologies form the system. The four pillars plus Theory of Constraints c
 **Core pillars:**
 
 - **Advanced Jobs To Be Done (AJTBD)** — the unit of customer analysis (Job, Job Graph of the segment, Map of Segments). See [AJTBD key theses](../Advanced-Jobs-To-Be-Done/ajtbd-key-theses.md). AJTBD gives the language and the customer-side unit of analysis; the other pillars close the gap between *"we found valuable Jobs"* and *"we extract target profit from a sustainable business."*
-- **Unit Economics** — the financial filter. If the per-unit math doesn't add up, the product doesn't exist regardless of how good the Jobs are. See [Unit Economics](../UnitEconomics/unit-economics.md).
+- **Unit Economics** — the financial filter. If the per-unit math doesn't add up, the product doesn't exist regardless of how good the Jobs are.
 - **Riskiest Assumption Test (RAT)** — the discipline of removing the riskiest assumptions cheaply and in the right order before building. The integrative function — RAT pulls every component of the product into one validation system. See [Riskiest Assumption Test](../Riskiest-Assumption-Test/rat-key-theses.md).
 - **ABCDX Segmentation** — the discipline of allocating company resources to profitable, satisfied customers (A/B) and firing the unprofitable, unsatisfied ones (C/D/X). See [ABCDX Segmentation](../ABCDX-Segmentation/abcdx-segmentation-key-theses.md).
 
@@ -37,7 +37,7 @@ Six methodologies form the system. The four pillars plus Theory of Constraints c
 
 **Supporting methodology:**
 
-- **Objectives and Key Results (OKR)** — the goal-setting framework that translates the Chosen Company Strategy into measurable cross-function commitments. KPIs are Jobs of business entities ([AJTBD key theses §2](../Advanced-Jobs-To-Be-Done/ajtbd-key-theses.md)) — OKR provides the protocol that propagates the Chosen Company Strategy into Discovery, Delivery, Marketing, Sales, Support, R&D, and Finance KPIs without drift.
+- **Objectives and Key Results (OKR)** — the goal-setting framework that translates the Chosen Company Strategy into measurable cross-function commitments. Company goals (OKR) are Jobs of business entities ([AJTBD key theses §2](../Advanced-Jobs-To-Be-Done/ajtbd-key-theses.md)) — OKR provides the protocol that propagates the Chosen Company Strategy into the Company goals of Discovery, Delivery, Marketing, Sales, Support, R&D, and Finance without drift.
 
 ---
 
@@ -77,7 +77,7 @@ Market with money
 ```
 
 - **Market with money** — the sum customer segments currently spend to perform Core Jobs. A market is *defined* in Job terms — not *"the EdTech market"* but *"the sum spent by people who want to learn a skill in order to switch careers."*
-- **Segment + Job is one analytical entity, not two steps.** A segment is defined by its Job Graph — by the set of Core Jobs and success criteria its members share. Two groups performing similar Core Jobs with similar criteria are one segment; two groups performing different Core Jobs with different criteria are two segments, regardless of how identical their demographics look. See [Segmentation §1](../Advanced-Jobs-To-Be-Done/segmentation.md) and [AJTBD key theses §6](../Advanced-Jobs-To-Be-Done/ajtbd-key-theses.md).
+- **Segment + Job is one analytical entity, not two steps.** A segment is defined by its Job Graph — by the set of Core Jobs and success criteria its members share. Two groups performing similar Core Jobs with similar criteria are one segment; two groups performing different Core Jobs with different criteria are two segments, regardless of how identical their demographics look. See [Segmentation §1](../Advanced-Jobs-To-Be-Done/segmentation.md) and [AJTBD key theses §12](../Advanced-Jobs-To-Be-Done/ajtbd-key-theses.md).
 - **Added Value** — performing those Jobs above the customer's expectations, against the segment's success criteria (see [Value Creation §2–§5](../Advanced-Jobs-To-Be-Done/value-creation.md) for the prediction-and-compare mechanism that makes the brain register value).
 - **Three parallel conditions after Value — each must hold; failure of any one stops the chain.**
   - **Business Model and Unit Economics positive** — the chosen business model (one-off, subscription, marketplace, freemium, B2B, etc.) supports per-unit math that closes: LTV > CAC, payback < 12 months, target margin per unit.
@@ -137,7 +137,7 @@ Skill transfer across pillars is real. A founder who has internalized *Kill a Jo
 
 **Value is the substrate on which every other operation in the methodology stands.** The Chosen Company Strategy, segmentation, communication, Unit Economics, focus, subtraction, RAT, ABCDX, retention, and acquisition are operational layers on top of value. If value is not created, the methodology has nothing to talk about. If value does not reach the customer, alignment and focus have no result to align around.
 
-Value lives across the canon in different operational forms — full theory and 20 base mechanics in [Value Creation](../Advanced-Jobs-To-Be-Done/value-creation.md); the canon's key hypothesis of value (energy efficiency in performing a Job — outcome over cost) in [Scientific Foundations §2](../Advanced-Jobs-To-Be-Done/scientific-foundations.md); allostasis and prediction-error substrate in [Scientific Foundations §1, §11](../Advanced-Jobs-To-Be-Done/scientific-foundations.md); communication as conveyance of value already delivered in [Communication](../Advanced-Jobs-To-Be-Done/communication.md); criteria differences across segments in [Segmentation](../Advanced-Jobs-To-Be-Done/segmentation.md); the chain-walk where value actually delivers (or fails) in [Critical Chain](../Advanced-Jobs-To-Be-Done/critical-chain.md); the Consideration Activators that loads the awareness of value in [Consideration Activators](../Advanced-Jobs-To-Be-Done/consideration-activators.md); subtraction as the asymmetric value-creator in [Subtraction](subtraction.md); 100+ mechanics all routing through value in [Mechanics Catalog](mechanics-catalog.md); the financial measure of value captured in [Unit Economics](../UnitEconomics/unit-economics.md); the validation of value before scaling in [Riskiest Assumption Test](../Riskiest-Assumption-Test/rat-key-theses.md); the customers worth keeping in [ABCDX Segmentation](../ABCDX-Segmentation/abcdx-segmentation-key-theses.md).
+Value lives across the canon in different operational forms — full theory and 20 base mechanics in [Value Creation](../Advanced-Jobs-To-Be-Done/value-creation.md); the canon's key hypothesis of value (energy efficiency in performing a Job — outcome over cost) in [Scientific Foundations §2](../Advanced-Jobs-To-Be-Done/scientific-foundations.md); allostasis and prediction-error substrate in [Scientific Foundations §1, §11](../Advanced-Jobs-To-Be-Done/scientific-foundations.md); communication as conveyance of value already delivered in [Communication](../Advanced-Jobs-To-Be-Done/communication.md); criteria differences across segments in [Segmentation](../Advanced-Jobs-To-Be-Done/segmentation.md); the chain-walk where value actually delivers (or fails) in [Critical Chain](../Advanced-Jobs-To-Be-Done/critical-chain.md); the Consideration Activators that loads the awareness of value in [Consideration Activators](../Advanced-Jobs-To-Be-Done/consideration-activators.md); subtraction as the asymmetric value-creator in [Subtraction](subtraction.md); the validation of value before scaling in [Riskiest Assumption Test](../Riskiest-Assumption-Test/rat-key-theses.md); the customers worth keeping in [ABCDX Segmentation](../ABCDX-Segmentation/abcdx-segmentation-key-theses.md).
 
 **Examples:** ChatGPT delivered a massive Positive Prediction Error on *"generate a usable first draft in seconds"*; Apple Pay killed *"reach for the wallet"*; Stripe killed *"a two-week PayPal integration"*; Wealthfront took *"manage my retirement turnkey"* off the customer entirely.
 
@@ -224,11 +224,8 @@ A company that answers *"yes"* to all of these compounds. A company that can't b
 - [Subtraction](subtraction.md) — meta-operator detail across all four pillars.
 - [Focus & Attention Management](focus-as-company-attention-management.md) — focus operation detail; five scopes; two-track investment.
 - [Local vs Global Optimum](local-vs-global-optimum.md) — two parallel investment tracks.
-- [Product Strategy](product-strategy.md) — Chosen Company Strategy detail; ~80 strategies; DHM filter; Innovator's Dilemma.
-- [Mechanics Catalog](mechanics-catalog.md) — 100+ value-creation, GTM, retention, and growth mechanics.
 - [The Algorithm](../Algorithms/the-algorithm.md) — algorithm v1.0 in 9 steps.
 - [Riskiest Assumption Test](../Riskiest-Assumption-Test/rat-key-theses.md) — integrative validation.
-- [Unit Economics](../UnitEconomics/unit-economics.md) — financial filter.
 - [ABCDX Segmentation](../ABCDX-Segmentation/abcdx-segmentation-key-theses.md) — resource allocation discipline.
 
 ---

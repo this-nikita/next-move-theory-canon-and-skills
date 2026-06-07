@@ -152,7 +152,7 @@ Success criteria answer one question: *"By what concrete criteria does the perso
 
 - **Concrete, never abstract.** *"Fast," "reliable," "high-quality"* are wishes. *"Within 15 minutes," "no accidents," "delivered before my partner got home"* are criteria.
 - **Same expected outcome + different criteria = different Core Jobs** (§12 unpacks) — and different *segments* where different *people* perform them (the same person across contexts holds several Jobs in one graph). Treat same-verb-different-criteria Jobs as one Job and you blur distinct Jobs together — and, where the criteria mark off different populations, collapse distinct segments.
-- **Criteria are the specification of value.** Value is performing the Core Jobs more energy-efficiently than the customer expected — *and the criteria are where those expectations live.* Without criteria, value is a wish; with criteria, it's a buildable specification. For commodity products with identical surface Jobs (water delivery, basic hosting), criteria are often the only lever a player can pull at all.
+- **Criteria are the specification of value.** Value is performing the Core Jobs more energy-efficiently — outcome over cost — and the success criteria are where *outcome* is specified: the concrete bar for *well enough.* Without criteria, value is a wish; with criteria, it's a buildable specification. For commodity products with identical surface Jobs (water delivery, basic hosting), criteria are often the only lever a player can pull at all.
 - **Aha Moment placement needs the criteria.** The Aha is the moment the customer experiences the Job performed *better than the criteria they came in expecting* (§6). Without knowing those criteria you can't deliberately design value that exceeds them and aha moment.
 
 ## 6. Value: the Brain as an Investor
@@ -179,7 +179,7 @@ The Job (§2) is the specification — what is wanted, by whom, with what criter
 
 **Most foundational AJTBD concepts live at the Graph level, not on the static Job:**
 
-- **Value** = the Job Graph being performed more energy-efficiently than the customer expected — measured against their success criteria, which encode the expectations (see [Value Creation §4](value-creation.md), [Behaviour Change §6](behaviour-change.md)). The Critical Chain (§10) is the lived instance where value is *delivered* and the **Aha Moment** (Positive Prediction Error) fires; value itself is a property of the Graph the customer is performing.
+- **Value** = the Job Graph performed more energy-efficiently — outcome (against the customer's success criteria) over cost (time, money, effort, cognitive load, negative emotion, Tax Jobs). Value is the *absolute* energy-efficiency of the Solution × Job pairing, **not** a quantity measured relative to the customer's expectation (see [Value Creation §2](value-creation.md)). The *delta* between delivered value and the customer's prediction is the separate construct that drives **behaviour change** — on the Critical Chain (§10) that delta lands as the **Aha Moment** (Positive Prediction Error) the moment value beats prediction (see [Behaviour Change §6](behaviour-change.md)).
 - **A Problem** = the customer-side consequence of a Solution hired for a Job and performing below that Job's success criteria. The **Negative Prediction Error** is the brain-side signal when that under-delivery lands. Unpacked in §7; the prediction-error mechanism in §6.
 - **A Solution** = a label for a Job Graph (see [Behaviour Change §2](behaviour-change.md)) — the specific sub-graph the customer walks under a chosen brand, product, or DIY route. The customer doesn't hire a Solution in the abstract; they hire the Graph that Solution proposes.
 - **Behavior change** = the customer swapping one Job Graph for another — performing the same Big Job through a different set of Core Jobs and a different Solution (see [Behaviour Change](behaviour-change.md)).
@@ -329,9 +329,9 @@ d. **Actually performing those Core Jobs significantly more energy-efficiently t
 
 **Consideration Activators are extracted from AJTBD interviews** (see [AJTBD interview guide](../HowTos/basic-ajtbd-interview-guide-and-principles.md)). The same interview method that surfaces Jobs, criteria, and segments also surfaces what was already in the customer's Consideration Set — and what specifically got loaded into it that turned an unfamiliar new way from invisible into hireable.
 
-**Loading Consideration Activators is what makes it possible to sell radically unfamiliar, innovative products.** Without them, an innovative product fails not because the value isn't there but because the customer's Consideration Set never gets the new Big-Job-and-Graph pairing written into it. AJTBD provides a structured algorithm for selling innovative products through the market (see [Launch a Product](../Algorithms/launch-product.md), [Exit Competition](../Algorithms/exit-competition.md), [Create an Acquisition Channel](../Algorithms/create-acquisition-channel.md)).
+**Loading Consideration Activators is what makes it possible to sell radically unfamiliar, innovative products.** Without them, an innovative product fails not because the value isn't there but because the customer's Consideration Set never gets the new Big-Job-and-Graph pairing written into it. AJTBD provides a structured algorithm for selling innovative products through the market.
 
-For the full set of theses and examples — see [Consideration Activators](consideration-activators.md), [Barrier Removal](barrier-removal.md), and [Load Consideration Activators](../HowTos/load-consideration-activators.md).
+For the full set of theses and examples — see [Consideration Activators](consideration-activators.md) and [Barrier Removal](barrier-removal.md).
 
 ## 19. Barrier Removal — making the new Job Graph executable in reality
 
@@ -359,7 +359,7 @@ The Four Forces (added value pulling forward, current-Solution problems pulling 
 
 There are **100+ mechanics** in the Next Move Theory methodology. Every mechanic rests on one or more of **six foundations:**
 
-1. **Creating value** — performing the Jobs of a focus segment more energy-efficiently than they expected, against their success criteria. The substrate every other foundation stands on (§6, [Value Creation](value-creation.md)).
+1. **Creating value** — performing the Jobs of a focus segment more energy-efficiently against their success criteria. The substrate every other foundation stands on (§6, [Value Creation](value-creation.md)).
 2. **Managing the customer's attention** — directing finite customer attention to the moments where value lands, and away from where it doesn't ([Customer Attention Management](customers-attention-management.md)).
 3. **Choosing which Jobs of which segments to compete for — and which *not* to compete for.** Segment discovery, Job-Graph mapping, success-criteria research, ABCDX analysis, focus and subtraction at the segment level (§12, [Segmentation](segmentation.md)).
 4. **Loading Consideration Activators** — writing the case for our Job Graph into the customer's Consideration Set so they move our way (§18, [Consideration Activators](consideration-activators.md)).
@@ -431,7 +431,7 @@ Every other mechanic in the catalog — kill a Job, take a Job off the customer,
 - **Promise must match delivery.** Communicating at the Big Job level (where motivation lives) while the product only performs the Core Jobs underneath inflates the customer's prediction → manufactured Negative Prediction Error → disappointment, no matter how well the Core Jobs were performed. Match the promise to what the chain actually delivers (§6; [Communication §3](communication.md)).
 - **Creatives are formulaic Job-language recombinations, not invention.** Plug Core Jobs, Big Jobs, triggers, Problems, criteria, State-B images into formulas (*Core Job for Big Job; Trigger → Core Job; Problem with current Solution → Core Job; Context + value; Big Job lived*) and test which formula the segment responds to.
 
-Full landing-page structure (9 Job-language blocks mapped to Consideration Activators's five components), the full creative-formula catalog, and the conversion mechanics live in [Communication](communication.md), [Increase Conversion](../Algorithms/increase-conversion.md), and [Position a Product](../Algorithms/position-product.md).
+Full landing-page structure (9 Job-language blocks mapped to Consideration Activators's five components), the full creative-formula catalog, and the conversion mechanics live in [Communication](communication.md).
 
 ## 25. B2B Specifics
 
@@ -443,7 +443,7 @@ Full landing-page structure (9 Job-language blocks mapped to Consideration Activ
   1. *"I want to make a vendor choice that won't get me blamed or fired."*
   2. *"I want to use the same tools the best people in my field use."*
   3. *"I want to build a career-defining story from this implementation."*
-  4. *"I want to offload operational routine in order to focus on strategic work."*
+  4. *"I want to offload operational routine."*
   5. *"I want to pick a vendor who will still support me at year 3."*
 
 ### If your product currently focuses only on business Jobs — adding personal Jobs is a conversion / AOV / retention lever

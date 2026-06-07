@@ -85,7 +85,7 @@ Attention management at one moment is necessary but not sufficient. **The deeper
 
 ## 6. The Innovator's Dilemma is focus that ossified into excessive attentional commitment to current customers
 
-[Product Strategy](product-strategy.md) names the Innovator's Dilemma as *excessive focus by the team that builds the product.* Through the attention lens: **the well-run team spends so much attention on current customers' Jobs that no attention remains for emerging Jobs of emerging segments.** The Innovator's Dilemma is what §4's focus discipline looks like *after the focus segment is saturated and a new one has appeared — and the team kept holding the original focus anyway.*
+Product Strategy names the Innovator's Dilemma as *excessive focus by the team that builds the product.* Through the attention lens: **the well-run team spends so much attention on current customers' Jobs that no attention remains for emerging Jobs of emerging segments.** The Innovator's Dilemma is what §4's focus discipline looks like *after the focus segment is saturated and a new one has appeared — and the team kept holding the original focus anyway.*
 
 The mechanism: current customers' Jobs are visible and important; the team spends attention on them; the customers reward the team with revenue and feedback; the team spends more attention; the loop tightens. Meanwhile a different segment emerges with different Jobs, served by a different Solution that looks unfit by the current team's success criteria. The current team's attentional budget cannot make space for the alternative because the loop is consuming it — and the entrant looks like a toy precisely because the team has no attention left to take it seriously.
 
@@ -157,8 +157,6 @@ ABCDX's firing of C/D customers ([ABCDX Segmentation](../ABCDX-Segmentation/abcd
 - [Subtraction](subtraction.md) — subtraction as the meta-operator across the four pillars; cognitive substrate of the addition bias. The mechanism through which focus and attention management run.
 - [Local vs Global Optimum](local-vs-global-optimum.md) — local vs global attention allocation across team time horizons.
 - [Next Move Theory key theses §4, §10](nmt-key-theses.md) — the cause-and-effect chain; alignment as cross-function attentional coherence.
-- [Product Strategy](product-strategy.md) — alignment problems; Innovator's Dilemma as excessive attentional commitment.
-- [Mechanics Catalog](mechanics-catalog.md) — full mechanics catalog. Specifically *Create associations between product/brand and a trigger* (§6) and *Direct customer attention to where you need it* (§8).
 - [Segmentation §8](../Advanced-Jobs-To-Be-Done/segmentation.md) — focus as segment-level subtraction.
 - [Job Types and Properties §9](../Advanced-Jobs-To-Be-Done/job-types-and-properties.md) — Viral Jobs as substrate of viral capture.
 - [ABCDX Segmentation](../ABCDX-Segmentation/abcdx-segmentation-key-theses.md) — firing C/D customers as attentional triage.

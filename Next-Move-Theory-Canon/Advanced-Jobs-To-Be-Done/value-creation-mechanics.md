@@ -2,7 +2,7 @@
 
 The foundational catalog of value-creation mechanics referenced from [Value Creation §11](value-creation.md). Each mechanic is one operational way to raise the energy-efficiency ratio of a Solution × Job pairing (per [Value Creation §3](value-creation.md)) — by raising **P** (probability the Solution performs the Job at criteria), raising **Outcome** (criteria-met-better), or lowering **Cost** (time, money, effort, cognitive load, negative emotion, Tax Jobs).
 
-> **For the full operational catalog of 100+ mechanics** across the four Next Move Theory pillars — with detailed how-tos, decision tables, per-mechanic risks, combinations, and adjacent business-task mechanics (retention, pricing, go-to-market, scaling) — see [Mechanics Catalog](../Next-Move-Theory/mechanics-catalog.md) (internal-only).
+> **For the full operational catalog of 100+ mechanics** across the four Next Move Theory pillars — with detailed how-tos, decision tables, per-mechanic risks, combinations, and adjacent business-task mechanics (retention, pricing, go-to-market, scaling) — see the Mechanics Catalog (internal-only).
 
 ---
 
@@ -51,7 +51,7 @@ The product performs several of the customer's Jobs with one Solution — raisin
 ### Adjust the customer's expectations
 *Корректировать ожидания*
 
-**Value is the delta against the customer's prediction, not the absolute level.** A real value delivery against inflated expectations registers as nothing or as a Problem; the same delivery against calibrated expectations registers as an Aha Moment. Manage the prediction *before* the customer experiences the product — through communication, pricing, brand framing, sales-call honesty.
+**Behaviour change is the delta against the customer's prediction, not the absolute level of value.** A real value delivery against inflated expectations registers as no Aha Moment — or as a Problem; the same delivery against calibrated expectations registers as an Aha Moment. Manage the prediction *before* the customer experiences the product — through communication, pricing, brand framing, sales-call honesty.
 
 **Examples:** Tesla deliberately understates 0–60 acceleration in marketing for newer models so the test drive over-delivers; Wealthfront's onboarding sets explicit return expectations *below* historical S&P returns so the first quarter reads as positive; Lenny Rachitsky's newsletter explicitly says *"this is not a step-by-step playbook — it's a synthesis of patterns"* before the read; modern SaaS-onboarding screens that say *"this will take 4 minutes"* and then take 3.
 
@@ -269,7 +269,7 @@ Perform a Job without the Problem the customer has been hitting in their current
 
 [Value Creation §11](value-creation.md) maps each segment's priority criterion (or criteria) to the lead mechanic(s) to test first. The full set above is what §11 picks from. Real value-design sessions layer two or three mechanics, but the *lead* mechanic is chosen against the segment's priority criterion (per [Value Creation §10](value-creation.md)).
 
-For operational how-tos — when to apply each mechanic, what to test before building, common failure modes, layered combinations, and the broader 100+ catalog including go-to-market, retention, pricing, scaling, exit-from-direct-competition — see internal-only [Mechanics Catalog](../Next-Move-Theory/mechanics-catalog.md).
+For operational how-tos — when to apply each mechanic, what to test before building, common failure modes, layered combinations, and the broader 100+ catalog including go-to-market, retention, pricing, scaling, exit-from-direct-competition — see the internal-only Mechanics Catalog.
 
 ---
 

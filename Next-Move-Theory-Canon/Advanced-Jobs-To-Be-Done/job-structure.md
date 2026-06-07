@@ -5,7 +5,6 @@ This page is the **per-element deep-dive** on the structure of a single Job. The
 Cross-page boundaries:
 
 - Job *Graph* (how Jobs relate at multiple levels, critical chains, cycles) → [Job Graph](job-graph.md).
-- Catch-and-correct recipes for the most common formulation mistakes → [Formulate Jobs correctly](../HowTos/formulate-jobs-correctly.md).
 - Interview mechanics → [AJTBD interview guide](../HowTos/basic-ajtbd-interview-guide-and-principles.md).
 
 ---
@@ -330,8 +329,6 @@ When analyzing a real customer (an interview, a churn analysis, a win/loss revie
 - [Segmentation](segmentation.md) — segments defined as sets of similar Core Jobs with similar success criteria.
 - [B2B](b2b.md) — full treatment of B2B Job analysis (role-by-role business + personal Jobs, the integrator model, common B2B mistakes).
 - [AJTBD interview guide](../HowTos/basic-ajtbd-interview-guide-and-principles.md) — interview mechanics for surfacing each element.
-- [Load Consideration Activators](../HowTos/load-consideration-activators.md) — operational checklist for loading Consideration Activators.
-- [Formulate Jobs correctly](../HowTos/formulate-jobs-correctly.md) — catch-and-correct moves for the most common formulation mistakes.
 - [Scientific Foundations](scientific-foundations.md) — the neuroscience underneath emotions, needs, and the brain-as-investor framework (allostasis, RPE, Jobs as need-serving goal representations, status as rank-position motivation).
 
 ---

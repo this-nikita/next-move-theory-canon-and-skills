@@ -2,8 +2,6 @@
 
 The consolidated set of theses about Consideration Activators — what it is, how it differs from neighbouring concepts, and why it sits at the heart of category creation and switching.
 
-For the step-by-step *how-to* of loading Consideration Activators into customers (DocuSign real-estate closing pattern, robot vacuum case, AI-enabled marketing agency case, Hunt's Buyer Awareness Pyramid mapping, the 5-step Complex Sales presentation) see [Load Consideration Activators](../HowTos/load-consideration-activators.md).
-
 ---
 
 ## 1. Consideration Set and Consideration Activators — what they are, why they matter, and the five components
@@ -30,7 +28,7 @@ CA has five components; CS has four slots — each CA component writes into a CS
 
 2. **The new Job Graph performs the Big Job more efficiently than the customer's current way** → CS slot 2 (comparative knowledge of how each Graph performs the Big Job). The Core Jobs in our Graph sit one level below the Big Job and deliver it at better success criteria — cheaper enough, faster enough, safer enough, higher-status enough, or more reliable enough to justify switching from the current Solution. Abstract *"better"* doesn't activate; a concrete, criteria-anchored delta does.
 
-3. **A concrete named product performs that Job Graph, with an entry path** → CS slot 3 (named products with entry paths). A *name* (the product / service / brand that runs the Core Jobs at the criteria) and a *first concrete step* (download the app, book a 15-min call, sign up at this URL, ask the bank teller). Without name + door, components 1 and 2 stay abstract — the customer knows a better way exists and why it matters, but has no handle to act on (solution-aware but not product-aware in Hunt's Pyramid — see [Load Consideration Activators](../HowTos/load-consideration-activators.md)).
+3. **A concrete named product performs that Job Graph, with an entry path** → CS slot 3 (named products with entry paths). A *name* (the product / service / brand that runs the Core Jobs at the criteria) and a *first concrete step* (download the app, book a 15-min call, sign up at this URL, ask the bank teller). Without name + door, components 1 and 2 stay abstract — the customer knows a better way exists and why it matters, but has no handle to act on (solution-aware but not product-aware in Hunt's Pyramid).
 
 4. **Specific fears about our new Job Graph are reduced** → CS slot 4 (fears about the alternatives + what reduces them — here, the fear about *our* way). A fear is the customer's prediction that the Big Job won't be performed well through our new Graph — a Critical Chain break, Problem, Tax Job, personal risk, or irreversible loss the customer predicts for *our* Solution. The message names the specific feared break, then shows why it is prevented, absorbed, reversible, insured, or irrelevant. If the break is real, communication cannot reduce it — the team must change reality first ([Barrier Removal](barrier-removal.md)).
 
@@ -56,7 +54,7 @@ These three are often confused; they are distinct:
 
 ## 4. The motivational core — and fear reduction — go through the Big Job; only the named-product handle sits off it
 
-The shorthand *"CA hits the Big Job, not the Core Job"* is too coarse. The five components don't all act at the same level.
+**Consideration Activators hit the Big Job** — that headline holds. The one refinement: the five components don't all act at the *same* level.
 
 - **Components 1, 2, and 5 ride on the Big Job — this is the motivational core.** Component 1 (a new Job Graph for the Big Jobs exists), component 2 (it performs the Big Job more efficiently against the Big Job's criteria), and component 5 (alternative Graphs fired against the same Big Job's criteria) all land at the Big-Job level. That's where motivation lives, and that's what the brain compares at the moment of choice.
 - **Component 4 rides on the Big Job too — but as blocker-removal, not as a driver.** A fear is the customer's prediction that the Big Job won't be performed well through our new Graph — a Critical Chain break, Problem, Tax Job, personal risk, or irreversible loss the customer predicts for *our* Solution. Reducing it deletes a predicted reason the Big Job would fail under us, so it lands on the same Big-Job evaluation surface as 1, 2, and 5 — it just removes a negative rather than adding a positive.

@@ -47,7 +47,7 @@ Each node in the Graph is a Job ([Job Structure](job-structure.md)). Edges come 
 
 **Placing the Core Job at the right level is the prerequisite for every Graph-based decision** — segmentation, positioning, mechanic selection, communication, retention, growth. Place it too high and the product can't actually perform the Job it claims, manufacturing a Problem in communication; place it too low and the segments, mechanics, and growth moves all come out wrong.
 
-**The procedure** (long-form, with worked cases, in [Place Core and Big Jobs](../HowTos/place-core-and-big-jobs.md)):
+**The procedure:**
 
 1. **Ask paying customers: *"What tasks do you solve with our product?"*** Their answers are candidate Core Jobs. Recruit only customers who have actually paid for and used the product.
 2. **Run the climb test on each candidate.** *(a) "Does our product fully perform this Job — every sub-Job inside our product, end-to-end?"* If **no** → too high; drop one level and retry. If **yes** → *(b) "Can we climb one level higher and still fully perform that higher Job?"* If **yes** → climb and retry from (a). Stop when (a) is yes and (b) is no — **that level is the Core Job.**
@@ -110,7 +110,7 @@ Three different segments accept different proposals — control-first DIYs the p
 
 **From the deepest Micro Job to the highest Super Big Job, the same structural properties hold:**
 
-- **The same eight-element internal structure** — context, expected outcome, success criteria, trigger, Consideration Set, emotions before, emotions after, higher-level Job ([Job Structure §1](job-structure.md)). A Big Job has the same anatomy as a Micro Job; only the criteria, emotions, and time-scale differ.
+- **The same eight-element internal structure** — context, expected outcome, success criteria, trigger, Consideration Set, emotions before, emotions after, higher-level Job ([Job Structure §1](job-structure.md)). A Big Job has the same anatomy as a Micro Job; only the criteria, emotions, and time-scale differ. **The one exception is the terminal Emotional Job** — it has no higher-level Job, because the underlying need sits above it and a need is not a Job (see [Job Types and Properties §10](job-types-and-properties.md)). Every other Job has a higher-level Job.
 - **The motivation-vs-mechanism gradient (§5) runs at every level.** Every Job has Jobs above it (its motivation) and below it (its mechanism); the Job that is *mechanism* from one level is *motivation* from the level below.
 - **The many-to-many edge property (§9, §10) holds at every level.**
 - **A Solution is a label for a sub-Graph at every level** — any cluster of Jobs in service of a higher-level Job is itself a Job Graph, and a Solution for that Job is a label for it (per [Behaviour Change §2](behaviour-change.md)).
@@ -295,7 +295,6 @@ The question is productive because it can only be answered by naming a real, lev
 - [Behaviour Change §2](behaviour-change.md) — Solution as a label for a Job Graph; §5 — Consideration Activators as the upstream loader of new Graphs; §9 — Forces of Behavior Change.
 - [Segmentation](segmentation.md) — segments as sets of similar Core Jobs with similar success criteria; Graph similarity as the segmentation root (§11 here).
 - [Consideration Activators](consideration-activators.md) — how a new Graph gets installed in the customer's head.
-- [Place Core and Big Jobs](../HowTos/place-core-and-big-jobs.md) — long-form Core-Job / Big-Job placement procedure, with worked cases.
 - [AJTBD interview guide](../HowTos/basic-ajtbd-interview-guide-and-principles.md) — interview methodology for reconstructing a Graph from past-performance anchors.
 - [Riskiest Assumption Test](../Riskiest-Assumption-Test/rat-key-theses.md) — past-performance recruiting discipline.
 

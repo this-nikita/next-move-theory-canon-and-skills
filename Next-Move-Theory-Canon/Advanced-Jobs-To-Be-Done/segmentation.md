@@ -194,7 +194,6 @@ The common failure modes:
 - [Behaviour Change §10–§11](behaviour-change.md) — behavior-change classes and durable-switching mechanics by segment.
 - [B2B §10](b2b.md) — B2B segmentation additions: role chain, approval process, budget cycle.
 - [ABCDX segmentation](../ABCDX-Segmentation/abcdx-segmentation-key-theses.md) — existing-product local-optimum segmentation by margin × satisfaction before AJTBD-on-A/B.
-- [Find segmentation criteria](../HowTos/find-segmentation-criteria.md) — operational checklist for extracting causal segmentation criteria.
 - [AJTBD interview guide](../HowTos/basic-ajtbd-interview-guide-and-principles.md) — interview mechanics for surfacing Jobs, criteria, Consideration Activators, and Critical Chains.
 
 ---

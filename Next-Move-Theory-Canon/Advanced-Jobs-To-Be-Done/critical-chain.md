@@ -254,7 +254,6 @@ CJM keeps its value downstream of a validated chain — at the UX-polish layer, 
 - [B2B](b2b.md) — full B2B treatment (roles × Jobs, personal-Job dominance)
 - [Subtraction](../Next-Move-Theory/subtraction.md) — the subtraction meta-operator
 - [AJTBD interview guide](../HowTos/basic-ajtbd-interview-guide-and-principles.md) — interview methodology
-- [Scale a Product](../Algorithms/scale-product.md) — chain repair for sub-segment expansion; [Exit Competition](../Algorithms/exit-competition.md) — Previous/Next Job strategies; [Increase Retention](../Algorithms/increase-retention.md) — moving to the Next Job
 
 ---
 

@@ -139,7 +139,6 @@ Examples: **Fandango** — *movie-ticketing app for finding showtimes and buying
 - [Critical Chain](critical-chain.md) — the operational core: chain structure (breaks, hand-offs, cycles, time-gaps), chain execution (predictions, interruptions, drop-offs, Solution switches, per-step emotions, knows-how vs first-time), and Previous Job / Next Job strategy.
 - [Behaviour Change](behaviour-change.md) — behavior-change forces, trigger timing, and the familiar vs. unfamiliar Core Jobs distinction.
 - [Job Structure](job-structure.md) — eight elements of a Job, success criteria, triggers, emotions, and the Big/Core/Small/Micro hierarchy.
-- [Increase Conversion](../HowTos/increase-conversion.md) — operational HowTo for repairing the path from trigger to first Aha Moment.
 
 ---
 
