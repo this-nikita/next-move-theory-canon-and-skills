@@ -1,6 +1,6 @@
 ---
 name: product-requirements
-description: Turn a chosen segment + Core Jobs into a build-ready PRD (full functionality + edge cases) using Ivan Zamesin's AJTBD / Next Move Theory methodology (distinct from generic Christensen JTBD). It CONSUMES upstream work — segments from a /market-research result and the value from a /craft-value-proposition result — and never re-derives them. It runs no research itself: if you haven't done the research, it routes you to run /market-research then /craft-value-proposition first; if you'd rather skip research and just write requirements fast, you describe the segment + Jobs + value you already know and it goes straight to the PRD. Before writing requirements it runs a "challenge the build" gate (5 Whys up the business goal + subtraction-first + local-vs-global + a walk of the value-creation mechanics) that proposes more-effective ways to hit the same business Job than building the thing as specified; if a better way wins, the PRD is written for THAT. Output — a single PRD document — full functionality mapped Core Job → Big Job → value mechanic → success criteria → Aha Moment, built on the Critical Chain, plus edge cases covering ~90% of use cases across people, contexts, and conditions. Writes the PRD in plain language the reader already uses, with methodology terms only in parentheses. Two modes — Quick (default, no internet) and Deep (subagents + web parity check). Defaults to English; adapts to the user's language on request. Use when turning a validated segment+value into a build spec, a feature into requirements, or when the user says "write the PRD / product requirements".
+description: Turn a chosen segment + Core Jobs into a build-ready PRD (full functionality + edge cases) using Ivan Zamesin's AJTBD / Next Move Theory methodology. It consumes upstream work — segments from /market-research, value from /craft-value-proposition — and never re-derives them; with no research done it routes you upstream first, or takes a manually described segment + value for a fast run. Before writing requirements it runs a "challenge the build" gate that looks for a more effective way to hit the same business goal; if a better way wins, the PRD is written for that. Output — a single PRD — functionality mapped Core Job → Big Job → value mechanic → success criteria → Aha Moment on the Critical Chain, plus edge cases covering ~90% of use cases. Use when the user says "write the PRD / product requirements" or wants to turn a segment+value or a feature idea into a build spec. Two modes — Quick (default, no internet) and Deep (subagents + web parity check). Plain language; defaults to English.
 user-invocable: true
 ---
 
@@ -97,6 +97,8 @@ Per `CLAUDE.md`: every named external source is a clickable Markdown link (Rule 
 
 **Precision still holds in the methodology layer.** Job-grammar discipline (Jobs as *"I want to + verb,"* levels named, terms capitalized) governs the internal-reasoning / debug files and any explicit **methodology appendix**, where full methodology language is expected. The *lead the reader sees* is plain; the *parenthetical and the appendix* carry the precise terms.
 
+Link `references/glossary.md` once at the top of the PRD, right after the disclaimers.
+
 ---
 
 ## Output file (one file per run — `CLAUDE.md` Rule 4)
@@ -162,6 +164,12 @@ Q3 (Paths A/B only) "Path to the result file?"  → free text; Read it.
 - **Path B — market-research result.** Read it. Parse the focal segment(s) (✅/⚠️), their Core Jobs + success criteria, Big Jobs, competitors (direct/indirect/turnkey), the wedge, and the action-first RAT — **carry all of it forward, never regenerate it.** The value layer is *not yet crafted*, so say so: *"You have segments but no crafted value proposition. Strongly recommended: run `/craft-value-proposition` on the focal segment first — the PRD is much sharper from a real value hypothesis. Run it now, or proceed using the market-research wedge as the value direction?"* If the user proceeds, use the wedge/differentiation hypothesis as the value direction; flag the reduced confidence at the top of the PRD.
 - **Path C — no research yet, wants it (ROUTE OUT — do not run research here).** Reply: *"The right order is `/market-research` → `/craft-value-proposition` → back here. Run `/market-research` first (it finds and scores the segments), then `/craft-value-proposition` (it builds the value hypothesis + a PRD-ready spec), then return and pick Path A. Want me to open the `/market-research` input prompt now?"* Hand off and stop — this skill does not size markets or discover segments.
 - **Path D — fast path, manual segment + Jobs + value (no research).** For the user who already knows the segment and the value and just wants requirements. Collect, by description/dictation: product (1–2 sentences) + URL if any; focal segment NAME + causal criteria (behaviour/characteristic, **not** demographics); Big Job(s) + criteria; top 1–3 **Core Jobs** in canonical `When … I want to {outcome} with success criteria {direction+level}, in order to {Big Job}` form; **the value** (what value we create + roughly via which mechanic — this stands in for `/craft-value-proposition`); ≥3 known alternatives (direct/indirect/turnkey if known); the business goal. Validate against the invariants — fix multi-verb Jobs (Rule 7), demographic "criteria", and adjective "value" before proceeding. Then go straight into S1→S5. Flag reduced confidence at the top of the PRD (*"generated from a manually-described segment + value, not a research-backed one"*).
+
+### User materials, claims ledger, direction confirmation (all paths)
+
+- **Materials.** Ask once: *"Any files or folders with material I should use — a Notion export (markdown), past research, interview notes, an existing spec, your current site?"* Read what's given; tag everything taken from it **[user data]** in-context — and **never silently carry a user's existing positioning, copy, or feature list into the PRD as a settled decision**: confirm first that it should carry over (it may be exactly what the challenge step should challenge).
+- **User-claims ledger.** Tag the strong factual claims in the user's input (Path D especially) as **data / observation / hunch**. A requirement or challenge-verdict resting mainly on an unverified hunch is flagged in the PRD's risk section, with the validation step pointed at that claim.
+- **Direction confirmation.** Before S1, play the understanding back in one short block — *"Here's what I understood: {what we're building, for whom, the business goal, what's already decided vs open}"* — and confirm via one `AskUserQuestion` (Confirm / Correct).
 
 **Hold** the normalized input in context.
 
@@ -242,8 +250,11 @@ Q "Here's the build as specified, plus {N} potentially more-effective ways to hi
 
 Generate against the **locked build subject** for the **selected Core Jobs**. In Quick mode this is one pass; in Deep mode it is parallelized (below). Build the Critical Chain first (held in context), then write the PRD sections.
 
-### 4.0 Build the Critical Chain per Core Job
-For each selected Core Job, construct the **Critical Chain** — the sequence of Micro Jobs that must all complete for the Big Job to land (`critical-chain.md §1–§2`). Mark the **shape** of each segment (AND-parallel / OR-alternative / conditional) and the **break sites** (hand-offs, cycles, slowest link, external-interruption points). Mark the **Aha-Moment position** and how far left it can be shifted. This chain is the substrate for both functionality (§4.3) and edge cases (§4.4).
+### 4.0 The Critical Chain per Core Job — consume from upstream, build only when absent
+- **Path A (craft-value-proposition input):** the §11 implementation spec already carries the **Critical Chain & Aha placement** — **consume it, don't rebuild it.** Extend it only with what the PRD needs on top: the **shape** of each chain segment (AND-parallel / OR-alternative / conditional) and the **break sites** (hand-offs, cycles, slowest link, external-interruption points). If the S3 challenge changed the build subject, re-anchor the inherited chain on the new subject instead of starting over.
+- **Paths B / D (no value-prop chain):** construct the **Critical Chain** from scratch per selected Core Job — the sequence of Micro Jobs that must all complete for the Big Job to land (`critical-chain.md §1–§2`) — with shapes, break sites, the **Aha-Moment position** and how far left it can be shifted.
+
+Either way, this chain is the substrate for both functionality (§4.3) and edge cases (§4.4).
 
 ### PRD structure (the result file)
 
@@ -323,6 +334,8 @@ Run the **self-critic** over the draft (Quick: a self-critique pass; Deep: a sep
 7. **Success criteria are concrete** (direction + level) and map to the success metrics.
 8. **Out-of-scope names the anti-segment and the subtracted Jobs** — focus is visible.
 9. **Disclaimers present; external sources are clickable links; US-context analogs; no PPE/NPE** (`CLAUDE.md` Rules 2, 3, 6, 19, 22).
+10. **Step ledger ran** — every stage S0–S5 checked off by name; a skipped stage (e.g., the challenge collapsed to a one-line confirm) was declared, never silent.
+11. **User claims stayed hypotheses** — ledger claims tagged (data / observation / hunch); no requirement or challenge-verdict rests primarily on a single unverified user hunch without saying so; nothing from the user's existing materials was carried into the PRD as a settled decision without confirmation.
 
 - [ ] Plain-language-led — the PRD leads in the reader's own words; methodology terms only in parentheses (never jargon-first); any methodology appendix / debug may stay in full terms.
 
@@ -338,7 +351,8 @@ Wave 1 (parallel):
             competitor set, confirm/extend the parity table from live sites + reviews; mark what
             competitors close poorly (the wedge). ≤8 fetches. → returns the parity table in-message.
   [CHAIN]   Critical-Chain builder — given the input + the challenge + critical-chain.md + job-structure.md,
-            build the chain per Core Job (shapes + break sites + Aha placement). → returns the chain in-message.
+            consume the upstream chain (Path A §11 spec) and extend it with shapes + break sites; build from
+            scratch only on Paths B/D (per §4.0). → returns the chain in-message.
 Wave 2 (sequential): PRD designer — given the input + the challenge + the chain + the parity return + core set,
             write functionality (§1–§3, §5–§8). → returns the PRD body in-message.
 Wave 3 (parallel):

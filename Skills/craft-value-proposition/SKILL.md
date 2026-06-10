@@ -1,6 +1,6 @@
 ---
 name: craft-value-proposition
-description: Generate the strongest possible Value Proposition for a chosen segment using Ivan Zamesin's AJTBD / Next Move Theory methodology (distinct from generic Christensen JTBD). Input — a /market-research result OR a manual segment+Jobs description. The skill extracts the segment's dominant success criteria, builds the Job Graph + Critical Chain substrate, generates value hypotheses by mapping the value-creation mechanics catalog over that graph (the strongest / fastest / cheapest way to create value — app, feature, done-for-you service, offline space, guarantee, bundle…), then filters every hypothesis on feasibility, cost-to-build, unit-economics, and competitiveness versus direct/indirect/turnkey competitors, ranks by RICE, and surfaces a primary + supplementary value proposition. Output — a US-native value-proposition document (one-liner, segment, Job story, pains/gains, before→after, benefit themes, differentiation vs alternatives, proof, a falsifiable value hypothesis, success metric + threshold, top-3 RAT cards), an NMT methodology appendix, and a PRD-ready implementation spec that feeds /product-requirements. Writes the value-proposition document in plain language the reader already uses, with methodology terms only in parentheses. Two modes — Quick (default, ~10-15 min, no internet) and Deep (~30-45 min, subagents + web-grounded competitor mining). Defaults to English; adapts to the user's language on request.
+description: Generate the strongest possible Value Proposition for a chosen segment using Ivan Zamesin's AJTBD / Next Move Theory methodology (distinct from generic Christensen JTBD). Input — a /market-research result OR a manual segment+Jobs description. The skill extracts the segment's dominant success criteria, builds the Job Graph + Critical Chain substrate, generates value hypotheses by walking the value-creation mechanics catalog over that graph, filters them on feasibility, cost-to-build, unit economics, and competitiveness, ranks by RICE, and surfaces a primary + supplementary value proposition with top-3 RAT cards and a PRD-ready implementation spec that feeds /product-requirements. Use when the user wants a value proposition, differentiation, or asks "how do we win this segment". Two modes — Quick (default, no internet) and Deep (subagents + web competitor mining). Plain language; defaults to English.
 user-invocable: true
 ---
 
@@ -61,6 +61,8 @@ Per project `CLAUDE.md`: every named external source in any output is a clickabl
 **Plain ↔ methodology** (say the left; add the right in parentheses only when it earns its place): the result they're after *(the Job / Big Job)* · the main thing the product does for them *(the Core Job)* · the step-by-step path the customer walks *(the Critical Chain)* · the exact step where they get stuck *(a Critical Chain break)* · the moment it clicks / feels worth it *(the Aha Moment)* · getting the result for less time, effort, money, or stress than expected *(value)* · a pleasant surprise / a letdown vs. what they expected *(Positive / Negative Prediction Error — never PPE/NPE)* · the few things they must learn or believe before switching *(Consideration Activators)* · a real blocker vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption / RAT)*.
 
 **Precision still holds in the methodology layer.** Job-grammar discipline (Jobs as *"I want to + verb,"* levels named, terms capitalized) governs the internal-reasoning / debug files and the explicit **§12 Methodology appendix (NMT)**, where full methodology language is expected. The *lead the reader sees* in §0–§11 is plain; the *parenthetical and the appendix* carry the precise terms.
+
+Link `references/glossary.md` once at the top of the value-proposition document, right after the disclaimers.
 
 ---
 
@@ -202,7 +204,13 @@ Required:
 
 Validate the manual input against the invariants; ask for fixes if any fail (e.g. *"that segment criterion is demographic — describe the behaviour or characteristic that causes the Job"*; *"that Job has two infinitive verbs — parse it into the hierarchy"*). Flag reduced confidence at the top of `result.md`: *"⚠️ Confidence reduced — value prop generated from a manual segment description, not a full market-research run."*
 
-**Output (held in context):** focal segment + causal criteria · Core Jobs (canonical form, "in order to" not "so that") · Big Jobs (+ personal Big Job for B2B) · known alternatives/competitors (direct · indirect · turnkey) · the market-research wedge & first mechanic guess (path A) · mode · language · business goal.
+### User materials, claims ledger, direction confirmation (all paths)
+
+- **Materials.** Ask once: *"Any files or folders with material I should use — a Notion export (markdown), past research, interview notes, a strategy doc, your current site?"* Read what's given; tag everything taken from it **[user data]** in-context. "Nothing" is a fine answer.
+- **User-claims ledger.** Collect the strong factual claims the user made (segment beliefs, competitor facts, "customers always…"), tag each as **data / observation / hunch** (ask in one batched question if unclear). User claims enter the pipeline as *hypotheses, never facts*: GATE-4's competitiveness check treats an unverified user claim as unsupported evidence, and a primary value prop resting mainly on a user hunch gets flagged in `result.md` with a RAT card pointed at that claim.
+- **Direction confirmation.** Before S1 starts, play the understanding back in one short block — *"Here's what I understood: {segment, Core Jobs, business goal, what's out of scope}"* — and confirm via one `AskUserQuestion` (Confirm / Correct). Cheapest moment to fix a wrong direction.
+
+**Output (held in context):** focal segment + causal criteria · Core Jobs (canonical form, "in order to" not "so that") · Big Jobs (+ personal Big Job for B2B) · known alternatives/competitors (direct · indirect · turnkey) · the market-research wedge & first mechanic guess (path A) · user materials + claims ledger · mode · language · business goal.
 
 ## S1 — Dominant success criteria + anchors  → GATE-1
 
@@ -319,7 +327,7 @@ Then **RICE-rank** the survivors:
 
 ## S5 — De-risk (RAT cards)  → GATE-5
 
-Per `rat-key-theses.md`: for the chosen **primary** value prop, inventory every assumption across the RAT chain (Market / Segment+Jobs / Value / Unit-economics / Channels) **plus the custom risks specific to this product** (where products actually die). Write each as an evil twin, rank by `(P(wrong) × cost-if-wrong) / cost-to-validate`, surface the **top 3** in the compact 5-line format:
+Per `rat-key-theses.md`: for the chosen **primary** value prop, inventory every assumption across the RAT chain (Market / Segment+Jobs / Value / Unit-economics / Channels) **plus the custom risks specific to this product** (where products actually die). **Path A: start from the action-first RAT in the market-research result's Section 5** — carry its assumptions forward, update them for the chosen value prop, and add the value-prop-specific risks; don't build a contradicting inventory from scratch. **Paths B/C (no upstream RAT): build the inventory from scratch.** Write each as an evil twin, rank by `(P(wrong) × cost-if-wrong) / cost-to-validate`, surface the **top 3** in the compact 5-line format:
 
 ```markdown
 ### Risky assumption #N: {one-line title}
@@ -368,7 +376,7 @@ Assemble the single output file in the structure below — **US-native front (§
 ## 1. Target segment
 {Who cares most — causal criteria, specific, not demographics. The persona's dominant criteria in one short paragraph + 3–5 causal-criterion bullets.}
 
-## 2. The Job
+## 2. The job, in the customer's own words
 *When {context + trigger}, I want to {expected outcome} with success criteria {dominant criteria}, in order to {Big Job}.* {Intercom job-story phrasing = the NMT Level-2 Job.}
 
 ## 3. Pains and Gains
@@ -407,7 +415,7 @@ Assemble the single output file in the structure below — **US-native front (§
 ## 9. Success metric & threshold
 **Metric:** {the measurable signal}. **Confirm at:** {threshold}. **Kill below:** {threshold}.
 
-## 10. Top-3 risky assumptions (the test plan)
+## 10. The 3 bets most likely to kill this — and the cheapest tests (the riskiest assumptions)
 {The three compact RAT cards from S5, in the §10 format.}
 
 ## 11. Implementation spec  → /product-requirements
@@ -537,3 +545,5 @@ Produce a `⚠️ Methodology violation` warning (not silent output) for any of:
 - [ ] No methodology invariant violated; anti-segment named; Aha is a real event; habit reused/sidestepped.
 - [ ] Plain-language-led — §0–§11 lead in the reader's own words; methodology terms only in parentheses (never jargon-first); §12 appendix / debug may stay in full terms.
 - [ ] If path C: reduced-confidence flag at top of `result.md`.
+- [ ] **Step ledger:** every stage S0–S6 checked off by name; a skipped stage or gate was declared to the user, never silent.
+- [ ] **User claims stayed hypotheses:** ledger claims tagged (data / observation / hunch); the primary value prop does not rest primarily on a single unverified user hunch without saying so.

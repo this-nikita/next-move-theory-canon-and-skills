@@ -1,6 +1,6 @@
 ---
 name: craft-go-to-market
-description: Write the go-to-market communication for a chosen segment using Ivan Zamesin's AJTBD / Next Move Theory methodology (distinct from generic Christensen JTBD). Input — a /craft-value-proposition result (best), a /product-requirements PRD, a /market-research result, or a manual segment+Jobs description. Output — ready-to-publish landing-page copy (the canonical NMT landing sequence), ad / creative copy (the seven Job-language banner formulas with test variants), and a GTM/growth-communication plan (acquisition-channel hypotheses loaded with Consideration Activators, Previous-Job lead magnets and Orientation-Job content, Viral-Job loops, and cross-sell / upsell / retention messaging). Everything is communicated through the Big Job (motivation), stated in concrete success criteria not adjectives, with features as proof not message, fears reduced, and the competing Job Graph fired. Writes the plan and rationale in plain language the reader already uses, with methodology terms only in parentheses. Two modes — Quick (default, no internet) and Deep (subagents + web for real review language and competitor firing). Defaults to English; adapts to the user's language on request. Use when the user wants landing copy, ad copy, marketing creatives, channel hypotheses, a launch/GTM communication plan, or says "write the landing / the copy / the go-to-market".
+description: Write the go-to-market communication for a chosen segment using Ivan Zamesin's AJTBD / Next Move Theory methodology. Input — a /craft-value-proposition result (best), a /product-requirements PRD, a /market-research result, or a manual segment+Jobs description. Output — ready-to-publish landing-page copy, ad/creative copy built on the seven Job-language formulas, and a GTM/growth plan — channel hypotheses, lead magnets, viral loops, cross-sell / upsell / retention messaging. Everything is communicated through the Big Job (motivation), in concrete success criteria not adjectives, with features as proof not message. Use when the user wants landing copy, ad copy, creatives, channel hypotheses, or a launch plan — "write the landing / the copy / the go-to-market". Two modes — Quick (default, no internet) and Deep (subagents + web for real review language). Plain language; defaults to English.
 user-invocable: true
 ---
 
@@ -86,6 +86,8 @@ Per `CLAUDE.md`: every named external source is a clickable Markdown link (Rule 
 
 **Precision still holds in the methodology layer.** Job-grammar discipline (Jobs as *"I want to + verb,"* levels named, terms capitalized) governs the internal-reasoning / debug files and any explicit **methodology appendix**, where full methodology language is expected. The *lead the reader sees* is plain; the *parenthetical and the appendix* carry the precise terms.
 
+Link `references/glossary.md` once at the top of the GTM pack, right after the disclaimers.
+
 ---
 
 ## Output file (one file per run — `CLAUDE.md` Rule 4)
@@ -135,6 +137,12 @@ Extract (and only ask the user for what's genuinely missing):
 - **Validation status** — is the value proven by sales/usage, or still a hypothesis? (Gates whether this is "scale the copy" or "demand-test the copy.")
 
 Path D collects the above as a structured manual intake; validate against the invariants (fix multi-verb Jobs, demographic "criteria", adjective "value") before writing. Flag reduced confidence at the top of the result.
+
+### User materials, claims ledger, direction confirmation (all paths)
+
+- **Materials.** Ask once: *"Any files or folders with material I should use — a Notion export (markdown), past research, interview notes, existing copy, your current site?"* Read what's given; tag everything taken from it **[user data]** in-context. Existing copy is input to rewrite, not copy to preserve — confirm before reusing any of it verbatim.
+- **User-claims ledger.** Tag the strong factual claims in the user's input (competitor facts, "our customers say…", channel beliefs) as **data / observation / hunch**. Copy claims built on an unverified hunch are flagged: a concrete number or comparison in customer-facing copy must trace to data, or it ships as a to-verify placeholder — never as an invented fact.
+- **Direction confirmation.** Before S1, play the understanding back in one short block — *"Here's what I understood: {segment, the value we're communicating, validation status, which assets you need}"* — and confirm via one `AskUserQuestion` (Confirm / Correct).
 
 ---
 
@@ -212,8 +220,8 @@ Three sub-parts, all routed through Jobs:
 - **Reuse existing habits**, don't install new ones; embed in rituals the customer already runs.
 - **Frequency** + the **Next Job** (NRR > 100% is the "more Jobs / next Job" strategy in messaging form); ecosystem lock-in where it applies (`critical-chain.md §9.2` — Move to the Next Job).
 
-### Appendix — Consideration-Activators map & forces
-- A table: each landing block / ad / channel asset → which of the **five CA components** it loads (new Graph / value delta / named product + door / fear reduced / competitor fired).
+### Appendix — what the customer must come to believe before switching (the Consideration-Activators map) & the forces
+- A table: each landing block / ad / channel asset → which of the **five things the customer must learn or believe** it loads (a better way exists / better by these criteria / here's the product + first step / this fear is handled / the current way's problems are real).
 - The **forces of behavior change** worked for this segment: which driver each asset pulls and which blocker it removes (`behaviour-change.md §9`); confirm habit is **reused or sidestepped, never fought head-on**.
 
 ---
@@ -231,6 +239,8 @@ Run the self-critic over the draft (Quick: self-critique; Deep: a critic agent),
 6. **The Aha Moment is a real event** (not signup/login) and is given a taste on the landing + used as the retention/WoM engine.
 7. **Validation status is honest** — hypothesis-stage value is flagged as demand-test creative, not scaled fact.
 8. **Specific stories used; visuals = State B; recognition test passed** (Tier A/B brands, or bridged); **US-context analogs**; **no PPE/NPE**; **disclaimers + clickable source links** (`CLAUDE.md` Rules 2, 3, 6, 19, 22).
+9. **Step ledger ran** — S0 → Part 1 → Part 2 → Part 3 → Appendix checked off by name (skipping parts the user didn't order is fine — say so); no silent skips.
+10. **User claims stayed hypotheses** — every number or comparison in customer-facing copy traces to tagged data or ships as a to-verify placeholder; no copy fact invented from a user hunch.
 - [ ] Plain-language-led — the GTM plan and all annotations lead in the reader's own words; methodology terms only in parentheses (never jargon-first); any methodology appendix / debug may stay in full terms.
 
 ---

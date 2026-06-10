@@ -1,4 +1,4 @@
-# Riskiest Assumption Test (RAT)
+# Riskiest Assumption Test (RAT) key theses
 
 RAT is the Next Move Theory discipline for validating product ideas, feature ideas, and strategic-initiative ideas before the resources of a build are spent on them. Every new initiative is a stack of assumptions — beliefs about who the customer is, what they will pay for, whether the channel will scale, whether the unit economics close, whether the regulator allows it. **RAT is the practice of surfacing every assumption, ranking them by how lethal they are if wrong, and buying the cheapest possible evidence against the most lethal ones first.**
 

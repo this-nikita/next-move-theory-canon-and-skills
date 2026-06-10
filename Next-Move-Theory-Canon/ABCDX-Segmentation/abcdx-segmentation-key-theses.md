@@ -1,4 +1,4 @@
-# ABCDX segmentation
+# ABCDX segmentation key theses
 
 **ABCDX sorts your paying customers into five groups, then moves resources to the ones worth keeping.** You rank current customers on two things: how much per-unit margin each one earns, and how satisfied each one is. Those two axes give four groups — A, B, C, and D. A fifth group, X, is everyone who touched the product but fits none of the four.
 

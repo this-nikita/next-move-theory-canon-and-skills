@@ -1,12 +1,12 @@
 ---
 name: market-research
-description: Run market research for a product or feature idea using Ivan Zamesin's AJTBD / Next Move Theory methodology (distinct from generic Christensen JTBD). Output — an A4 executive one-pager (verdict GO / NARROW / PIVOT) plus a detailed report: market sizing at the Big-Job level, customer segments scored on the value × demand × margin × size-and-switchability selection screen, competitors (direct on the Core Job, indirect on the Big Job), a differentiation hypothesis, an action-first RAT plan, and — as a primary result — alternative Big-Job markets that better fit the idea's technology, team, and resources. Use this skill whenever the user wants to size a market, find or evaluate customer segments and Jobs, assess competitors, decide whether an idea's segment+Jobs are worth pursuing, or explore which market to pivot into — even if they don't say "market research". Two modes — Quick (default; fast; no internet) and Deep (subagents + web research). Writes the report in plain language the reader already uses, with methodology terms only in parentheses. Defaults to English; adapts to the user's language on request.
+description: Run market research for a product or feature idea using Ivan Zamesin's AJTBD / Next Move Theory methodology (distinct from generic Christensen JTBD). Output — an A4 one-pager with a GO / NARROW / PIVOT verdict plus a detailed report — market sizing, customer segments scored on the selection screen, competitors defined by Jobs, a differentiation hypothesis, an action-first risk plan, and ranked strategic options including alternative markets to pivot into. Use whenever the user wants to size a market, find or evaluate segments and Jobs, assess competitors, decide whether an idea is worth pursuing, or explore a pivot — even if they don't say "market research". Two modes — Quick (default; fast; no internet) and Deep (subagents + web research). Writes in plain language with methodology terms in parentheses. Defaults to English; adapts to the user's language.
 user-invocable: true
 ---
 
-# Market Research v10
+# Market Research v11
 
-> **v10 in one breath.** The deliverable is now a **decision**, not a description: page 1 is an A4 one-pager with a **GO / NARROW / PIVOT** verdict; the report scores segments on a **five-factor selection screen** (replacing the deprecated Four Forces); the RAT section is **action-first** (every risk paired with what to do); and a new **pivot sub-pipeline** recommends alternative Big-Job markets that fit the idea's assets. Methodology comes from four canon files read at runtime. Quick mode is the default. Full version history is in `CHANGELOG.md` beside this file.
+> **v11 in one breath.** Before any research runs, an **intake gate** closes the gaps that change the research: adaptive clarifying questions (with "I don't have this info" as a valid answer), user materials read in, a **user-claims ledger** (the user's inputs are hypotheses, not facts), and a **direction confirmation**. The deliverable is a **decision**: an A4 one-pager with a **GO / NARROW / PIVOT** verdict, segments scored on the **five-factor selection screen**, an **action-first** RAT, and **ranked strategic options** (incl. pivot markets that fit the idea's assets). Quick mode sizes honestly (one calculation, assumptions named); the 3-method averaging runs only in Deep mode, on real sources. Full version history is in `CHANGELOG.md` beside this file.
 
 ## What this skill produces
 
@@ -102,7 +102,7 @@ Collect in a short stream + two batched `AskUserQuestion` calls (max 4 questions
 - **Business type** — B2C / B2B / Both B2C and B2B / B2B2C (true channel-through-business only).
 
 ### Step 3 — Batch 2: project context, segments, competitors, ambition
-- **Project context** — path / URL / Skip. (Quick: local paths via `Read`; Deep: also `WebFetch`.)
+- **Project context & materials** — path / URL / Skip. Name what counts: *a folder or files with anything you already have — a Notion export (markdown), spreadsheets, past research, interview notes, a strategy doc, your current site.* (Quick: local paths via `Read`; Deep: also `WebFetch`.) Everything taken from the user's materials is tagged **[user data]** in-context and cited as such in the report.
 - **Hypothesized segments** — "Yes, I'll describe" / "I don't know — find them" (default) / Skip.
 - **Known competitors** — "Yes, I'll list them" / "I don't know — find them" (default) / Skip.
 - **Ambition** — "I'll describe" (revenue / margin / timeframe) / Skip.
@@ -112,6 +112,27 @@ Ask once (free text is fine), capturing the idea's **transferable assets and har
 > What does this idea have going for it that could carry into *other* markets? Name your (1) core technology / unique capability, (2) the team's expertise and unfair advantages, (3) resources already in hand — money/runway, partners, traction, distribution, data, brand, and (4) any hard constraints or non-negotiables (regulatory, geographic, ethical).
 
 If the user skips, extract the assets from the idea stream and project context as best you can, and note in-context that assets were inferred.
+
+### Step 5 — Adaptive clarifying questions (only the gaps that change the research)
+After Steps 1–4, scan the collected input for **gaps that would materially change the research** and ask about *those only* — up to ~5–7 targeted questions, batched via `AskUserQuestion`, each with an explicit **"I don't have this info"** option. Skip this step entirely when the input already covers it. Candidate gaps:
+
+- **Local vs global** — is the market local (one country/city, local channels, local competitors) or global? Deep mode: which *local* sources, marketplaces, or competitor names does the user already know? (The built-in web search often misses local-market players — user-named local sources are the workaround.)
+- **Segment specifics** — anything the user already knows about who buys and why (from sales, support, interviews), even fragmentary.
+- **Sizing logic** — when the market has no ready-made reports, agree the **calculation logic with the user before computing**: what is the licensable/billable unit (seats, screens, locations, transactions), what real-world object it attaches to, and what extrapolation path makes sense (e.g., software licensed per screen → screens per location → locations per vertical). Propose a logic; let the user correct it.
+- **What NOT to do** — directions, segments, or framings the user has already ruled out.
+
+**"I don't have this info" is a valid answer.** Record it in-context as an explicit assumption — the report then *marks the dependent numbers as assumptions* instead of silently inventing specifics.
+
+### Step 6 — User-claims ledger (the user can hallucinate too)
+Collect every **strong factual claim** the user made across Steps 1–5 (market insights, "everyone wants X", competitor facts, regulatory claims, segment beliefs) into an in-context ledger. Tag each with its source as the user states it — **data** (measured / documented), **observation** (seen in interviews, sales calls), or **hunch** (belief, intuition). If the source is unclear, ask in one batched question: *"Quick check on a few things you mentioned — for each, is it data you have, something you observed, or a hunch?"*
+
+Downstream rules (enforced in synthesis and self-critic):
+- User claims are **hypotheses, not facts**. They enter the analysis tagged, never silently merged with researched facts.
+- **Deep mode:** load-bearing claims (anything the verdict, focal-segment pick, or a pivot recommendation would rest on) get a web-verification attempt (≤2 fetches each, inside existing agent budgets). Confirmed → cite the source. Unconfirmed → keep the tag.
+- **No verdict, focal-segment pick, or pivot recommendation may rest primarily on a single unverified user hunch.** If it does, the report says so explicitly — *"this recommendation stands on your unverified input X; validate it first"* — and the corresponding RAT row points at that claim.
+
+### Step 7 — Direction confirmation (before any research runs)
+Before generating anything (Quick) or spawning any agent (Deep), play the understanding back in one short block: *"Here's what I understood: {product, market + local/global, who it's hypothetically for, what you already have, what's out of scope}. The research direction: {one sentence}."* Then one `AskUserQuestion`: **Confirm / Correct (free text)**. On "Correct", update the held input and re-confirm once. This is the cheapest moment to fix a wrong direction — web research is the most expensive stage, and everything downstream builds on it.
 
 **Hold** everything in context.
 
@@ -161,7 +182,7 @@ The focal segment is the one whose dimensions compose most in our favour **and**
 
 ## Mandatory disclaimers (top of the one-pager AND repeated in the report)
 
-> ⚠️ **Numerical disclaimer.** All numerical estimates are LLM-generated hypotheses. Each metric is computed via 3 methods, averaged, with a runnable verification path (see appendix). Validate before any investment decision.
+> ⚠️ **Numerical disclaimer.** All numerical estimates are LLM-generated hypotheses. Each metric names its assumptions and carries a runnable verification path (see appendix); in Deep mode sizing is computed via 3 methods on real sources and averaged. Validate before any investment decision.
 >
 > ⚠️ **Hallucination disclaimer.** Everything in this document is generated by an LLM and may contain hallucinations in unknown places. For decisions with expensive consequences, run a full quantitative and qualitative research pass; do not act on this document alone.
 
@@ -195,7 +216,7 @@ Assemble the single output file in this exact order.
 
 ## The pick
 - **Focus segment:** {name} — {one line on who they are}
-- **Core Jobs we'd compete on:** {Level-3 Job phrasing}
+- **What they'd hire you for:** {the main jobs your product would do for them, in their words}
 - **Why this one:** {selection-screen result in one line — added value × demand × margin × size & switchability}
 
 ## Market at a glance
@@ -210,14 +231,16 @@ Ambition fits? {share of SAM needed → ✅ / ⚠️ / ❌}
 2. {…} → {…}
 3. {…} → {…}
 
-## If this market is weak — pivot options (other Big-Job markets for your assets)
-1. {Alternative Big-Job market} — {why your tech / team / resources transfer}
-2. {…}
+## Strategic options, ranked (incl. pivot markets for your assets)
+1. {Strategy 1 — one sentence + the first step to validate}
+2. {Strategy 2 — e.g., an alternative Big-Job market your tech / team / resources transfer to}
 3. {…}
 
 ## Next action
 {One concrete sentence.}
 ```
+
+**One-pager language rule: zero methodology terms — not even in parentheses.** The one-pager gets forwarded to a co-founder or investor who will never open the canon. Everything in it is everyday product English; the parenthetical methodology terms start from Section 1 onward.
 
 ## Section 1 — Market snapshot
 
@@ -226,9 +249,9 @@ Ambition fits? {share of SAM needed → ✅ / ⚠️ / ❌}
 
 **Market-level Big Job:** {infinitive verb + noun, plain language}
 
-| Metric | Estimate | How computed (1 line — averaged across 3 methods) |
-|--------|----------|----------------------------------------------------|
-| TAM (global) | ~${X} | {top-down / bottom-up / analog, 1 line} |
+| Metric | Estimate | How computed (1 line) |
+|--------|----------|------------------------|
+| TAM (global) | ~${X} | {Quick: one bottom-up calculation + its key assumption · Deep: averaged across 3 methods} |
 | SAM ({Country}) | ~${Y} | {1 line} |
 | SOM (1–2 yr) | ~${Z} | {1 line} |
 
@@ -236,15 +259,17 @@ Ambition fits? {share of SAM needed → ✅ / ⚠️ / ❌}
 **Ambition vs. share:** target {revenue} → needs {Y%} of SAM → {✅ <10% / ⚠️ 10–30% / ❌ >30%}.
 **Takeaway:** {1 sentence — is the market big enough, and what's the binding constraint instead?}
 
-> Full 3-method tables + verification are in the Appendix; the market-level Big Job is validated internally (in-context), not shown here.
+> Sizing tables + verification are in the Appendix; the market-level Big Job is validated internally (in-context), not shown here.
 ```
 
-## Section 2 — Map of Segments (every segment expanded at equal depth)
+**Sizing honesty rule.** In **Quick mode** (no internet) compute each figure **once**, bottom-up, with the calculation logic agreed in the intake (STAGE 1 Step 5), every assumption named, and the figure marked as an *estimate without data — verify via the appendix path*. Do NOT fake rigor by "averaging 3 methods" that all come from the same reasoning. The **3-method averaging (top-down / bottom-up / analog)** runs only in **Deep mode**, where each method stands on real, linked sources.
 
-Start with the comparison table, then expand each segment.
+## Section 2 — Map of Segments (depth follows the verdict)
+
+Start with the comparison table, then expand each segment. **Depth follows the verdict:** ✅ focus segments get the full block below; ⚠️ hold segments get a half block (recommendation line, persona, Core Jobs, selection screen — skip the full size tables and competitor tables); ❌ not-ours segments get **one paragraph only** — who they are, the one binding reason they're not ours, coverage %. Don't spend three pages on a segment the reader is told to ignore.
 
 ```markdown
-## 2. Map of Segments — covering ~80% of the total market
+## 2. Who's in this market — the segments (Map of Segments), covering ~80% of the total market
 
 | Segment | $ size / yr | Job budget | Switchable demand | Reachability | Verdict |
 |---------|-------------|------------|-------------------|--------------|---------|
@@ -255,7 +280,7 @@ Start with the comparison table, then expand each segment.
 Segments are grouped by similar Core Jobs + similar success criteria (not by vertical or demographics); the same vertical can split across segments when the Core Jobs and criteria differ. Ordered ✅ → ⚠️ → ❌.
 ```
 
-Then, for each segment (✅ first, ⚠️ second, ❌ last), at equal depth:
+Then, for each segment (✅ first, ⚠️ second, ❌ last), at the depth its verdict earns (full / half / one paragraph):
 
 ```markdown
 ### {S#} — {Name tied to Jobs and real criteria} {✅/⚠️/❌}
@@ -273,6 +298,7 @@ Then, for each segment (✅ first, ⚠️ second, ❌ last), at equal depth:
 - **{Causal criterion 3}** — cause: {1 line}.
 
 #### Core Jobs
+Here's what they hire a product for, in the customer's own words:
 1. **When** {context + trigger + negative emotions}, **I want to** {expected outcome} **with success criteria** {measurable, plain text}, **in order to** {Big Job + positive emotions}.
 2. …
 
@@ -284,11 +310,11 @@ Then, for each segment (✅ first, ⚠️ second, ❌ last), at equal depth:
 | Metric | Estimate |
 |--------|----------|
 | People / companies in segment | ~{N} |
-| **Job budget per customer per year** | **~${B}** |
+| **What one customer spends on this problem per year (Job budget)** | **~${B}** |
 | **Total money in segment per year** | **~${N×B}/yr** |
-| **Switchable share** | **~{%} are triggered / unsatisfied and willing to switch** |
+| **Share unhappy enough to switch (switchable demand)** | **~{%} are triggered / unsatisfied and willing to switch** |
 
-> Full 3-method size + budget tables are in the Appendix.
+> Sizing method + verification are in the Appendix.
 
 [selection-screen table — see "The Segment-and-Job selection screen" above]
 
@@ -303,7 +329,7 @@ Then, for each segment (✅ first, ⚠️ second, ❌ last), at equal depth:
 | {do nothing / postpone} | … | … | … |
 | {hire someone / agency} | … | … | … |
 
-#### Big-Job-level players (turnkey threat)
+#### Who can do the whole job for them (turnkey, Big-Job-level players)
 | Player | How they close the Big Job turnkey | Scaling capacity | Threat |
 |--------|-------------------------------------|------------------|--------|
 | … | … | … | low / medium / high |
@@ -329,15 +355,10 @@ Close Section 2 with a short **cross-segment themes** block (4–7 patterns span
 
 **Underserved criteria (the wedge):** {1–3 criteria all competitors close poorly — usually an *intersection*, not a single criterion}.
 
-### Value-creation mechanic (published mechanics only)
-**Mechanic:** {one of the published mechanics — `ajtbd-key-theses.md §22–§23` / `value-creation-mechanics.md`; the most powerful when applicable is *climb a level / kill a Job as a class*}.
-**What changes for the customer:** {how exactly more energy-efficient}.
-**The Aha Moment this creates:** {what becomes the "wow" — value beating the customer's prediction}.
+### Value-creation direction (one line, not a feature list)
+**Mechanic direction:** {one of the published mechanics — `ajtbd-key-theses.md §22–§23` / `value-creation-mechanics.md`; the most powerful when applicable is *climb a level / kill a Job as a class*} — {how exactly the customer's life gets more energy-efficient, 1 sentence}.
 
-### Features (delivery vehicles for value)
-| Success criterion / value hypothesis | Mechanic | Feature |
-|--------------------------------------|----------|---------|
-| {criterion} | {mechanic} | {what we ship} |
+> **What to build to deliver this — features, delivery format, cost, the Aha Moment — is `/craft-value-proposition`'s job.** It generates and filters the concrete ways to deliver this value across the whole mechanics catalog; don't anchor on a feature list invented here. This report stops at the wedge + the mechanic direction.
 
 ### Threat from Big-Job-level players
 {If turnkey Big-Job players with scaling potential exist — how serious, and partner-or-displace?}
@@ -351,7 +372,7 @@ Close Section 2 with a short **cross-segment themes** block (4–7 patterns span
 ### Verdict on the proposed segment + Jobs: GO / NARROW / PIVOT
 {Walk the RAT cause-and-effect chain — Market → Segment+Jobs → Value → Unit economics → Channels — and name the verdict + the binding constraint. GO = the chain holds; NARROW = it holds only for a sub-segment / sub-Job; PIVOT = an upstream link is broken and an alternative market scores better.}
 
-### Within-segment Job switches
+### Adjacent jobs you could capture next (Job switches within the segment)
 {Using the focal segment's Job Graph: which Previous Job or Next Job in the chain to capture; whether to climb to a higher Big Job (the most powerful mechanic); which sibling Small Jobs to add. "You're competing on Job X; the more valuable adjacent Job for this same segment is Y."}
 
 ### Alternative Big-Job markets for your assets (ranked)
@@ -360,6 +381,16 @@ Close Section 2 with a short **cross-segment themes** block (4–7 patterns span
 | Alternative Big-Job market | Hypothesized segment + Core Jobs | Why your assets transfer | Selection-screen read (value · demand · margin · size×switch · risk-gate) | What changes vs. the original (channel · UE · build) | Confidence |
 |---|---|---|---|---|---|
 | {market} | {segment + Core Jobs hypothesis} | {tech / team / partners} | {strong/med/weak per factor; gate pass/FAIL} | {what's different} | high/med/low |
+
+### Strategic options — top 3–5, ranked
+{Compose the analysis into 3–5 concrete, ranked strategies the user could actually run. Draw from the full move space, not only "switch markets": stay and narrow to the strongest sub-segment; pivot to an alternative Big-Job market (from the table above); sequence markets (keep cash-flowing market A to fund entry into market B); change the business model or pricing; capture the Previous Job or Next Job in the chain; climb to a higher Big Job. Rank by expected return × confidence.}
+
+| # | Strategy (one sentence) | Why it can win (the mechanism) | Main risk | First cheapest step to validate |
+|---|---|---|---|---|
+| 1 | {the recommended strategy} | {…} | {…} | {…} |
+| 2 | … | … | … | … |
+
+{Each strategy is a hypothesis with a validation step — not advice to follow blind. If a strategy rests on a user-provided claim from the claims ledger, name it: "stands on your input X — validate it first."}
 
 ### Suggested reruns
 1. Rerun this skill on **{alternative Big-Job market}** — {why}.
@@ -390,11 +421,11 @@ Walked across the package on the cause-and-effect chain (Market → Segment+Jobs
 
 ## Section 6 — Disclaimer + verification checklist
 
-Repeat the two-part disclaimer; then a checklist covering: run the 3-method sizing verifications (appendix); find 6–8 past payers in the focal segment and run AJTBD interviews (ask about *tasks*, not "Jobs"); confirm segment coverage and the antisegment; run the action plan from Section 5; a source-link audit (every named source is a live clickable link; re-check any flagged "URL TBD").
+Repeat the two-part disclaimer; then a checklist covering: run the sizing verifications (appendix — Quick: the single calculation's assumptions; Deep: the 3-method tables); find 6–8 past payers in the focal segment and run AJTBD interviews (ask about *tasks*, not "Jobs"); confirm segment coverage and the antisegment; validate the tagged user claims the analysis leaned on; run the action plan from Section 5; a source-link audit (every named source is a live clickable link; re-check any flagged "URL TBD").
 
 ## Appendix — sizing methods (short)
 
-For each of TAM / SAM / SOM, and for each segment's size + budget, **one compact table**: the three method names, each one-line result + the single key assumption + the linked source, then the average; plus **one runnable verification line** ("open {source}, take {figure}, × {assumption} → within 30% confirms"). Full input breakdowns and divergence notes stay in-context, not in the file.
+**Quick mode:** for each of TAM / SAM / SOM and each segment's size + budget, **one compact calculation block** — the agreed calculation logic, each input with its assumption (tagged [user data] where it came from the user's materials), the result, plus **one runnable verification line** ("open {source}, take {figure}, × {assumption} → within 30% confirms"). **Deep mode:** the same, but as **one compact 3-method table** per figure (top-down / bottom-up / analog, each with its linked source) and the average. Full input breakdowns and divergence notes stay in-context, not in the file.
 
 ---
 
@@ -410,23 +441,27 @@ Methodology only — format is guaranteed by the templates above, so it is not r
 6. **Core vs Big distinguished** — Core = highest Jobs the product performs fully; Big = motivation above, not the segmentation root.
 7. **Aha Moment placed** — where delivered value beats the customer's expected criteria; positioning promises only what the chain delivers.
 8. **Competitors defined by Jobs, not categories** — direct on the Core Job; indirect on the Big Job, incl. do-nothing and non-obvious substitutes.
-9. **Wedge = an underserved success-criterion intersection**, delivered via a *published* mechanic; features follow from criteria + mechanic.
+9. **Wedge = an underserved success-criterion intersection** + a one-line published-mechanic direction — **no feature list** (features are `/craft-value-proposition`'s job).
 10. **RAT walks the cause-and-effect chain**, each risk positive + falsifiable + paired with a validation action; riskiest-and-cheapest-to-falsify ordered first.
 11. **Pivot markets evaluated on the same selection screen** against the extracted assets; existential-risk gate applied; each is a concrete Segment + Big-Job pair.
+12. **User claims stayed hypotheses** — every load-bearing user claim is tagged (data / observation / hunch); no verdict, focal pick, or strategy rests primarily on a single unverified user hunch without saying so; "I don't have this info" answers surface as explicit assumptions, not invented specifics.
+13. **Strategic options are ranked hypotheses** — 3–5 options, each with a mechanism, a main risk, and a first cheapest validation step; none reads as consultant advice to follow blind.
 - [ ] Plain-language-led — every user-facing point leads in the reader's own words; methodology terms only in parentheses (never jargon-first); the methodology appendix / debug may stay in full terms.
+- [ ] Step ledger ran — every pipeline stage checked off by name; any skip was declared, never silent.
 
 ---
 
 ## Quick mode (default)
 
 One Claude, no internet, no subagents. Steps:
-1. Hold the user's input in context (no `00-input.md` file).
+1. Hold the user's input in context (no `00-input.md` file) — including the materials read from the user's paths, the clarifying answers, the claims ledger, and the confirmed direction (STAGE 1 Steps 5–7).
 2. Read the four canon files (read set above).
-3. Fill every template section directly from reasoning: market snapshot → Map of Segments (all segments, selection screen) → differentiation → **pivot** (extract assets from the input, generate 3–5 alternative Big-Job markets with segment+Jobs hypotheses, score them on the selection screen) → action-first RAT → appendix.
-4. Run the 11 self-critic criteria over the draft; fix in place; keep the methodology trace in-context.
-5. Compute the **one-pager last** from the finished analysis.
-6. Write the single result file.
-7. In the chat: print the brief outcome + the one-pager + rerun suggestions + the file path (see "End-of-run chat output").
+3. Fill every template section directly from reasoning: market snapshot → Map of Segments (all segments, selection screen) → differentiation → **pivot** (extract assets from the input, generate 3–5 alternative Big-Job markets with segment+Jobs hypotheses, score them on the selection screen) → **strategic options (top 3–5, ranked)** → action-first RAT → appendix.
+4. Run the self-critic criteria over the draft; fix in place; keep the methodology trace in-context.
+5. **Step ledger:** before writing the file, check every pipeline stage above off by name. A skipped stage is never silent — say which stage was skipped and why, and get the user's OK if it affects the verdict.
+6. Compute the **one-pager last** from the finished analysis.
+7. Write the single result file.
+8. In the chat: print the brief outcome + the one-pager + rerun suggestions + the file path (see "End-of-run chat output").
 
 Quick mode does not access the internet, run subagents, or do quantitative validation. For those → Deep mode.
 
@@ -471,9 +506,9 @@ Each prompt opens with the shared preamble:
 
 **[P2] Market & Segment-Jobs Generation.** Given the [P1] asset inventory + the read set. Generate **5–8 candidate Big-Job markets** where the assets create value, across diverse angles (where the tech applies · where the team's expertise/access/partners apply · adjacent Big Jobs / climb-a-level moves). For **each** candidate, also generate the **Segment-and-Jobs hypothesis** — a named focus segment (causal criteria) + its Core Jobs + success criteria — and which assets transfer. (Segment+Job is one analytical entity; a bare market name is not evaluable.) Depth = hypothesis, not deep research. Return the candidate markets in your final message. ≤2 fetches.
 
-**[2] Segments Synthesis & Self-Critic.** Given the user input + the [1A] sizing + the [1B] competitor/review returns + the read set. Group customers from the mined signals into segments by **similar Core Jobs + similar success criteria + causal criteria**. Build each segment block per the Section-2 template (persona → Core Jobs → Big Jobs → size+budget+switchable share → **selection screen** → competitors inline). Order ✅ → ⚠️ → ❌. Include the cross-segment themes block. Run the **11 self-critic criteria** over the draft and fix in place. Keep internal-only items (Big-Job validation, antisegment causality, discarded segments) in your reasoning, not the output. Return the segment blocks + short method tables in your final message.
+**[2] Segments Synthesis & Self-Critic.** Given the user input + the [1A] sizing + the [1B] competitor/review returns + the read set. Group customers from the mined signals into segments by **similar Core Jobs + similar success criteria + causal criteria**. Build each segment block per the Section-2 template (persona → Core Jobs → Big Jobs → size+budget+switchable share → **selection screen** → competitors inline). Order ✅ → ⚠️ → ❌; **depth follows the verdict** (✅ full block · ⚠️ half block · ❌ one paragraph). Include the cross-segment themes block. Run the **self-critic criteria** over the draft and fix in place. Keep internal-only items (Big-Job validation, antisegment causality, discarded segments) in your reasoning, not the output. Return the segment blocks + short method tables in your final message.
 
-**[3] Strategy (Differentiation + action-RAT).** Given the user input + the [1A] sizing + the [2] segments + the [1B] review signals + the read set + `value-creation-mechanics.md`. Pick the focal segment (selection-screen composition + asset fit). Produce Section 3 (positioning headline → why focal → criteria×competitors matrix → underserved wedge → published mechanic → features → Big-Job-level threat) and Section 5 (action-first RAT on the cause-and-effect chain: each risk positive + falsifiable + paired with its validation action; then the Step 1/2/3 action plan, ordered by RAT priority; drop any "≤1 week" constraint). Return Section 3 + Section 5 in your final message. ≤4 fetches.
+**[3] Strategy (Differentiation + action-RAT + strategic options).** Given the user input (incl. the user-claims ledger) + the [1A] sizing + the [2] segments + the [1B] review signals + the read set + `value-creation-mechanics.md`. Pick the focal segment (selection-screen composition + asset fit). Produce Section 3 (positioning headline → why focal → criteria×competitors matrix → underserved wedge → one-line mechanic direction, NO feature list → Big-Job-level threat) and Section 5 (action-first RAT on the cause-and-effect chain: each risk positive + falsifiable + paired with its validation action; then the Step 1/2/3 action plan, ordered by RAT priority; drop any "≤1 week" constraint). Also draft the **Strategic options table (top 3–5, ranked)** for Section 4, drawing on the full move space (narrow / pivot / sequence markets / model change / Previous-Next Job / climb a level). Verify any load-bearing user claim from the ledger (≤2 of your fetches); a strategy resting on an unverified user claim must say so. Return Section 3 + the strategic options + Section 5 in your final message. ≤6 fetches.
 
 **[P3] Pivot Evaluation & Ranking.** Given the [P2] candidate markets + the [P1] assets + the [1A] sizing + the [2] segments + the read set. Score every candidate market on the **selection screen** (added value · demand · margin · size×switchability · existential-risk gate); drop gate-failures; rank; select top 3–5. Reuse main-pipeline sizing where a candidate overlaps a researched market. For each pick state **what changes vs. the original idea** (channel · UE · build · which assets carry) and a confidence level. Return the ranked pivot markets in your final message. ≤2 fetches.
 
@@ -482,9 +517,10 @@ Each prompt opens with the shared preamble:
 2. Spawn Wave 1 (1A, 1B, P1→P2) in background; wait for all; collect their returns.
 3. Spawn Wave 2 (Segments) with the Wave-1 returns; wait.
 4. Spawn Wave 3 (Strategy + P3) in parallel; wait.
-5. Assemble the single file from the agents' returns: one-pager (computed LAST) → Section 1 (sizing) → Section 2 (segments) → Section 3 (differentiation) → Section 4 (within-segment switches + alternative markets) → Section 5 (action-RAT) → Section 6 → Appendix (sizing + segment method tables, kept short).
-6. Source-link audit; flag any bare or "URL TBD" sources in the checklist.
-7. Chat output (below).
+5. Assemble the single file from the agents' returns: one-pager (computed LAST) → Section 1 (sizing) → Section 2 (segments) → Section 3 (differentiation) → Section 4 (within-segment switches + alternative markets + strategic options) → Section 5 (action-RAT) → Section 6 → Appendix (sizing + segment method tables, kept short).
+6. **Step ledger:** check every wave and every section off by name before assembly; a skipped stage is declared to the user, never silent.
+7. Source-link audit; flag any bare or "URL TBD" sources in the checklist.
+8. Chat output (below).
 
 ---
 
