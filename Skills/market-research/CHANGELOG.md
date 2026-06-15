@@ -2,11 +2,11 @@
 
 ## v11 (2026-06) — current
 - **Intake gate (alpha-tester feedback).** Before any research runs: adaptive clarifying questions for the gaps that change the research (local vs global, segment specifics, sizing logic agreed with the user), with **"I don't have this info" as a valid answer** (dependent numbers become explicit assumptions, never invented specifics); user materials (Notion export, spreadsheets, past research) read in and tagged `[user data]`; and a **direction confirmation** before the most expensive stage starts.
-- **User-claims ledger.** The user's strong factual claims are tagged data / observation / hunch and treated as hypotheses; Deep mode web-verifies load-bearing claims; no verdict, focal pick, or strategy may rest primarily on a single unverified user hunch without saying so.
+- **User-claims ledger.** The user's strong factual claims are tagged data / observation / hunch and treated as hypotheses; Deep mode web-verifies load-bearing claims; no verdict, target-segment pick, or strategy may rest primarily on a single unverified user hunch without saying so.
 - **Strategic options (top 3–5, ranked).** Section 4 now composes the analysis into concrete ranked strategies (narrow / pivot / sequence markets / model change / Previous-Next Job / climb a level), each with a mechanism, main risk, and first cheapest validation step; the one-pager shows them ranked.
 - **Honest Quick sizing.** Quick mode computes each figure once, bottom-up, with named assumptions — no fake "3-method averaging" without data; the 3-method averaging is Deep-only, on real linked sources.
 - **Chain boundaries.** Section 3 stops at the wedge + a one-line mechanic direction; the feature list moved to `/craft-value-proposition` where it's generated and filtered properly.
-- **Depth follows the verdict.** ✅ focus segments get the full block; ⚠️ half; ❌ one paragraph — no more equal-depth expansion of segments the reader is told to ignore.
+- **Depth follows the verdict.** ✅ target segments get the full block; ⚠️ half; ❌ one paragraph — no more equal-depth expansion of segments the reader is told to ignore.
 - **Step ledger.** Every pipeline stage is checked off by name before the report ships; a skipped stage is declared, never silent.
 - **Plain-language templates.** Reader-facing section names lead in plain English with the methodology term in parentheses; the one-pager carries zero methodology terms. Output path moved to `Skills-Results/{product-slug}/market-research/`. Skill `description` shortened under the 1024-char claude.ai limit.
 

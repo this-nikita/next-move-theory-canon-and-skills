@@ -20,11 +20,15 @@ It consumes a `/craft-value-proposition` result (best — it carries the positio
 
 ## What this skill produces
 
-**One file — the GTM communication pack** (`{product-slug}-craft-go-to-market-result.md`):
-- **Part 1 — Landing copy.** The canonical NMT landing sequence (`communication.md §8`), full ready-to-publish copy, no placeholders.
-- **Part 2 — Ad / creative copy.** The seven Job-language banner formulas with test-variant sets; visuals brief (show State B); the one-liner used everywhere.
-- **Part 3 — GTM / growth communication.** Acquisition-channel hypotheses (each loaded with Consideration Activators); Previous-Job lead magnets + Orientation-Job content + Viral-Job loops; cross-sell (Next Job) / upsell (Big Job) / retention (Aha-stream, frequency, habit-reuse) messaging.
-- **Appendix — the Consideration-Activators map:** which of the five components each asset loads, and the forces of behavior change worked.
+**One file — the GTM communication pack** (`{product-slug}-craft-go-to-market-result.md`), in **three reading depths, linked top-to-bottom** (so one pack serves the founder skim, the marketer's "why is the copy shaped this way" read, and the methodology audit). The actual copy — landing blocks, ad lines, deal-room assets — *is* the product; it stays plain and shippable and is never buried or abstracted away. The layering here is lighter than the analysis skills: it adds a quick top layer and a short why-layer above the full pack, and it strips the methodology citations out of the copy itself.
+
+1. **Layer 1 — The GTM in one breath** (~1 page, zero methodology words, forwardable): the one-liner · the single core message everything routes through · who it's for · the top channel to try first · the one thing to test before scaling — each doubtable line drilling down to its reasoning.
+2. **Layer 2 — The Plan & why it's shaped this way** (1–2 pages, plain English, terms glossed once): why this is the message (what the buyer must come to believe), the landing logic in plain terms, the ad angles to test, the channel plan summary, what to test first — each linking down to the full pack.
+3. **Layer 3 — The Full Pack** (the deliverable in substance):
+   - **Part 1 — Landing copy.** The canonical NMT landing sequence, full ready-to-publish copy, no placeholders.
+   - **Part 2 — Ad / creative copy.** The seven Job-language banner formulas with test-variant sets; visuals brief (show State B); the one-liner used everywhere.
+   - **Part 3 — GTM / growth communication.** Acquisition-channel hypotheses (each loaded with Consideration Activators); Previous-Job lead magnets + Orientation-Job content + Viral-Job loops; cross-sell (Next Job) / upsell (Big Job) / retention (Aha-stream, frequency, habit-reuse) messaging.
+   - **Appendix — the Consideration-Activators map:** which of the five components each asset loads, and the forces of behavior change worked.
 
 **Two modes:**
 - **Quick (default, ~10–15 min):** one Claude, no internet. Writes all copy from the loaded artifacts + reasoning.
@@ -32,31 +36,35 @@ It consumes a `/craft-value-proposition` result (best — it carries the positio
 
 ---
 
-## Methodology — source of truth
+## Methodology — source of truth (progressive loading)
 
-The **only** source of methodology is the Next Move Theory canon, read at runtime (relative paths; the skill ships in the same repo). **Path note:** if a file is not found, retry with a `1-` prefix on the canon folder.
+The **only** source of methodology is the Next Move Theory canon, read at runtime. **Don't load all of it up front** — read the eager core first, then pull the staged files only when the run reaches the stage that needs them (the same progressive-disclosure pattern Claude skills use with `references/`). This keeps a Quick run light and lets each Deep-mode agent read only its slice.
 
-**This is a public skill — it grounds only in the public canon.** Every file in the read sets below is a published canon file (the set whitelisted in `8-Tools/sync/PUBLIC_MANIFEST.yml`); the skill ships to the public mirror, where private files do not exist. **Never read or quote any canon file outside the read sets below** — the per-task algorithms (positioning, conversion, acquisition, retention, average-check) live behind the paywall, and their communication content is folded into the public files below: positioning/landing/creatives in `communication.md`; conversion in `communication.md` + `customers-attention-management.md` + `barrier-removal.md`; acquisition/cross-sell/retention in `job-types-and-properties.md` + `critical-chain.md` + `consideration-activators.md`. This holds in **both** repos — even when running inside the Internal repo where those files exist on disk.
+**This is a public skill — it grounds only in the public canon.** Every file below is a published canon file (the set whitelisted in `8-Tools/sync/PUBLIC_MANIFEST.yml`); the skill ships to the public mirror, where private files do not exist. **Never read or quote any canon file outside the sets below** — the per-task algorithms (positioning, conversion, acquisition, retention, average-check) live behind the paywall, and their communication content is folded into the public files below: positioning/landing/creatives in `communication.md`; conversion in `communication.md` + `customers-attention-management.md` + `barrier-removal.md`; acquisition/cross-sell/retention in `job-types-and-properties.md` + `critical-chain.md` + `consideration-activators.md`. This holds in **both** repos — even when running inside the Internal repo where those files exist on disk.
 
-**Core read set (every run):**
+**Eager core (read before any copy is written — every run):**
 
-| File | What the skill uses it for |
-|---|---|
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/communication.md` | The positioning + landing + creatives core: communication transmits validated value (§1); the 7 purchase assumptions (§2 — the conversion factors); the 3 base messages (§3 — value in criteria, not adjectives); features-are-proof (§4); the one-liner (§5); the 7 creative formulas (§6 — and visuals show State B); landing = a short Critical Chain (§8 — the canonical landing sequence + the conversion diagnostic); expectation management (§9) |
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/consideration-activators.md` | The 5 Consideration-Activators components; sources; specific-stories; Class 1 vs Class 2 |
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/customers-attention-management.md` | The funnel as attention transitions — place the first Aha as far left as possible (§6), the Critical-Chain walk (§7–§8, most drop-off is interruption not rejection), Move-to-Previous-Job as upstream acquisition (§9); the partial-value taste-of-Aha |
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/behaviour-change.md` | Communicate through the Big Job (§4); the seven triggers / receptivity windows (§8); the forces (§9); Class 1/2 (§10) |
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/job-types-and-properties.md` | Viral / Orientation Jobs — the job-types behind content marketing, lead magnets, content loops, and viral loops |
+| File | What it powers | ~tokens |
+|---|---|---|
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/communication.md` | The spine of the whole pack: communication transmits validated value (§1); the 7 purchase assumptions (§2); the 3 base messages (§3 — value in criteria, not adjectives); features-are-proof (§4); the one-liner (§5); the 7 creative formulas (§6 — visuals show State B); landing = a short Critical Chain (§8 — the canonical landing sequence + the conversion diagnostic); expectation management (§9) | ~9k |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/consideration-activators.md` | The 5 Consideration-Activators components; sources; specific-stories; Class 1 vs Class 2 — loaded across every asset | ~5k |
 
-**As-needed read set:**
+**Staged — load only at the stage that uses it:**
 
-| File | When |
-|---|---|
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/critical-chain.md` | Previous Job / Next Job strategy — the chain moves behind acquisition (Previous Job), cross-sell and retention (Next Job) |
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/barrier-removal.md` | Real Barriers vs. fears (§1, §3) — separating fears *about the Job* from fears *about our Solution* for the fear-reduction block |
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/value-creation.md` | The value formula behind every criteria claim (§3, §9); move-up-a-level for upsell (§14); the Red Queen value-gap behind the Aha-stream (§6); deferred-value communication (§19) |
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/b2b.md` | B2B — peer/institutional channels (§4), personal-Job messaging (§5–§6), the deal room (§3) |
-| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/job-structure.md` | Fidelity levels — the headline is the Level-3 minimal Job (§15) |
+| File | Load when | Used by | ~tokens |
+|---|---|---|---|
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/behaviour-change.md` | reaching the channels / triggers stage (Part 3a) | communicate through the Big Job (§4); the seven triggers / receptivity windows (§8); the forces (§9); Class 1/2 (§10) | ~7k |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/customers-attention-management.md` | reaching the landing taste-of-Aha + acquisition stage (Part 1 block 6, Part 3a) | funnel as attention transitions — first Aha as far left as possible (§6), the Critical-Chain walk (§7–§8), Move-to-Previous-Job as upstream acquisition (§9) | ~6k |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/consideration-activators.md` (deep) + `…/barrier-removal.md` | reaching the fear-reduction / competitor-firing stage (Part 1 blocks 7–8, the CA load) | real Barriers vs. fears (§1, §3); separating fears *about the Job* from fears *about our Solution* | ~4k |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/job-types-and-properties.md` | reaching the lead-magnet / content / viral-loop stage (Part 3a) | Viral / Orientation Jobs — the job-types behind content marketing, lead magnets, content loops, viral loops | ~5k |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/critical-chain.md` | reaching the cross-sell / Next-Job stage (Part 3a/3b/3c) | Previous Job / Next Job — the chain moves behind acquisition (Previous Job), cross-sell and retention (Next Job) | ~6k |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/b2b.md` | only if the input is B2B (Part 3a deal room) | peer/institutional channels (§4), personal-Job messaging (§5–§6), the deal room (§3) | ~5k |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/value-creation.md` | reaching the upsell / Aha-stream stage (Part 3b/3c) | the value formula behind every criteria claim (§3, §9); move-up-a-level for upsell (§14); the Red Queen value-gap behind the Aha-stream (§6); deferred-value communication (§19) | ~8k |
+| `Next-Move-Theory-Canon/Advanced-Jobs-To-Be-Done/job-structure.md` | if the headline needs the fidelity-levels treatment | the headline is the Level-3 minimal Job (§15) | ~5k |
+
+Quick mode (one Claude): read the eager core, then pull each staged file the first time the run reaches its stage — not before. Deep mode: each writer agent reads **only** the files its part needs (Landing → core + customers-attention-management + barrier-removal; Ads → core; GTM → core + behaviour-change + job-types-and-properties + critical-chain + b2b-if-B2B + value-creation). Never have an agent load a file outside its slice.
+
+> **Path note.** If a file is not found at the path above, retry with a `1-` prefix on the canon folder (`1-Next-Move-Theory-Canon/...`) — the source repo orders folders with a numeric prefix that the public repo strips.
 
 **Do NOT use generic JTBD from the internet or prior training.** Five mis-defaults to never propagate (per project `CLAUDE.md`): a **Job** is a desired transition (State A → expected outcome), not "a struggle for progress"; **value** is energy efficiency measured against the brain's prediction, the **Aha Moment** is value beating prediction (**never PPE/NPE** — Rule 22); `I want to + verb` is the primary element of an eight-element Job (each verb a separate Job — Rule 7); a **Problem** is a consequence of an underperforming Solution, not a root cause; a **Solution** is a real thing *and* a label for the Job Graph it installs.
 
@@ -75,18 +83,41 @@ Per `CLAUDE.md`: every named external source is a clickable Markdown link (Rule 
 
 ## Plain-language output — segment words first, methodology in parentheses
 
-**The reader of this output is a product person, not a methodologist.** Write the GTM plan, rationale, and annotations in the plain, everyday language the focal segments already use; when a methodology term genuinely adds precision, **lead with the plain meaning and put the term in parentheses the first time it appears** — never lead a sentence, bullet, or heading with a methodology label. (The customer-facing landing / ad copy itself is of course plain by definition — this rule also keeps the *explanations around it* jargon-free.)
+**The reader of this output is a product person, not a methodologist.** Write the GTM plan, rationale, and annotations in the plain, everyday language the target segments already use; when a methodology term genuinely adds precision, **lead with the plain meaning and put the term in parentheses the first time it appears** — never lead a sentence, bullet, or heading with a methodology label. (The customer-facing landing / ad copy itself is of course plain by definition — this rule also keeps the *explanations around it* jargon-free.)
 
 - ❌ *"This banner uses the Trigger → Core Job formula and fires the competing Job Graph…"*
 - ✅ *"This banner hits them right at the moment they feel the problem, then shows why the usual option falls short (formula:* Trigger → Core Job *+ firing the alternative)."*
 
-**Who reads it** — the focal segments (the essentials are inline here, so the skill stays self-contained and public-safe): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
+**Who reads it** — the target segments (the essentials are inline here, so the skill stays self-contained and public-safe): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
 
 **Plain ↔ methodology** (say the left; add the right in parentheses only when it earns its place): the result they're after *(the Job / Big Job)* · the main thing the product does for them *(the Core Job)* · the step-by-step path the customer walks *(the Critical Chain)* · the exact step where they get stuck *(a Critical Chain break)* · the moment it clicks / feels worth it *(the Aha Moment)* · getting the result for less time, effort, money, or stress than expected *(value)* · a pleasant surprise / a letdown vs. what they expected *(Positive / Negative Prediction Error — never PPE/NPE)* · the few things they must learn or believe before switching *(Consideration Activators)* · a real blocker vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption / RAT)*.
 
 **Precision still holds in the methodology layer.** Job-grammar discipline (Jobs as *"I want to + verb,"* levels named, terms capitalized) governs the internal-reasoning / debug files and any explicit **methodology appendix**, where full methodology language is expected. The *lead the reader sees* is plain; the *parenthetical and the appendix* carry the precise terms.
 
 Link `references/glossary.md` once at the top of the GTM pack, right after the disclaimers.
+
+---
+
+## Readability rules (the pack is for a marketer who doesn't live in the methodology)
+
+The pack is **three reading depths in one file**, linked top-to-bottom like canon §-references. The founder skims Layer 1; the marketer reads Layer 2 to understand *why the copy is shaped this way*; the methodology audit lives in Layer 3. The full template is in "GTM pack structure" below. The rules that make it work:
+
+- **Three layers, escalating depth — state each conclusion once per layer, never twice at the same depth.** Layer 1 = the GTM in one breath (headline only). Layer 2 = the plan + why it's shaped this way, in plain English. Layer 3 = the full pack (all the copy, the seven-formula tables, the channel plan, the deal room, the CA map). A point made in Layer 1 is a headline; in Layer 2 a plain sentence; in Layer 3 the full asset — three depths, not three copies.
+- **Drill-down links are mandatory.** Every Layer-1 line a reader could doubt carries a `▸` link to its Layer-2 anchor; every Layer-2 claim links to the Layer-3 part that delivers it. Use Markdown anchors: write `[why this message ▸](#l2-message)` and put `<a id="l2-message"></a>` above the target; the Layer-3 copy parts carry `<a id="l3-landing"></a>`, `<a id="l3-ads"></a>`, `<a id="l3-channels"></a>`, `<a id="l3-dealroom"></a>` above them.
+- **Layer 1 = minimal jargon, plain words lead.** Lead every line in plain product English a junior PM gets at a glance. A methodology term may appear **in parentheses** as a short plain gloss when it helps — but never *open* a line with a raw term, and keep jargon to a minimum.
+- **Layer 2 = plain language first, term glossed.** On first use, gloss a methodology term in 3–5 words in parentheses — e.g., *"the Big Job (the outcome the customer is really after)"*. Nested or repeated parenthetical glosses are fine — clarity beats purity. The glossary is linked once at the top of the pack. Glossable terms include the sneaky ones — *State A/B, Previous/Next/Orientation/Viral Job* — gloss each once or don't use it.
+- **The landing and ad copy in Layer 3 is already plain by definition — keep it clean and shippable.** Do not abstract it, do not gloss it, do not wrap it in methodology. The copy *is* the deliverable. **But every claim/number in shippable copy keeps its `[VERIFY — source]` guardrail** until it is proven — a reader copies the copy straight to production, and the top-of-file disclaimer won't stop them from shipping an unproven number.
+- **Citation fencing — the big fix for this skill.** Strip every inline canon citation — `(communication.md §8)`, `(b2b.md §1)`, `(consideration-activators.md §1)`, `(behaviour-change.md §…)`, etc. — out of the copy **and** out of all surrounding prose. The landing blocks and ad lines must read as clean, shippable copy with **no methodology citations inside them**. Where the canon reference still matters to the marketer reading the pack, move it into a fenced **methodology trace** line at the *end* of a part, styled out of the reading flow, e.g.:
+  > <sub>**▸ methodology trace.** The landing block sequence is a short Critical Chain whose State B is enough belief to take the first step (`communication.md §8`); the fear-reduction and competitor-firing blocks load Consideration-Activators components 4–5 (`consideration-activators.md §1`, `barrier-removal.md §3`).</sub>
+  Never break a line of copy or a sentence of pack prose with `(communication.md §8)`. Project-internal rule numbers (`CLAUDE.md Rule N`) never appear in any layer — they are for your reasoning, not the reader.
+- **Disclaimers once, and the answer comes first.** The two-part disclaimer appears **once** at the top of the file. The **validation flag sits *below* the Layer-1 answer, capped at 2 lines** — a wall of "this isn't proven yet" before the answer makes a reader think the product is broken and bail; let them read the answer first, the caveat second. A one-line pointer in Layer 1 is enough; do not repeat the block inside Layer 3. (Search the file before shipping — disclaimer wording should hit at most twice.)
+- **Keep source links** for external facts and proof (Rule 2).
+
+**Enforcement gate (these kept getting skipped in real runs — check each before writing the file; full version in `../READABILITY-CONTRACT.md`):**
+
+- **Unique, resolving anchors.** Every `▸` drill-down link points to its own unique `<a id="…">` that exists **exactly once**; no two links share a target. Before shipping, list every `▸` target and confirm each resolves.
+- **`[VERIFY]` survives into the copy.** Every number/claim in landing and ad copy carries its inline `[VERIFY — source]` tag until proven — do not strip it because the copy "reads cleaner" without it. The earlier run dropped these and a reader would ship unproven numbers.
+- **Validation flag below the answer**, ≤2 lines (see Disclaimers rule above).
 
 ---
 
@@ -127,7 +158,7 @@ Q4 "Which GTM assets do you need?" (multi-select)
 
 ### Normalize the input (held in context)
 Extract (and only ask the user for what's genuinely missing):
-- **Focal segment** + causal criteria (behaviour/characteristic, not demographics).
+- **Target segment** + causal criteria (behaviour/characteristic, not demographics).
 - **Big Job(s)** + their success criteria (the motivation surface — where communication lands). Personal Big Job for B2B.
 - **Core Jobs** + dominant success criteria (direction + level). **Class 1 or Class 2?** (is the Core Job familiar to this segment? — sets whether copy leads on Big Job or Core Job, `behaviour-change.md §10`).
 - **The Aha Moment** (the positive-prediction-error event — for the "give a taste on the landing" block and the activation/retention angle).
@@ -148,38 +179,132 @@ Path D collects the above as a structured manual intake; validate against the in
 
 ## S1 — Write the GTM communication pack
 
-Build it in this order (each part references the same Job record, so the one-liner and the Big Job stay consistent across all assets). Write to the result file in the structure below. Quick mode does this in one pass; Deep mode parallelizes (below).
+Build **Layer 3 (the full pack) first**, in the order below — each part references the same Job record, so the one-liner and the Big Job stay consistent across all assets. Then **compute Layer 2 (the plan + why), then Layer 1 (the GTM in one breath), LAST** from the finished pack, wiring the drill-down links to the Layer-3 anchors. Write the file in final order: top disclaimers (once) → glossary link → **How to read this (3 levels, with jump links)** → Layer 1 → Layer 2 → Layer 3. Quick mode does this in one pass; Deep mode parallelizes the Layer-3 parts (below).
+
+The file opens with the disclaimers once, then the glossary link:
 
 ```markdown
 # Go-To-Market Communication — {product / segment}
 
+<a id="disclaimers"></a>
 > **Numerical disclaimer.** All numerical estimates are LLM-generated hypotheses with verification paths. Validate before deciding.
 > **Hallucination disclaimer.** Generated by an LLM; may contain hallucinations. For expensive decisions, run real research; do not act on this alone.
-> ⚠️ {validation flag: "value validated by sales/usage" → scale; "value is a hypothesis" → these are demand-test creatives, not facts to scale. Path D → reduced-confidence flag; else name the source artifact.}
+
+*Methodology terms are defined in the [glossary](references/glossary.md).*
+```
+
+### How to read this — the three levels
+
+Emitted once, right after the disclaimers/glossary and before Layer 1, so the reader sees the structure and can jump. Plain words only:
+
+```markdown
+## How to read this
+Three levels — go as deep as you need:
+- **Level 1 — The GTM in one breath** (1 page, plain words): the one-liner, the single message, who it's for, the first channel to try, the one thing to test before scaling. Most readers stop here. [jump ▸](#layer-1)
+- **Level 2 — The Plan & why it's shaped this way** (plain English): why this is the message, the landing logic, the ad angles, the channel plan, what to test first. [jump ▸](#layer-2)
+- **Level 3 — The Full Pack** (ready-to-ship): all the landing & ad copy, the channel plan, the deal room, and the consideration map. [jump ▸](#layer-3)
+```
+
+### Layer 1 — The GTM in one breath
+
+Computed LAST, from the finished Layer-3 pack. **Minimal jargon, plain words lead, forwardable** (a term may appear in parentheses as a plain gloss, but never opens a line). Each doubtable line drills down to its own unique Layer-2 anchor — never two lines at the same target.
+
+```markdown
+---
+
+<a id="layer-1"></a>
+# The GTM in one breath
+*One page, plain words — forward this to a co-founder. The full plan and the ready-to-ship copy are below.* — [disclaimer ▸](#disclaimers)
+
+## The one-liner
+{the single sentence used everywhere — what it is + what it does + the value in plain words.}
+
+## The one message everything routes through
+{in one or two plain sentences: the single thing the buyer must come to believe; every asset carries it.} [why this is the message ▸](#l2-message)
+
+## Who it's for
+{the segment in one plain sentence — who they are, not a methodology label.} [the buyer + the validation status ▸](#l2-buyer)
+
+## The channel to try first
+{one channel + the moment to catch them, in plain words.} [the channel plan ▸](#l2-channels)
+
+## The one thing to test before scaling
+{the single make-or-break thing to prove first — usually whether the value is real, or whether the top channel actually reaches them.} [what to test first ▸](#l2-test)
+
+> ⚠️ {validation flag — ≤2 lines, placed here below the answer, not above it: "value validated by sales/usage" → scale; "value is a hypothesis" → these are demand-test creatives, not facts to scale. Path D → reduced-confidence flag; else name the source artifact.}
+```
+
+### Layer 2 — The Plan & why it's shaped this way
+
+Computed after Layer 3, before Layer 1. Plain English, one gloss per methodology term, no big copy blocks (those live in Layer 3). Each subsection carries the `<a id>` anchor Layer 1 links to, and links down to its Layer-3 part.
+
+```markdown
+---
+
+<a id="layer-2"></a>
+# The plan, and why it's shaped this way
+*Plain-English reasoning behind the copy. The ready-to-ship assets are in the full pack below.*
+
+<a id="l2-message"></a>
+## Why this is the message
+{what the buyer must come to believe before they switch, in plain words — the better outcome they're really after (the Big Job), and the few things they must learn or believe (Consideration Activators) for the message to land. Why we lead on this and not on features.} [the full Consideration-Activators map ▸](#l3-camap)
+
+<a id="l2-buyer"></a>
+## Who it's for — and whether the value is proven yet
+{the segment in plain words; whether the value is validated by sales/usage or still a hypothesis (which decides scale-the-copy vs. demand-test-the-copy).}
+
+## The landing logic, in plain terms
+{why the page is ordered the way it is — recognize the situation → show the value in concrete terms → prove it → handle the fears → the first small step — in plain words.} [the full landing copy ▸](#l3-landing)
+
+## The ad angles to test
+{the handful of angles worth testing first and why, plain.} [all seven formulas + variants ▸](#l3-ads)
+
+<a id="l2-channels"></a>
+## The channel plan
+{the top channels, the moment to reach the buyer, and the lead-magnet / content / referral moves, in plain words.} [the full channel plan + deal room ▸](#l3-channels)
+
+<a id="l2-test"></a>
+## What to test first
+{the single cheapest highest-leverage thing to prove before spending on scale.}
+```
+
+### Layer 3 — The Full Pack
+
+The deliverable in substance. Open it with a divider and the heading, then the one-liner part, then Parts 1–3 and the Appendix. **All canon citations are fenced into `▸ methodology trace` lines at the end of each part — never inline in copy or prose.**
+
+```markdown
+---
+
+<a id="layer-3"></a>
+# The full pack
 
 ## 0. The one-liner (used everywhere)
-**`[What it is] + [Core Job(s) it performs] + [value by criteria]`** — one sentence, plain words already in the customer's head (`communication.md §5`).
+**`[What it is] + [Core Job(s) it performs] + [value by criteria]`** — one sentence, plain words already in the customer's head.
 Examples of the form (not to copy): *Bench — bookkeeping service that categorizes transactions and delivers tax-ready financials for small businesses.* Test: a stranger can repeat what it is, the Core Job, and the value.
 ```
 
-### Part 1 — Landing copy (full, ready-to-publish)
-A landing page is a **short Critical Chain** whose State B is enough belief + motivation to take the first step (`communication.md §8`). Write each block as final copy, not a brief:
+#### Part 1 — Landing copy (full, ready-to-publish)
+Emit `<a id="l3-landing"></a>` above this part. A landing page is a **short Critical Chain** whose State B is enough belief + motivation to take the first step. Write each block as final copy, not a brief — **clean, shippable, with no methodology citations inside the copy**:
 
 1. **Hero** — the one-liner + a 1–2-sentence subtitle; **the Big Job this page addresses, stated explicitly** (and consistent with the PRD/value-prop); CTA copy + what the user gets on click.
 2. **Focus Jobs** — the Core Jobs together with the Big Job they serve.
 3. **Context & trigger** — the visitor recognizes *"this is my situation"* (the segment's real context + trigger).
 4. **Value by concrete criteria** — how much more energy-efficiently the Jobs land; numbers/thresholds, never adjectives.
 5. **How it works** — the steps as the *proof* layer (features attached to Jobs + criteria), not as the message.
-6. **A taste of the Aha Moment** — give a slice of value on the page where possible (the partial-value mechanic; place the first Aha as far left as possible — `customers-attention-management.md §6`).
-7. **Problems with the current way** — why the existing Job Graph produces Problems / Tax Jobs / chain-breaks (fires the competing Graph — CA component 5).
-8. **Fear reduction** — the specific feared breaks (the *"what if…"* block): named, then shown prevented / absorbed / reversible / insured / irrelevant (CA component 4). Separate real blockers from fears, and fears *about the Job* from fears *about our Solution* (`communication.md §2`; `barrier-removal.md §3`).
+6. **A taste of the Aha Moment** — give a slice of value on the page where possible (the partial-value mechanic; place the first Aha as far left as possible).
+7. **Problems with the current way** — why the existing Job Graph produces Problems / Tax Jobs / chain-breaks (fires the competing Graph).
+8. **Fear reduction** — the specific feared breaks (the *"what if…"* block): named, then shown prevented / absorbed / reversible / insured / irrelevant. Separate real blockers from fears, and fears *about the Job* from fears *about our Solution*.
 9. **State B / Big-Job reminder** — what the result looks and feels like once the Big Job lands (the State-B emotion).
 10. **Consideration Activators + CTA** — named product, the first concrete step, low activation cost; CTA on every screen.
 
-> The sequence is a **diagnostic**, not decoration — if motivated traffic doesn't convert, name which transition failed (didn't recognize the context / value not concrete / proof didn't connect / a real blocker remained / a fear stayed active / competitor not fired / CTA cost too high before the first Aha) (`communication.md §8`).
+After the copy, two fenced lines (out of the reading flow):
 
-### Part 2 — Ad & creative copy
-Creatives are **Job-language formulas selected by evidence, not inspiration** (`communication.md §6`). For each of the segment's main entry contexts, generate copy across the seven formulas, then mark which to test first:
+> The sequence is a **diagnostic**, not decoration — if motivated traffic doesn't convert, name which transition failed (didn't recognize the context / value not concrete / proof didn't connect / a real blocker remained / a fear stayed active / competitor not fired / CTA cost too high before the first Aha).
+>
+> <sub>**▸ methodology trace.** The landing block sequence is a short Critical Chain whose State B is enough belief to take the first step (`communication.md §8`); value-in-criteria-not-adjectives is §3; features-as-proof is §4; the taste-of-Aha places the first Aha as far left as possible (`customers-attention-management.md §6`); the Problems and fear-reduction blocks fire the competing Job Graph and load Consideration-Activators components 4–5 (`consideration-activators.md §1`, `communication.md §2`, `barrier-removal.md §3`).</sub>
+
+#### Part 2 — Ad & creative copy
+Emit `<a id="l3-ads"></a>` above this part. Creatives are **Job-language formulas selected by evidence, not inspiration**. For each of the segment's main entry contexts, generate copy across the seven formulas, then mark which to test first:
 
 | # | Formula | Pattern |
 |---|---|---|
@@ -194,41 +319,51 @@ Creatives are **Job-language formulas selected by evidence, not inspiration** (`
 - **Combine formulas** when the Graph requires (Trigger + Problem + Core Job; Big Job + fear reduction + CTA). Constraint: every clause translates back to a named Job level + criterion; parse multi-verb lines first.
 - **Specificity rule** — run every adjective through *"as in?"* before it ships.
 - **Visuals brief** — show **State B** (the result the Big Job creates), not the production process; name the State-B emotion.
-- Produce **enough variants to test** (the canon's stance: copy is information packaged through formulas — generate 30–50–100 and test which performs; here, generate a strong starter set per context and say what to A/B).
+- Produce **enough variants to test**: copy is information packaged through formulas — generate a strong starter set per context and say what to A/B.
 
-### Part 3 — GTM / growth communication
-Three sub-parts, all routed through Jobs:
+> <sub>**▸ methodology trace.** The seven creative formulas and visuals-show-State-B are `communication.md §6`; every clause maps back to a named Job level + criterion (Rule 7, Rule 14).</sub>
+
+#### Part 3 — GTM / growth communication
+Emit `<a id="l3-channels"></a>` above this part. Three sub-parts, all routed through Jobs:
 
 **3a. Acquisition-channel hypotheses.** Per channel × segment, loaded with Consideration Activators:
 
 | Channel | Trigger / receptivity window | Message (the CA load) | First step (CTA) | Success metric |
 |---|---|---|---|---|
 
-- Time outreach to **receptivity windows** — Critical-Chain breaks, life events, competitor failures — not steady-state habit (`behaviour-change.md §8`).
-- **Previous-Job channels:** a tool/content for the Job *before* the Core Job (calculator, estimator, aggregator, guide) that captures the customer earlier and shapes their Consideration Set (`critical-chain.md §9.1` — Move to the Previous Job; `customers-attention-management.md §9` — upstream attention capture).
+- Time outreach to **receptivity windows** — Critical-Chain breaks, life events, competitor failures — not steady-state habit.
+- **Previous-Job channels:** a tool/content for the Job *before* the Core Job (calculator, estimator, aggregator, guide) that captures the customer earlier and shapes their Consideration Set.
 - **Orientation-Job content:** content marketing = performing Orientation Jobs + stepping to the Previous Job; design the **content loop** (using the product generates content that performs Orientation Jobs for the next customer; the Aha Moment is the fuel).
 - **Lead magnet:** trade a contact for disproportionate free value (checklist, template, calculator) — the brain over-values "free."
 - **Viral Jobs:** if the Core Job is performed *for/with* others (decks, docs, boards, Looms), design the surface so being-seen-using-it is itself a value moment; prioritize segments rich in high-frequency Viral Jobs.
-- **B2B:** route through peer stories, customer-published case studies, conference talks by customers, analyst reports, trusted-colleague recommendation — not consumer-marketing channels; arm the champion with a **deal room** (comparison vs. named competitors, stakeholder-specific objection answers, references in their industry, a business-case template) and hit **personal Jobs** explicitly, not just business Jobs (`b2b.md §3–§6`).
+- **B2B (if the input is B2B):** route through peer stories, customer-published case studies, conference talks by customers, analyst reports, trusted-colleague recommendation — not consumer-marketing channels; arm the champion with a **deal room** and hit **personal Jobs** explicitly, not just business Jobs.
+
+<a id="l3-dealroom"></a>
+**The deal room (B2B).** Arm the champion with: a comparison vs. named competitors, stakeholder-specific objection answers, references in their industry, and a business-case template they can paste into their own deck.
 
 **3b. Cross-sell / upsell messaging.**
 - **Cross-sell** = the **Next Job** in the Critical Chain (after our Core Job lands, the next Job the customer performs) — message it as the natural continuation.
-- **Upsell** = link to a higher **Big Job** / move up-market / bundle (`value-creation.md §14` — move up a level).
+- **Upsell** = link to a higher **Big Job** / move up-market / bundle.
 
 **3c. Retention messaging.**
 - A **stream of Aha Moments** against the rising prediction bar; shift the first Aha as far left as possible.
 - **Reuse existing habits**, don't install new ones; embed in rituals the customer already runs.
-- **Frequency** + the **Next Job** (NRR > 100% is the "more Jobs / next Job" strategy in messaging form); ecosystem lock-in where it applies (`critical-chain.md §9.2` — Move to the Next Job).
+- **Frequency** + the **Next Job** (NRR > 100% is the "more Jobs / next Job" strategy in messaging form); ecosystem lock-in where it applies.
 
-### Appendix — what the customer must come to believe before switching (the Consideration-Activators map) & the forces
+> <sub>**▸ methodology trace.** Receptivity windows + the forces are `behaviour-change.md §8–§9`; Previous-Job channels and upstream attention capture are `critical-chain.md §9.1` and `customers-attention-management.md §9`; Viral / Orientation Jobs are `job-types-and-properties.md`; the B2B channels, personal-Job messaging, and deal room are `b2b.md §3–§6`; cross-sell as the Next Job is `critical-chain.md §9.2`; upsell as move-up-a-level and the Aha-stream / Red Queen value-gap are `value-creation.md §14`, §6.</sub>
+
+#### Appendix — the Consideration-Activators map & the forces
+Emit `<a id="l3-camap"></a>` above this part.
 - A table: each landing block / ad / channel asset → which of the **five things the customer must learn or believe** it loads (a better way exists / better by these criteria / here's the product + first step / this fear is handled / the current way's problems are real).
-- The **forces of behavior change** worked for this segment: which driver each asset pulls and which blocker it removes (`behaviour-change.md §9`); confirm habit is **reused or sidestepped, never fought head-on**.
+- The **forces of behavior change** worked for this segment: which driver each asset pulls and which blocker it removes; confirm habit is **reused or sidestepped, never fought head-on**.
+
+> <sub>**▸ methodology trace.** The five Consideration-Activators components are `consideration-activators.md §1`; the forces of behavior change are `behaviour-change.md §9`.</sub>
 
 ---
 
 ## S2 — Self-critic & summary
 
-Run the self-critic over the draft (Quick: self-critique; Deep: a critic agent), fix in place, keep verdicts in-context. Then a short chat summary: the one-liner, the Big Job everything routes through, the validation status, the top channel hypothesis, and the file path.
+Run the self-critic over the draft (Quick: self-critique; Deep: a critic agent), fix in place, keep verdicts in-context. Then in the chat: print **Layer 1 (The GTM in one breath)** verbatim + a 3–4-line outcome (the one-liner, the Big Job everything routes through, the validation status, the top channel hypothesis) + the file path.
 
 ### Self-critic criteria (methodology only)
 1. **Routes through the Big Job** (or correctly leads on the Core Job for a Class-1 familiar segment) — not Core-Job steps in isolation.
@@ -239,15 +374,20 @@ Run the self-critic over the draft (Quick: self-critique; Deep: a critic agent),
 6. **The Aha Moment is a real event** (not signup/login) and is given a taste on the landing + used as the retention/WoM engine.
 7. **Validation status is honest** — hypothesis-stage value is flagged as demand-test creative, not scaled fact.
 8. **Specific stories used; visuals = State B; recognition test passed** (Tier A/B brands, or bridged); **US-context analogs**; **no PPE/NPE**; **disclaimers + clickable source links** (`CLAUDE.md` Rules 2, 3, 6, 19, 22).
-9. **Step ledger ran** — S0 → Part 1 → Part 2 → Part 3 → Appendix checked off by name (skipping parts the user didn't order is fine — say so); no silent skips.
+9. **Step ledger ran** — S0 → Layer 3 (Part 1 → Part 2 → Part 3 → Appendix) → Layer 2 → Layer 1 checked off by name (skipping parts the user didn't order is fine — say so); no silent skips.
 10. **User claims stayed hypotheses** — every number or comparison in customer-facing copy traces to tagged data or ships as a to-verify placeholder; no copy fact invented from a user hunch.
 - [ ] Plain-language-led — the GTM plan and all annotations lead in the reader's own words; methodology terms only in parentheses (never jargon-first); any methodology appendix / debug may stay in full terms.
+- [ ] **Three layers present and correctly leveled** — Layer 1 (minimal jargon, plain words lead, terms only in parentheses, forwardable), Layer 2 (plain plan + why, terms glossed, no big copy blocks), Layer 3 (the full pack with all copy intact). No conclusion repeated at the same depth across layers.
+- [ ] **Drill-down links resolve and are unique** — every Layer-1 line links to a real Layer-2 anchor; every Layer-2 claim links to a real Layer-3 anchor; every `#l2-…` / `#l3-…` target exists **exactly once** and no two links share a target.
+- [ ] **`[VERIFY]` survives into the copy** — every number/claim in landing & ad copy keeps its inline `[VERIFY — source]` tag until proven; opaque table headers carry an inline plain gloss.
+- [ ] **Disclaimers once; answer first** — the two-part disclaimer at the top only; the validation flag sits below the Layer-1 answer (≤2 lines), not above it; Layer 1 has the one-line pointer; Layer 3 does not repeat the block.
+- [ ] **Citations fenced — landing and ad copy must be citation-free.** No canon path or `Rule N` inline in any copy, in Layers 1–2, or in Layer-3 prose; every canon reference sits in a `▸ methodology trace` line at the end of a part. Read the landing blocks and ad lines straight through: they must read as clean, shippable copy.
 
 ---
 
 ## Deep mode (subagents + web)
 
-Same S0 with the human; S1 parallelized and grounded on real customer language. Agents: `Agent`, `subagent_type: "general-purpose"`, `run_in_background: true`. Each reads the core canon set, **returns its result in its final message — no files**, links sources. The orchestrator holds all returns in context and writes the single output file.
+Same S0 with the human; S1 parallelized and grounded on real customer language. Agents: `Agent`, `subagent_type: "general-purpose"`, `run_in_background: true`. Each reads **only its canon slice** (per "Methodology — source of truth": the eager core plus the staged files its part needs), **returns its result in its final message — no files**, links sources, and keeps canon citations out of the copy. The orchestrator holds all returns in context and writes the single output file.
 
 ```
 Wave 0 (background from start):
@@ -258,9 +398,11 @@ Wave 1 (parallel, consume the reviews return):
   [LAND]    Landing-copy writer → returns Part 1 in-message
   [ADS]     Ad/creative writer → returns Part 2 in-message
   [GTM]     Channel + growth-comms → returns Part 3 in-message
-Wave 2: [CRITIC] adversarial self-critic (8 criteria; fix_instructions; ≤2 rounds, then escalate)
-Orchestrator: hold all returns in context; assemble the pack into the single file; apply fixes; chat summary.
+Wave 2: [CRITIC] adversarial self-critic (the full criteria incl. the layer + citation-fencing checks; fix_instructions; ≤2 rounds, then escalate)
+Orchestrator: hold all returns in context; assemble Layer 3 (the full pack) from the part returns; strip any inline canon citations the writers left in the copy and fold them into the per-part `▸ methodology trace` lines; then compute Layer 2, then Layer 1, LAST, wiring drill-down links to the Layer-3 anchors; write the single file (top disclaimers once → glossary link → Layer 1 → Layer 2 → Layer 3); apply critic fixes; chat summary.
 ```
+
+Each writer agent reads only its canon slice (Landing → core + customers-attention-management + barrier-removal; Ads → core; GTM → core + behaviour-change + job-types-and-properties + critical-chain + b2b-if-B2B + value-creation) and returns its part with **no inline canon citations in the copy** — it holds the canon references in its reasoning, and the orchestrator fences them into the methodology-trace lines.
 
 Web caps: review mining ≤12 fetches / ~10 min. Source links mandatory (Rule 2); never invent sources, figures, or fake reviews.
 
