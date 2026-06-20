@@ -79,12 +79,13 @@ The `Skills/` directory holds Claude Code skills that run the methodology for yo
 | Skill | What it does |
 |---|---|
 | **[`ask-nmt`](Skills/ask-nmt/)** | A conversational **advisor** you can talk to — ask any product, strategy, segmentation, value, pricing, growth, positioning, B2B, or methodology question and get an answer grounded in the canon (not generic JTBD). It explains concepts, diagnoses your real situation, pressure-tests your hypotheses like a skeptical senior PM, and hands off to the producer skills below when you want a full artifact. |
+| **[`diagnose`](Skills/diagnose/)** | A chat-first **diagnostic** for live products. Through up to ~15 adaptive questions it challenges the goal you walked in with (climbing your business-Job graph for a higher-leverage move), then surfaces **all** the risks, **all** the growth points, and the risky assumptions hiding inside your current initiatives — prioritizes the first move and routes you to the skill that executes it. The front door for an existing product the way `market-research` is for a new idea. |
 | **[`market-research`](Skills/market-research/)** | Sizes the market and scores segments to answer *"which Jobs of which segment should we compete for first?"* Output: a **GO / NARROW / PIVOT** one-pager, segments scored on a five-factor screen, direct and indirect competitors, an action-first RAT plan, and alternative Big-Job markets to pivot into. |
 | **[`craft-value-proposition`](Skills/craft-value-proposition/)** | Takes a chosen segment + Jobs and builds the strongest **Value Proposition** — value hypotheses mapped over the Job Graph and the value-creation mechanics, filtered on feasibility, unit-economics, and competitiveness, ranked, with the top RAT cards. Output includes a PRD-ready implementation spec. |
 | **[`product-requirements`](Skills/product-requirements/)** | Turns the chosen segment + value into a build-ready **PRD** (full functionality + edge cases). First runs a *"challenge the build"* gate that hunts for a cheaper way to hit the same business goal before specifying the build. |
 | **[`craft-go-to-market`](Skills/craft-go-to-market/)** | Turns the value proposition into ready-to-publish **go-to-market** — landing-page copy, ad / creative formulas, and an acquisition + growth-communication plan (channels loaded with Consideration Activators, lead magnets, viral loops, retention messaging). |
 
-**`/ask-nmt` is the conversational front door** — talk to it any time for advice, a diagnosis of your real situation, or to pressure-test an idea; it answers from the canon and points you to the right producer skill when you need a full artifact.
+**Two front doors.** **`/ask-nmt`** is the conversational front door for advice, explanation, or pressure-testing an idea. **`/diagnose`** is the front door for a *live product* — it finds your risks and growth points and routes you to the next move. Both answer from the canon and point you to the right producer skill when you need a full artifact; for a brand-new idea, start at `/market-research`.
 
 **The four producer skills form a pipeline**, each one building on the artifact the one before it produced:
 
@@ -96,7 +97,7 @@ The `Skills/` directory holds Claude Code skills that run the methodology for yo
 
 You can also jump in mid-pipeline if you already know your segment and Jobs — each skill takes what you hand it, or routes you back to the step it needs first.
 
-All five are **user-invocable** in Claude Code (`/ask-nmt`, `/market-research`, `/craft-value-proposition`, `/product-requirements`, `/craft-go-to-market`). The four producers each have a fast **Quick** mode (no internet) and a deeper **Deep** mode (subagents + web research).
+All six are **user-invocable** in Claude Code (`/ask-nmt`, `/diagnose`, `/market-research`, `/craft-value-proposition`, `/product-requirements`, `/craft-go-to-market`). The four producers each have a fast **Quick** mode (no internet) and a deeper **Deep** mode (subagents + web research); `/ask-nmt` and `/diagnose` are conversational (no file unless you ask).
 
 > The skills produce **hypotheses, not conclusions.** Every number is an LLM-generated estimate with a verification path attached. Validate before any decision with expensive consequences — that's the RAT discipline the methodology is built on.
 
