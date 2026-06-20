@@ -1,0 +1,27 @@
+name: Sync fork from upstream
+
+# Keeps this fork's `main` up to date with the original repository.
+# Runs once a day on a schedule, and can also be triggered manually
+# from the Actions tab ("Run workflow").
+
+on:
+  schedule:
+    # 06:00 UTC every day. Edit the cron to change the cadence.
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+# Allow the built-in token to push the synced commits back to `main`.
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync main from upstream
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh repo sync ${{ github.repository }} \
+            --source zamesin/Next-Move-Theory-Canon-and-Skills \
+            --branch main
