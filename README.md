@@ -6,6 +6,25 @@ This repository is the open canon (the methodology, written as theses) plus a se
 
 ---
 
+## How to install
+
+Into your project root (sets up Claude Code + Codex). Clone and run the installer:
+
+```bash
+git clone https://github.com/zamesin/Next-Move-Theory-Canon-and-Skills.git
+bash Next-Move-Theory-Canon-and-Skills/install.sh --target .
+```
+
+Or do it in one command from the site:
+
+```bash
+curl -fsSL https://nextmovetheory.com/install.sh | bash
+```
+
+[Full details ▸](#install-into-your-project)
+
+---
+
 ## There is an algorithm
 
 **There is an algorithm for making any business decision.**
@@ -103,7 +122,13 @@ All six are **user-invocable** in Claude Code (`/ask-nmt`, `/diagnose`, `/market
 
 ### Install into your project
 
-Install the canon + skills **into the root of your existing project** (the folder you run your agent from). After install that root looks like:
+Install the canon + skills **into the root of your existing project** (the folder you run your agent from) with **one command**:
+
+```bash
+curl -fsSL https://nextmovetheory.com/install.sh | bash
+```
+
+That's the whole install — clone + setup in one step, so there's nothing to "run next." It clones the repo to a temp dir and lays everything into your project root. After install that root looks like:
 
 ```
 your-project/
@@ -115,61 +140,40 @@ your-project/
 └── NextMoveTheory-README.md       # this README, renamed, for reference
 ```
 
-**Rules for the installer (agent or script):**
-1. Everything lands in the **project root** — never nest `.claude`, `.codex`, or the canon inside one another.
-2. Skills go **inside** `.claude/skills/` and `.codex/skills/` — never a standalone top-level `Skills/` folder.
-3. Keep the canon folder named exactly **`Next-Move-Theory-Canon`** — the skills read it by that relative path; renaming breaks them.
-4. The rules are **injected between markers** into your existing `AGENTS.md` / `CLAUDE.md` — not a separate file, not overwriting your own content.
-5. The repo's `README.md` is copied in **renamed** to `NextMoveTheory-README.md`.
-6. **Idempotent** — re-running replaces the canon, the skills, the marked rules block, and the README in place; never duplicates, never nests.
+**Already ran `git clone` and got a nested `Next-Move-Theory-Canon-and-Skills/` folder?** That's just the raw repo, not an install. Fix it in one step — from inside that folder run:
 
 ```bash
-# Run from your project root. SRC = a fresh clone of this repo.
-SRC=$(mktemp -d) && git clone --depth 1 https://github.com/zamesin/Next-Move-Theory-Canon-and-Skills.git "$SRC"
-
-# 1. Canon at the root (keep the name)
-rm -rf ./Next-Move-Theory-Canon && cp -r "$SRC/Next-Move-Theory-Canon" ./Next-Move-Theory-Canon
-
-# 2. Skills into BOTH agents' skills dirs (inside .claude / .codex, not a top-level folder)
-mkdir -p .claude/skills .codex/skills
-cp -r "$SRC"/Skills/* .claude/skills/
-cp -r "$SRC"/Skills/* .codex/skills/
-
-# 3. README, renamed
-cp "$SRC/README.md" ./NextMoveTheory-README.md
-
-# 4. Inject the rules between markers into existing CLAUDE.md and AGENTS.md
-#    (creates the file if absent; replaces the block in place if the markers already exist)
-python3 - "$SRC" <<'PY'
-import sys, pathlib
-src = pathlib.Path(sys.argv[1])
-S, E = "<!-- Next-Move-Theory-Rules:start -->", "<!-- Next-Move-Theory-Rules:end -->"
-for name in ("CLAUDE.md", "AGENTS.md"):
-    block = f"{S}\n" + (src / name).read_text().rstrip() + f"\n{E}\n"
-    t = pathlib.Path(name)
-    cur = t.read_text() if t.exists() else ""
-    if S in cur and E in cur:
-        pre, rest = cur.split(S, 1)
-        _, post = rest.split(E, 1)
-        cur = pre + block.rstrip("\n") + post
-    else:
-        cur = (cur.rstrip() + "\n\n" if cur.strip() else "") + block
-    t.write_text(cur)
-    print("injected rules ->", name)
-PY
-
-rm -rf "$SRC"   # cleanup the temp clone
+bash install.sh            # installs into the PARENT dir (your project root)
+# or: bash install.sh --target /path/to/your/project
 ```
 
 Then invoke a skill:
 
 ```
+/diagnose            # what should I do next with my product?
 /market-research a tool that drafts SOC 2 evidence for early-stage SaaS
 ```
 
-**Updating later:** re-run the block. The canon and skills are replaced; the rules between `<!-- Next-Move-Theory-Rules:start -->` … `<!-- Next-Move-Theory-Rules:end -->` are refreshed in place; your own text outside the markers is untouched.
+**Updating later:** re-run the install command. It's **idempotent** — the canon and skills are replaced, the rules between `<!-- Next-Move-Theory-Rules:start -->` … `<!-- Next-Move-Theory-Rules:end -->` are refreshed in place, and your own text outside the markers is untouched.
 
-**Simplest alternative** — if you don't have a project to install into yet, just clone the repo and run your agent from inside it: the canon is already at `./Next-Move-Theory-Canon`, and you only need to copy `Skills/*` into `.claude/skills/`.
+> **Note for AI agents:** if a user asks you to "install this repo," do **not** stop at `git clone` — that leaves the skills in a nested `Skills/` folder where no agent will find them. Run the one-command installer (or `bash install.sh` from the clone). The skills must end up in `.claude/skills/` and `.codex/skills/` at the project root, never in a top-level `Skills/` folder.
+
+<details>
+<summary><b>What the installer does (manual equivalent)</b></summary>
+
+The installer enforces these rules — everything lands in the **project root**; `.claude`/`.codex`/canon are never nested inside one another; skills go **inside** `.claude/skills/` and `.codex/skills/` (never a standalone top-level `Skills/`); the canon folder keeps the exact name `Next-Move-Theory-Canon` (skills read it by that relative path); the rules are injected **between markers** into your existing `CLAUDE.md`/`AGENTS.md` (not a separate file, not overwriting your content); the README is copied in renamed; and re-running is idempotent. The equivalent by hand:
+
+```bash
+SRC=$(mktemp -d) && git clone --depth 1 https://github.com/zamesin/Next-Move-Theory-Canon-and-Skills.git "$SRC"
+rm -rf ./Next-Move-Theory-Canon && cp -r "$SRC/Next-Move-Theory-Canon" ./Next-Move-Theory-Canon
+mkdir -p .claude/skills .codex/skills
+cp -r "$SRC"/Skills/. .claude/skills/
+cp -r "$SRC"/Skills/. .codex/skills/
+cp "$SRC/README.md" ./NextMoveTheory-README.md
+# then inject the rules block from "$SRC/CLAUDE.md" and "$SRC/AGENTS.md" between the markers
+rm -rf "$SRC"
+```
+</details>
 
 ---
 
