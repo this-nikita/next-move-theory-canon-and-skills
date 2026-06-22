@@ -333,8 +333,10 @@ The canon and the skills are licensed under [**CC BY-NC-SA 4.0**](https://creati
 - **NonCommercial** — don't use the material for commercial purposes;
 - **ShareAlike** — license your adaptations under the same terms.
 
+**Can I use this inside my company — even a for-profit one?** Yes. The license — and copyright generally — covers the *material* (the canon text, the skills code), not the *ideas* in it. Methods, processes, and principles aren't copyrightable, so *applying* the methodology is not a use the license governs at all. Read it, run the skills on your own product, segment your customers, build your metrics, and make product decisions on it — at any company, commercial or not. The NonCommercial term restricts only what you do with the **material itself**: reselling copies, bundling the text into a paid product or course, or putting it behind your own paywall. Attribution and ShareAlike kick in only when you **share or adapt the material** — not when you put what you learned to work. (This is the common-sense reading of the license, not legal advice; for high-stakes decisions, check with a lawyer.)
+
 ---
 
-*A note on the writing. English isn't my native language, and I didn't create this methodology in English. I built it over eight years in my own language, and it grew into thousands of theses. Rewriting all of that into English by hand wasn't realistic for me, so I used Claude to turn my theses into the text you're reading. Every thesis is mine, worked out over years of practice and teaching, and I'm confident in all of them. What the AI did was the English wording, not the thinking behind it.*
+*A note on the writing. I built this methodology over eight years in my own language, where it grew into thousands of theses. To bring it into English, I used Claude to render those theses as the text you're reading. The thinking is entirely mine, worked out over years of practice and teaching; the AI handled the English wording, not the ideas behind it.*
 
 *Built by Ivan Zamesin. [nextmovetheory.com](http://nextmovetheory.com/?utm_source=canon&utm_medium=github) · [X](https://x.com/zamesin) · [LinkedIn](https://www.linkedin.com/in/ivan-zamesin/) · [ivan@nextmovetheory.com](mailto:ivan@nextmovetheory.com). The canon is a living document; it grows as new theses are validated in practice.*
