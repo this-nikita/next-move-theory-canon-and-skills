@@ -118,10 +118,23 @@ PY
 [ "$CLEANUP_SRC" = "1" ] && rm -rf "$SRC"
 
 echo ""
-echo "Done."
+echo "Done — Next Move Theory canon + skills installed. Free and open-source."
+echo ""
 echo "  skills:  $TARGET/.claude/skills/  and  $TARGET/.codex/skills/"
 echo "  canon:   $TARGET/Next-Move-Theory-Canon/"
-echo "Open your agent from $TARGET and the skills are available (e.g. /diagnose, /market-research)."
+echo "  readme:  $TARGET/NextMoveTheory-README.md"
+echo ""
+echo "Open your agent from $TARGET and run a skill — e.g. /diagnose or /market-research."
+echo ""
+echo "This is a free, open repository:"
+echo "  https://github.com/zamesin/Next-Move-Theory-Canon-and-Skills"
+echo ""
+echo "The canon is a living document — new theses, chapters, and skills ship over time."
+echo "To update, re-run this from your project root. It's safe and idempotent: it refreshes"
+echo "the canon, skills, and rules in place and leaves your own files untouched."
+echo "  curl -fsSL https://nextmovetheory.com/install.sh | bash"
+echo ""
+echo "Hear about new releases — subscribe at https://nextmovetheory.com"
 
 # Auto-remove the clone when we installed from one sitting directly inside the
 # target (the `git clone … && bash …/install.sh --target .` flow), so the command
