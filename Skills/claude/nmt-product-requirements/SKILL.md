@@ -1,19 +1,19 @@
 ---
-name: product-requirements
-description: Turn a chosen segment + Core Jobs into a build-ready PRD (full functionality + edge cases) using Ivan Zamesin's AJTBD / Next Move Theory methodology. It consumes upstream work — segments from /market-research, value from /craft-value-proposition — and never re-derives them; with no research done it routes you upstream first, or takes a manually described segment + value for a fast run. Before writing requirements it runs a "challenge the build" gate that looks for a more effective way to hit the same business goal; if a better way wins, the PRD is written for that. Output — a single PRD — functionality mapped Core Job → Big Job → value mechanic → success criteria → Aha Moment on the Critical Chain of Jobs, plus edge cases covering ~90% of use cases. Use when the user says "write the PRD / product requirements" or wants to turn a segment+value or a feature idea into a build spec. Two modes — Quick (default, no internet) and Deep (subagents + web parity check). Plain language; defaults to English.
+name: nmt-product-requirements
+description: Turn a chosen segment + Core Jobs into a build-ready PRD (full functionality + edge cases) using Ivan Zamesin's AJTBD / Next Move Theory methodology. It consumes upstream work — segments from /nmt-market-research, value from /nmt-craft-value-proposition — and never re-derives them; with no research done it routes you upstream first, or takes a manually described segment + value for a fast run. Before writing requirements it runs a "challenge the build" gate that looks for a more effective way to hit the same business goal; if a better way wins, the PRD is written for that. Output — a single PRD — functionality mapped Core Job → Big Job → value mechanic → success criteria → Aha Moment on the Critical Chain of Jobs, plus edge cases covering ~90% of use cases. Use when the user says "write the PRD / product requirements" or wants to turn a segment+value or a feature idea into a build spec. Two modes — Quick (default, no internet) and Deep (subagents + web parity check). Plain language; defaults to English.
 user-invocable: true
 ---
 
 # Product Requirements (PRD) v5 — English / US edition
 
-> **v5 in one breath.** The skill no longer re-derives segments (that is `/market-research`) or invents value (that is `/craft-value-proposition`) — it **consumes** their output, and it runs **no research itself**. With no upstream artifact it does one of two things: **route** the user to run `/market-research` → `/craft-value-proposition` first (the proper path), or — if the user just wants requirements fast and already knows their segment and value — take the **segment + Jobs + value straight from the user's description** (the fast path) and skip research entirely. It then adds a **"challenge the build"** gate before any requirement is written — *is building this even the right move, or is there a more energy-efficient way to perform the business Job?* — and writes the PRD for whatever wins. The deliverable is a **single PRD in three reading depths**: **Layer 1** (what we're building, plain, forwardable) → **Layer 2** (the reasoning) → **Layer 3** (the full build spec — every feature laddered Core Job → Big Job → value mechanic → success criteria → Aha Moment on the Critical Chain of Jobs + ~90% edge cases). Canon citations are **fenced** into Layer-3 `▸ methodology trace` lines, never inline; internal `CLAUDE.md Rule N` references never appear in the output. Canon is **loaded progressively** — an eager core up front, staged files only at the stage that needs them. Landing/ad/GTM copy moved to `/craft-go-to-market`; analytics and a standalone unit-economics model are out of scope (unit economics survives only as a reasoning filter).
+> **v5 in one breath.** The skill no longer re-derives segments (that is `/nmt-market-research`) or invents value (that is `/nmt-craft-value-proposition`) — it **consumes** their output, and it runs **no research itself**. With no upstream artifact it does one of two things: **route** the user to run `/nmt-market-research` → `/nmt-craft-value-proposition` first (the proper path), or — if the user just wants requirements fast and already knows their segment and value — take the **segment + Jobs + value straight from the user's description** (the fast path) and skip research entirely. It then adds a **"challenge the build"** gate before any requirement is written — *is building this even the right move, or is there a more energy-efficient way to perform the business Job?* — and writes the PRD for whatever wins. The deliverable is a **single PRD in three reading depths**: **Layer 1** (what we're building, plain, forwardable) → **Layer 2** (the reasoning) → **Layer 3** (the full build spec — every feature laddered Core Job → Big Job → value mechanic → success criteria → Aha Moment on the Critical Chain of Jobs + ~90% edge cases). Canon citations are **fenced** into Layer-3 `▸ methodology trace` lines, never inline; internal `CLAUDE.md Rule N` references never appear in the output. Canon is **loaded progressively** — an eager core up front, staged files only at the stage that needs them. Landing/ad/GTM copy moved to `/nmt-craft-go-to-market`; analytics and a standalone unit-economics model are out of scope (unit economics survives only as a reasoning filter).
 
 > **Producer contract (binding) — `../PRODUCER-CONTRACT.md`.** Six cross-cutting behaviors shared by all producer skills, from user feedback: (1) print a **helicopter-view** before the first question; (2) ask **Markdown or HTML** output; (3) treat **all** user input as hypothesis and emit a *"risks I see in what you gave me"* block; (4) print **validation debt** and write **`GO (to validation)`**, never bare `GO`; (5) accept a **custom output path**; (6) Deep mode runs an **evidence floor + self-critic loop** and offers a **web-MCP fallback**. The hooks below wire each into this skill; the contract is the source of truth for the wording. This skill is the **closest-to-build** artifact in the chain, so the validation-debt + *"validate before you build, don't build yet"* framing (§4) carries the most weight here — get it right.
 
 ## Where this skill sits in the chain
 
 ```
-/market-research   →   /craft-value-proposition   →   product-requirements   →   /craft-go-to-market
+/nmt-market-research   →   /nmt-craft-value-proposition   →   nmt-product-requirements   →   /nmt-craft-go-to-market
 (segment + Jobs +      (the value hypothesis +          (THIS SKILL:               (landing + ad +
  wedge + competitors)   §11 implementation spec)         the build spec)            GTM/growth comms)
 ```
@@ -28,7 +28,7 @@ This skill is the **build** step. It takes a chosen segment with its Core Jobs a
 2. **Layer 2 — The Reasoning** (2–4 pages, plain English): *why this build and not something else* — the challenge decision, the core capabilities and why, the failure cases that matter, the riskiest assumption + cheapest probe — each linking down to the full spec.
 3. **Layer 3 — The Full Work** (the build spec engineers and designers build against): the challenge gate, full functionality (every requirement laddered Core Job → Big Job → value mechanic → success criteria → Aha Moment on the Critical Chain of Jobs), the ~90% edge-case table, target users by Job, competitive parity, success metrics, risk handling, and an explicit out-of-scope.
 
-**Not produced (this version):** landing/ad/GTM copy → `/craft-go-to-market`; analytics plan → out of scope; standalone unit-economics model → out of scope (unit economics is used only as a *filter* inside the challenge and ranking, never emitted as a document).
+**Not produced (this version):** landing/ad/GTM copy → `/nmt-craft-go-to-market`; analytics plan → out of scope; standalone unit-economics model → out of scope (unit economics is used only as a *filter* inside the challenge and ranking, never emitted as a document).
 
 **Two modes:**
 - **Quick (default, ~5–10 min):** one Claude, no internet, no subagents. Fills the PRD directly from the loaded artifacts + reasoning.
@@ -75,7 +75,7 @@ Quick mode (one Claude): read the eager core, then read each staged file the fir
 
 > **Path note.** Use the paths above. If a file is not found there, retry with a `1-` prefix on the canon folder (`1-Next-Move-Theory-Canon/...`) — the source repo orders folders with a numeric prefix that the public repo strips.
 
-**This skill runs no research and performs no segmentation.** With no upstream artifact it either **routes** the user to `/market-research` → `/craft-value-proposition` (the proper path), or takes a **manually-described** segment + Jobs + value (the fast path) and writes the PRD directly. The canon files above are read to *build the PRD on* a segment+value that already exists — not to discover one.
+**This skill runs no research and performs no segmentation.** With no upstream artifact it either **routes** the user to `/nmt-market-research` → `/nmt-craft-value-proposition` (the proper path), or takes a **manually-described** segment + Jobs + value (the fast path) and writes the PRD directly. The canon files above are read to *build the PRD on* a segment+value that already exists — not to discover one.
 
 **Do NOT use generic JTBD from the internet or prior training.** Ivan Zamesin's AJTBD diverges substantially. Five mis-defaults to never propagate (per project `CLAUDE.md`):
 - A **Job** is a desired *transition* — State A (situation) → expected outcome (State B), in order to perform a higher-level Job. Not "a struggle for progress."
@@ -148,7 +148,7 @@ Skills-Results/{product-slug}/product-requirements/{YYYY-MM-DD_HH-MM}_{product-s
 
 Everything internal — the normalized input, the challenge (business-goal ladder, subtraction-first, the more-effective ways and which won, the locked build subject), the Critical Chain of Jobs per Core Job, dropped alternatives, and the self-critic verdicts — **stays in-context**; none of it is written to a separate file. The timestamp makes each run's file unique, so reruns never overwrite. Disclaimers (Rule 3) go at the top of this one file.
 
-**Attribution (Rule 23).** The PRD opens with the attribution top-line (the very first content, above the disclaimers) and closes with the attribution block — `utm_source=product-requirements&utm_medium=skill-artifact`.
+**Attribution (Rule 23).** The PRD opens with the attribution top-line (the very first content, above the disclaimers) and closes with the attribution block — `utm_source=nmt-product-requirements&utm_medium=skill-artifact`.
 
 ---
 
@@ -156,7 +156,7 @@ Everything internal — the normalized input, the challenge (business-goal ladde
 
 ```
 S0  Intake & route ──────(human: language, mode, input path) ──► [no research path? → route OUT
-     │                                                              to /market-research → /craft-value-
+     │                                                              to /nmt-market-research → /craft-value-
      │                                                              proposition, OR take a manual
      │                                                              segment+Jobs+value to write fast]
 S1  Select segment + Core Jobs ─(human: pick segment → pick Core Jobs)
@@ -194,8 +194,8 @@ Default **English**. If the user writes in another language, offer to work in it
 
 ```
 Q1 "Where are you starting from?"
-  - "I have a /craft-value-proposition result"   → Path A (best — segments AND value present)
-  - "I have a /market-research result"            → Path B (segments present; value not yet crafted)
+  - "I have a /nmt-craft-value-proposition result"   → Path A (best — segments AND value present)
+  - "I have a /nmt-market-research result"            → Path B (segments present; value not yet crafted)
   - "I haven't done research and want to"         → Path C (ROUTE OUT — run the chain first)
   - "Skip research — I know my segment & value"   → Path D (fast path — I'll describe them)
 
@@ -218,11 +218,11 @@ Q5 (Paths A/B only) "Path to the upstream result file?"  → free text; Read it.
 
 ### Resolve the input path
 
-- **Path A — craft-value-proposition result.** Read it. Its **§11 Implementation spec** already carries the product shape, the feature table (Core Job / criterion / mechanic / Aha link), Critical Chain of Jobs & Aha placement, cost-to-build & cheapest probe, unit-econ direction, and anti-segment — **plus** the target segment, Big Job(s), competitors, proof, and RAT cards in the body. **This is the richest input — segments AND value are both present.** Most of S1/S2 is already answered; confirm rather than re-ask, then go to S3.
-- **Path B — market-research result.** Read it. Parse the target segment(s) (✅/⚠️), their Core Jobs + success criteria, Big Jobs, competitors (direct/indirect/turnkey), the wedge, and the action-first RAT — **carry all of it forward, never regenerate it.** The value layer is *not yet crafted*, so say so: *"You have segments but no crafted value proposition. Strongly recommended: run `/craft-value-proposition` on the target segment first — the PRD is much sharper from a real value hypothesis. Run it now, or proceed using the market-research wedge as the value direction?"* If the user proceeds, use the wedge/differentiation hypothesis as the value direction; flag the reduced confidence at the top of the PRD.
-- **Hand-off debt — ask what has since been validated (Paths A/B only — `PRODUCER-CONTRACT.md §4c`).** The upstream artifact carried its own validation debt (its RAT / risk rows — segment, willingness-to-pay, value, channel assumptions). Debt travels down the chain; it is *not* silently dropped. Because this PRD is the closest-to-build artifact, ask once before building: *"Your {market-research / value-proposition} result rested on these unvalidated assumptions: {list the upstream RAT rows}. Which of these have you since checked in the field, and what did you find?"* Re-tag anything still unvalidated — it carries into this PRD's risk section (§7) and counts toward this PRD's validation debt (Layer 1), with the cheapest probe pointed at it. Anything the user confirms was validated is marked as such and drops out of the debt count.
-- **Path C — no research yet, wants it (ROUTE OUT — do not run research here).** Reply: *"The right order is `/market-research` → `/craft-value-proposition` → back here. Run `/market-research` first (it finds and scores the segments), then `/craft-value-proposition` (it builds the value hypothesis + a PRD-ready spec), then return and pick Path A. Want me to open the `/market-research` input prompt now?"* Hand off and stop — this skill does not size markets or discover segments.
-- **Path D — fast path, manual segment + Jobs + value (no research).** For the user who already knows the segment and the value and just wants requirements. Collect, by description/dictation: product (1–2 sentences) + URL if any; target segment NAME + causal criteria (behaviour/characteristic, **not** demographics); Big Job(s) + criteria; top 1–3 **Core Jobs** in canonical `When … I want to {outcome} with success criteria {direction+level}, in order to {Big Job}` form; **the value** (what value we create + roughly via which mechanic — this stands in for `/craft-value-proposition`); ≥3 known alternatives (direct/indirect/turnkey if known); the business goal. Validate against the invariants — fix multi-verb Jobs (Rule 7), demographic "criteria", and adjective "value" before proceeding. Then go straight into S1→S5. Flag reduced confidence at the top of the PRD (*"generated from a manually-described segment + value, not a research-backed one"*).
+- **Path A — nmt-craft-value-proposition result.** Read it. Its **§11 Implementation spec** already carries the product shape, the feature table (Core Job / criterion / mechanic / Aha link), Critical Chain of Jobs & Aha placement, cost-to-build & cheapest probe, unit-econ direction, and anti-segment — **plus** the target segment, Big Job(s), competitors, proof, and RAT cards in the body. **This is the richest input — segments AND value are both present.** Most of S1/S2 is already answered; confirm rather than re-ask, then go to S3.
+- **Path B — nmt-market-research result.** Read it. Parse the target segment(s) (✅/⚠️), their Core Jobs + success criteria, Big Jobs, competitors (direct/indirect/turnkey), the wedge, and the action-first RAT — **carry all of it forward, never regenerate it.** The value layer is *not yet crafted*, so say so: *"You have segments but no crafted value proposition. Strongly recommended: run `/nmt-craft-value-proposition` on the target segment first — the PRD is much sharper from a real value hypothesis. Run it now, or proceed using the nmt-market-research wedge as the value direction?"* If the user proceeds, use the wedge/differentiation hypothesis as the value direction; flag the reduced confidence at the top of the PRD.
+- **Hand-off debt — ask what has since been validated (Paths A/B only — `PRODUCER-CONTRACT.md §4c`).** The upstream artifact carried its own validation debt (its RAT / risk rows — segment, willingness-to-pay, value, channel assumptions). Debt travels down the chain; it is *not* silently dropped. Because this PRD is the closest-to-build artifact, ask once before building: *"Your {nmt-market-research / value-proposition} result rested on these unvalidated assumptions: {list the upstream RAT rows}. Which of these have you since checked in the field, and what did you find?"* Re-tag anything still unvalidated — it carries into this PRD's risk section (§7) and counts toward this PRD's validation debt (Layer 1), with the cheapest probe pointed at it. Anything the user confirms was validated is marked as such and drops out of the debt count.
+- **Path C — no research yet, wants it (ROUTE OUT — do not run research here).** Reply: *"The right order is `/nmt-market-research` → `/nmt-craft-value-proposition` → back here. Run `/nmt-market-research` first (it finds and scores the segments), then `/nmt-craft-value-proposition` (it builds the value hypothesis + a PRD-ready spec), then return and pick Path A. Want me to open the `/nmt-market-research` input prompt now?"* Hand off and stop — this skill does not size markets or discover segments.
+- **Path D — fast path, manual segment + Jobs + value (no research).** For the user who already knows the segment and the value and just wants requirements. Collect, by description/dictation: product (1–2 sentences) + URL if any; target segment NAME + causal criteria (behaviour/characteristic, **not** demographics); Big Job(s) + criteria; top 1–3 **Core Jobs** in canonical `When … I want to {outcome} with success criteria {direction+level}, in order to {Big Job}` form; **the value** (what value we create + roughly via which mechanic — this stands in for `/nmt-craft-value-proposition`); ≥3 known alternatives (direct/indirect/turnkey if known); the business goal. Validate against the invariants — fix multi-verb Jobs (Rule 7), demographic "criteria", and adjective "value" before proceeding. Then go straight into S1→S5. Flag reduced confidence at the top of the PRD (*"generated from a manually-described segment + value, not a research-backed one"*).
 
 ### User materials, claims ledger, input-as-hypothesis gate, direction confirmation (all paths)
 
@@ -249,7 +249,7 @@ Q "Which segment do we build for?"
   - "None of these"
 ```
 
-If the user picks **"None of these"**, the skill does **not** go discover a new market itself — it offers the two real options: *describe a different segment now (continue on the fast path), or run `/market-research` to find and score better segments and come back.* Never force a segment.
+If the user picks **"None of these"**, the skill does **not** go discover a new market itself — it offers the two real options: *describe a different segment now (continue on the fast path), or run `/nmt-market-research` to find and score better segments and come back.* Never force a segment.
 
 Then select the **Core Jobs** to design for (these are what the product performs fully — `job-graph.md §2`):
 
@@ -315,7 +315,7 @@ Q "Here's the build as specified, plus {N} potentially more-effective ways to hi
 Generate against the **locked build subject** for the **selected Core Jobs**. In Quick mode this is one pass; in Deep mode it is parallelized (below). Build the Critical Chain of Jobs first (held in context), then write **Layer 3** (the full build spec). **Compute Layer 2 and then Layer 1 LAST**, from the finished Layer-3 spec, wiring the `▸` drill-down links to the Layer-3 anchors.
 
 ### 4.0 The Critical Chain of Jobs per Core Job — consume from upstream, build only when absent
-- **Path A (craft-value-proposition input):** the §11 implementation spec already carries the **Critical Chain of Jobs & Aha placement** — **consume it, don't rebuild it.** Extend it only with what the PRD needs on top: the **shape** of each chain segment (AND-parallel / OR-alternative / conditional) and the **break sites** (hand-offs, cycles, slowest link, external-interruption points). If the S3 challenge changed the build subject, re-anchor the inherited chain on the new subject instead of starting over.
+- **Path A (nmt-craft-value-proposition input):** the §11 implementation spec already carries the **Critical Chain of Jobs & Aha placement** — **consume it, don't rebuild it.** Extend it only with what the PRD needs on top: the **shape** of each chain segment (AND-parallel / OR-alternative / conditional) and the **break sites** (hand-offs, cycles, slowest link, external-interruption points). If the S3 challenge changed the build subject, re-anchor the inherited chain on the new subject instead of starting over.
 - **Paths B / D (no value-prop chain):** construct the **Critical Chain of Jobs** from scratch per selected Core Job — the sequence of Micro Jobs that must all complete for the Big Job to land (`critical-chain.md §1–§2`) — with shapes, break sites, the **Aha-Moment position** and how far left it can be shifted.
 
 Either way, this chain is the substrate for both functionality (Layer 3 §3) and edge cases (Layer 3 §4), and is rendered as the Critical Chain of Jobs diagram in Layer 3 §3.
@@ -517,7 +517,7 @@ Render as a table, sorted by **importance-driven severity** (high-importance bre
 
 ## S5 — Assemble, self-critic, summarize
 
-Run the **self-critic** over the draft (Quick: a self-critique pass; Deep: a separate critic agent), fix in place, keep verdicts in-context. Then write the single result file and give the user a brief chat summary: what the challenge decided, what the PRD covers, the Aha Moment, the riskiest assumption to validate first, and the file path. Offer the handoff: *"Feed this PRD to `/craft-go-to-market` for landing + ad + GTM copy."*
+Run the **self-critic** over the draft (Quick: a self-critique pass; Deep: a separate critic agent), fix in place, keep verdicts in-context. Then write the single result file and give the user a brief chat summary: what the challenge decided, what the PRD covers, the Aha Moment, the riskiest assumption to validate first, and the file path. Offer the handoff: *"Feed this PRD to `/nmt-craft-go-to-market` for landing + ad + GTM copy."*
 
 ### Self-critic criteria (methodology only — format is guaranteed by the template)
 1. **No segment re-derivation** — the segment/Core Jobs were consumed from an upstream artifact or taken from the user's description; never discovered, sized, or scored inside this skill.
@@ -586,9 +586,9 @@ Web caps: parity ≤8 fetches; edge-case review mining ≤8. Source links mandat
 
 ## What this skill does NOT do
 
-- **Does not re-derive segments or size markets** → `/market-research`.
-- **Does not invent the value proposition or pick the target segment** → `/craft-value-proposition` (it consumes the §11 implementation spec).
-- **Does not write landing, ad, or GTM/growth copy** → `/craft-go-to-market`.
+- **Does not re-derive segments or size markets** → `/nmt-market-research`.
+- **Does not invent the value proposition or pick the target segment** → `/nmt-craft-value-proposition` (it consumes the §11 implementation spec).
+- **Does not write landing, ad, or GTM/growth copy** → `/nmt-craft-go-to-market`.
 - **Does not produce an analytics plan** (out of scope this version) or a **standalone unit-economics model** (unit economics is used only as a reasoning filter in S3/ranking).
 - **Does not run interviews or execute the RATs** — it names the riskiest assumption to validate; the user runs it next.
 - Quick mode: no internet, no subagents.

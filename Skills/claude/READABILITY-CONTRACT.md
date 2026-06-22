@@ -1,7 +1,7 @@
 # Readability contract — the 3-layer output gate (binding for all producer skills)
 
-> The four producer skills (`market-research`, `craft-value-proposition`, `product-requirements`,
-> `craft-go-to-market`) already specify a 3-layer output (Layer 1 *The Answer* → Layer 2 *The Reasoning*
+> The four producer skills (`nmt-market-research`, `nmt-craft-value-proposition`, `nmt-product-requirements`,
+> `nmt-craft-go-to-market`) already specify a 3-layer output (Layer 1 *The Answer* → Layer 2 *The Reasoning*
 > → Layer 3 *The Full Work*). In real runs the **spec was written but not enforced**: Layer 1 leaked
 > jargon, disclaimers tripled, the core risk repeated 5×, and drill-down links collided on shared anchors.
 > This contract turns each soft rule into a concrete, checkable gate. Apply every gate before the file
@@ -72,14 +72,14 @@ A non-obvious column header in a Layer-3 table carries a 3–6-word plain gloss 
 switch)," "Reachability (how easily you can get in front of them)."* Do not rely on the separate
 `references/glossary.md` — a casual reader never opens it.
 
-## Gate 6 — Segment depth across layers *(market-research)*
+## Gate 6 — Segment depth across layers *(nmt-market-research)*
 
 The target segment is **partially profiled in Layer 2** — who they are, what they're trying to get done,
 what they care about most, why they'd switch — plus a **brief strategic recommendation** (1–2 sentences:
 focus here / how to enter / what to lead with). The other top candidate segments get a light touch in
 Layer 2. The **full Map of Segments at depth lives in Layer 3.**
 
-## Gate 7 — Validation plan across layers *(market-research)*
+## Gate 7 — Validation plan across layers *(nmt-market-research)*
 
 The hypothesis-validation plan runs across all three depths:
 - **Layer 1** — a light touch (the make-or-break risk + the next action).

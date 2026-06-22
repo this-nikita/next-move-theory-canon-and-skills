@@ -8,7 +8,7 @@ This repository holds the open canon (the methodology, written as theses) and a 
 
 ## How to install
 
-Into your project root (sets up Claude Code + Codex). Clone and run the installer:
+Into your project root (sets up Claude Code + Codex). On **macOS / Linux**, clone and run the installer:
 
 ```bash
 git clone https://github.com/zamesin/Next-Move-Theory-Canon-and-Skills.git
@@ -21,7 +21,13 @@ Or do it in one command from the site:
 curl -fsSL https://nextmovetheory.com/install.sh | bash
 ```
 
+**On Windows?** There's a PowerShell installer — the Windows steps are in [Full details ▸](#install-into-your-project) below.
+
 [Full details ▸](#install-into-your-project)
+
+### Start here: run `/nmt-chat`
+
+After installing, **start with the onboarding — run `/nmt-chat`** (Claude Code) or `$nmt-chat` (Codex). It tells you what it and the other skills can do, and it's the human front door to the whole methodology: **paste whatever you have** — a half-formed idea, messy notes, a chat thread, a doc — and it pulls out the context, separates what you *know* from what you're *assuming*, and gives you the next concrete move. No methodologically-perfect brief required.
 
 ---
 
@@ -97,30 +103,31 @@ If you build, market, or decide the direction of a product, this is for you. You
 
 ## The skills
 
-The `Skills/` directory holds Claude Code skills that run the methodology for you. Each one reads the canon at runtime, so its output is grounded in *this* methodology, not the generic JTBD an LLM would otherwise reach for.
+The `Skills/` directory holds the skills that run the methodology for you — a `claude/` tree for **Claude Code** (invoke with `/nmt-…`) and a `codex/` tree for **OpenAI Codex** (invoke with `$nmt-…`). Each skill reads the canon at runtime, so its output is grounded in *this* methodology, not the generic JTBD an LLM would otherwise reach for. The two trees carry the same methodology; the Codex copy only swaps Claude-specific mechanics (structured questions, parallel sub-agents) for their Codex equivalents.
 
 | Skill | What it does |
 |---|---|
-| **[`ask-nmt`](Skills/ask-nmt/)** | A conversational **advisor** you can talk to. Ask any product, strategy, segmentation, value, pricing, growth, positioning, B2B, or methodology question and get an answer grounded in the canon, not generic JTBD. It explains concepts, diagnoses your real situation, pressure-tests your hypotheses like a skeptical senior PM, and hands off to the producer skills below when you want a full artifact. |
-| **[`diagnose`](Skills/diagnose/)** | A chat-first **diagnostic** for live products. Through up to ~15 adaptive questions it challenges the goal you walked in with (climbing your business-Job graph for a higher-leverage move), then surfaces **all** the risks, **all** the growth points, and the risky assumptions hiding inside your current initiatives. It prioritizes the first move and routes you to the skill that executes it. The front door for an existing product the way `market-research` is for a new idea. |
-| **[`market-research`](Skills/market-research/)** | Sizes the market and scores segments to answer *"which Jobs of which segment should we compete for first?"* Output: a **GO / NARROW / PIVOT** one-pager, segments scored on a five-factor screen, direct and indirect competitors, an action-first RAT plan, and alternative Big-Job markets to pivot into. |
-| **[`craft-value-proposition`](Skills/craft-value-proposition/)** | Takes a chosen segment + Jobs and builds the strongest **Value Proposition**: value hypotheses mapped over the Job Graph and the value-creation mechanics, filtered on feasibility, unit-economics, and competitiveness, ranked, with the top RAT cards. Output includes a PRD-ready implementation spec. |
-| **[`product-requirements`](Skills/product-requirements/)** | Turns the chosen segment + value into a build-ready **PRD** (full functionality + edge cases). First it runs a *"challenge the build"* gate that hunts for a cheaper way to hit the same business goal before specifying the build. |
-| **[`craft-go-to-market`](Skills/craft-go-to-market/)** | Turns the value proposition into ready-to-publish **go-to-market**: landing-page copy, ad / creative formulas, and an acquisition + growth-communication plan (channels loaded with Consideration Activators, lead magnets, viral loops, retention messaging). |
+| **[`nmt-chat`](Skills/claude/nmt-chat/)** | A conversational **advisor** you can talk to. Ask any product, strategy, segmentation, value, pricing, growth, positioning, B2B, or methodology question and get an answer grounded in the canon, not generic JTBD. It explains concepts, diagnoses your real situation, pressure-tests your hypotheses like a skeptical senior PM, and hands off to the producer skills below when you want a full artifact. |
+| **[`nmt-diagnose`](Skills/claude/nmt-diagnose/)** | A chat-first **diagnostic** for live products. Through up to ~15 adaptive questions it challenges the goal you walked in with (climbing your business-Job graph for a higher-leverage move), then surfaces **all** the risks, **all** the growth points, and the risky assumptions hiding inside your current initiatives. It prioritizes the first move and routes you to the skill that executes it. The front door for an existing product the way `nmt-market-research` is for a new idea. |
+| **[`nmt-market-research`](Skills/claude/nmt-market-research/)** | Sizes the market and scores segments to answer *"which Jobs of which segment should we compete for first?"* Output: a **GO / NARROW / PIVOT** one-pager, segments scored on a five-factor screen, direct and indirect competitors, an action-first RAT plan, and alternative Big-Job markets to pivot into. |
+| **[`nmt-craft-value-proposition`](Skills/claude/nmt-craft-value-proposition/)** | Takes a chosen segment + Jobs and builds the strongest **Value Proposition**: value hypotheses mapped over the Job Graph and the value-creation mechanics, filtered on feasibility, unit-economics, and competitiveness, ranked, with the top RAT cards. Output includes a PRD-ready implementation spec. |
+| **[`nmt-product-requirements`](Skills/claude/nmt-product-requirements/)** | Turns the chosen segment + value into a build-ready **PRD** (full functionality + edge cases). First it runs a *"challenge the build"* gate that hunts for a cheaper way to hit the same business goal before specifying the build. |
+| **[`nmt-craft-go-to-market`](Skills/claude/nmt-craft-go-to-market/)** | Turns the value proposition into ready-to-publish **go-to-market**: landing-page copy, ad / creative formulas, and an acquisition + growth-communication plan (channels loaded with Consideration Activators, lead magnets, viral loops, retention messaging). |
+| **[`nmt-analyze-interviews`](Skills/claude/nmt-analyze-interviews/)** | Takes customer-interview files you already have (transcripts, notes, sales/support calls, survey open-ends) and **extracts the AJTBD structure**: segments by Core Jobs, personas, existing Solutions and Problems, a Consideration Set, and value hypotheses — each with an honest confidence — plus a gap list of what to interview next. The post-fieldwork counterpart to the interview guide. |
 
-**Two front doors.** **`/ask-nmt`** is the conversational front door for advice, explanation, or pressure-testing an idea. **`/diagnose`** is the front door for a *live product*: it finds your risks and growth points and routes you to the next move. Both answer from the canon and point you to the right producer skill when you need a full artifact. For a brand-new idea, start at `/market-research`.
+**Two front doors.** **`/nmt-chat`** is the conversational front door for advice, explanation, or pressure-testing an idea. **`/nmt-diagnose`** is the front door for a *live product*: it finds your risks and growth points and routes you to the next move. Both answer from the canon and point you to the right producer skill when you need a full artifact. For a brand-new idea, start at `/nmt-market-research`.
 
 **The four producer skills form a pipeline**, each one building on the artifact the one before it produced:
 
-1. **`/market-research`** → pick the segment and the Core Jobs to compete for (with the GO / NARROW / PIVOT verdict and the riskiest assumptions to test).
-2. **`/craft-value-proposition`** → feed it the market-research result; get the value proposition plus a PRD-ready implementation spec.
+1. **`/nmt-market-research`** → pick the segment and the Core Jobs to compete for (with the GO / NARROW / PIVOT verdict and the riskiest assumptions to test).
+2. **`/nmt-craft-value-proposition`** → feed it the nmt-market-research result; get the value proposition plus a PRD-ready implementation spec.
 3. From the value proposition, branch to either (or both):
-   - **`/product-requirements`** → the build-ready PRD, *what to build*. It consumes the segment from step 1 and the value from step 2.
-   - **`/craft-go-to-market`** → the landing page, ads, and growth plan, *how to sell it*. Works best from the value proposition; also accepts the PRD or the market-research result.
+   - **`/nmt-product-requirements`** → the build-ready PRD, *what to build*. It consumes the segment from step 1 and the value from step 2.
+   - **`/nmt-craft-go-to-market`** → the landing page, ads, and growth plan, *how to sell it*. Works best from the value proposition; also accepts the PRD or the nmt-market-research result.
 
 You can also jump in mid-pipeline if you already know your segment and Jobs. Each skill takes what you hand it, or routes you back to the step it needs first.
 
-All six are **user-invocable** in Claude Code (`/ask-nmt`, `/diagnose`, `/market-research`, `/craft-value-proposition`, `/product-requirements`, `/craft-go-to-market`). The four producers each have a fast **Quick** mode (no internet) and a deeper **Deep** mode (subagents + web research). `/ask-nmt` and `/diagnose` are conversational (no file unless you ask).
+All seven are **user-invocable** — in Claude Code as `/nmt-chat`, `/nmt-diagnose`, `/nmt-market-research`, `/nmt-craft-value-proposition`, `/nmt-product-requirements`, `/nmt-craft-go-to-market`, `/nmt-analyze-interviews`; in Codex as the same names with a `$` (`$nmt-diagnose`, …), or pick them from `/skills`. The shared `nmt-` prefix keeps the whole family together in the picker. The four producers each have a fast **Quick** mode (no internet) and a deeper **Deep** mode (web research; parallel sub-agents on Claude Code, sequential on Codex). `/nmt-chat` and `/nmt-diagnose` are conversational (no file unless you ask).
 
 > The skills produce **hypotheses, not conclusions.** Every number is an LLM-generated estimate with a verification path attached. Validate before any decision with expensive consequences. That's the RAT discipline the methodology is built on.
 
@@ -128,16 +135,25 @@ All six are **user-invocable** in Claude Code (`/ask-nmt`, `/diagnose`, `/market
 
 Install the canon + skills **into the root of your existing project** (the folder you run your agent from) with **one command**:
 
+**macOS / Linux:**
+
 ```bash
 curl -fsSL https://nextmovetheory.com/install.sh | bash
 ```
 
-That's the whole install: clone + setup in one step, so there's nothing to "run next." It clones the repo to a temp dir and lays everything into your project root. After install that root looks like:
+**Windows (PowerShell):** clone the repo, then run the PowerShell installer:
+
+```powershell
+git clone https://github.com/zamesin/Next-Move-Theory-Canon-and-Skills
+powershell -ExecutionPolicy Bypass -File Next-Move-Theory-Canon-and-Skills\install.ps1 -Target .
+```
+
+That's the whole install: clone + setup in one step, so there's nothing to "run next." It lays everything into your project root. After install that root looks like:
 
 ```
 your-project/
-├── .claude/skills/<skill>/        # skills for Claude Code
-├── .codex/skills/<skill>/         # skills for Codex
+├── .claude/skills/<skill>/        # skills for Claude Code — invoke with /nmt-…
+├── .agents/skills/<skill>/        # skills for Codex        — invoke with $nmt-…
 ├── Next-Move-Theory-Canon/        # the canon — keep this exact name (skills read it by this path)
 ├── AGENTS.md                      # your existing file — rules injected between markers
 ├── CLAUDE.md                      # your existing file — rules injected between markers
@@ -151,28 +167,29 @@ bash install.sh            # installs into the PARENT dir (your project root)
 # or: bash install.sh --target /path/to/your/project
 ```
 
-Then invoke a skill:
+Then invoke a skill — `/nmt-…` in Claude Code, `$nmt-…` in Codex:
 
 ```
-/diagnose            # what should I do next with my product?
-/market-research a tool that drafts SOC 2 evidence for early-stage SaaS
+/nmt-diagnose            # Claude Code — what should I do next with my product?
+$nmt-diagnose            # Codex — same skill
+/nmt-market-research a tool that drafts SOC 2 evidence for early-stage SaaS
 ```
 
 **Updating later:** re-run the install command. It's **idempotent**: the canon and skills are replaced, the rules between `<!-- Next-Move-Theory-Rules:start -->` … `<!-- Next-Move-Theory-Rules:end -->` are refreshed in place, and your own text outside the markers is untouched.
 
-> **Note for AI agents:** if a user asks you to "install this repo," do **not** stop at `git clone`. That leaves the skills in a nested `Skills/` folder where no agent will find them. Run the one-command installer (or `bash install.sh` from the clone). The skills must end up in `.claude/skills/` and `.codex/skills/` at the project root, never in a top-level `Skills/` folder.
+> **Note for AI agents:** if a user asks you to "install this repo," do **not** stop at `git clone`. That leaves the skills in a nested `Skills/` folder where no agent will find them. Run the one-command installer (`bash install.sh` on macOS/Linux, `install.ps1` on Windows). The skills must end up in `.claude/skills/` (Claude Code) and `.agents/skills/` (Codex) at the project root, never in a top-level `Skills/` folder.
 
 <details>
 <summary><b>What the installer does (manual equivalent)</b></summary>
 
-The installer enforces these rules: everything lands in the **project root**; `.claude`/`.codex`/canon are never nested inside one another; skills go **inside** `.claude/skills/` and `.codex/skills/` (never a standalone top-level `Skills/`); the canon folder keeps the exact name `Next-Move-Theory-Canon` (skills read it by that relative path); the rules are injected **between markers** into your existing `CLAUDE.md`/`AGENTS.md` (not a separate file, not overwriting your content); the README is copied in renamed; and re-running is idempotent. The equivalent by hand:
+The installer enforces these rules: everything lands in the **project root**; `.claude`/`.agents`/canon are never nested inside one another; the **Claude** skills go inside `.claude/skills/` and the **Codex** skills inside `.agents/skills/` (never a standalone top-level `Skills/`); the canon folder keeps the exact name `Next-Move-Theory-Canon` (skills read it by that relative path); the rules are injected **between markers** into your existing `CLAUDE.md`/`AGENTS.md` (not a separate file, not overwriting your content); the README is copied in renamed; and re-running is idempotent. The equivalent by hand:
 
 ```bash
 SRC=$(mktemp -d) && git clone --depth 1 https://github.com/zamesin/Next-Move-Theory-Canon-and-Skills.git "$SRC"
 rm -rf ./Next-Move-Theory-Canon && cp -r "$SRC/Next-Move-Theory-Canon" ./Next-Move-Theory-Canon
-mkdir -p .claude/skills .codex/skills
-cp -r "$SRC"/Skills/. .claude/skills/
-cp -r "$SRC"/Skills/. .codex/skills/
+mkdir -p .claude/skills .agents/skills
+cp -r "$SRC"/Skills/claude/. .claude/skills/   # Claude Code copy
+cp -r "$SRC"/Skills/codex/.  .agents/skills/   # Codex copy
 cp "$SRC/README.md" ./NextMoveTheory-README.md
 # then inject the rules block from "$SRC/CLAUDE.md" and "$SRC/AGENTS.md" between the markers
 rm -rf "$SRC"
@@ -276,10 +293,13 @@ Next-Move-Theory-Canon-and-Skills/
 │   ├── Next-Move-Theory/               #   the integrative meta-framework above AJTBD
 │   ├── HowTos/                         #   practical guides — start with the interview guide
 │   └── Algorithms/                     #   how the pieces combine into one loop
-└── Skills/                             # Claude Code skills that run the methodology
-    ├── market-research/
-    ├── craft-value-proposition/
-    └── product-requirements/
+└── Skills/                      # the skills that run the methodology
+    ├── claude/                         #   Claude Code copy — invoke with /nmt-…
+    │   ├── nmt-market-research/
+    │   ├── nmt-craft-value-proposition/
+    │   └── nmt-product-requirements/
+    └── codex/                          #   Codex copy — invoke with $nmt-…
+        └── nmt-…/
 ```
 
 ---
