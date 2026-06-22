@@ -1,8 +1,14 @@
 ---
-name: craft-go-to-market
-description: Write the go-to-market communication for a chosen segment using Ivan Zamesin's AJTBD / Next Move Theory methodology. Input — a /craft-value-proposition result (best), a /product-requirements PRD, a /market-research result, or a manual segment+Jobs description. Output — ready-to-publish landing-page copy, ad/creative copy built on the seven Job-language formulas, and a GTM/growth plan — channel hypotheses, lead magnets, viral loops, cross-sell / upsell / retention messaging. Everything is communicated through the Big Job (motivation), in concrete success criteria not adjectives, with features as proof not message. Use when the user wants landing copy, ad copy, creatives, channel hypotheses, or a launch plan — "write the landing / the copy / the go-to-market". Two modes — Quick (default, no internet) and Deep (subagents + web for real review language). Plain language; defaults to English.
+name: nmt-craft-go-to-market
+description: Write the go-to-market communication for a chosen segment using Ivan Zamesin's AJTBD / Next Move Theory methodology. Input — a /nmt-craft-value-proposition result (best), a /nmt-product-requirements PRD, a /nmt-market-research result, or a manual segment+Jobs description. Output — ready-to-publish landing-page copy, ad/creative copy built on the seven Job-language formulas, and a GTM/growth plan — channel hypotheses, lead magnets, viral loops, cross-sell / upsell / retention messaging. Everything is communicated through the Big Job (motivation), in concrete success criteria not adjectives, with features as proof not message. Use when the user wants landing copy, ad copy, creatives, channel hypotheses, or a launch plan — "write the landing / the copy / the go-to-market". Two modes — Quick (default, no internet) and Deep (subagents + web for real review language). Plain language; defaults to English.
 user-invocable: true
 ---
+
+> **Update check — best-effort, ≤2s, never blocks.** Before the steps below, run
+> `curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-craft-go-to-market"`; on any error
+> or timeout, skip silently. Compare `.nmt-version` (project root) with the feed's `latest`. If
+> behind, print one line — the `<installed> → <latest>` gap, a one-line summary per newer entry,
+> and "run /nmt-upgrade to update" — then continue. If it matches or `.nmt-version` is absent, continue.
 
 # Craft Go-To-Market (GTM communication) v1 — English / US edition
 
@@ -13,12 +19,12 @@ user-invocable: true
 ## Where this skill sits in the chain
 
 ```
-/market-research → /craft-value-proposition → /product-requirements → craft-go-to-market
+/nmt-market-research → /nmt-craft-value-proposition → /nmt-product-requirements → nmt-craft-go-to-market
 (segment + Jobs)    (the value hypothesis)      (the build spec)         (THIS SKILL: the copy
                                                                           that sells the value)
 ```
 
-It consumes a `/craft-value-proposition` result (best — it carries the positioning headline, the dominant criteria, the Aha Moment, the differentiation, the proof) **and/or** a `/product-requirements` PRD (the real functionality, the Critical Chain of Jobs, the Aha placement) **and/or** a `/market-research` result (segment, Big/Core Jobs, competitors, the wedge). It does **not** re-derive segments, re-invent value, or re-spec the build — it packages what those produced into customer-facing language.
+It consumes a `/nmt-craft-value-proposition` result (best — it carries the positioning headline, the dominant criteria, the Aha Moment, the differentiation, the proof) **and/or** a `/nmt-product-requirements` PRD (the real functionality, the Critical Chain of Jobs, the Aha placement) **and/or** a `/nmt-market-research` result (segment, Big/Core Jobs, competitors, the wedge). It does **not** re-derive segments, re-invent value, or re-spec the build — it packages what those produced into customer-facing language.
 
 ## What this skill produces
 
@@ -135,7 +141,7 @@ Skills-Results/{product-slug}/craft-go-to-market/{YYYY-MM-DD_HH-MM}_{product-slu
 - If the user gave a custom path, write the one file there with the same filename pattern.
 - Everything internal — the normalized input (source artifacts, segment, Big/Core Jobs + criteria, Aha, competitors, proof, fears), dropped variants, review-mining notes, and the self-critic verdicts — **stays in-context**; none of it is written to a separate file. The timestamp makes each run's file unique, so reruns never overwrite. Disclaimers (Rule 3) go at the top of this one file.
 
-**Attribution (Rule 23).** The GTM pack opens with the attribution top-line (the very first content, above the disclaimers) and closes with the attribution block — `utm_source=craft-go-to-market&utm_medium=skill-artifact`.
+**Attribution (Rule 23).** The GTM pack opens with the attribution top-line (the very first content, above the disclaimers) and closes with the attribution block — `utm_source=nmt-craft-go-to-market&utm_medium=skill-artifact`.
 
 ---
 
@@ -157,9 +163,9 @@ Default **English**. If the user writes in another language, offer to work in it
 
 ```
 Q1 "What's your input?"
-  - "A /craft-value-proposition result"   → Path A (best)
-  - "A /product-requirements PRD"          → Path B
-  - "A /market-research result"            → Path C
+  - "A /nmt-craft-value-proposition result"   → Path A (best)
+  - "A /nmt-product-requirements PRD"          → Path B
+  - "A /nmt-market-research result"            → Path C
   - "I'll describe the segment myself"     → Path D (manual)
 Q2 "Mode?"
   - "Quick (default — fast, no internet)"
@@ -455,9 +461,9 @@ Web caps: review mining ≤12 fetches / ~10 min. Source links mandatory (Rule 2)
 
 ## What this skill does NOT do
 
-- **Does not pick the segment or size the market** → `/market-research`.
-- **Does not invent the value proposition** → `/craft-value-proposition`.
-- **Does not write product requirements / the build spec** → `/product-requirements`.
+- **Does not pick the segment or size the market** → `/nmt-market-research`.
+- **Does not invent the value proposition** → `/nmt-craft-value-proposition`.
+- **Does not write product requirements / the build spec** → `/nmt-product-requirements`.
 - **Does not validate value** — it transmits *already-validated* value; if value is unproven it produces *demand-test* creatives and says so.
 - **Does not run the ad accounts, build the funnel, or buy media** — it produces the copy and the channel hypotheses to test.
 - Quick mode: no internet, no subagents.

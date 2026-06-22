@@ -1,16 +1,38 @@
 ---
-name: diagnose
-description: Diagnose a product against Ivan Zamesin's Next Move Theory / Advanced Jobs To Be Done methodology (distinct from generic Christensen JTBD) and route to the next move. A conversational, chat-first skill — through up to ~15 adaptive questions it challenges the goal you walked in with (climbing your business-Job graph to find a higher-leverage growth point), then surfaces EVERYTHING the methodology can find: all the risks (every weak node on the chain to profit, each traced to its upstream cause), all the growth points (kill a Job, Previous/Next Job, climb a level, adjacent-segment Small Jobs, underserved success criteria), and the risky assumptions hiding inside your current initiatives (RAT). It is comprehensive on findings and focused on action — it lists them all, then says which one to tackle first and which existing skill executes it (market-research, craft-value-proposition, product-requirements, craft-go-to-market, ask-nmt). The front door for LIVE products the way market-research is the front door for new ideas. Use when the user says "diagnose my product", "what should I do next", "a metric dropped", "where are my risks / growth points", "where is this breaking", or is unsure what to work on. Chat-first: writes nothing unless asked; recommends the next skill but the user launches it. Plain language; defaults to English.
+name: nmt-diagnose
+description: >-
+  Diagnose a product against Ivan Zamesin's Next Move Theory / Advanced Jobs To Be Done
+  methodology (distinct from generic Christensen JTBD) and route to the next move. A
+  conversational, chat-first skill — through up to ~15 adaptive questions it challenges the
+  goal you walked in with (climbing your business-Job graph to find a higher-leverage growth
+  point), then surfaces EVERYTHING the methodology can find: all the risks (every weak node on
+  the chain to profit, each traced to its upstream cause), all the growth points (kill a Job,
+  Previous/Next Job, climb a level, adjacent-segment Small Jobs, underserved success
+  criteria), and the risky assumptions hiding inside your current initiatives (RAT). It is
+  comprehensive on findings and focused on action — it lists them all, then says which one to
+  tackle first and which existing skill executes it (nmt-market-research, nmt-craft-value-
+  proposition, nmt-product-requirements, nmt-craft-go-to-market, nmt-chat). The front door for
+  LIVE products the way nmt-market-research is the front door for new ideas. Use when the user
+  says "diagnose my product", "what should I do next", "a metric dropped", "where are my risks
+  / growth points", "where is this breaking", or is unsure what to work on. Chat-first: writes
+  nothing unless asked; recommends the next skill but the user launches it. Plain language;
+  defaults to English.
 user-invocable: true
 ---
+
+> **Update check — best-effort, ≤2s, never blocks.** Before the steps below, run
+> `curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-diagnose"`; on any error
+> or timeout, skip silently. Compare `.nmt-version` (project root) with the feed's `latest`. If
+> behind, print one line — the `<installed> → <latest>` gap, a one-line summary per newer entry,
+> and "run /nmt-upgrade to update" — then continue. If it matches or `.nmt-version` is absent, continue.
 
 # Diagnose — the Next Move Theory product diagnostic v1
 
 A chat-first diagnostic that finds **everything** the methodology can see in a product — all risks, all growth points, the risky assumptions inside your current initiatives — then prioritizes the first move and routes you to the skill that executes it.
 
-> **One breath.** `/diagnose` is Phase I of the Algorithm made conversational (`the-algorithm.md` Step 1 *challenge the goal* + Step 2 *diagnose the current state*, walked over the cause-and-effect chain to profit, §2). It is **comprehensive on findings, focused on action**: it surfaces all the risks and growth points and current-initiative assumptions it can find — not just one headline — then applies focus as a recommendation on top (*"here's everything; here's what I'd tackle first and why"*), and routes to the right producer skill. It writes nothing by default; it recommends the next skill, and you launch it.
+> **One breath.** `/nmt-diagnose` is Phase I of the Algorithm made conversational (`the-algorithm.md` Step 1 *challenge the goal* + Step 2 *diagnose the current state*, walked over the cause-and-effect chain to profit, §2). It is **comprehensive on findings, focused on action**: it surfaces all the risks and growth points and current-initiative assumptions it can find — not just one headline — then applies focus as a recommendation on top (*"here's everything; here's what I'd tackle first and why"*), and routes to the right producer skill. It writes nothing by default; it recommends the next skill, and you launch it.
 
-> **Two front doors.** New idea, no paying customers → `/market-research` (find and score paying segments). Live product — something's off, or you want the next move → **`/diagnose`** (find the constraints + growth points, then route, often back into `/market-research`, `/craft-value-proposition`, `/product-requirements`, or `/craft-go-to-market`). `/diagnose` decides which door you actually needed.
+> **Two front doors.** New idea, no paying customers → `/nmt-market-research` (find and score paying segments). Live product — something's off, or you want the next move → **`/nmt-diagnose`** (find the constraints + growth points, then route, often back into `/nmt-market-research`, `/nmt-craft-value-proposition`, `/nmt-product-requirements`, or `/nmt-craft-go-to-market`). `/nmt-diagnose` decides which door you actually needed.
 
 ---
 
@@ -95,7 +117,7 @@ Market with money
 | Revenue flat despite usage | Monetization / unit economics; value captured by the wrong tier | Unit economics |
 | "Busy but not growing" | No focus (effort on non-binding nodes); or local optimum when a global move is needed | Focus / local-vs-global |
 | "Don't know our best customers" | Segment not defined by Jobs (ABCDX never run) | Segment+Job |
-| "Idea, no customers yet" | Not a constraint problem — discovery | → route to `/market-research` |
+| "Idea, no customers yet" | Not a constraint problem — discovery | → route to `/nmt-market-research` |
 
 **The growth-points lens** (`the-algorithm §6`): the real value usually sits **outside** the current Core Jobs — in the Previous and Next Jobs, the Big Jobs (climb a level), an adjacent segment's Small Jobs, emotional/Orientation Jobs, kill-a-Job moves, and Critical Chain of Jobs repairs. Sweep for these, not only for what's broken.
 
@@ -124,7 +146,7 @@ Then **document language** — default English; if the user writes in another la
 Artifact: the original task confirmed as worth pursuing, **or** a reframed higher-level goal (with the climb that justifies it) + the alternatives cut. Everything downstream is diagnosed against the *right* goal.
 
 ### 2 — Context + current initiatives
-- **Stage / PMF:** idea (PMF 0) · early, few payers · paying base, weak PMF · strong PMF, scaling. The master branch — PMF 0 routes mostly to `/market-research`; a live product opens the ABCDX path.
+- **Stage / PMF:** idea (PMF 0) · early, few payers · paying base, weak PMF · strong PMF, scaling. The master branch — PMF 0 routes mostly to `/nmt-market-research`; a live product opens the ABCDX path.
 - Product in one line + the Core Job hypothesis (what people hire it for).
 - B2C / B2B.
 - **Current initiatives / roadmap:** *"What are you doing or planning right now about this — features, bets, experiments?"* Capture everything; each becomes a target for the RAT pass (every initiative is a stack of assumptions — extract and flag the riskiest). Skip if none.
@@ -170,14 +192,14 @@ The diagnosis ends by pointing the first-move item at exactly one next skill (so
 
 | First-move finding | Route | Handoff line |
 |---|---|---|
-| No paying customers yet / don't know the segment (PMF 0) | `/market-research` → then `/craft-value-proposition` | *"The constraint is discovery, not your funnel. Run `/market-research` to find and score the paying segments first."* |
-| Segment unknown on a live base (ABCDX never run) | ABCDX (lightweight inline triage → run it properly), then back here or `/craft-value-proposition` | *"Run ABCDX on your paying base to find your A-segment — the rest depends on knowing who's profitable."* |
-| Value weak / not noticeable / no differentiation | `/craft-value-proposition` | *"The constraint is value, not acquisition. Run `/craft-value-proposition` on your A-segment."* |
-| Job/segment hypotheses unproven in the field | run AJTBD customer interviews (canon interview guide) · `/ask-nmt` to design the study | *"You're reasoning on unvalidated Jobs. Go run AJTBD interviews with past-payers — `/ask-nmt` can help you design the study."* |
-| Know the value, need to build it | `/product-requirements` | *"The value is clear; the constraint is execution. Run `/product-requirements`."* |
-| Acquisition / message / channel | `/craft-go-to-market` | *"Value is fine; the constraint is reaching them with the right message. Run `/craft-go-to-market`."* |
-| Methodology question / wants to think it through | `/ask-nmt` | *"Let's think it through — `/ask-nmt`."* |
-| Unit economics / monetization | (no dedicated skill yet) — diagnosis + `/ask-nmt` | *"The constraint is per-unit math; here's the shape of the fix — pressure-test it in `/ask-nmt`."* |
+| No paying customers yet / don't know the segment (PMF 0) | `/nmt-market-research` → then `/nmt-craft-value-proposition` | *"The constraint is discovery, not your funnel. Run `/nmt-market-research` to find and score the paying segments first."* |
+| Segment unknown on a live base (ABCDX never run) | ABCDX (lightweight inline triage → run it properly), then back here or `/nmt-craft-value-proposition` | *"Run ABCDX on your paying base to find your A-segment — the rest depends on knowing who's profitable."* |
+| Value weak / not noticeable / no differentiation | `/nmt-craft-value-proposition` | *"The constraint is value, not acquisition. Run `/nmt-craft-value-proposition` on your A-segment."* |
+| Job/segment hypotheses unproven in the field | run AJTBD customer interviews (canon interview guide) · `/nmt-chat` to design the study | *"You're reasoning on unvalidated Jobs. Go run AJTBD interviews with past-payers — `/nmt-chat` can help you design the study."* |
+| Know the value, need to build it | `/nmt-product-requirements` | *"The value is clear; the constraint is execution. Run `/nmt-product-requirements`."* |
+| Acquisition / message / channel | `/nmt-craft-go-to-market` | *"Value is fine; the constraint is reaching them with the right message. Run `/nmt-craft-go-to-market`."* |
+| Methodology question / wants to think it through | `/nmt-chat` | *"Let's think it through — `/nmt-chat`."* |
+| Unit economics / monetization | (no dedicated skill yet) — diagnosis + `/nmt-chat` | *"The constraint is per-unit math; here's the shape of the fix — pressure-test it in `/nmt-chat`."* |
 
 ---
 

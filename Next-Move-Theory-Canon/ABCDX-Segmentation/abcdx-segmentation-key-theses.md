@@ -1,5 +1,7 @@
 # ABCDX segmentation key theses
 
+*ABCDX segmentation was created by [Ilya Krasinsky](https://www.linkedin.com/in/ikrasinsky/).*
+
 **ABCDX sorts your paying customers into five groups, then moves resources to the ones worth keeping.** You rank current customers on two things: how much per-unit margin each one earns, and how satisfied each one is. Those two axes give four groups — A, B, C, and D. A fifth group, X, is everyone who touched the product but fits none of the four.
 
 The move is simple. Put more into the profitable, satisfied customers (A and B). Stop spending on the unprofitable, unhappy ones (C and D). Automate them down or let them go. Watch X closely. These are people whose real Jobs sit outside what the product does today, and they point to where new markets might be.
