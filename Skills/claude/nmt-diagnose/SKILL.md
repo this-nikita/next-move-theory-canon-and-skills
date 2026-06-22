@@ -20,6 +20,11 @@ description: >-
 user-invocable: true
 ---
 
+> **First, run the version check** in [`../VERSION-CHECK.md`](../VERSION-CHECK.md):
+> a best-effort, ≤2s, silent-on-failure check that tells the user once if a newer
+> NMT version is available (pass this skill's name as `?skill=`). It never blocks —
+> continue with this skill regardless.
+
 # Diagnose — the Next Move Theory product diagnostic v1
 
 A chat-first diagnostic that finds **everything** the methodology can see in a product — all risks, all growth points, the risky assumptions inside your current initiatives — then prioritizes the first move and routes you to the skill that executes it.

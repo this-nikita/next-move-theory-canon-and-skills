@@ -4,6 +4,11 @@ description: Write the go-to-market communication for a chosen segment using Iva
 user-invocable: true
 ---
 
+> **First, run the version check** in [`../VERSION-CHECK.md`](../VERSION-CHECK.md):
+> a best-effort, ≤2s, silent-on-failure check that tells the user once if a newer
+> NMT version is available (pass this skill's name as `?skill=`). It never blocks —
+> continue with this skill regardless.
+
 # Craft Go-To-Market (GTM communication) v1 — English / US edition
 
 > **One breath.** This skill packages **already-created, validated value** into the communication that acquires customers — landing copy, ad/creative copy, and a GTM/growth-communication plan. It is the last step of the chain and consumes the steps before it; it never invents the segment, the value, or the build. Everything is communicated **through the Big Job** (where motivation lives), stated in **concrete success criteria** (not adjectives), with **features as proof not message**, fears reduced and the competing Job Graph fired. Communication transmits value — it cannot manufacture it; if the value isn't validated yet, the skill says so and better copy only accelerates disappointment.

@@ -4,6 +4,11 @@ description: Run market research for a product or feature idea using Ivan Zamesi
 user-invocable: true
 ---
 
+> **First, run the version check** in [`../VERSION-CHECK.md`](../VERSION-CHECK.md):
+> a best-effort, ≤2s, silent-on-failure check that tells the user once if a newer
+> NMT version is available (pass this skill's name as `?skill=`). It never blocks —
+> continue with this skill regardless.
+
 # Market Research v11
 
 > **v11 in one breath.** Before any research runs, an **intake gate** closes the gaps that change the research: adaptive clarifying questions (with "I don't have this info" as a valid answer), user materials read in, a **user-claims ledger** (the user's inputs are hypotheses, not facts), and a **direction confirmation**. The deliverable is a **decision**: an A4 one-pager with a **GO (to validation) / NARROW / PIVOT** verdict, segments scored on the **five-factor selection screen**, an **action-first** RAT, and **ranked strategic options** (incl. pivot markets that fit the idea's assets). Quick mode sizes honestly (one calculation, assumptions named); the 3-method averaging runs only in Deep mode, on real sources. Full version history is in `CHANGELOG.md` beside this file.

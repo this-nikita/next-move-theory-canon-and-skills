@@ -97,6 +97,16 @@ cp -r "$SRC"/Skills/codex/.  "$TARGET/.agents/skills/"
 # 3. README, renamed (so it doesn't clobber your project's own README).
 cp "$SRC/README.md" "$TARGET/NextMoveTheory-README.md"
 
+# 3b. Record the installed version (top entry of the changelog) so the skills'
+#     launch-time check can compare it against nextmovetheory.com/version.
+#     Best-effort — never fail the install over this.
+if [ -f "$SRC/CHANGELOG.md" ]; then
+  # First heading whose title starts with a digit = the latest release version
+  # (skips prose headings like "## Versioning").
+  VER="$(grep -m1 -E '^##[[:space:]]+[0-9]' "$SRC/CHANGELOG.md" | sed -E 's/^##[[:space:]]+([^[:space:]]+).*/\1/')"
+  [ -n "$VER" ] && printf '%s\n' "$VER" > "$TARGET/.nmt-version"
+fi
+
 # 4. Inject the rules between markers into existing CLAUDE.md and AGENTS.md
 #    (creates the file if absent; replaces the block in place if markers already exist;
 #    never overwrites your own content).

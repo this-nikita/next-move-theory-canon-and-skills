@@ -2,32 +2,18 @@
 
 **Next Move Theory is a methodology with a step-by-step algorithm for every product decision: it lays out every tactical and strategic move open to you and helps you choose the best, with the odds on your side.**
 
+> **Advanced JTBD — v3.4 · stable.** The proven foundation.
+> **Next Move Theory — v0.6 · in active development** — integrating AJTBD with Riskiest Assumption Test, ABCDX Segmentation, Theory of Constraints, and Unit Economics into one operational system. Forming in the open — track it to 1.0. ([changelog](https://nextmovetheory.com/changelog))
+
 This repository holds the open canon (the methodology, written as theses) and a set of Claude Code skills that run it. It's written for the people who decide *what to build*: founders, indie hackers, product managers, and product marketers. The methodology and the skills are by Ivan Zamesin ([X](https://x.com/zamesin) · [LinkedIn](https://www.linkedin.com/in/ivan-zamesin/)).
 
 ---
 
-## How to install
+## How to start
 
-Into your project root (sets up Claude Code + Codex). On **macOS / Linux**, clone and run the installer:
+1. **Install it** — run the install command from [Install into your project ▸](#install-into-your-project). The macOS / Linux one-liner, the `git clone` route, and the Windows PowerShell installer are all there.
 
-```bash
-git clone https://github.com/zamesin/Next-Move-Theory-Canon-and-Skills.git
-bash Next-Move-Theory-Canon-and-Skills/install.sh --target .
-```
-
-Or do it in one command from the site:
-
-```bash
-curl -fsSL https://nextmovetheory.com/install.sh | bash
-```
-
-**On Windows?** There's a PowerShell installer — the Windows steps are in [Full details ▸](#install-into-your-project) below.
-
-[Full details ▸](#install-into-your-project)
-
-### Start here: run `/nmt-chat`
-
-After installing, **start with the onboarding — run `/nmt-chat`** (Claude Code) or `$nmt-chat` (Codex). It tells you what it and the other skills can do, and it's the human front door to the whole methodology: **paste whatever you have** — a half-formed idea, messy notes, a chat thread, a doc — and it pulls out the context, separates what you *know* from what you're *assuming*, and gives you the next concrete move. No methodologically-perfect brief required.
+2. **Then run `/nmt-chat`** (Claude Code) or `$nmt-chat` (Codex). It's the human front door to the whole methodology: **paste whatever you have** — a half-formed idea, messy notes, a chat thread, a doc — and it pulls out the context, separates what you *know* from what you're *assuming*, and gives you the next concrete move. No methodologically-perfect brief required.
 
 ---
 

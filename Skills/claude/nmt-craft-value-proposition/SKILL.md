@@ -4,6 +4,11 @@ description: Generate the strongest possible Value Proposition for a chosen segm
 user-invocable: true
 ---
 
+> **First, run the version check** in [`../VERSION-CHECK.md`](../VERSION-CHECK.md):
+> a best-effort, ≤2s, silent-on-failure check that tells the user once if a newer
+> NMT version is available (pass this skill's name as `?skill=`). It never blocks —
+> continue with this skill regardless.
+
 # Craft Value Proposition v2
 
 This skill turns a market-understanding artifact (or a manual segment description) into the **strongest possible, validatable value proposition** for a chosen target segment — and a **PRD-ready implementation spec** that describes how to build it.

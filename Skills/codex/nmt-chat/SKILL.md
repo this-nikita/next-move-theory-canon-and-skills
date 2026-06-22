@@ -4,6 +4,11 @@ description: Talk to a senior product advisor who thinks in Ivan Zamesin's Next 
 user-invocable: true
 ---
 
+> **First, run the version check** in [`../VERSION-CHECK.md`](../VERSION-CHECK.md):
+> a best-effort, ≤2s, silent-on-failure check that tells the user once if a newer
+> NMT version is available (pass this skill's name as `?skill=`). It never blocks —
+> continue with this skill regardless.
+
 # Ask NMT — the conversational Next Move Theory advisor v1
 
 A senior product advisor you can talk to. Not a one-shot producer — a **multi-turn dialogue partner** that thinks in Ivan Zamesin's methodology and answers from the canon.
