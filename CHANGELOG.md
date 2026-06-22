@@ -30,6 +30,13 @@ Move Theory `v0.6 · in active development`.)
 
 ---
 
+## 0.6.16 — Faster launch-time update check
+**Summary:** The skills' update check now runs inline instead of reading a separate file, so skills start a touch faster. No change to what the check does.
+**Released:** 2026-06-22
+
+- Inlined the update check into each skill's body — removed the separate `VERSION-CHECK.md` read on launch; behaviour unchanged (best-effort, ≤2s, never blocks).
+- Trimmed the Codex skill descriptions to sit well under the platform's description-length limit.
+
 ## 0.6.15 — Auto-update checks + one-command upgrade
 **Summary:** Skills now check on launch whether a newer version is available and show what changed since yours. Added the `/nmt-upgrade` one-command updater (Codex: `$nmt-upgrade`).
 **Released:** 2026-06-22
