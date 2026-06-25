@@ -14,27 +14,23 @@ description: >-
 user-invocable: true
 ---
 
-> **Update check — best-effort, ≤2s, never blocks.** Before the steps below, run
-> `curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-market-research"`; on any error
-> or timeout, skip silently. Compare `.nmt-version` (project root) with the feed's `latest`. If
-> behind, print one line — the `<installed> → <latest>` gap, a one-line summary per newer entry,
-> and "run $nmt-upgrade to update" — then continue. If it matches or `.nmt-version` is absent, continue.
+# Market Research
 
-# Market Research v11
-
-> **v11 in one breath.** Before any research runs, an **intake gate** closes the gaps that change the research: adaptive clarifying questions (with "I don't have this info" as a valid answer), user materials read in, a **user-claims ledger** (the user's inputs are hypotheses, not facts), and a **direction confirmation**. The deliverable is a **decision**: an A4 one-pager with a **GO (to validation) / NARROW / PIVOT** verdict, segments scored on the **five-factor selection screen**, an **action-first** RAT, and **ranked strategic options** (incl. pivot markets that fit the idea's assets). Quick mode sizes honestly (one calculation, assumptions named); the 3-method averaging runs only in Deep mode, on real sources. Full version history is in `CHANGELOG.md` beside this file.
+> **In one breath.** Before any research runs, a short intake closes the gaps that change the research: a few clarifying questions (with "I don't have this info" as a valid answer), any materials you already have read in, your inputs held as hypotheses rather than facts, and a quick direction confirmation. The deliverable is a **decision**: a one-page answer with a **GO (to validation) / NARROW / PIVOT** verdict, the customer segments scored on the four go/no-go questions (the selection screen), the make-or-break risk and how to test it, and **ranked strategic options** (including other markets the same idea could fit). Quick mode sizes honestly (one calculation, assumptions named); the 3-method averaging runs only in Deep mode, on real sources.
 
 > **Producer contract (binding) — `../PRODUCER-CONTRACT.md`.** Six cross-cutting behaviors shared by all producer skills, from user feedback: (1) print a **helicopter-view** before the first question; (2) ask **Markdown or HTML** output; (3) treat **all** user input as hypothesis and emit a *"risks I see in what you gave me"* block; (4) print **validation debt** and write **`GO (to validation)`**, never bare `GO`; (5) accept a **custom output path**; (6) Deep mode runs an **evidence floor + self-critic loop** and offers a **web-MCP fallback**. The hooks below wire each into this skill; the contract is the source of truth for the wording.
 
+> **New here, or not sure this is the right skill?** Start right here — or run `$nmt-chat`, describe your situation, and it points you to the right one. Quick map: **new idea →** `$nmt-market-research` · **live product or a metric moved →** `$nmt-diagnose` · **have customer interviews →** `$nmt-analyze-interviews` · **ready to build →** `$nmt-product-requirements` · **positioning / launch copy →** `$nmt-craft-value-proposition` → `$nmt-craft-go-to-market`.
+
 ## What this skill produces
 
-A single file in **three reading depths, linked top-to-bottom** (so one report serves the co-founder skim, the skeptical read, and the methodology audit):
+**The short answer is the default and the first thing you see** — one page, the whole answer. The deeper report and the sizing appendix sit below it, opt-in, for when you want to check the work. A single file in **three reading depths, linked top-to-bottom** (so one report serves the co-founder skim, the skeptical read, and the methodology audit):
 
-1. **Layer 1 — The Answer** (~1 page, zero methodology words): the verdict, who to sell to, why, the make-or-break risk, the next action, and how big — each line drilling down to its reasoning. Readable in ~60 seconds by someone who's never heard of the methodology; forwardable to a co-founder or investor.
-2. **Layer 2 — The Reasoning** (2–4 pages, plain English): *how we got here* for each Layer-1 claim — verdict logic, how the buyer was found, the edge, the ranked risks, the plan — each linking down to the full work.
-3. **Layer 3 — The Full Work** (the detailed report + appendix): market snapshot, a Map of Segments with every segment expanded, the differentiation hypothesis, the strategic recommendation with alternative Big-Job markets, the action-first risk plan, and the sizing appendix.
+1. **Layer 1 — The Answer** (~1 page, zero methodology words, **the default — this is the whole answer**): the verdict, who to sell to first, why, the make-or-break risk, the next step, and how big — each line drilling down to its reasoning if you want it. Readable in ~60 seconds by someone who's never heard of the methodology; forwardable to a co-founder or investor. Most readers stop here.
+2. **Layer 2 — The Reasoning** (opt-in, 2–4 pages, plain English): *how we got here* for each Layer-1 claim — verdict logic, how the buyer was found, where we win, the ranked risks, the plan — each linking down to the full work.
+3. **Layer 3 — The Full Work** (opt-in, the detailed report + appendix): market snapshot, a Map of Segments with every segment expanded, the differentiation hypothesis, the strategic recommendation with alternative Big-Job markets, the action-first risk plan, and the sizing appendix.
 
-Plus **a brief outcome in the chat** + Layer 1 printed inline + concrete suggestions to rerun the skill on alternative markets.
+Plus **a brief outcome in the chat** + Layer 1 printed inline + concrete suggestions to rerun the skill on alternative markets. The short answer leads; nobody is made to read 15 pages to get the verdict.
 
 **Two modes:**
 - **Quick (default, ~3–5 min):** no internet, no subagents. One Codex agent fills the templates directly from reasoning.
@@ -90,7 +86,7 @@ Quick mode (one Codex agent): read the eager core, then read each staged file th
 
 **Who reads it** — the target segments (the essentials are inline here, so the skill stays self-contained and public-safe): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
 
-**Plain ↔ methodology** (say the left; add the right in parentheses only when it earns its place): the result they're after *(the Job / Big Job)* · the main thing the product does for them *(the Core Job)* · the step-by-step path the customer walks *(the Critical Chain of Jobs)* · the exact step where they get stuck *(a Critical Chain of Jobs break)* · the moment it clicks / feels worth it *(the Aha Moment)* · getting the result for less time, effort, money, or stress than expected *(value)* · a pleasant surprise / a letdown vs. what they expected *(Positive / Negative Prediction Error — never PPE/NPE)* · the few things they must learn or believe before switching *(Consideration Activators)* · a real blocker vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption / RAT)*.
+**Plain ↔ methodology** (say the left; add the right in parentheses only when it earns its place): the result they're after *(the Job / Big Job)* · the biggest task your product does on its own, end to end, and can't go higher right now *(the Core Job)* · the step-by-step path the customer walks *(the Critical Chain of Jobs)* · the exact step where they get stuck *(a break in that chain)* · the moment it clicks and beats what they expected *(the Aha moment)* · getting the result for less time, effort, money, or stress than expected *(value)* · the bad surprise when a tool does a task worse than expected *(a problem)* · the few things they must learn or believe before switching *(the Consideration Activators)* · a real blocker vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption — the Riskiest Assumption Test, RAT)*. **Never write *Positive / Negative Prediction Error* in the report — say *Aha moment / Problem*.**
 
 **Precision still holds in the methodology layer.** Job-grammar discipline (Jobs as *"I want to + verb,"* levels named, terms capitalized) governs the internal-reasoning / debug files and any explicit **methodology appendix**, where full methodology language is expected. The *lead the reader sees* is plain; the *parenthetical and the appendix* carry the precise terms.
 
@@ -104,7 +100,7 @@ The skill writes **exactly one** file. Default location (used unless the user ga
 Skills-Results/{product-slug}/market-research/{YYYY-MM-DD_HH-MM}_{product-slug}-market-research-result.{md|html}
 ```
 
-- **Extension follows the chosen output format** (`PRODUCER-CONTRACT.md §2`): `.md` (default) or a single self-contained `.html` (inline CSS, working in-page anchors for the How-to-read jumps + every `▸` drill-down link, `<details>` for Layer 3 and methodology traces, source links opening in a new tab). HTML carries the identical content — same attribution, disclaimers, three layers, tables, links — just in a more readable shell. Never write both; one file per run.
+- **Extension follows the chosen output format** (`PRODUCER-CONTRACT.md §2`): `.md` (default) or a single self-contained `.html` (inline CSS, working in-page anchors for the How-to-read jumps + every `▸` drill-down link, **`<details>` collapsing Layer 2 and Layer 3** — both opt-in below the one-page answer — plus methodology traces, source links opening in a new tab). HTML carries the identical content — same attribution, disclaimers, three layers, tables, links — just in a more readable shell where the short answer leads and the deeper layers are collapsed by default. Never write both; one file per run.
 - If the user gave a custom path, write the one file there with the same filename pattern.
 - `{YYYY-MM-DD_HH-MM}` (24h local time) makes each run's file unique; reruns never overwrite.
 - Everything internal — what the user provided, discarded hypotheses, antisegment checks, Big-Job validation, the full sizing tables, milestone notes, and **all methodology citations** (which never appear in the user-facing report — see "Readability") — **stays in-context**, never in a separate file.
@@ -119,7 +115,7 @@ Skills-Results/{product-slug}/market-research/{YYYY-MM-DD_HH-MM}_{product-slug}-
 **First, the orientation block** (`PRODUCER-CONTRACT.md §1`) — print it before any question, in plain words:
 
 > **What you'll get:** one report — a GO (to validation) / NARROW / PIVOT decision, the segment to sell to first, why, the make-or-break risk, and how big the market is.
-> **The steps:** (1) a few questions about your idea → (2) I find and score the customer segments → (3) I size the market → (4) I pick a wedge and rank your strategic options → (5) you get one report in three reading depths.
+> **The steps:** (1) a few questions about your idea → (2) I find and score the customer segments → (3) I size the market → (4) I pick where you can win and rank your strategic options → (5) you get one report in three reading depths.
 > **Where I work vs. where you decide:** I do the analysis and the hypotheses. *You* pick the direction and run the field validation — interviews, sales, tests. I can't validate for you; I can only tell you what to check first.
 > **Two modes:** *Quick* (default — no internet, ~3–5 min, reasoning only; good for a first cut and "did I miss something") · *Deep* (opt-in — subagents + web research, longer; real competitor/market/review data; best on a top model with a web-research MCP).
 > **Honest caveat:** this speeds up the *thinking*, not the *proving*. Every number and segment is a hypothesis until you check it in the field.
@@ -132,31 +128,44 @@ Then **document language.** Default to **English**. If the user is writing in an
 
 Collect in a short stream plus a Codex intake sequence: use `request_user_input` only for structured-choice questions, with at most 3 questions per call and 2-3 choices per question; ask free-text prompts directly in chat. Split the intake into as many calls as needed across separate logical questions, but do not skip required questions. If one logical question lists more than 3 choices, ask that entire question directly in chat; do not split one logical question across several `request_user_input` calls. Do not include an explicit Other option.
 
-### Step 1 — Idea as a stream (free text)
-> Describe your idea as a stream — what it is, who it's for, what Job it performs, and anything you already have going for it (technology, team, partners, traction).
+### Step 0 — How deep should the intake go? (ask this first)
 
-### Step 2 — Batch 1: mode, output format, stage, country, business type
-- **Mode** — Quick (default; fast; no internet) / Deep (subagents + web research).
+The first question of the intake. This is about **how many questions I ask you**, and it is **separate from** the Quick / Deep research mode (Quick vs Deep is about internet + subagents and is asked later in Batch 1; this fork is only about the depth of our conversation up front). Ask it via `request_user_input` (or directly in chat) — not as a methodology question:
+
+> **First — how deep should I go? Pick one:**
+> - **Just the essentials** — I ask the 3–4 questions that matter most, then deliver. Best for a fast first pass or when you're still exploring.
+> - **The full interview** — I walk you through everything so we cover the most blind spots and you get the highest-confidence result. Best when the decision is expensive.
+
+- **Just the essentials** → ask **only** the 3–4 highest-value questions — what the product is, who you think buys it, and your goal (Step 1 stream + the stage/country/business-type basics) — then **infer or skip** the rest. Don't run the assets-and-constraints capture (Step 4) or the user-claims ledger (Step 6) as separate steps up front; infer assets from the idea stream, treat the inputs as hypotheses silently, and you can surface a claims-and-risks pass after the first draft if it's worth it.
+- **The full interview** → run the complete intake below (Steps 1–7), including the assets-and-constraints capture and the user-claims ledger.
+
+Either way, the research itself is unchanged — same analysis, same output. The fork only changes how much I ask before I start.
+
+### Step 1 — Idea as a stream (free text) — *both paths*
+> Describe your idea as a stream — what it is, who it's for, what it does for them, and anything you already have going for it (technology, team, partners, traction).
+
+### Step 2 — Batch 1: mode, output format, stage, country, business type — *both paths*
+- **Mode** — Quick (default; fast; no internet) / Deep (subagents + web research). *(This is the research mode — separate from the intake-depth fork in Step 0.)*
 - **Output format** (`PRODUCER-CONTRACT.md §2`) — Markdown (default; faster) / HTML (a bit slower; easier to read — collapsible sections + working in-page navigation; all source and drill-down links stay clickable).
 - **Stage** — Idea / MVP / Launched / Scaling.
 - **Country / market** — United States / United Kingdom / Russia-CIS / Global-English / Other.
 - **Business type** — B2C / B2B / Both B2C and B2B / B2B2C (true channel-through-business only).
 
-### Step 3 — Batch 2: project context, segments, competitors, ambition
+### Step 3 — Batch 2: project context, segments, competitors, ambition — *full interview (in essentials, infer or skip; only ask "where to save" if needed)*
 - **Project context & materials** — path / URL / Skip. Name what counts: *a folder or files with anything you already have — a Notion export (markdown), spreadsheets, past research, interview notes, a strategy doc, your current site.* (Quick: local paths via `Read`; Deep: also `WebFetch`.) Everything taken from the user's materials is tagged **[user data]** in-context and cited as such in the report.
 - **Hypothesized segments** — "Yes, I'll describe" / "I don't know — find them" (default) / Skip.
 - **Known competitors** — "Yes, I'll list them" / "I don't know — find them" (default) / Skip.
 - **Ambition** — "I'll describe" (revenue / margin / timeframe) / Skip.
 - **Where to save the result** (`PRODUCER-CONTRACT.md §5`) — default `Skills-Results/{project}/market-research/…` / or a folder path to match your repo (e.g., `docs/research/`). Skip = default. One file per run regardless of location (Rule 4).
 
-### Step 4 — Batch 2b: assets & constraints (powers the pivot recommendation)
-Ask once (free text is fine), capturing the idea's **transferable assets and hard constraints** — used by the pivot sub-pipeline (STAGE 9):
+### Step 4 — Batch 2b: assets & constraints (powers the pivot recommendation) — *full interview only*
+*(In "Just the essentials", skip this question — infer the assets from the idea stream and project context, and note in-context that assets were inferred.)* Ask once (free text is fine), capturing the idea's **transferable assets and hard constraints** — used by the pivot sub-pipeline (STAGE 9):
 > What does this idea have going for it that could carry into *other* markets? Name your (1) core technology / unique capability, (2) the team's expertise and unfair advantages, (3) resources already in hand — money/runway, partners, traction, distribution, data, brand, and (4) any hard constraints or non-negotiables (regulatory, geographic, ethical).
 
 If the user skips, extract the assets from the idea stream and project context as best you can, and note in-context that assets were inferred.
 
-### Step 5 — Adaptive clarifying questions (only the gaps that change the research)
-After Steps 1–4, scan the collected input for **gaps that would materially change the research** and ask about *those only* — up to ~5–7 targeted questions, batched via `request_user_input`, each with an explicit **"I don't have this info"** option. Skip this step entirely when the input already covers it. Candidate gaps:
+### Step 5 — Adaptive clarifying questions (only the gaps that change the research) — *full interview (in essentials, ask at most the one gap that would flip the verdict)*
+After Steps 1–4, scan the collected input for **gaps that would materially change the research** and ask about *those only* — up to ~5–7 targeted questions, batched via `request_user_input`, each with an explicit **"I don't have this info"** option. Skip this step entirely when the input already covers it. *(In "Just the essentials", ask at most the single gap that could flip the verdict, and otherwise infer.)* Candidate gaps:
 
 - **Local vs global** — is the market local (one country/city, local channels, local competitors) or global? Deep mode: which *local* sources, marketplaces, or competitor names does the user already know? (The built-in web search often misses local-market players — user-named local sources are the workaround.)
 - **Segment specifics** — anything the user already knows about who buys and why (from sales, support, interviews), even fragmentary.
@@ -165,8 +174,8 @@ After Steps 1–4, scan the collected input for **gaps that would materially cha
 
 **"I don't have this info" is a valid answer.** Record it in-context as an explicit assumption — the report then *marks the dependent numbers as assumptions* instead of silently inventing specifics.
 
-### Step 6 — User-claims ledger + input-as-hypothesis gate (`PRODUCER-CONTRACT.md §3`)
-Collect every **strong factual claim** the user made across Steps 1–5 (market insights, "everyone wants X", competitor facts, regulatory claims, segment beliefs) **and every load-bearing input from their uploaded materials** — a deck, a landing page, a codebase, past research — into an in-context ledger. **All of it is hypothesis, not fact** — a landing page is the team's belief about value, not proof customers want it. Tag each with its source — **data** (measured / documented), **observation** (seen in interviews, sales calls), or **hunch** (belief, intuition; this is the default for anything from a deck/landing/idea stream). If the source is unclear, ask in one batched question: *"Quick check on a few things you mentioned — for each, is it data you have, something you observed, or a hunch?"*
+### Step 6 — User-claims ledger + input-as-hypothesis gate (`PRODUCER-CONTRACT.md §3`) — *full interview as a step; in essentials, fold into the post-draft pass*
+*(In "Just the essentials", don't run this as a separate up-front step — treat the inputs as hypotheses silently while analyzing, then surface the claims-and-risks pass after the first draft if it changes anything.)* Collect every **strong factual claim** the user made across Steps 1–5 (market insights, "everyone wants X", competitor facts, regulatory claims, segment beliefs) **and every load-bearing input from their uploaded materials** — a deck, a landing page, a codebase, past research — into an in-context ledger. **All of it is hypothesis, not fact** — a landing page is the team's belief about value, not proof customers want it. Tag each with its source — **data** (measured / documented), **observation** (seen in interviews, sales calls), or **hunch** (belief, intuition; this is the default for anything from a deck/landing/idea stream). If the source is unclear, ask in one batched question: *"Quick check on a few things you mentioned — for each, is it data you have, something you observed, or a hunch?"*
 
 **Actively hunt for the risks inside the input** (don't just record it). For each load-bearing input ask: is this customer-validated, or the team's belief about the customer? Does the stated Job / segment look like the customer's real Job, or the team's projection of it (the most expensive error)? Any internal contradictions, or guesses dressed as data? Hold the findings in context — they become the **"What you told me — and the risks I see in it"** block in Layer 2 (see the Layer-2 template), with the single worst one surfaced in Layer 1.
 
@@ -175,41 +184,40 @@ Downstream rules (enforced in synthesis and self-critic):
 - **Deep mode:** load-bearing claims (anything the verdict, target-segment pick, or a pivot recommendation would rest on) get a web-verification attempt (≤2 fetches each, inside existing agent budgets). Confirmed → cite the source. Unconfirmed → keep the tag.
 - **No verdict, target-segment pick, wedge, or pivot recommendation may rest primarily on a single unverified user input.** If it does, the report says so explicitly — *"this recommendation stands on your unverified input X; validate it first"* — names it as the single most expensive risk, and points the corresponding RAT row at that claim.
 
-### Step 7 — Direction confirmation (before any research runs)
+### Step 7 — Direction confirmation (before any research runs) — *both paths*
 Before generating anything (Quick) or spawning any agent (Deep), play the understanding back in one short block: *"Here's what I understood: {product, market + local/global, who it's hypothetically for, what you already have, what's out of scope}. The research direction: {one sentence}."* Then one `request_user_input`: **Confirm / Correct (free text)**. On "Correct", update the held input and re-confirm once. This is the cheapest moment to fix a wrong direction — web research is the most expensive stage, and everything downstream builds on it.
 
 **Hold** everything in context.
 
 ---
 
-## The Segment-and-Job selection screen (this replaces Four Forces)
+## How we pick the segment to compete for — four go/no-go questions (the selection screen)
 
-> Four Forces is **deprecated** in the canon (`ajtbd-key-theses.md §21`). Every segment in this skill — and every alternative market in the pivot pipeline — is scored on the screen below. It answers the core question: *which Jobs of which segment should we compete for first?*
+Every segment — and every alternative market in the pivot pipeline — gets put through the same four go/no-go questions, the **selection screen**. They answer the core question: *which tasks of which segment should we compete for first?* Score each strong / medium / weak (bigger is better); a hard blocker on any one can rule the segment out on its own.
 
-Four **ranking dimensions** (rate strong / medium / weak; bigger is better) plus one **gate**:
+1. **Can we add value the customer notices?** Can we do the segment's main tasks with *added value they actually feel* versus their current way? The bigger and more perceptible the gap, the better.
+2. **Can we earn our target margin?** Does the unit economics support the average margin we want per paying customer (price or budget, minus the cost to serve)?
+3. **Can we create or capture demand?** Can we generate demand and reach these customers — and how big and accessible are the channels? Demand you can win lives in the count of customers who have hit a problem with their current tool and are ready to switch (their switching triggers); a big segment that's happily locked into a good-enough habit, whom you can't pry loose or reach, is not a market you can win, however big it looks.
+4. **Is it big enough to scale?** Is there enough money in it — **customers × average yearly spend on this task (their job budget)** — to be worth competing for?
 
-1. **Added value — noticeable.** Can we perform the segment's Core Jobs with *additional value the customer actually notices* versus their current way? The bigger and more perceptible the value gap, the better.
-2. **Demand we can generate.** Can we create demand and acquire these customers — and how big and how accessible are the channels that reach them?
-3. **Target margin per paying unit.** Does the unit economics support the desired average margin per paying customer (price/budget minus the cost to serve)?
-4. **Size in money × switchability.** Is the segment big enough in money — **customers × average Job budget per year** — *and* open to new solutions? Openness is not optional: buyable demand lives in the count of **triggered, unsatisfied customers willing to switch** — *the Problem is the trigger.* A large segment of people happily locked into a good-enough habitual solution (whom we cannot pry loose or acquire) is not a buyable market, however big it looks.
-5. **Existential-risk gate (pass / FAIL).** Is there a legal/regulatory blocker that forbids operating, or a technology that is *impossible* (fusion-energy-class impossibility — not merely "hard to build"; a capable founder can build hard things)? A FAIL removes the segment regardless of the four dimensions.
+**Hard blocker (pass / FAIL).** Is there a legal/regulatory blocker that forbids operating, or a technology that is *impossible* (fusion-energy-class impossibility — not merely "hard to build"; a capable founder can build hard things)? A FAIL removes the segment regardless of the four answers.
 
 Per segment block, render:
 
 ```markdown
-#### Why this segment, scored (selection screen)
-| Factor | Rating | One line |
+#### Why this segment, scored (the selection screen)
+| Question | Rating | One line |
 |---|---|---|
-| Added value (noticeable) | strong/medium/weak | {the value gap vs. the current way} |
-| Demand we can generate | strong/medium/weak | {channels, reachability} |
-| Target margin per unit | strong/medium/weak | {unit-economics shape here} |
-| Size × switchability | strong/medium/weak | {$ size + how many are triggered/unsatisfied & willing to switch} |
-| Existential-risk gate | pass / FAIL | {legal / impossible-tech check} |
+| Can we add value they notice? | strong/medium/weak | {the value gap vs. the current way} |
+| Can we earn our target margin? | strong/medium/weak | {unit-economics shape here} |
+| Can we create or capture demand? | strong/medium/weak | {channels, reachability, how many are ready to switch} |
+| Is it big enough to scale? | strong/medium/weak | {$ size = customers × yearly spend} |
+| Any hard blocker? | pass / FAIL | {legal / impossible-tech check} |
 
 **Compose to focus?** {Yes / on the edge / No} — {the binding constraint, one line}
 ```
 
-The target segment is the one whose dimensions compose most in our favour **and** best fits the idea's assets.
+The target segment is the one whose answers compose most in our favour **and** best fits the idea's assets.
 
 ---
 
@@ -252,7 +260,7 @@ The report is **three reading depths in one file**, linked top-to-bottom like ca
 **Enforcement gate (these kept getting skipped in real runs — check each before writing the file; full version in `../READABILITY-CONTRACT.md`):**
 
 - **Unique, resolving anchors.** Every `▸` drill-down link points to its own unique `<a id="…">` that exists **exactly once** in the file; no two links share a target. (The live failure was two Layer-1 links pointing at the same anchor.) Before shipping, list every `▸` target and confirm each resolves.
-- **Inline-gloss opaque Layer-3 table headers.** A non-obvious column header carries a 3–6-word plain gloss right there — *"Job budget (what one customer spends a year on this)," "Switchable demand (how many are unhappy enough to switch)," "Reachability (how easily you can get in front of them)."* Don't rely on the glossary file — a casual reader never opens it.
+- **Inline-gloss opaque Layer-3 table headers.** A non-obvious column header carries a 3–6-word plain gloss right there — *"Job budget (what one customer spends a year on this)," "Ready to switch (how many have hit a problem and would move)," "Reachability (how easily you can get in front of them)."* Don't rely on the glossary file — a casual reader never opens it.
 - **Segment depth across layers** (see Layer 2 / Layer 3 templates). The target segment is **partially described in Layer 2** (who they are, what they're trying to get done, what they care about most, why they'll switch) with a **brief strategic recommendation**; the other top candidate segments get a light touch in Layer 2; the **full Map of Segments at depth lives in Layer 3.**
 - **Validation plan across layers** (see templates). Layer 1 touches it (the make-or-break risk + the next action). Layer 2 carries the **focused list — every risky assumption paired with how we'd check it.** Layer 3 carries the **detailed step-by-step validation plan per assumption, grounded in the canon (RAT).**
 
@@ -274,10 +282,10 @@ Emitted once, right after the disclaimers and before Layer 1, so the reader sees
 
 ```markdown
 ## How to read this
-Three levels — go as deep as you need:
-- **Level 1 — The Answer** (1 page, plain words): the verdict, who to sell to, why, the make-or-break risk, what to do next. Most readers stop here. [jump ▸](#layer-1)
-- **Level 2 — The Reasoning** (plain English): how we reached each answer — the buyer in more detail, the edge, and every assumption with how to check it. [jump ▸](#layer-2)
-- **Level 3 — The Full Work** (the audit trail): the full market sizing *with a do-it-yourself re-check*, all segments at depth, competitors, the strategy, and the step-by-step plan to test each assumption. [jump ▸](#layer-3)
+**Level 1 below is the whole answer — one page.** Levels 2 and 3 are optional, there only if you want to check the work:
+- **Level 1 — The Answer** (1 page, plain words): the verdict, who to sell to first, why, the make-or-break risk, what to do next, how big. **This is the complete answer — most readers stop here.** [jump ▸](#layer-1)
+- **Level 2 — The Reasoning** (optional, plain English): how we reached each answer — the buyer in more detail, where we win, and every assumption with how to check it. [jump ▸](#layer-2)
+- **Level 3 — The Full Work** (optional, the audit trail): the full market sizing *with a do-it-yourself re-check*, all segments at depth, competitors, the strategy, and the step-by-step plan to test each assumption. [jump ▸](#layer-3)
 ```
 
 ## Layer 1 — The Answer
@@ -347,7 +355,7 @@ Plain English, one gloss per methodology term, `references/glossary.md` linked o
 
 <a id="l2-edge"></a>
 ## The edge, in plain terms
-{What every existing option forces the customer to give up, and why ours doesn't — the differentiation wedge in plain words.} [the criteria-by-competitor matrix ▸](#l3-differentiation)
+{What every existing option forces the customer to give up, and why ours doesn't — where we win, in plain words.} [the criteria-by-competitor matrix ▸](#l3-differentiation)
 
 <a id="l2-risks"></a>
 ## How we'd prove or kill this — every assumption and its check
@@ -398,9 +406,9 @@ Start with the comparison table, then expand each segment. **Depth follows the v
 <a id="l3-segments"></a>
 ## 2. Who's in this market — the segments (Map of Segments), covering ~80% of the total market
 
-| Segment | $ size / yr | Job budget | Switchable demand | Reachability | Verdict |
+| Segment | $ size / yr | Job budget (yearly spend) | Ready to switch | Reachability | Verdict |
 |---------|-------------|------------|-------------------|--------------|---------|
-| {S1} | ~${} | ~${} | {how many triggered/unsatisfied} | {channel} | ✅ focus |
+| {S1} | ~${} | ~${} | {how many have hit a problem & would move} | {channel} | ✅ focus |
 | {S2} | … | … | … | … | ⚠️ hold |
 | {Sn} | … | … | … | … | ❌ not ours |
 
@@ -412,7 +420,7 @@ Then, for each segment (✅ first, ⚠️ second, ❌ last), at the depth its ve
 ```markdown
 ### {S#} — {Name tied to Jobs and real criteria} {✅/⚠️/❌}
 
-> **{I propose we focus on this segment because… / I'd hold off on this segment for now because… / This isn't our segment because…}** {1–2 sentences — selection-screen balance, switchability, the binding constraint}.
+> **{I propose we focus on this segment because… / I'd hold off on this segment for now because… / This isn't our segment because…}** {1–2 sentences — how the selection screen's four answers compose, how many are ready to switch, the binding constraint}.
 > **Coverage:** ~{X}% of total market customers.
 
 #### Why this segment is attractive
@@ -439,11 +447,11 @@ Here's what they hire a product for, in the customer's own words:
 | People / companies in segment | ~{N} |
 | **What one customer spends on this problem per year (Job budget)** | **~${B}** |
 | **Total money in segment per year** | **~${N×B}/yr** |
-| **Share unhappy enough to switch (switchable demand)** | **~{%} are triggered / unsatisfied and willing to switch** |
+| **Share ready to switch** | **~{%} have hit a problem with their current tool and would move** |
 
 > Sizing method + verification are in the Appendix.
 
-[selection-screen table — see "The Segment-and-Job selection screen" above]
+[selection-screen table — see "How we pick the segment to compete for" above]
 
 #### Direct competitors (Core Job level, in this segment)
 | Competitor | Core Jobs covered | Main message / USP | Covers poorly (by success criteria) |
@@ -481,12 +489,12 @@ Close Section 2 with a short **cross-segment themes** block (4–7 patterns span
 |----------------------------|----------|----------|--------------------|-------------------|
 | {criterion} | ⚠️ | ❌ | ✅ | ✅ |
 
-**Underserved criteria (the wedge):** {1–3 criteria all competitors close poorly — usually an *intersection*, not a single criterion}.
+**Underserved criteria — where we win:** {1–3 success criteria all competitors close poorly — usually an *intersection*, not a single criterion}.
 
 ### Value-creation direction (one line, not a feature list)
 **Mechanic direction:** {one of the published mechanics — `ajtbd-key-theses.md §22–§23` / `value-creation-mechanics.md`; the most powerful when applicable is *climb a level / kill a Job as a class*} — {how exactly the customer's life gets more energy-efficient, 1 sentence}.
 
-> **What to build to deliver this — features, delivery format, cost, the Aha Moment — is `$nmt-craft-value-proposition`'s job.** It generates and filters the concrete ways to deliver this value across the whole mechanics catalog; don't anchor on a feature list invented here. This report stops at the wedge + the mechanic direction.
+> **What to build to deliver this — features, delivery format, cost, the Aha Moment — is `$nmt-craft-value-proposition`'s job.** It generates and filters the concrete ways to deliver this value across the whole mechanics catalog; don't anchor on a feature list invented here. This report stops at the underserved criteria (where you can win) + the mechanic direction.
 
 ### Threat from Big-Job-level players
 {If turnkey Big-Job players with scaling potential exist — how serious, and partner-or-displace?}
@@ -620,7 +628,7 @@ Methodology only — format is guaranteed by the templates above, so it is not r
 6. **Core vs Big distinguished** — Core = highest Jobs the product performs fully; Big = motivation above, not the segmentation root.
 7. **Aha Moment placed** — where delivered value beats the customer's expected criteria; positioning promises only what the chain delivers.
 8. **Competitors defined by Jobs, not categories** — direct on the Core Job; indirect on the Big Job, incl. do-nothing and non-obvious substitutes.
-9. **Wedge = an underserved success-criterion intersection** + a one-line published-mechanic direction — **no feature list** (features are `$nmt-craft-value-proposition`'s job).
+9. **Underserved criteria = an underserved success-criterion intersection** + a one-line published-mechanic direction — **no feature list** (features are `$nmt-craft-value-proposition`'s job).
 10. **RAT walks the cause-and-effect chain**, each risk positive + falsifiable + paired with a validation action; riskiest-and-cheapest-to-falsify ordered first.
 11. **Pivot markets evaluated on the same selection screen** against the extracted assets; existential-risk gate applied; each is a concrete Segment + Big-Job pair.
 12. **User claims stayed hypotheses** — every load-bearing user claim is tagged (data / observation / hunch); no verdict, target-segment pick, or strategy rests primarily on a single unverified user hunch without saying so; "I don't have this info" answers surface as explicit assumptions, not invented specifics.
@@ -630,7 +638,7 @@ Methodology only — format is guaranteed by the templates above, so it is not r
 - [ ] **Drill-down links resolve and are unique** — every Layer-1 claim links to a real Layer-2 anchor; every Layer-2 claim links to a real Layer-3 anchor; every `#l...`/`#disclaimers` target exists **exactly once** and no two links share a target.
 - [ ] **Segment depth across layers** — the target segment is partially profiled in Layer 2 (who · what they're getting done · what they care about · why they'd switch) + a brief strategic recommendation; other top segments touched in Layer 2; the full Map of Segments at depth is in Layer 3.
 - [ ] **Validation plan across layers** — Layer 1 touches it; Layer 2 lists every risky assumption paired with how we'd check it; Layer 3 gives the detailed step-by-step plan per assumption (Method / Steps / Kill criterion / Cost), canon-grounded.
-- [ ] **Opaque Layer-3 table headers carry an inline plain gloss** (Job budget, switchable demand, reachability, etc.).
+- [ ] **Opaque Layer-3 table headers carry an inline plain gloss** (Job budget, ready to switch, reachability, etc.) — and never use the non-canon term "switchable demand" in any rendered header or row.
 - [ ] **Disclaimers once** — full two-part disclaimer at top only; Layer 1 has the one-line pointer; Section 6 does not repeat the block.
 - [ ] **Citations fenced** — no canon path or `Rule N` inline in Layers 1–2 or in Layer-3 prose; any canon reference sits in a `▸ methodology trace` line.
 - [ ] Step ledger ran — every pipeline stage checked off by name; any skip was declared, never silent.
@@ -732,3 +740,8 @@ Framing: the goal is the success of the whole business initiative, not only the 
 - Quick mode: no internet, no subagents, no quantitative validation.
 - Does not pause to ask the user mid-pipeline (Deep mode runs straight through).
 - Does not invent sources or numbers; thin data is recorded as thin, never fabricated.
+
+---
+
+> **Update check — do this at the very end (best-effort, ≤2s, never blocks).** After you've finished this skill's work and delivered the result — for a multi-turn chat (e.g. nmt-chat / nmt-diagnose), after your first substantive answer — read the installed version from `.nmt-version` (project root) and run
+> `v="$(cat .nmt-version 2>/dev/null)"; curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-market-research${v:+&v=$v}"` — on any error or timeout, skip silently. Compare that installed version with the feed's `latest`; if behind, add one line — the `<installed> → <latest>` gap, a one-line summary per newer entry, and "run $nmt-upgrade to update". If versions match or `.nmt-version` is absent, add nothing.

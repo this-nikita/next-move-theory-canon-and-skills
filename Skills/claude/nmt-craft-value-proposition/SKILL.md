@@ -4,34 +4,30 @@ description: Generate the strongest possible Value Proposition for a chosen segm
 user-invocable: true
 ---
 
-> **Update check — best-effort, ≤2s, never blocks.** Before the steps below, run
-> `curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-craft-value-proposition"`; on any error
-> or timeout, skip silently. Compare `.nmt-version` (project root) with the feed's `latest`. If
-> behind, print one line — the `<installed> → <latest>` gap, a one-line summary per newer entry,
-> and "run /nmt-upgrade to update" — then continue. If it matches or `.nmt-version` is absent, continue.
-
 # Craft Value Proposition v2
 
-This skill turns a market-understanding artifact (or a manual segment description) into the **strongest possible, validatable value proposition** for a chosen target segment — and a **PRD-ready implementation spec** that describes how to build it.
+> **New here, or not sure this is the right skill?** Start right here — or run `/nmt-chat`, describe your situation, and it points you to the right one. Quick map: **new idea →** `nmt-market-research` · **live product or a metric moved →** `nmt-diagnose` · **have customer interviews →** `nmt-analyze-interviews` · **ready to build →** `nmt-product-requirements` · **positioning / launch copy →** `nmt-craft-value-proposition` → `nmt-craft-go-to-market`.
+
+This skill takes a customer group you want to win — described by you in plain words, or handed over from a `/nmt-market-research` run — and works out the **strongest, testable reason they'd switch to you** (the value proposition), plus a build-ready spec the next skill can turn into a PRD.
 
 It sits in the middle of the chain:
 
 ```
 /nmt-market-research → /nmt-craft-value-proposition → /nmt-product-requirements → /nmt-craft-go-to-market
-(segment + Jobs +   (the value hypothesis +     (the build: PRD —        (landing + ad +
- wedge + competitors) §11 implementation spec)    functionality +          GTM/growth comms)
-                                                   edge cases)
+(segment + tasks +   (the value hypothesis +     (the build: PRD —        (landing + ad +
+ why-we-win +         implementation spec for     functionality +          GTM/growth comms)
+ competitors)         the PRD hand-off)            edge cases)
 ```
 
-`/nmt-market-research` hands over a target segment with its Core Jobs, success criteria, Big Jobs, competitors and a one-line wedge. This skill goes **much deeper than that wedge**: it extracts the segment's *dominant* success criteria, builds the Job Graph the mechanics operate over, **generates** value hypotheses by walking the full value-creation mechanics catalog over that graph, then **filters and ranks** them on feasibility, cost-to-build, unit-economics, and real competitiveness. The output's `§ Implementation spec` is the canonical input `/nmt-product-requirements` consumes.
+`/nmt-market-research` hands over a customer group with the tasks they're trying to get done, what "good enough" means to them (success criteria), the bigger result they're after, their competitors, and a one-line take on why you'd win. This skill goes **much deeper**: it pins down the few things this customer weighs above everything else (their dominant success criteria), maps the run of tasks the customer walks (the Job Graph the value moves operate over), **generates** ways to create value by walking a catalog of named value moves (value mechanics) over that map, then **filters and ranks** them on feasibility, cost-to-build, the money math (unit economics), and whether they actually beat competitors. The output's implementation spec is what `/nmt-product-requirements` builds the PRD from.
 
-The bigger gift is **invention** — systematically generating the strongest / fastest / cheapest way to create value — not validation. Validation (the RAT cards) is the deliverable, not the differentiator.
+The bigger gift is **invention** — systematically generating the strongest / fastest / cheapest way to create value — not validation. Validation (the test cards — the Riskiest Assumption Test, RAT) is the deliverable, not the differentiator.
 
-The output is a single file in **three reading depths, linked top-to-bottom** (so one document serves the co-founder skim, the skeptical read, and the methodology audit + the PRD hand-off):
+The output is a single file. **The default the reader sees is short** — a one-page value proposition: what it is, who it's for, why they'd switch, the one bet that has to be true, and what to do next. Two deeper layers sit below it, collapsed and opt-in, so the document also serves the skeptical read, the methodology audit, and the PRD hand-off — but nobody hits a wall of detail they didn't ask for:
 
-1. **Layer 1 — The Value Proposition, in one breath** (~1 page, zero methodology words): what it is, who it's for, why they'd switch, the one bet that must be true, the one thing to do next — each line drilling down to its reasoning. Forwardable to a co-founder who's never heard of the methodology.
-2. **Layer 2 — The Reasoning** (2–4 pages, plain English): *how we got here* for each Layer-1 claim — what the segment wants most, the wedge, the before→after, the Aha in plain terms, the riskiest bet — each linking down to the full work.
-3. **Layer 3 — The Full Work** (the §0–§12 detail): the mechanic tables, before→after, competitor matrix, RAT cards, the **PRD-ready §11 implementation spec** `/nmt-product-requirements` consumes, and the §12 methodology appendix.
+1. **Layer 1 — The value proposition (the default view, ~1 page, zero methodology words):** what it is, who it's for, why they'd switch, the one bet that has to be true, the one thing to do next — each line drilling down to its reasoning if the reader wants it. Forwardable to a co-founder who's never heard of the methodology.
+2. **Layer 2 — The reasoning (opt-in, plain English):** *how we got here* for each Layer-1 claim — what the customer wants most, why you'd win, the before→after, the moment it clicks for them (the Aha moment) in plain terms, the riskiest bet — each linking down to the full work.
+3. **Layer 3 — The full work (opt-in/collapsed):** the value-move tables, before→after, competitor matrix, test cards, the **PRD-ready implementation spec** `/nmt-product-requirements` consumes, and the methodology appendix.
 
 > **Producer contract (binding) — `../PRODUCER-CONTRACT.md`.** Six cross-cutting behaviors shared by all producer skills, from user feedback: (1) print a **helicopter-view** before the first question; (2) ask **Markdown or HTML** output; (3) treat **all** user input as hypothesis and emit a *"risks I see in what you gave me"* block; (4) print **validation debt** and write any go-ahead as **`GO (to validation)`**, never a bare "build it now"; (5) accept a **custom output path**; (6) Deep mode runs an **evidence floor + self-critic loop** and offers a **web-MCP fallback**. The hooks below wire each into this skill; the contract is the source of truth for the wording.
 
@@ -72,7 +68,7 @@ Per project `CLAUDE.md`: every named external source in any output is a clickabl
 
 **Who reads it** — the target segments (the essentials are inline here, so the skill stays self-contained and public-safe): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
 
-**Plain ↔ methodology** (say the left; add the right in parentheses only when it earns its place): the result they're after *(the Job / Big Job)* · the main thing the product does for them *(the Core Job)* · the step-by-step path the customer walks *(the Critical Chain of Jobs)* · the exact step where they get stuck *(a Critical Chain of Jobs break)* · the moment it clicks / feels worth it *(the Aha Moment)* · getting the result for less time, effort, money, or stress than expected *(value)* · a pleasant surprise / a letdown vs. what they expected *(Positive / Negative Prediction Error — never PPE/NPE)* · the few things they must learn or believe before switching *(Consideration Activators)* · a real blocker vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption / RAT)*.
+**Plain ↔ methodology** (lead with the plain meaning; add the term in parentheses once, when it earns its place — common-word terms like *segment, success criteria, Aha moment* you can lead with directly): the bigger result they're really after *(their Big Job)* · the biggest task your product does on its own, end to end, and can't go higher right now *(its Core Job)* · the ordered run of must-succeed tasks the customer walks *(the Critical Chain of Jobs)* · the exact step where they get stuck *(a break in that chain)* · the **Aha moment**, where the product beats what they expected and it clicks · getting the result for less time, effort, money, or stress than expected *(value)* · the few things you load into a buyer's head before they'll switch *(Consideration Activators)* · a real blocker that stops them using you vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption — the Riskiest Assumption Test, RAT)*. Never say *Positive / Negative Prediction Error* to a user — write **Aha moment / Problem**. Don't say *wedge* — say "why we win" / "the underserved criteria only you cover."
 
 **Precision still holds in the methodology layer.** Job-grammar discipline (Jobs as *"I want to + verb,"* levels named, terms capitalized) governs the internal-reasoning held in context and the explicit **§12 Methodology appendix (NMT)** inside Layer 3, where full methodology language is expected. The *lead the reader sees* in Layers 1–2 (and in Layer-3 prose) is plain; the *parenthetical and the appendix* carry the precise terms.
 
@@ -84,7 +80,7 @@ Link `references/glossary.md` once at the top of Layer 2, where the methodology 
 
 The value-proposition document is **three reading depths in one file**, linked top-to-bottom like canon §-references. Most readers stop at Layer 1; doubters drop one level to see *how we got here*; experts read the bottom (the full mechanic work + the PRD-ready spec). The full template is in "S6 — Synthesize the artifact (three layers)" below. The rules that make it work:
 
-- **Three layers, escalating depth — state each conclusion once per layer, never twice at the same depth.** Layer 1 = the value proposition in one breath (the headline only). Layer 2 = the reasoning in plain English. Layer 3 = the full methodology work (the mechanic tables, before→after, competitor matrix, RAT cards, the §11 implementation spec, the §12 appendix). A bet is a headline in L1, a plain sentence in L2, a full RAT card in L3 — three depths, not three copies.
+- **Three layers, escalating depth — state each conclusion once per layer, never twice at the same depth.** Layer 1 = the value proposition (the one-page default, headline only). Layer 2 = the reasoning in plain English. Layer 3 = the full methodology work (the mechanic tables, before→after, competitor matrix, RAT cards, the §11 implementation spec, the §12 appendix). A bet is a headline in L1, a plain sentence in L2, a full RAT card in L3 — three depths, not three copies.
 - **Drill-down links are mandatory.** Every Layer-1 claim a skeptic could doubt carries a `▸` link to its Layer-2 anchor; every Layer-2 claim links to the Layer-3 part that derives it. Use Markdown anchors: write `[how we know they'll switch ▸](#l2-bet)` and put `<a id="l2-bet"></a>` above the target. This is what makes the simple layers *trustworthy* — the reader can always click through to the derivation.
 - **Layer 1 = minimal jargon, plain words lead.** Lead every sentence in plain product English a junior PM gets at a glance. A methodology term may appear **in parentheses** as a short plain gloss when it genuinely helps — but never *open* a sentence with a raw term, and keep jargon to a minimum. Short sentences — "explain it to a smart friend." Watch the sneaky business-jargon leaks: *wedge, bet, beachhead, ACV* read as jargon too — translate them (wedge → "the one thing only we do"; the bet → "the one thing that must be proven first") or gloss in parentheses.
 - **Layer 2 = plain language first, term glossed.** On first use, gloss a methodology term in 3–5 words in parentheses — e.g., *"the Big Job (the outcome the customer is really after)"*. Nested or repeated parenthetical glosses are fine — clarity beats purity. Link `references/glossary.md` once at the top of Layer 2.
@@ -186,7 +182,7 @@ The skill writes **exactly one** file. Default location (used unless the user ga
 Skills-Results/{product-slug}/craft-value-proposition/{YYYY-MM-DD_HH-MM}_{product-slug}-craft-value-proposition-result.{md|html}
 ```
 
-- **Extension follows the chosen output format** (`PRODUCER-CONTRACT.md §2`): `.md` (default) or a single self-contained `.html` (inline CSS, working in-page anchors for the How-to-read jumps + every `▸` drill-down link, `<details>` for Layer 3 and methodology traces, source links opening in a new tab). HTML carries the identical content — same attribution, disclaimers, three layers, tables, links — just in a more readable shell. Never write both; one file per run.
+- **Extension follows the chosen output format** (`PRODUCER-CONTRACT.md §2`): `.md` (default) or a single self-contained `.html` (inline CSS, working in-page anchors for the How-to-read jumps + every `▸` drill-down link, source links opening in a new tab). **Either format leads with the one-page value proposition (Layer 1) and keeps Layer 2 + Layer 3 collapsed in `<details>` blocks** — collapsed `<details>` renders on the GitHub Markdown mirror too, so the default view is short in both. HTML also uses `<details>` for methodology traces. HTML carries the identical content — same attribution, disclaimers, three layers, tables, links — just in a more readable shell. Never write both; one file per run.
 - If the user gave a custom path, write the one file there with the same filename pattern.
 - Everything else — the normalized input, the ranked criteria, the Job Graph, the raw hypotheses, the scored shortlist, the RAT inventory, dropped hypotheses, and every GATE verdict — **stays in-context across the stages**; none of it is written to a separate file. The timestamp makes each run's file unique, so reruns never overwrite. Disclaimers (Rule 3) go at the top of this one file.
 
@@ -213,17 +209,26 @@ One Claude, no internet, no subagents. Runs the full S0→S6 chain inline; each 
 
 Then proceed to intake.
 
+### Intake depth — ask this first
+The very first thing in the intake, before anything else. This is about the **number of questions** I ask you — it's independent of the Quick / Deep research mode (that's about internet + subagents, asked later). Ask via `AskUserQuestion`:
+
+> **First — how deep should I go? Pick one:**
+> - **Just the essentials** — I ask the 3–4 questions that matter most, then deliver. Best for a fast first pass or when you're still exploring.
+> - **The full interview** — I walk you through everything so we cover the most blind spots and you get the highest-confidence result. Best when the decision is expensive.
+
+Hold the choice in context. **Just the essentials** → ask only the load-bearing questions (input path · segment + the 1–3 main things they're getting done + business goal); infer or defer the rest (materials, claims ledger, hand-off debt), and note in `result.md` what was skipped. **The full interview** → run the complete intake below (materials, claims ledger, hand-off debt, direction confirmation). Either way the engine still builds the full eight-element Job structure internally.
+
 ### Language
 Default **English**. If the user writes in another language, offer to work in it via `AskUserQuestion` (English / their language / Other). Hold the choice in context. The report uses the chosen language; canon files and source URLs stay as-is.
 
 ### Determine input path
-Ask via `AskUserQuestion`:
+Lead with the standalone path — it is a first-class door, not a fallback. Open with: *"Tell me your customer group and what they're trying to get done — or point me at a `/nmt-market-research` result if you have one. Both work."* Then ask via `AskUserQuestion`:
 
 ```
-Q1: "What's your input?"
+Q1: "How do you want to start?"
+- "I'll describe my segment myself"         → path C: standalone manual intake (first-class)
 - "I have a /nmt-market-research result file"   → path A: load and parse
 - "I want to run /nmt-market-research first"    → path B: hand off, then come back
-- "I'll describe the segment manually"      → path C: standalone manual intake
 ```
 
 **Path A — nmt-market-research result loaded.** Ask for the result file path, `Read` it, parse the segment list. Then:
@@ -241,25 +246,25 @@ Q3: "What's the active business goal?"
 
 **Hand-off debt — what's been validated since (`PRODUCER-CONTRACT.md §4c`).** The nmt-market-research result carried a validation debt (its risky assumptions, the RAT in its Section 5). Ask once: *"That research left a list of unvalidated assumptions. Which of them have you since checked in the field — interviews, sales, a test — and what did you learn?"* Carry the answers in context: anything confirmed becomes evidence (cite how it was checked); anything still unchecked stays tagged unvalidated and flows into S5's RAT cards. Debt travels down the chain — it is not silently dropped.
 
-**Path B — wants nmt-market-research first.** Reply: *"Strongly recommended — the value prop is much sharper from a real nmt-market-research run. Run `/nmt-market-research` (Quick or Deep), then come back here with the result file. Want me to open the `/nmt-market-research` input prompt now?"* Hand off.
+**Path B — wants nmt-market-research first.** Reply: *"Good call if your market's still fuzzy — a `/nmt-market-research` run sharpens the value prop. Run `/nmt-market-research` (Quick or Deep), then come back here with the result file. Want me to open the `/nmt-market-research` input prompt now?"* Hand off. (Don't push this on anyone who'd rather just describe their segment — path C is a fully supported door.)
 
-**Path C — manual segment description.** Only if the user declines nmt-market-research. Collect a structured manual input via plain-text prompts:
+**Path C — describe your segment yourself (a first-class door, not a fallback).** Collect the input in plain words — **never ask the user to write a Job in any formal structure.** You collect plain answers and build the eight-element Job structure *internally* in the engine; the user only ever speaks normal English. Ask via plain-text prompts:
 
 ```
-Required:
+Required (plain words — no formal structure asked of the user):
 - Product description (1–2 sentences) + URL if any
-- Target segment NAME (short, memorable, follows from causal criteria)
-- Persona — causal criteria (NOT demographics): behavioral trigger · stage/lifecycle ·
-  information-diet · causal pain trigger
-- Big Job(s)  (verb + noun + life/business state change); personal Big Job for B2B
-- Top 1–3 Core Jobs in canonical form:
-  When {context + trigger + negative emotions}, I want to {expected outcome}
-  with success criteria {concrete: direction + level}, in order to {Big Job + positive emotions}.
-- Known alternatives — ≥3 ways the segment closes the Big Job today (with URLs)
+- Who's this for? Describe them by what they do and how they're set up,
+  not their age/title — and what sets them off to look for a fix.
+- In a sentence or two each: what are the 1–3 main things this customer is
+  trying to get done, and how would they know it worked?
+  Plain words — I'll structure it into the formal version (their Core Jobs).
+- The bigger result they're really after by doing those things (their reason / Big Job).
+  For B2B, also the personal win for the individual making the call.
+- Known alternatives — ≥3 ways this customer gets that result today (with URLs)
 - Active business goal (launch / reposition / expand)
 ```
 
-Validate the manual input against the invariants; ask for fixes if any fail (e.g. *"that segment criterion is demographic — describe the behaviour or characteristic that causes the Job"*; *"that Job has two infinitive verbs — parse it into the hierarchy"*). Flag reduced confidence at the top of `result.md`: *"⚠️ Confidence reduced — value prop generated from a manual segment description, not a full nmt-market-research run."*
+From these plain answers, build the eight-element Job structure internally (context · negative emotions · Consideration Set · trigger · expected outcome · success criteria · positive emotions · higher-level Job) and validate that internal structure against the invariants — **without** showing the formal grammar to the user. If something's missing or off, ask for it in plain words (e.g. *"is there a specific moment or event that sets this customer off to look for a fix?"*; *"you named two different things they're getting done there — let's take them one at a time"*) — never *"that Job has two infinitive verbs"* or *"that criterion is demographic." Translate the methodology check into a plain question.* Flag reduced confidence at the top of `result.md`: *"⚠️ Confidence reduced — value prop generated from a manual segment description, not a full nmt-market-research run."*
 
 ### Run options & output (all paths)
 
@@ -277,7 +282,7 @@ Ask in one batched `AskUserQuestion` (defaults keep the common case friction-fre
 - **Hard gate.** No value prop or wedge may rest *primarily* on an unvalidated user input without the document saying so explicitly and pointing a RAT card at it. If the wedge is built on a Job taken from the user's materials and not confirmed by customer evidence, name that as the single most expensive risk.
 - **Direction confirmation.** Before S1 starts, play the understanding back in one short block — *"Here's what I understood: {segment, Core Jobs, business goal, what's out of scope}"* — and confirm via one `AskUserQuestion` (Confirm / Correct). Cheapest moment to fix a wrong direction.
 
-**Output (held in context):** target segment + causal criteria · Core Jobs (canonical form, "in order to" not "so that") · Big Jobs (+ personal Big Job for B2B) · known alternatives/competitors (direct · indirect · turnkey) · the nmt-market-research wedge & first mechanic guess (path A) · user materials + claims ledger · mode · language · business goal.
+**Output (held in context):** target segment + causal criteria · Core Jobs (canonical form, "in order to" not "so that") · Big Jobs (+ personal Big Job for B2B) · known alternatives/competitors (direct · indirect · turnkey) · the nmt-market-research why-we-win line & first mechanic guess (path A) · user materials + claims ledger · mode · language · business goal.
 
 ## S1 — Dominant success criteria + anchors  → GATE-1
 
@@ -425,7 +430,11 @@ Q: "Which is your PRIMARY value proposition? (the other becomes supplementary, n
 
 ## S6 — Synthesize the artifact (three layers)  → GATE-6 (panel) → human ship gate
 
-Assemble the single output file as **three reading depths, linked top-to-bottom** (so one document serves the co-founder skim, the skeptical read, and the methodology audit + the PRD hand-off). Order in the file: top-of-file attribution + disclaimers (once) → **How to read this (3 levels, with jump links)** → **Layer 1** → **Layer 2** → **Layer 3**. **Compute Layer 1 and Layer 2 LAST**, from the finished Layer-3 work. Layer 3 keeps the full §0–§12 substance — the mechanic tables, before→after, competitor matrix, RAT cards, the PRD-ready §11 spec, and the §12 appendix — renamed and anchored, **with all inline citations fenced into methodology traces** (see "Readability rules").
+Assemble the single output file so **the short value proposition is what the reader sees by default**, with the two deeper layers opt-in below it (so one document serves the co-founder skim, the skeptical read, and the methodology audit + the PRD hand-off — without dumping a wall of detail on a reader who didn't ask for it). Order in the file: top-of-file attribution + disclaimers (once) → **How to read this (3 levels, with jump links)** → **Layer 1 (the default, always visible)** → **Layer 2** → **Layer 3**.
+
+**Make the deep layers opt-in, not a default wall.** Layer 1 is always visible. **Wrap Layer 2 and Layer 3 each in a collapsible `<details>` block** (with a plain `<summary>` like *"The reasoning — how we got here"* and *"The full work — value-move tables, competitor matrix, test cards, and the build spec for the PRD hand-off"*). Collapsed `<details>` renders on the GitHub Markdown mirror and in HTML, so in both formats the reader lands on the one-page value proposition and expands deeper layers only if they want them. **The implementation spec (the PRD hand-off section) stays in Layer 3 in full** — it is the build deliverable; collapse it, don't cut it.
+
+**Compute Layer 1 and Layer 2 LAST**, from the finished Layer-3 work. Layer 3 keeps the full substance — the value-move tables, before→after, competitor matrix, test cards, the PRD-ready implementation spec, and the methodology appendix — renamed and anchored, **with all inline citations fenced into methodology traces** (see "Readability rules").
 
 ### Top of file (once — above Layer 1)
 
@@ -445,12 +454,12 @@ Emitted once, right after the disclaimers and before Layer 1, so the reader sees
 ```markdown
 ## How to read this
 Three levels — go as deep as you need:
-- **Level 1 — The Value Proposition, in one breath** (1 page, plain words): what it is, who it's for, why they'd switch, the one thing to prove first, what to do next. Most readers stop here. [jump ▸](#layer-1)
+- **Level 1 — The value proposition** (1 page, plain words): what it is, who it's for, why they'd switch, the one thing to prove first, what to do next. Most readers stop here. [jump ▸](#layer-1)
 - **Level 2 — The Reasoning** (plain English): how we got there — what the segment wants most, the edge, the before→after, the riskiest assumption. [jump ▸](#layer-2)
 - **Level 3 — The Full Work** (the audit trail + build spec): the full mechanic work, before→after, competitor matrix, test cards, and the PRD-ready implementation spec. [jump ▸](#layer-3)
 ```
 
-### Layer 1 — The Value Proposition, in one breath
+### Layer 1 — The value proposition (the default view)
 
 ```markdown
 <a id="layer-1"></a>
@@ -498,9 +507,9 @@ Plain English, one gloss per methodology term, `references/glossary.md` linked o
 
 | What you provided / claimed | How I treated it | The risk I see in it | How to check it fast |
 |---|---|---|---|
-| {claim or material, tagged data / observation / hunch} | {used as hypothesis in {where — wedge / segment / mechanic}} | {the specific risk — e.g., "this is your stated value, not customer-validated; the real Job may differ"} | {the cheapest falsifying test} |
+| {claim or material, tagged data / observation / hunch} | {used as hypothesis in {where — why-we-win / segment / value move}} | {the specific risk — e.g., "this is your stated value, not customer-validated; the real Job may differ"} | {the cheapest falsifying test} |
 
-{If the wedge or the value prop rests primarily on an unvalidated input, say so here in one bold sentence and point to the matching RAT card in §10.}
+{If why-we-win or the value prop rests primarily on an unvalidated input, say so here in one bold sentence and point to the matching test card (RAT card) in the full work below.}
 
 <a id="l2-value"></a>
 ## What this segment actually wants most
@@ -511,8 +520,8 @@ Plain English, one gloss per methodology term, `references/glossary.md` linked o
 {The causal criteria that pick this customer out — what they do / how they're set up, not demographics. Why a lookalike with the same demographics is a different customer.} [the full segment + Job statements ▸](#l3-segment)
 
 <a id="l2-wedge"></a>
-## The wedge — what every alternative makes them give up
-{What each existing option (including doing nothing / DIY) forces the customer to sacrifice, and why ours doesn't — the wedge in plain words. Then the before→after of their life in one or two sentences, and the moment it clicks for them (the Aha — plain terms).} [the criteria-by-competitor matrix + before→after ▸](#l3-wedge)
+## Why we win — what every alternative makes them give up
+{What each existing option (including doing nothing / DIY) forces the customer to sacrifice, and why ours doesn't — the underserved criteria only you cover, in plain words. Then the before→after of their life in one or two sentences, and the moment it clicks for them (the Aha moment — plain terms).} [the criteria-by-competitor matrix + before→after ▸](#l3-wedge)
 
 <a id="l2-bet"></a>
 ## The riskiest bet — and the cheapest way to find out
@@ -560,17 +569,17 @@ The current §0–§12 substance, kept whole, sitting below the plain layers. Ad
 | Dominant-criteria outcome | {…} | {…} |
 
 ## 5. Our value — benefit themes
-{3–5 themes, each a cluster of mechanic applications across the graph. Each theme: the customer outcome + the "so what?". Mechanics named here in plain language; the full mechanic table is in §12.}
+{3–5 themes, each a cluster of value-move applications across the graph. Each theme: the customer outcome + the "so what?". Value moves named here in plain language; the full table is in the methodology appendix at the end.}
 
 ## 6. Differentiation vs competitive alternatives
 {Dunford order. List the competitive alternatives the segment would otherwise use — including "do nothing" / the DIY status quo. Then: "Unlike {alternative + URL}, {Product} {differentiator on the dominant criterion}."}
 | Dominant success criterion | {Direct competitor} | {Indirect / Big-Job} | {Turnkey} | Us |
 |---|---|---|---|---|
 | {criterion} | ⚠️ | ❌ | ⚠️ | ✅ |
-**The wedge:** {the underserved criteria intersection}.
+**Why we win:** {the underserved criteria intersection only we cover}.
 
 ## 7. Proof & the Aha Moment
-**Aha Moment:** {the specific positive-prediction-error event — where it fires on the Critical Chain of Jobs, how far left it is shifted}. NOT signup/login.
+**Aha Moment:** {the specific moment value first beats the customer's expectation — where it fires on the Critical Chain of Jobs, how far left it is shifted}. NOT signup/login.
 **Proof / how we make it true:** {evidence, comparable cases with links, or the cheapest probe that will prove it}.
 
 > <sub>**▸ methodology trace.** Mechanics operate over the Job Graph, not a Core Job in isolation (`value-creation.md §11`); strongest mechanics = move up a level / kill a Job (`value-creation.md §14`); Aha = a positive-prediction-error event placed as far left on the Critical Chain of Jobs as possible (`value-creation.md §12`, `critical-chain.md`); all switches go through the Big Job (`behaviour-change.md §4`).</sub>
@@ -603,7 +612,7 @@ The current §0–§12 substance, kept whole, sitting below the plain layers. Ad
 - **Critical Chain of Jobs & Aha placement:** {the chain the customer walks; where the Aha fires; what to remove to shift it left}.
 - **Cost-to-build & cheapest probe:** {build path + the probe that validates before building}.
 - **Unit-economics direction:** {Job budget vs cost-to-serve; pricing hypothesis; LTV>CAC direction}.
-- **Anti-segment / out of scope:** {who this is NOT for — 2–3 groups; non-focal Jobs deferred}.
+- **Who this is NOT for — out of scope:** {2–3 groups this is deliberately not for; non-focal Jobs deferred}.
 
 > <sub>**▸ methodology trace.** Unit economics is a filter — value that doesn't convert to margin is not a product (`nmt-key-theses.md §4`; budget covers cost-to-serve, `nmt-key-theses.md §5`).</sub>
 
@@ -638,7 +647,7 @@ The current §0–§12 substance, kept whole, sitting below the plain layers. Ad
 - [ ] **Producer contract satisfied** (`../PRODUCER-CONTRACT.md`): helicopter-view printed before intake; output-format + output-path asked; if HTML, one self-contained `.html` with resolving anchors + `<details>`; the **"What you told me — and the risks I see in it"** block present (unless no input given); **validation-debt line** in Layer 1; the next step framed as **validate first, not build** (no bare "build it now"); on hand-off from nmt-market-research, asked what debt has been retired; Deep mode hit its evidence floor + self-critic loop (or flagged thin coverage + offered the web MCP).
 
 ## What this enables next
-1. `/nmt-product-requirements` — feed §11 (the implementation spec) directly; it becomes the PRD's segment + value + risk input.
+1. `/nmt-product-requirements` — feed it the implementation spec (the PRD hand-off section) directly; it becomes the PRD's segment + value + risk input.
 2. `/nmt-craft-go-to-market` — once the PRD exists, feed this value prop + the PRD to write the landing, ad, and GTM/growth copy.
 3. Run RAT card #1 — don't build until #1 is validated or killed.
 
@@ -748,3 +757,8 @@ Produce a `⚠️ Methodology violation` warning (not silent output) for any of:
 - [ ] **Step ledger:** every stage S0–S6 checked off by name; a skipped stage or gate was declared to the user, never silent.
 - [ ] **User claims stayed hypotheses:** ledger claims tagged (data / observation / hunch); the primary value prop does not rest primarily on a single unverified user hunch without saying so.
 - [ ] **Producer contract satisfied** (`../PRODUCER-CONTRACT.md`): helicopter-view printed before intake; output-format + output-path asked; if HTML, one self-contained `.html` with resolving anchors + `<details>`; the **"What you told me — and the risks I see in it"** block present (unless no input given); **validation-debt line** in Layer 1; the next step framed as **validate first, not build** (no bare "build it now"); on hand-off from nmt-market-research, asked what validation debt has been retired and re-tagged anything still unvalidated; Deep mode hit its evidence floor + self-critic loop (or flagged thin coverage + offered the web MCP).
+
+---
+
+> **Update check — do this at the very end (best-effort, ≤2s, never blocks).** After you've finished this skill's work and delivered the result — for a multi-turn chat (e.g. nmt-chat / nmt-diagnose), after your first substantive answer — read the installed version from `.nmt-version` (project root) and run
+> `v="$(cat .nmt-version 2>/dev/null)"; curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-craft-value-proposition${v:+&v=$v}"` — on any error or timeout, skip silently. Compare that installed version with the feed's `latest`; if behind, add one line — the `<installed> → <latest>` gap, a one-line summary per newer entry, and "run /nmt-upgrade to update". If versions match or `.nmt-version` is absent, add nothing.

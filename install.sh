@@ -134,28 +134,58 @@ PY
 [ "$CLEANUP_SRC" = "1" ] && rm -rf "$SRC"
 
 echo ""
-echo "Done — Next Move Theory canon + skills installed. Free and open-source."
+cat <<'EOF'
+============================================================================
+  Next Move Theory is installed.   Free and open-source.
+============================================================================
+
+  >>  START HERE — run   /nmt-chat   (Claude Code)   or   $nmt-chat   (Codex)
+
+      It's the front door to everything here. Paste whatever you have — a
+      rough idea, messy notes, a chat thread, a doc — and it pulls out the
+      context and tells you your next move and which skill to run for your
+      task. No methodologically-perfect brief required.
+
+      Don't know where to start? That is exactly what /nmt-chat is for.
+
+  --------------------------------------------------------------------------
+  All the skills   (Claude Code: /name   ·   Codex: $name):
+
+    nmt-chat                    advice + your next move        <- START HERE
+    nmt-diagnose                live product: find risks & growth points
+    nmt-market-research         new idea: size the market, pick the segment
+    nmt-craft-value-proposition turn a segment into a winning value prop
+    nmt-product-requirements    turn the value into a build-ready PRD
+    nmt-craft-go-to-market      turn the value into landing + ads + growth
+    nmt-analyze-interviews      have interviews? extract the Jobs from them
+
+  The four producers form a pipeline — jump in wherever you already are:
+    market-research -> craft-value-proposition -> product-requirements
+                                              -> craft-go-to-market
+
+  Still unsure which to run? Run /nmt-chat — it routes you to the right one.
+  --------------------------------------------------------------------------
+EOF
 echo ""
-echo "  Claude Code skills:  $TARGET/.claude/skills/   — invoke with /nmt-… (e.g. /nmt-diagnose)"
-echo "  Codex skills:        $TARGET/.agents/skills/   — invoke with \$nmt-… (e.g. \$nmt-diagnose)"
-echo "  canon:               $TARGET/Next-Move-Theory-Canon/"
-echo "  readme:              $TARGET/NextMoveTheory-README.md"
+echo "  Installed into: $TARGET"
+echo "    Claude skills:  $TARGET/.claude/skills/   (invoke with /nmt-…)"
+echo "    Codex skills:   $TARGET/.agents/skills/   (invoke with \$nmt-…)"
+echo "    canon:          $TARGET/Next-Move-Theory-Canon/"
+echo "    readme:         $TARGET/NextMoveTheory-README.md"
 echo ""
-echo "Open your agent from $TARGET and run a skill — e.g. /nmt-diagnose (Claude) or \$nmt-diagnose (Codex)."
-echo ""
-echo "Codex tip: to let skills ask structured questions outside Plan mode, add to ~/.codex/config.toml:"
-echo "    [features]"
-echo "    default_mode_request_user_input = true"
-echo ""
-echo "This is a free, open repository:"
-echo "  https://github.com/zamesin/Next-Move-Theory-Canon-and-Skills"
-echo ""
-echo "The canon is a living document — new theses, chapters, and skills ship over time."
-echo "To update, re-run this from your project root. It's safe and idempotent: it refreshes"
-echo "the canon, skills, and rules in place and leaves your own files untouched."
-echo "  curl -fsSL https://nextmovetheory.com/install.sh | bash"
-echo ""
-echo "Hear about new releases — subscribe at https://nextmovetheory.com"
+cat <<'EOF'
+  Codex tip — to let skills ask structured questions outside Plan mode, add
+  to ~/.codex/config.toml:
+      [features]
+      default_mode_request_user_input = true
+
+  Update anytime — safe & idempotent (refreshes canon, skills, and rules in
+  place; leaves your own files untouched):
+      curl -fsSL https://nextmovetheory.com/install.sh | bash
+
+  Free & open:   https://github.com/zamesin/Next-Move-Theory-Canon-and-Skills
+  New releases:  subscribe at https://nextmovetheory.com
+EOF
 
 # Auto-remove the clone when we installed from one sitting directly inside the
 # target (the `git clone … && bash …/install.sh --target .` flow), so the command

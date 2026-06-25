@@ -30,6 +30,17 @@ Move Theory `v0.6 · in active development`.)
 
 ---
 
+## 0.6.17 — Plain-language skills + a clearer first run
+**Summary:** Skills now lead in plain words (methodology terms in parentheses), point you to /nmt-chat when you're unsure where to start, ask "quick vs thorough" up front, and keep answers shorter. No methodology change.
+**Released:** 2026-06-24
+
+- Plain-first wording across every skill: an everyday explanation leads, the methodology term follows in parentheses — or is used directly for common words like *segment*, *Aha moment*, and *problem*. All glosses were re-verified against the canon.
+- Every skill now opens with a "New here? Start here" pointer to `/nmt-chat`, so you always know which skill to run first.
+- The producer skills ask how deep to go up front — a few key questions for a fast pass, or the full interview for the highest-confidence result.
+- Shorter by default: the one-page answer leads; the deeper work is opt-in, not a wall.
+- `nmt-craft-value-proposition` and `nmt-product-requirements` no longer ask you to write a Job in formal notation — describe it in plain words and the skill structures it for you.
+- The post-install message now points you straight to `/nmt-chat` and maps every skill.
+
 ## 0.6.16 — Faster launch-time update check
 **Summary:** The skills' update check now runs inline instead of reading a separate file, so skills start a touch faster. No change to what the check does.
 **Released:** 2026-06-22

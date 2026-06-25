@@ -175,27 +175,63 @@ Update-RulesFile -Name 'CLAUDE.md' -SourceRoot $Source -TargetRoot $Target
 Update-RulesFile -Name 'AGENTS.md' -SourceRoot $Source -TargetRoot $Target
 
 Write-Host ''
-Write-Host 'Done - Next Move Theory canon + skills installed. Free and open-source.'
+$onboard = @'
+============================================================================
+  Next Move Theory is installed.   Free and open-source.
+============================================================================
+
+  >>  START HERE - run   /nmt-chat   (Claude Code)   or   $nmt-chat   (Codex)
+
+      It's the front door to everything here. Paste whatever you have - a
+      rough idea, messy notes, a chat thread, a doc - and it pulls out the
+      context and tells you your next move and which skill to run for your
+      task. No methodologically-perfect brief required.
+
+      Don't know where to start? That is exactly what /nmt-chat is for.
+
+  --------------------------------------------------------------------------
+  All the skills   (Claude Code: /name   |   Codex: $name):
+
+    nmt-chat                    advice + your next move        <- START HERE
+    nmt-diagnose                live product: find risks & growth points
+    nmt-market-research         new idea: size the market, pick the segment
+    nmt-craft-value-proposition turn a segment into a winning value prop
+    nmt-product-requirements    turn the value into a build-ready PRD
+    nmt-craft-go-to-market      turn the value into landing + ads + growth
+    nmt-analyze-interviews      have interviews? extract the Jobs from them
+
+  The four producers form a pipeline - jump in wherever you already are:
+    market-research -> craft-value-proposition -> product-requirements
+                                              -> craft-go-to-market
+
+  Still unsure which to run? Run /nmt-chat - it routes you to the right one.
+  --------------------------------------------------------------------------
+'@
+Write-Host $onboard
 Write-Host ''
-Write-Host "  Claude Code skills:  $claudeSkills   (invoke with /nmt-...)"
-Write-Host "  OpenAI Codex skills: $codexSkills   (invoke with `$nmt-...)"
-Write-Host "  canon:               $canonTarget"
-Write-Host ("  readme:              " + (Join-Path $Target 'NextMoveTheory-README.md'))
+Write-Host "  Installed into: $Target"
+Write-Host "    Claude skills:  $claudeSkills   (invoke with /nmt-...)"
+Write-Host "    Codex skills:   $codexSkills   (invoke with `$nmt-...)"
+Write-Host "    canon:          $canonTarget"
+Write-Host ("    readme:         " + (Join-Path $Target 'NextMoveTheory-README.md'))
 Write-Host ''
-Write-Host 'Claude Code: run /nmt-diagnose or /nmt-market-research.'
-Write-Host 'OpenAI Codex: run /skills or mention $nmt-diagnose / $nmt-market-research.'
-Write-Host ''
-Write-Host 'Codex setup note: this installer does not edit Codex configuration.'
-Write-Host 'To let skills ask structured questions outside Plan mode, add this experimental'
-Write-Host 'feature key manually:'
-Write-Host '  [features]'
-Write-Host '  default_mode_request_user_input = true'
-Write-Host 'Add it to %USERPROFILE%\.codex\config.toml, or to .codex\config.toml in a trusted'
-Write-Host 'project, then restart Codex. Verified against Codex CLI 0.141.0; if the key is'
-Write-Host 'unavailable in your Codex version, the skills fall back to asking in chat.'
-Write-Host ''
-Write-Host "Repository: $RepoUrl"
-Write-Host 'To update, re-run the installer from your project root.'
+$tail = @'
+  Codex tip - to let skills ask structured questions outside Plan mode, add
+  this experimental feature key to %USERPROFILE%\.codex\config.toml (or to
+  .codex\config.toml in a trusted project), then restart Codex:
+      [features]
+      default_mode_request_user_input = true
+  Verified against Codex CLI 0.141.0; if the key is unavailable in your Codex
+  version, the skills fall back to asking in chat.
+
+  Update anytime - safe & idempotent (refreshes canon, skills, and rules in
+  place; leaves your own files untouched). Re-run the installer from your
+  project root.
+
+  Free & open:   https://github.com/zamesin/Next-Move-Theory-Canon-and-Skills
+  New releases:  subscribe at https://nextmovetheory.com
+'@
+Write-Host $tail
 
 # Clean up the clone. For the web one-liner ($Cloned: temp clone) always remove it;
 # for a disk clone, remove it only when it sits directly inside the target (the

@@ -4,15 +4,11 @@ description: Write the go-to-market communication for a chosen segment using Iva
 user-invocable: true
 ---
 
-> **Update check — best-effort, ≤2s, never blocks.** Before the steps below, run
-> `curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-craft-go-to-market"`; on any error
-> or timeout, skip silently. Compare `.nmt-version` (project root) with the feed's `latest`. If
-> behind, print one line — the `<installed> → <latest>` gap, a one-line summary per newer entry,
-> and "run /nmt-upgrade to update" — then continue. If it matches or `.nmt-version` is absent, continue.
-
 # Craft Go-To-Market (GTM communication) v1 — English / US edition
 
-> **One breath.** This skill packages **already-created, validated value** into the communication that acquires customers — landing copy, ad/creative copy, and a GTM/growth-communication plan. It is the last step of the chain and consumes the steps before it; it never invents the segment, the value, or the build. Everything is communicated **through the Big Job** (where motivation lives), stated in **concrete success criteria** (not adjectives), with **features as proof not message**, fears reduced and the competing Job Graph fired. Communication transmits value — it cannot manufacture it; if the value isn't validated yet, the skill says so and better copy only accelerates disappointment.
+> **New here, or not sure this is the right skill?** Start right here — or run `/nmt-chat`, describe your situation, and it points you to the right one. Quick map: **new idea →** `nmt-market-research` · **live product or a metric moved →** `nmt-diagnose` · **have customer interviews →** `nmt-analyze-interviews` · **ready to build →** `nmt-product-requirements` · **positioning / launch copy →** `nmt-craft-value-proposition` → `nmt-craft-go-to-market`.
+
+> **One breath.** This skill turns the value you've already built into the copy that brings in customers — landing copy, ad/creative copy, and a launch + growth plan. It's the last step of the chain and builds on the steps before it; it never invents the segment, the value, or the build. Everything is said through the bigger outcome the customer is really after (their **Big Job**, where motivation lives), in concrete, measurable terms (**success criteria**, not adjectives), with features used as proof, not as the message. Copy can carry value, not manufacture it: if the value isn't proven yet, the skill says so up front — it can still write you demand-test copy, just don't scale on it.
 
 > **Producer contract (binding) — `../PRODUCER-CONTRACT.md`.** Six cross-cutting behaviors shared by all producer skills, from user feedback: (1) print a **helicopter-view** before the first question; (2) ask **Markdown or HTML** output; (3) treat **all** user input as hypothesis and emit a *"risks I see in what you gave me"* block; (4) print **validation debt** and frame the pack as *test this messaging*, never *this will work* (GTM has no GO verdict — it inherits the debt of the value it sells); (5) accept a **custom output path**; (6) Deep mode runs an **evidence floor + self-critic loop** and offers a **web-MCP fallback**. The hooks below wire each into this skill; the contract is the source of truth for the wording.
 
@@ -24,7 +20,7 @@ user-invocable: true
                                                                           that sells the value)
 ```
 
-It consumes a `/nmt-craft-value-proposition` result (best — it carries the positioning headline, the dominant criteria, the Aha Moment, the differentiation, the proof) **and/or** a `/nmt-product-requirements` PRD (the real functionality, the Critical Chain of Jobs, the Aha placement) **and/or** a `/nmt-market-research` result (segment, Big/Core Jobs, competitors, the wedge). It does **not** re-derive segments, re-invent value, or re-spec the build — it packages what those produced into customer-facing language.
+It runs from a plain-English description of your product, your customer, and what you sell — that's a first-class way in, not a fallback. If you've already run an upstream skill, even better: it'll use a `/nmt-craft-value-proposition` result (best — it carries the positioning headline, the dominant criteria, the moment it clicks for the customer (the **Aha moment**), the differentiation, the proof), a `/nmt-product-requirements` PRD (the real functionality, the step-by-step path the customer walks (the **Critical Chain of Jobs**), where the Aha lands), or a `/nmt-market-research` result (segment, Big/Core Jobs, competitors, the underserved angle you win on). Either way, it does **not** re-derive segments, re-invent value, or re-spec the build — it packages what you give it into customer-facing language. (One footer point only: copy can't prove value, so test the value before you scale spend — more below.)
 
 ## What this skill produces
 
@@ -32,11 +28,11 @@ It consumes a `/nmt-craft-value-proposition` result (best — it carries the pos
 
 1. **Layer 1 — The GTM in one breath** (~1 page, zero methodology words, forwardable): the one-liner · the single core message everything routes through · who it's for · the top channel to try first · the one thing to test before scaling — each doubtable line drilling down to its reasoning.
 2. **Layer 2 — The Plan & why it's shaped this way** (1–2 pages, plain English, terms glossed once): why this is the message (what the buyer must come to believe), the landing logic in plain terms, the ad angles to test, the channel plan summary, what to test first — each linking down to the full pack.
-3. **Layer 3 — The Full Pack** (the deliverable in substance):
-   - **Part 1 — Landing copy.** The canonical NMT landing sequence, full ready-to-publish copy, no placeholders.
-   - **Part 2 — Ad / creative copy.** The seven Job-language banner formulas with test-variant sets; visuals brief (show State B); the one-liner used everywhere.
-   - **Part 3 — GTM / growth communication.** Acquisition-channel hypotheses (each loaded with Consideration Activators); Previous-Job lead magnets + Orientation-Job content + Viral-Job loops; cross-sell (Next Job) / upsell (Big Job) / retention (Aha-stream, frequency, habit-reuse) messaging.
-   - **Appendix — the Consideration-Activators map:** which of the five components each asset loads, and the forces of behavior change worked.
+3. **Layer 3 — The Full Pack** (the deliverable in substance — and **only the assets you asked for**: if you picked just landing + a couple of ads, that's all it writes; it doesn't dump the whole growth pack on you):
+   - **Part 1 — Landing copy.** The full landing-page sequence, ready-to-publish copy, no placeholders.
+   - **Part 2 — Ad / creative copy.** Seven ad angles (each a Job-language formula) with test-variant sets; a visuals brief that shows the after, the result they want (State B); the one-liner used everywhere.
+   - **Part 3 — GTM / growth plan.** Channel ideas to try (each loaded with the few things a buyer must learn or believe to switch — the Consideration Activators); lead magnets that catch them one step earlier (the **Previous Job**), content and referral loops; cross-sell into the next thing they do (the **Next Job**), upsell toward the bigger outcome (the **Big Job**), and retention messaging (a stream of Aha moments, frequency, reusing habits they already have).
+   - **Appendix — what each asset is doing:** which of the five switch-me-over pieces (the Consideration Activators) each asset carries, and which forces of behavior change it works.
 
 **Two modes:**
 - **Quick (default, ~10–15 min):** one Claude, no internet. Writes all copy from the loaded artifacts + reasoning.
@@ -94,11 +90,11 @@ Per `CLAUDE.md`: every named external source is a clickable Markdown link (Rule 
 **The reader of this output is a product person, not a methodologist.** Write the GTM plan, rationale, and annotations in the plain, everyday language the target segments already use; when a methodology term genuinely adds precision, **lead with the plain meaning and put the term in parentheses the first time it appears** — never lead a sentence, bullet, or heading with a methodology label. (The customer-facing landing / ad copy itself is of course plain by definition — this rule also keeps the *explanations around it* jargon-free.)
 
 - ❌ *"This banner uses the Trigger → Core Job formula and fires the competing Job Graph…"*
-- ✅ *"This banner hits them right at the moment they feel the problem, then shows why the usual option falls short (formula:* Trigger → Core Job *+ firing the alternative)."*
+- ✅ *"This banner is the right-moment angle — it catches them right when they feel the problem, then shows why the usual option falls short (a* Trigger → Core Job *Job-language formula that also fires the alternative)."*
 
 **Who reads it** — the target segments (the essentials are inline here, so the skill stays self-contained and public-safe): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
 
-**Plain ↔ methodology** (say the left; add the right in parentheses only when it earns its place): the result they're after *(the Job / Big Job)* · the main thing the product does for them *(the Core Job)* · the step-by-step path the customer walks *(the Critical Chain of Jobs)* · the exact step where they get stuck *(a Critical Chain of Jobs break)* · the moment it clicks / feels worth it *(the Aha Moment)* · getting the result for less time, effort, money, or stress than expected *(value)* · a pleasant surprise / a letdown vs. what they expected *(Positive / Negative Prediction Error — never PPE/NPE)* · the few things they must learn or believe before switching *(Consideration Activators)* · a real blocker vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption / RAT)*.
+**Plain ↔ methodology** (say the left; add the right in parentheses only when it earns its place): the result they're after *(the Job / Big Job)* · the biggest task your product does on its own, end to end, and can't go higher right now *(the Core Job)* · the step-by-step path the customer walks *(the Critical Chain of Jobs)* · the exact step where they get stuck *(a Critical Chain of Jobs break)* · the moment it clicks / clearly beats what they expected *(the Aha moment)* · the bad surprise when a tool does a task worse than expected *(a problem)* · getting the result for less time, effort, money, or stress than expected *(value)* · the few things they must learn or believe before switching *(Consideration Activators)* · a real blocker vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption / RAT)*. **Never write "Positive / Negative Prediction Error" in anything the user reads — say "Aha moment" / "problem".**
 
 **Precision still holds in the methodology layer.** Job-grammar discipline (Jobs as *"I want to + verb,"* levels named, terms capitalized) governs the internal-reasoning / debug files and any explicit **methodology appendix**, where full methodology language is expected. The *lead the reader sees* is plain; the *parenthetical and the appendix* carry the precise terms.
 
@@ -156,17 +152,26 @@ Before any question, print this short orientation block in plain words, in the u
 > **Two modes:** *Quick* (default — no internet, ~10–15 min, reasoning only; good for a first draft) · *Deep* (opt-in — subagents mine real customer-review language + ground the competitor-firing in real Problems, longer; best on a top model with a web-research MCP).
 > **Honest caveat:** this packages value into copy — it doesn't prove the value, the message, or the channel. Better copy on an unvalidated value claim only accelerates disappointment. Everything here is a hypothesis until you test it.
 
+### Intake depth — ask this first (how many questions, separate from Quick/Deep mode)
+Before anything else, ask how deeply to interview the user. This sets the **number** of intake questions; it is independent of the Quick/Deep research mode (which controls internet + subagents). Print verbatim:
+
+> **First — how deep should I go? Pick one:**
+> - **Just the essentials** — I ask the 3–4 questions that matter most, then deliver. Best for a fast first pass or when you're still exploring.
+> - **The full interview** — I walk you through everything so we cover the most blind spots and you get the highest-confidence result. Best when the decision is expensive.
+
+On **Just the essentials**: ask only the input-route question, which assets you need, and the one or two missing facts that block the copy (who it's for · what they get · what they use today and why it's not enough). Infer or defer the rest; flag any inferred input at the top of the result. On **The full interview**: run the full intake below (claims ledger, hand-off debt, materials, the full normalize step).
+
 ### Language
 Default **English**. If the user writes in another language, offer to work in it. Hold the choice in context. The copy uses the chosen language; canon files and source URLs stay as-is.
 
 ### One batched `AskUserQuestion`
 
 ```
-Q1 "What's your input?"
-  - "A /nmt-craft-value-proposition result"   → Path A (best)
+Q1 "What's your input? (all four work — describing it yourself is a fine starting point)"
+  - "I'll describe my product + customer in plain English"  → Path D (standalone — first-class)
+  - "A /nmt-craft-value-proposition result"   → Path A (richest input if you have it)
   - "A /nmt-product-requirements PRD"          → Path B
   - "A /nmt-market-research result"            → Path C
-  - "I'll describe the segment myself"     → Path D (manual)
 Q2 "Mode?"
   - "Quick (default — fast, no internet)"
   - "Deep (subagents + web: real review language + competitor firing)"
@@ -185,13 +190,13 @@ Extract (and only ask the user for what's genuinely missing):
 - **Target segment** + causal criteria (behaviour/characteristic, not demographics).
 - **Big Job(s)** + their success criteria (the motivation surface — where communication lands). Personal Big Job for B2B.
 - **Core Jobs** + dominant success criteria (direction + level). **Class 1 or Class 2?** (is the Core Job familiar to this segment? — sets whether copy leads on Big Job or Core Job, `behaviour-change.md §10`).
-- **The Aha Moment** (the positive-prediction-error event — for the "give a taste on the landing" block and the activation/retention angle).
+- **The Aha Moment** (the moment the product clearly beats what the customer expected — for the "give a taste on the landing" block and the activation/retention angle).
 - **Competitive set** — direct (Core Job), indirect (Big Job), turnkey — with what each closes *poorly* (the wedge, for firing).
 - **Current-Solution Problems & specific fears** (for fear reduction + competitor firing).
 - **Proof** — cases, guarantees, logos, comparable results (with source links — Rule 2).
 - **Validation status** — is the value proven by sales/usage, or still a hypothesis? (Gates whether this is "scale the copy" or "demand-test the copy.")
 
-Path D collects the above as a structured manual intake; validate against the invariants (fix multi-verb Jobs, demographic "criteria", adjective "value") before writing. Flag reduced confidence at the top of the result.
+Path D takes your plain-English description and does the methodology shaping for you internally — don't make the user write anything in formal Job grammar. Collect plainly (who it's for · what they get · what they use today and why it falls short · any proof you have), then internally validate against the invariants (split any task that bundles two verbs, turn demographics into real behavior, turn adjective "value" into measurable bars) before writing. Since this run leans on your description rather than a validated upstream artifact, note that at the top of the result — not as a warning that you shouldn't be here, just so you know what to test first.
 
 ### User materials, claims ledger, hand-off debt, direction confirmation (all paths)
 
@@ -258,7 +263,7 @@ Computed LAST, from the finished Layer-3 pack. **Minimal jargon, plain words lea
 {the single make-or-break thing to prove first — usually whether the value is real, or whether the top channel actually reaches them.} [what to test first ▸](#l2-test)
 
 > **Validation debt:** this pack stands on **{N}** unvalidated assumptions — **{M}** of them fatal (would sink it if wrong): that the value is real, that this message lands, and that the top channel reaches them. The fatal ones are the first things to test. [see them ▸](#l2-input-risks)
-> <sub>N = the assumptions the copy rests on (the value claim, the message, each channel + lead-magnet hypothesis, plus anything inherited unvalidated from the upstream artifact's hand-off debt); M = those that kill it if wrong. A Quick draft on an unvalidated value prop has high debt — say so honestly (`PRODUCER-CONTRACT.md §4`).</sub>
+> <sub>N = the assumptions the copy rests on (the value claim, the message, each channel + lead-magnet hypothesis, plus anything inherited unvalidated from the upstream artifact); M = those that kill it if wrong. A quick draft on an unproven value claim carries a lot of debt — and this says so honestly.</sub>
 
 > ⚠️ {validation flag — ≤2 lines, placed here below the answer, not above it. This pack has no GO/build verdict: it always reads as **"test this messaging / channel,"** never **"this will work."** "value validated by sales/usage" → these are scale-ready creatives; "value is a hypothesis" (incl. inherited from an unvalidated upstream value prop) → these are demand-test creatives, not facts to scale. Path D → reduced-confidence flag; else name the source artifact and what of its debt is still open.}
 ```
@@ -276,7 +281,7 @@ Computed after Layer 3, before Layer 1. Plain English, one gloss per methodology
 
 <a id="l2-input-risks"></a>
 ## What you told me — and the risks I see in it
-*Everything you gave me — the upstream value prop / PRD / research, your deck, your landing, your numbers — I treated as a hypothesis, not as fact. These are the inputs the copy leans on, and what I'd check before trusting each. The copy is the most public artifact in the chain — over-promising on an unvalidated claim manufactures disappointment at scale. (`PRODUCER-CONTRACT.md §3`.)* (Omit this block only if the user provided no claims or materials at all.)
+*Everything you gave me — the upstream value prop / PRD / research, your deck, your landing, your numbers — I treated as a hypothesis, not as fact. These are the inputs the copy leans on, and what I'd check before trusting each. Copy is the most public thing you ship — over-promising on an unproven claim creates disappointment at scale.* (Omit this block only if the user provided no claims or materials at all.)
 
 | What you provided / claimed | How I treated it | The risk I see in it | How to check it fast |
 |---|---|---|---|
@@ -286,7 +291,7 @@ Computed after Layer 3, before Layer 1. Plain English, one gloss per methodology
 
 <a id="l2-message"></a>
 ## Why this is the message
-{what the buyer must come to believe before they switch, in plain words — the better outcome they're really after (the Big Job), and the few things they must learn or believe (Consideration Activators) for the message to land. Why we lead on this and not on features.} [the full Consideration-Activators map ▸](#l3-camap)
+{what the buyer must come to believe before they switch, in plain words — the better outcome they're really after (the Big Job), and the few things they must learn or believe to switch (the Consideration Activators) for the message to land. Why we lead on this and not on features.} [what each asset is doing ▸](#l3-camap)
 
 <a id="l2-buyer"></a>
 ## Who it's for — and whether the value is proven yet
@@ -296,7 +301,7 @@ Computed after Layer 3, before Layer 1. Plain English, one gloss per methodology
 {why the page is ordered the way it is — recognize the situation → show the value in concrete terms → prove it → handle the fears → the first small step — in plain words.} [the full landing copy ▸](#l3-landing)
 
 ## The ad angles to test
-{the handful of angles worth testing first and why, plain.} [all seven formulas + variants ▸](#l3-ads)
+{the handful of angles worth testing first and why, plain.} [all seven ad angles + variants ▸](#l3-ads)
 
 <a id="l2-channels"></a>
 ## The channel plan
@@ -323,18 +328,18 @@ Examples of the form (not to copy): *Bench — bookkeeping service that categori
 ```
 
 #### Part 1 — Landing copy (full, ready-to-publish)
-Emit `<a id="l3-landing"></a>` above this part. A landing page is a **short Critical Chain of Jobs** whose State B is enough belief + motivation to take the first step. Write each block as final copy, not a brief — **clean, shippable, with no methodology citations inside the copy**:
+Emit `<a id="l3-landing"></a>` above this part. A landing page walks the visitor through a short run of must-clear steps (a short **Critical Chain of Jobs**); by the end, the result you want is enough belief and motivation for them to take the first step. Write each block as final copy, not a brief — **clean, shippable, with no methodology citations inside the copy**:
 
 1. **Hero** — the one-liner + a 1–2-sentence subtitle; **the Big Job this page addresses, stated explicitly** (and consistent with the PRD/value-prop); CTA copy + what the user gets on click.
 2. **Focus Jobs** — the Core Jobs together with the Big Job they serve.
 3. **Context & trigger** — the visitor recognizes *"this is my situation"* (the segment's real context + trigger).
 4. **Value by concrete criteria** — how much more energy-efficiently the Jobs land; numbers/thresholds, never adjectives.
 5. **How it works** — the steps as the *proof* layer (features attached to Jobs + criteria), not as the message.
-6. **A taste of the Aha Moment** — give a slice of value on the page where possible (the partial-value mechanic; place the first Aha as far left as possible).
-7. **Problems with the current way** — why the existing Job Graph produces Problems / Tax Jobs / chain-breaks (fires the competing Graph).
-8. **Fear reduction** — the specific feared breaks (the *"what if…"* block): named, then shown prevented / absorbed / reversible / insured / irrelevant. Separate real blockers from fears, and fears *about the Job* from fears *about our Solution*.
-9. **State B / Big-Job reminder** — what the result looks and feels like once the Big Job lands (the State-B emotion).
-10. **Consideration Activators + CTA** — named product, the first concrete step, low activation cost; CTA on every screen.
+6. **A taste of it working** — give a slice of real value right on the page where possible (the moment it clicks — the Aha moment — as early as possible).
+7. **What's wrong with the current way** — why the way they do it today keeps failing them (this fires the competing option in their head).
+8. **Fear reduction** — the specific things they're afraid will go wrong (the *"what if…"* block): named, then shown prevented / absorbed / reversible / insured / irrelevant. Separate real blockers from worries, and worries *about the task* from worries *about your product*.
+9. **The after** — what the result looks and feels like once they get the bigger outcome (the after, the result they want — State B — and the feeling that comes with it).
+10. **The first step + CTA** — name the product, give one concrete first step, keep it low-effort to start (these are the switch-me-over pieces — the Consideration Activators); CTA on every screen.
 
 After the copy, two fenced lines (out of the reading flow):
 
@@ -343,58 +348,58 @@ After the copy, two fenced lines (out of the reading flow):
 > <sub>**▸ methodology trace.** The landing block sequence is a short Critical Chain of Jobs whose State B is enough belief to take the first step (`communication.md §8`); value-in-criteria-not-adjectives is §3; features-as-proof is §4; the taste-of-Aha places the first Aha as far left as possible (`customers-attention-management.md §6`); the Problems and fear-reduction blocks fire the competing Job Graph and load Consideration-Activators components 4–5 (`consideration-activators.md §1`, `communication.md §2`, `barrier-removal.md §3`).</sub>
 
 #### Part 2 — Ad & creative copy
-Emit `<a id="l3-ads"></a>` above this part. Creatives are **Job-language formulas selected by evidence, not inspiration**. For each of the segment's main entry contexts, generate copy across the seven formulas, then mark which to test first:
+Emit `<a id="l3-ads"></a>` above this part. Each ad angle is one proven way to package the message — picked from evidence, not inspiration (each is a **Job-language formula**). For each of the segment's main entry contexts, generate copy across the seven angles, then mark which to test first. The table leads with **what the angle does** and the **example ad line**; the formula name is secondary, in parentheses:
 
-| # | Formula | Pattern |
+| # | The angle (what it does) | Example ad line |
 |---|---|---|
-| 1 | Core Job for Big Job | *"Find a 2-bedroom so both of you can take calls from home."* |
-| 2 | Core Job + value (criteria) | *"See new Austin rentals within 60 seconds of posting."* |
-| 3 | Trigger → Core Job | *"Offer letter signed? Shortlist commute-safe apartments this week."* |
-| 4 | Orientation Job | *"Compare Austin neighborhoods before you book a tour."* |
-| 5 | Big Job lived (State B) | *"First Monday in Austin: desk set up, commute under 20 minutes."* |
-| 6 | Micro Job | *"Turn on instant alerts for 2-bedrooms under $2,800."* |
-| 7 | Problem with current Solution → Core Job | *"Great listing already gone? Get alerts before the open house fills."* |
+| 1 | the outcome angle *(Core Job for Big Job)* | *"Find a 2-bedroom so both of you can take calls from home."* |
+| 2 | the concrete-value angle *(Core Job + value in criteria)* | *"See new Austin rentals within 60 seconds of posting."* |
+| 3 | the right-moment / urgency angle *(Trigger → Core Job)* | *"Offer letter signed? Shortlist commute-safe apartments this week."* |
+| 4 | the help-them-decide angle *(Orientation Job)* | *"Compare Austin neighborhoods before you book a tour."* |
+| 5 | the life-after angle *(Big Job lived — State B)* | *"First Monday in Austin: desk set up, commute under 20 minutes."* |
+| 6 | the one-feature angle *(Micro Job)* | *"Turn on instant alerts for 2-bedrooms under $2,800."* |
+| 7 | the fix-what's-broken angle *(Problem with current Solution → Core Job)* | *"Great listing already gone? Get alerts before the open house fills."* |
 
-- **Combine formulas** when the Graph requires (Trigger + Problem + Core Job; Big Job + fear reduction + CTA). Constraint: every clause translates back to a named Job level + criterion; parse multi-verb lines first.
-- **Specificity rule** — run every adjective through *"as in?"* before it ships.
-- **Visuals brief** — show **State B** (the result the Big Job creates), not the production process; name the State-B emotion.
-- Produce **enough variants to test**: copy is information packaged through formulas — generate a strong starter set per context and say what to A/B.
+- **Combine angles** when it helps (right-moment + fix-what's-broken + the outcome; the outcome + fear reduction + CTA). Internal check (not shown to the user): every clause still maps to a real task at a named level + a measurable bar; split any line that bundles two tasks.
+- **Specificity rule** — run every adjective through *"as in?"* before it ships ("fast" → "arrives in under 4 minutes").
+- **Visuals brief** — show the after, the result they want (**State B** — the result the bigger outcome creates), not the production process; name the feeling that comes with it.
+- Produce **enough variants to test**: generate a strong starter set per context and say what to A/B.
 
 > <sub>**▸ methodology trace.** The seven creative formulas and visuals-show-State-B are `communication.md §6`; every clause maps back to a named Job level + criterion (Rule 7, Rule 14).</sub>
 
 #### Part 3 — GTM / growth communication
 Emit `<a id="l3-channels"></a>` above this part. Three sub-parts, all routed through Jobs:
 
-**3a. Acquisition-channel hypotheses.** Per channel × segment, loaded with Consideration Activators:
+**3a. Channels to try.** Per channel × segment, each loaded with the few things a buyer must learn or believe to switch (the Consideration Activators):
 
-| Channel | Trigger / receptivity window | Message (the CA load) | First step (CTA) | Success metric |
+| Channel | The moment to reach them | What to say (the switch-me-over pieces) | First step (CTA) | Success metric |
 |---|---|---|---|---|
 
-- Time outreach to **receptivity windows** — Critical Chain of Jobs breaks, life events, competitor failures — not steady-state habit.
-- **Previous-Job channels:** a tool/content for the Job *before* the Core Job (calculator, estimator, aggregator, guide) that captures the customer earlier and shapes their Consideration Set.
-- **Orientation-Job content:** content marketing = performing Orientation Jobs + stepping to the Previous Job; design the **content loop** (using the product generates content that performs Orientation Jobs for the next customer; the Aha Moment is the fuel).
-- **Lead magnet:** trade a contact for disproportionate free value (checklist, template, calculator) — the brain over-values "free."
-- **Viral Jobs:** if the Core Job is performed *for/with* others (decks, docs, boards, Looms), design the surface so being-seen-using-it is itself a value moment; prioritize segments rich in high-frequency Viral Jobs.
-- **B2B (if the input is B2B):** route through peer stories, customer-published case studies, conference talks by customers, analyst reports, trusted-colleague recommendation — not consumer-marketing channels; arm the champion with a **deal room** and hit **personal Jobs** explicitly, not just business Jobs.
+- **Reach them at the moment they're open to switching** — when their current way just broke, a life event hit, or a competitor let them down — not during steady-state habit (the *receptivity windows*).
+- **Catch them one step earlier:** a free tool or piece of content for the task they do *right before* yours (calculator, estimator, aggregator, guide) — it reaches them sooner and shapes the shortlist they weigh (their consideration set). This earlier task is the **Previous Job**.
+- **Content that helps them figure out their options:** good content marketing does the customer's research-and-compare work for them and pulls them one step upstream (the **Orientation Job**). Build a loop where using the product itself creates content that helps the next customer compare — the Aha moment is the fuel.
+- **Lead magnet:** trade a contact for outsized free value (checklist, template, calculator) — people over-value "free."
+- **Things people do for or with others:** if your product gets used in front of other people (decks, docs, boards, Looms), make being seen using it feel good in itself; favor segments where this happens often (these are **Viral Jobs**).
+- **B2B (if the input is B2B):** route through peer stories, customer-published case studies, conference talks by customers, analyst reports, and trusted-colleague recommendations — not consumer-marketing channels; arm your internal champion with a **deal room**, and speak to what the buyer personally gets out of it (their personal Jobs), not just the company's.
 
 <a id="l3-dealroom"></a>
 **The deal room (B2B).** Arm the champion with: a comparison vs. named competitors, stakeholder-specific objection answers, references in their industry, and a business-case template they can paste into their own deck.
 
 **3b. Cross-sell / upsell messaging.**
-- **Cross-sell** = the **Next Job** in the Critical Chain of Jobs (after our Core Job lands, the next Job the customer performs) — message it as the natural continuation.
-- **Upsell** = link to a higher **Big Job** / move up-market / bundle.
+- **Cross-sell** — the very next thing the customer does after your product's job is done (the **Next Job**); message it as the natural continuation.
+- **Upsell** — connect to the bigger outcome they're after (their **Big Job**), move up-market, or bundle.
 
 **3c. Retention messaging.**
-- A **stream of Aha Moments** against the rising prediction bar; shift the first Aha as far left as possible.
-- **Reuse existing habits**, don't install new ones; embed in rituals the customer already runs.
-- **Frequency** + the **Next Job** (NRR > 100% is the "more Jobs / next Job" strategy in messaging form); ecosystem lock-in where it applies.
+- Keep delivering fresh moments where it clearly beats expectations (a stream of **Aha moments**), since the bar keeps rising; make the first one happen as early as possible.
+- **Reuse habits they already have**, don't ask them to build new ones; ride rituals they already run.
+- **Frequency** + that next thing they do (the **Next Job**) — getting customers to do more jobs with you over time is what pushes net revenue above 100%; add ecosystem lock-in where it applies.
 
 > <sub>**▸ methodology trace.** Receptivity windows + the forces are `behaviour-change.md §8–§9`; Previous-Job channels and upstream attention capture are `critical-chain.md §9.1` and `customers-attention-management.md §9`; Viral / Orientation Jobs are `job-types-and-properties.md`; the B2B channels, personal-Job messaging, and deal room are `b2b.md §3–§6`; cross-sell as the Next Job is `critical-chain.md §9.2`; upsell as move-up-a-level and the Aha-stream / Red Queen value-gap are `value-creation.md §14`, §6.</sub>
 
-#### Appendix — the Consideration-Activators map & the forces
+#### Appendix — what each asset is doing
 Emit `<a id="l3-camap"></a>` above this part.
-- A table: each landing block / ad / channel asset → which of the **five things the customer must learn or believe** it loads (a better way exists / better by these criteria / here's the product + first step / this fear is handled / the current way's problems are real).
-- The **forces of behavior change** worked for this segment: which driver each asset pulls and which blocker it removes; confirm habit is **reused or sidestepped, never fought head-on**.
+- A table: each landing block / ad / channel asset → which of the **five things the customer must learn or believe to switch** it carries (a better way exists / it's better on what they care about / here's the product + a first step / this fear is handled / the current way's problems are real) — these five are the **Consideration Activators**.
+- The **forces of behavior change** worked for this segment: which pull each asset uses and which blocker it removes; confirm you're **reusing or stepping around an existing habit, never fighting one head-on**.
 
 > <sub>**▸ methodology trace.** The five Consideration-Activators components are `consideration-activators.md §1`; the forces of behavior change are `behaviour-change.md §9`.</sub>
 
@@ -468,3 +473,8 @@ Web caps: review mining ≤12 fetches / ~10 min. Source links mandatory (Rule 2)
 - **Does not run the ad accounts, build the funnel, or buy media** — it produces the copy and the channel hypotheses to test.
 - Quick mode: no internet, no subagents.
 ```
+
+---
+
+> **Update check — do this at the very end (best-effort, ≤2s, never blocks).** After you've finished this skill's work and delivered the result — for a multi-turn chat (e.g. nmt-chat / nmt-diagnose), after your first substantive answer — read the installed version from `.nmt-version` (project root) and run
+> `v="$(cat .nmt-version 2>/dev/null)"; curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-craft-go-to-market${v:+&v=$v}"` — on any error or timeout, skip silently. Compare that installed version with the feed's `latest`; if behind, add one line — the `<installed> → <latest>` gap, a one-line summary per newer entry, and "run /nmt-upgrade to update". If versions match or `.nmt-version` is absent, add nothing.

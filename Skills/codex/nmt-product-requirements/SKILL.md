@@ -15,15 +15,11 @@ description: >-
 user-invocable: true
 ---
 
-> **Update check — best-effort, ≤2s, never blocks.** Before the steps below, run
-> `curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-product-requirements"`; on any error
-> or timeout, skip silently. Compare `.nmt-version` (project root) with the feed's `latest`. If
-> behind, print one line — the `<installed> → <latest>` gap, a one-line summary per newer entry,
-> and "run $nmt-upgrade to update" — then continue. If it matches or `.nmt-version` is absent, continue.
+# Product Requirements (PRD) — English / US edition
 
-# Product Requirements (PRD) v5 — English / US edition
+> **New here, or not sure this is the right skill?** Start right here — or run `$nmt-chat`, describe your situation, and it points you to the right one. Quick map: **new idea →** `$nmt-market-research` · **live product or a metric moved →** `$nmt-diagnose` · **have customer interviews →** `$nmt-analyze-interviews` · **ready to build →** `$nmt-product-requirements` · **positioning / launch copy →** `$nmt-craft-value-proposition` → `$nmt-craft-go-to-market`.
 
-> **v5 in one breath.** The skill no longer re-derives segments (that is `$nmt-market-research`) or invents value (that is `$nmt-craft-value-proposition`) — it **consumes** their output, and it runs **no research itself**. With no upstream artifact it does one of two things: **route** the user to run `$nmt-market-research` → `$nmt-craft-value-proposition` first (the proper path), or — if the user just wants requirements fast and already knows their segment and value — take the **segment + Jobs + value straight from the user's description** (the fast path) and skip research entirely. It then adds a **"challenge the build"** gate before any requirement is written — *is building this even the right move, or is there a more energy-efficient way to perform the business Job?* — and writes the PRD for whatever wins. The deliverable is a **single PRD in three reading depths**: **Layer 1** (what we're building, plain, forwardable) → **Layer 2** (the reasoning) → **Layer 3** (the full build spec — every feature laddered Core Job → Big Job → value mechanic → success criteria → Aha Moment on the Critical Chain of Jobs + ~90% edge cases). Canon citations are **fenced** into Layer-3 `▸ methodology trace` lines, never inline; internal `AGENTS.md Rule N` references never appear in the output. Canon is **loaded progressively** — an eager core up front, staged files only at the stage that needs them. Landing/ad/GTM copy moved to `$nmt-craft-go-to-market`; analytics and a standalone unit-economics model are out of scope (unit economics survives only as a reasoning filter).
+> **In one breath.** The skill no longer re-derives segments (that is `$nmt-market-research`) or invents value (that is `$nmt-craft-value-proposition`) — it **consumes** their output, and it runs **no research itself**. With no upstream artifact it does one of two things: **route** the user to run `$nmt-market-research` → `$nmt-craft-value-proposition` first (the proper path), or — if the user just wants requirements fast and already knows their segment and value — take the **segment + value straight from the user's description** (the fast path) and skip research entirely. It then adds a **"challenge the build"** gate before any requirement is written — *is building this even the right move, or is there a cheaper, more effective way to hit the same business goal?* — and writes the PRD for whatever wins. The deliverable is a **single PRD, short by default**: the one-page summary (what we're building · who it's for · the moment that proves it works · the single riskiest thing to validate before building · what to build first) is what most readers need; the full functional requirements and the ~90% edge-case table sit underneath as a deeper layer for whoever builds it. Internal methodology citations are kept out of the reader's reading flow; project rule numbers never appear in the output. Canon is **loaded progressively** — an eager core up front, staged files only at the stage that needs them. Landing/ad/GTM copy moved to `$nmt-craft-go-to-market`; analytics and a standalone unit-economics model are out of scope (unit economics survives only as a reasoning filter).
 
 > **Producer contract (binding) — `../PRODUCER-CONTRACT.md`.** Six cross-cutting behaviors shared by all producer skills, from user feedback: (1) print a **helicopter-view** before the first question; (2) ask **Markdown or HTML** output; (3) treat **all** user input as hypothesis and emit a *"risks I see in what you gave me"* block; (4) print **validation debt** and write **`GO (to validation)`**, never bare `GO`; (5) accept a **custom output path**; (6) Deep mode runs an **evidence floor + self-critic loop** and offers a **web-MCP fallback**. The hooks below wire each into this skill; the contract is the source of truth for the wording. This skill is the **closest-to-build** artifact in the chain, so the validation-debt + *"validate before you build, don't build yet"* framing (§4) carries the most weight here — get it right.
 
@@ -39,13 +35,13 @@ This skill is the **build** step. It takes a chosen segment with its Core Jobs a
 
 ## What this skill produces
 
-**One file — the PRD, in three reading depths linked top-to-bottom** (so one document serves the co-founder skim, the skeptical read, and the engineer/designer build):
+**One file — the PRD. Its default face is the one-page summary; the full build spec sits underneath as a deeper layer** (so one document serves the co-founder skim, the skeptical read, and the engineer/designer build), all linked top-to-bottom:
 
-1. **Layer 1 — What we're building** (~1 page, zero methodology words): what we're building, who it's for, the one moment that proves it works (in plain words), the single riskiest thing to validate before building, and what to build first — each line drilling down to its reasoning. Forwardable to a co-founder who's never heard of the methodology.
+1. **Layer 1 — What we're building** (~1 page, zero methodology words — **the default, what most readers need**): what we're building, who it's for, the one moment that proves it works (in plain words), the single riskiest thing to validate before building, and what to build first — each line drilling down to its reasoning. Forwardable to a co-founder who's never heard of the methodology.
 2. **Layer 2 — The Reasoning** (2–4 pages, plain English): *why this build and not something else* — the challenge decision, the core capabilities and why, the failure cases that matter, the riskiest assumption + cheapest probe — each linking down to the full spec.
-3. **Layer 3 — The Full Work** (the build spec engineers and designers build against): the challenge gate, full functionality (every requirement laddered Core Job → Big Job → value mechanic → success criteria → Aha Moment on the Critical Chain of Jobs), the ~90% edge-case table, target users by Job, competitive parity, success metrics, risk handling, and an explicit out-of-scope.
+3. **Layer 3 — The Full Work** (the build spec engineers and designers build against): the challenge gate, the full functional requirements, the ~90% edge-case table, target users, competitive parity, success metrics, risk handling, and an explicit out-of-scope. Behind each requirement sits the methodology trail — every feature traced from the biggest task your product does on its own, end to end (its **Core Job**), up to the bigger task it serves (the **Big Job**), through how it creates value (its **value mechanic**), to the bar it has to hit (its **success criteria**) and the moment it first feels worth it (the **Aha moment**) — placed along the step-by-step path the customer walks (the **Critical Chain of Jobs**). That trail lives in a fenced trace line, out of the reading flow.
 
-**Not produced (this version):** landing/ad/GTM copy → `$nmt-craft-go-to-market`; analytics plan → out of scope; standalone unit-economics model → out of scope (unit economics is used only as a *filter* inside the challenge and ranking, never emitted as a document).
+**Not produced:** landing/ad/GTM copy → `$nmt-craft-go-to-market`; analytics plan → out of scope; standalone unit-economics model → out of scope (unit economics is used only as a *filter* inside the challenge and ranking, never emitted as a document).
 
 **Two modes:**
 - **Quick (default, ~5–10 min):** one Codex agent, no internet, no subagents. Fills the PRD directly from the loaded artifacts + reasoning.
@@ -122,7 +118,25 @@ Per `AGENTS.md`: every named external source is a clickable Markdown link (Rule 
 
 **Who reads it** — the target segments (the essentials are inline here, so the skill stays self-contained and public-safe): US founders, indie hackers / vibe-coders, growth-stage PMs, senior PMs / VPs, and product marketers. Their vocabulary: *PMF, runway, pivot, a niche that pays, ship it, first paying customers, a roadmap I can defend, a metric that moves (not theater), positioning, conversion.* **Avoid the words they reject:** *scale fast, 10x, hockey stick, proven framework, growth / funnel hacks, 5 hacks* — and methodology jargon as the lead.
 
-**Plain ↔ methodology** (say the left; add the right in parentheses only when it earns its place): the result they're after *(the Job / Big Job)* · the main thing the product does for them *(the Core Job)* · the step-by-step path the customer walks *(the Critical Chain of Jobs)* · the exact step where they get stuck *(a Critical Chain of Jobs break)* · the moment it clicks / feels worth it *(the Aha Moment)* · getting the result for less time, effort, money, or stress than expected *(value)* · a pleasant surprise / a letdown vs. what they expected *(Positive / Negative Prediction Error — never PPE/NPE)* · the few things they must learn or believe before switching *(Consideration Activators)* · a real blocker vs. just a worry *(a Barrier vs. a fear)* · the assumption most likely to kill this, tested cheap first *(the riskiest assumption / RAT)*.
+**Plain ↔ methodology** (say the left; add the right in parentheses, once, only when it earns its place — and don't stack terms in one sentence):
+
+| Write it like this (lead) | term (pattern) |
+|---|---|
+| the bigger result they're really after | the Big Job 🅑 |
+| the biggest task your product does on its own, end to end, and can't go higher right now | the Core Job 🅑 |
+| the step-by-step path the customer walks | the Critical Chain of Jobs 🅑 |
+| the exact step where they get stuck | a break in that chain 🅑 |
+| how the product creates value — one named move from the playbook | a value mechanic 🅑 |
+| getting the result for less time, effort, money, or stress than expected (the "wow" is just the signal) | value 🅑 |
+| the few things they must learn or believe before switching | the Consideration Activators 🅑 |
+| a real blocker that stops them using you, vs. just a worry | a Barrier (vs. a fear) 🅑 |
+| the one assumption most likely to kill this — test it cheap, first | the riskiest assumption (Riskiest Assumption Test, RAT) 🅑 |
+| **lead with the term →** the **Aha moment** — when the product clearly beats what they expected and it clicks | Aha moment 🅐 |
+| **lead →** their **success criteria** — the concrete bars for "good enough" | success criteria 🅐 |
+| **lead →** a **problem** — a tool doing a task worse than they expected | problem 🅐 |
+| **lead →** a **segment** of people who do the same core task and judge success the same way | segment 🅐 |
+
+**Never say to a user** *Positive / Negative Prediction Error* — write **Aha moment / Problem**. Spell out **RAT** (Riskiest Assumption Test) on first use.
 
 **Precision still holds in the methodology layer.** Job-grammar discipline (Jobs as *"I want to + verb,"* levels named, terms capitalized) governs the internal-reasoning / debug files and Layer 3 (the full work), where full methodology language is expected. The *lead the reader sees* is plain; the *parenthetical and Layer 3* carry the precise terms.
 
@@ -130,7 +144,7 @@ Per `AGENTS.md`: every named external source is a clickable Markdown link (Rule 
 
 ## Readability rules (the PRD is for a builder who doesn't know the methodology)
 
-The PRD is **three reading depths in one file**, linked top-to-bottom like canon §-references. Most readers stop at Layer 1 (a co-founder skimming "what are we building"); a doubter drops one level to see *why this and not something else*; an engineer or designer goes to the bottom for the full build spec. The full template is in "PRD structure" below. The rules that make it work:
+The PRD's **default face is the one-page summary** — what we're building, who it's for, the moment that proves it works, the single riskiest thing to validate before building, and what to build first. That summary is what most readers need and is the first thing in the file. The full functional requirements and the ~90% edge-case table sit **underneath, as a deeper layer for whoever builds it** — present and complete, but never a wall the reader has to push through first. Between the two sits a short plain-English reasoning layer. Everything is linked top-to-bottom, so a doubter can drop one level to see *why this and not something else*, and an engineer or designer can go to the bottom for the full build spec. The full template is in "PRD structure" below. The rules that make it work:
 
 - **Three layers, escalating depth — state each conclusion once per layer, never twice at the same depth.** Layer 1 = what we're building (headline only). Layer 2 = the reasoning in plain English. Layer 3 = the full build spec (the challenge gate table, the full functional requirements with their Core Job → Big Job → mechanic → Aha mapping, the Critical Chain of Jobs diagram, the full edge-case table, metrics, risks). A conclusion is a headline in L1, a plain sentence in L2, and a full row/section in L3 — three depths, not three copies.
 - **Drill-down links are mandatory.** Every Layer-1 line that a reader could doubt carries a `▸` link to its Layer-2 anchor; every Layer-2 claim links to the Layer-3 section that derives it. Use Markdown anchors: write `[the riskiest thing to validate ▸](#l2-risk)` and put `<a id="l2-risk"></a>` above the target. This is what makes the simple layers *trustworthy* — the reader can always click through to the build detail.
@@ -140,7 +154,7 @@ The PRD is **three reading depths in one file**, linked top-to-bottom like canon
 - **Layer 3 may carry methodology citations — but fenced, not inline.** Put canon references in a **methodology trace** at the end of a subsection, styled out of the reading flow, e.g.:
   > <sub>**▸ methodology trace.** Edge cases = Critical Chain of Jobs break sites × context variations (`critical-chain.md §7`; `job-structure.md §3, §11`); severity by importance (`critical-chain.md §5`).</sub>
   Never break a sentence of PRD prose with `(critical-chain.md §7)`, `(b2b.md §7)`, or `[the-algorithm.md §4]`. **Project-internal rule numbers (`AGENTS.md Rule 7`, `AGENTS.md Rule 12`) never appear in ANY layer of the output** — they are for your reasoning only, never the reader's PRD.
-- **The Core Job → Big Job → mechanic → Aha mapping moves into the fenced trace — not the readable requirement.** A non-expert reads the `mechanic: {name}` tag on every requirement as framework-compliance theater, not "what to build." So the readable requirement carries only **what to build + acceptance criteria**; the `Core Job → Big Job · mechanic: {name} · Aha: {how it fires}` mapping drops into the requirement's `▸ methodology trace` line (kept — it is the audit trail for anyone who wants it — but out of the reading flow). Strip any canon file path from it (the mechanic *name* stays; `value-creation-mechanics.md §X` does not).
+- **The methodology trail behind a requirement moves into the fenced trace — not the readable requirement.** A non-expert reads a `mechanic: {name}` tag on every requirement as framework-compliance theater, not "what to build." So the readable requirement carries only **what to build + acceptance criteria**; the trail — main task (Core Job) → bigger task (Big Job) → how it creates value (the mechanic) → the moment it feels worth it (the Aha) — drops into the requirement's `▸ methodology trace` line (kept — it is the audit trail for anyone who wants it — but out of the reading flow). Strip any canon file path from it (the mechanic *name* stays; the file reference does not).
 - **Disclaimers once.** The two-part disclaimer appears **once** (top of file), plus a one-line pointer in Layer 1. Do not repeat the full disclaimer block lower in the file. (Search the file before shipping — the disclaimer wording should hit at most twice.)
 - **Keep source links** for external facts (Rule 2).
 
@@ -204,19 +218,28 @@ Question budget: **3–5 human touchpoints**, fewer when an upstream artifact al
 
 End with *"Ready? First, a few questions."* and proceed to intake.
 
+### How deep should the intake go? — ask this first
+This is about the **number of questions** I ask you — independent of the Quick/Deep research mode below (that one is about internet + subagents). Ask it as the very first thing in intake:
+
+> **First — how deep should I go? Pick one:**
+> - **Just the essentials** — I ask the 3–4 questions that matter most, then deliver. Best for a fast first pass or when you're still exploring.
+> - **The full interview** — I walk you through everything so we cover the most blind spots and you get the highest-confidence result. Best when the decision is expensive.
+
+On **Just the essentials**, ask only the load-bearing fields and infer or defer the rest — for the PRD that means: where you're starting from, the segment + value (consumed or described in a sentence each), and the business goal. Skip or batch the materials/claims-ledger and business-context details into one short pass, and flag in the result anything that was inferred. On **The full interview**, run the complete intake below (materials, claims ledger, every business-context field). Either way, no canonical Job form is ever required from the user — describe the segment and value in plain sentences and the skill shapes the grammar internally.
+
 ### Language
 Default **English**. If the user writes in another language, offer to work in it (English (Recommended) / their language; for another language, ask directly in chat). Hold the choice in context. The PRD uses the chosen language; canon files and source URLs stay as-is.
 
 ### One batched `request_user_input`
 
 ```
-Q1 "Where are you starting from?"
+Q1 "Where are you starting from?  (No prior research is fine — option D is a first-class door.)"
+  - "Skip research — I'll just describe my segment & value"  → Path D (fast path — describe it yourself; the default for a first run)
   - "I have a $nmt-craft-value-proposition result"   → Path A (best — segments AND value present)
   - "I have a $nmt-market-research result"            → Path B (segments present; value not yet crafted)
   - "I haven't done research and want to"         → Path C (ROUTE OUT — run the chain first)
-  - "Skip research — I know my segment & value"   → Path D (fast path — I'll describe them)
 
-Q2 "Mode?"
+Q2 "Mode?  (separate from the intake-depth choice above — this is about internet)"
   - "Quick (default — fast, no internet)"
   - "Deep (subagents + web parity check)"
 
@@ -235,11 +258,13 @@ Q5 (Paths A/B only) "Path to the upstream result file?"  → free text; Read it.
 
 ### Resolve the input path
 
-- **Path A — nmt-craft-value-proposition result.** Read it. Its **§11 Implementation spec** already carries the product shape, the feature table (Core Job / criterion / mechanic / Aha link), Critical Chain of Jobs & Aha placement, cost-to-build & cheapest probe, unit-econ direction, and anti-segment — **plus** the target segment, Big Job(s), competitors, proof, and RAT cards in the body. **This is the richest input — segments AND value are both present.** Most of S1/S2 is already answered; confirm rather than re-ask, then go to S3.
-- **Path B — nmt-market-research result.** Read it. Parse the target segment(s) (✅/⚠️), their Core Jobs + success criteria, Big Jobs, competitors (direct/indirect/turnkey), the wedge, and the action-first RAT — **carry all of it forward, never regenerate it.** The value layer is *not yet crafted*, so say so: *"You have segments but no crafted value proposition. Strongly recommended: run `$nmt-craft-value-proposition` on the target segment first — the PRD is much sharper from a real value hypothesis. Run it now, or proceed using the nmt-market-research wedge as the value direction?"* If the user proceeds, use the wedge/differentiation hypothesis as the value direction; flag the reduced confidence at the top of the PRD.
-- **Hand-off debt — ask what has since been validated (Paths A/B only — `PRODUCER-CONTRACT.md §4c`).** The upstream artifact carried its own validation debt (its RAT / risk rows — segment, willingness-to-pay, value, channel assumptions). Debt travels down the chain; it is *not* silently dropped. Because this PRD is the closest-to-build artifact, ask once before building: *"Your {nmt-market-research / value-proposition} result rested on these unvalidated assumptions: {list the upstream RAT rows}. Which of these have you since checked in the field, and what did you find?"* Re-tag anything still unvalidated — it carries into this PRD's risk section (§7) and counts toward this PRD's validation debt (Layer 1), with the cheapest probe pointed at it. Anything the user confirms was validated is marked as such and drops out of the debt count.
-- **Path C — no research yet, wants it (ROUTE OUT — do not run research here).** Reply: *"The right order is `$nmt-market-research` → `$nmt-craft-value-proposition` → back here. Run `$nmt-market-research` first (it finds and scores the segments), then `$nmt-craft-value-proposition` (it builds the value hypothesis + a PRD-ready spec), then return and pick Path A. Want me to open the `$nmt-market-research` input prompt now?"* Hand off and stop — this skill does not size markets or discover segments.
-- **Path D — fast path, manual segment + Jobs + value (no research).** For the user who already knows the segment and the value and just wants requirements. Collect, by description/dictation: product (1–2 sentences) + URL if any; target segment NAME + causal criteria (behaviour/characteristic, **not** demographics); Big Job(s) + criteria; top 1–3 **Core Jobs** in canonical `When … I want to {outcome} with success criteria {direction+level}, in order to {Big Job}` form; **the value** (what value we create + roughly via which mechanic — this stands in for `$nmt-craft-value-proposition`); ≥3 known alternatives (direct/indirect/turnkey if known); the business goal. Validate against the invariants — fix multi-verb Jobs (Rule 7), demographic "criteria", and adjective "value" before proceeding. Then go straight into S1→S5. Flag reduced confidence at the top of the PRD (*"generated from a manually-described segment + value, not a research-backed one"*).
+**No prior research? Just describe your segment and the value — I'll flag where that's thin.** Describing it yourself (Path D) is a first-class door, not a fallback. The other three paths simply let you reuse work you've already done in another skill, so you don't repeat yourself.
+
+- **Path D — describe it yourself (no research needed — the default for a first run).** For anyone who knows roughly who they're building for and what value they're creating and just wants the requirements. **Describe it in plain sentences — no special format required.** Collect, by description or dictation: the product (a sentence or two) + a URL if there is one; who it's for (the segment) and what makes them that group — a behaviour or characteristic, **not** demographics like age or income; the bigger result they're really after (their Big Job) and how they'd know it worked (their success criteria); in a sentence each, the **1–3 main tasks** this customer is trying to get done with the product (its **Core Jobs**) — I'll shape these into the formal version internally; **the value** — what makes it worth switching, and roughly how (this stands in for a `$nmt-craft-value-proposition` run); a few known alternatives if you have them (what they use today); and the business goal. I fix the grammar behind the scenes (splitting any task that's really two, dropping demographics that aren't causal, turning adjective-value into concrete value). Then straight into S1→S5. The result flags up front that it was generated from a described segment + value, not a research-backed one.
+- **Path A — reuse a `$nmt-craft-value-proposition` result (richest input).** Read it. Its implementation spec already carries the product shape, the feature table, the step-by-step path and where the moment-it-feels-worth-it fires, cost-to-build & cheapest probe, unit-econ direction, and who it's explicitly not for — **plus** the target segment, the bigger result they're after (Big Job), competitors, proof, and the riskiest-assumption cards in the body. **Segments AND value are both present.** Most of S1/S2 is already answered; confirm rather than re-ask, then go to S3.
+- **Path B — reuse a `$nmt-market-research` result.** Read it. Parse the target segment(s) (✅/⚠️), their main tasks + success criteria, bigger results they're after, competitors (direct/indirect/turnkey), where you win, and the action-first riskiest-assumption list — **carry all of it forward, never regenerate it.** The value layer is *not yet crafted*, so say so: *"You have segments but no crafted value proposition. Strongly recommended: run `$nmt-craft-value-proposition` on the target segment first — the PRD is much sharper from a real value hypothesis. Run it now, or proceed using the market-research differentiation hypothesis as the value direction?"* If the user proceeds, use it as the value direction; flag the reduced confidence at the top of the PRD.
+- **Hand-off debt — ask what has since been validated (Paths A/B only — `PRODUCER-CONTRACT.md §4c`).** The upstream artifact carried its own list of things still unvalidated (its risk rows — segment, willingness-to-pay, value, channel assumptions). That debt travels down the chain; it is *not* silently dropped. Because this PRD is the closest-to-build artifact, ask once before building: *"Your {market-research / value-proposition} result rested on these unvalidated assumptions: {list them}. Which of these have you since checked in the field, and what did you find?"* Re-tag anything still unvalidated — it carries into this PRD's risk section (§7) and counts toward this PRD's validation debt (Layer 1), with the cheapest probe pointed at it. Anything the user confirms was validated is marked as such and drops out of the debt count.
+- **Path C — no research yet, but you want to do it first (route out).** Reply: *"The right order is `$nmt-market-research` → `$nmt-craft-value-proposition` → back here. Run `$nmt-market-research` first (it finds and scores the segments), then `$nmt-craft-value-proposition` (it builds the value hypothesis + a build-ready spec), then return and pick Path A. Want me to open the `$nmt-market-research` input prompt now?"* Hand off and stop — this skill does not size markets or discover segments. (If you'd rather not wait, Path D lets you describe the segment and value and build now.)
 
 ### User materials, claims ledger, input-as-hypothesis gate, direction confirmation (all paths)
 
@@ -464,7 +489,7 @@ The detailed PRD below is the build spec. Add an HTML anchor above each part Lay
 ## 1. Overview
 - What we're building (the build subject locked in the challenge gate) and the **business Job** it serves.
 - Target segment(s) + the selected Core Jobs (canonical form, with success criteria).
-- **Aha Moment per segment** — the positive-prediction-error event, where it fires on the Critical Chain of Jobs, how far left it's shifted. (Never signup/login.)
+- **The Aha moment per segment** — the moment the product first clearly beats what the customer expected, where it fires on the step-by-step path the customer walks (the Critical Chain of Jobs), how far left it's shifted. (Never signup/login.)
 - If the challenge changed the approach: one line on what was *not* built and why.
 
 ### 2. Target users (by Job, not demographics)
@@ -486,12 +511,12 @@ For each selected Core Job:
 
 <a id="l3-edge"></a>
 ## 4. Edge cases — ~90% of use cases across people, contexts, conditions
-Edge cases in AJTBD are **where the Critical Chain of Jobs breaks or produces a Problem (a Negative Prediction Error)** under a real variation — not a generic QA checklist. Generate from five sources, then cover the standard technical/operational categories *as they hit the chain*:
+Edge cases here are **where the step-by-step path the customer walks (the Critical Chain of Jobs) breaks, or hands the customer a bad surprise (a problem)** under a real variation — not a generic QA checklist. Generate from five sources, then cover the standard technical/operational categories *as they hit the path*:
 
 - **(a) Context variations** — same expected outcome, different **context** → different success criteria → effectively a different Job. Enumerate the contexts the segment + adjacent users actually hit: new vs returning user; B2B roles; regulatory contexts (HIPAA / FERPA / state-by-state); locale / device / language; scale (0 items / 1 / many / 10,000); free vs paid tier; first-time (Orientation-Job-heavy) vs Nth-time.
-- **(b) Critical Chain of Jobs break sites** — hand-offs (ownership ambiguity, latency, information loss), cycles (return-for-rework), the slowest link, external interruptions (a higher-priority Job bursts in; criteria change mid-walk; a competitor surfaces mid-walk).
-- **(c) Tax Jobs** — work forced on the customer when a chain link fails; each is a Problem and a churn/abandonment trigger.
-- **(d) Job-type branches** — Orientation Jobs for first-timers; Emotional Jobs (anxiety states); Viral Jobs (the Job performed for/with another person); conditional chain steps that exist only for a sub-context.
+- **(b) break sites on that path** — hand-offs (ownership ambiguity, latency, information loss), cycles (return-for-rework), the slowest link, external interruptions (a higher-priority task bursts in; the bar changes mid-walk; a competitor surfaces mid-walk).
+- **(c) forced, unwanted work when something fails (Tax Jobs)** — extra work pushed onto the customer when a step in the path fails; each is a bad surprise (a problem) and a churn/abandonment trigger.
+- **(d) job-type branches** — the researching-and-choosing step for first-timers (an Orientation Job); anxiety states (Emotional Jobs); a task done for or with someone else (a Viral Job); steps in the path that exist only for a sub-context.
 - **(e) B2B role-chain breaks** (if B2B) — breaks at role boundaries, mostly *personal-Job* failures (IT security veto, procurement/legal late stalls).
 - **Standard categories, framed as chain-breaks:** empty/oversized/malformed input; no/slow/lost network; concurrency & conflicting operations; auth & permissions; payments (cancelled / partial refund / lapsed sub / double charge); security (injection, unauthorized access, rate limits).
 
@@ -518,7 +543,7 @@ Render as a table, sorted by **importance-driven severity** (high-importance bre
 <a id="l3-risk"></a>
 ## 7. Risk handling & out of scope
 - **Risks:** the RAT carried from upstream (or generated here) — for each, how the PRD minimizes/accounts for it, and **the single riskiest assumption to validate (cheaply) before the build** (kill the product, don't launch it; the MVP is a probe, name what it tests).
-- **Anti-segment / out of scope:** who this is explicitly NOT for (2–3 groups); Jobs/segments deliberately subtracted to hold focus; features deferred to a later phase (the non-focal Jobs from §3).
+- **Who this is NOT for — out of scope:** who this is explicitly NOT for (2–3 groups); Jobs/segments deliberately subtracted to hold focus; features deferred to a later phase (the non-focal Jobs identified earlier).
 
 > <sub>**▸ methodology trace.** {fence the canon refs — RAT, drop-it exercise, MVP-as-probe — here.}</sub>
 
@@ -609,3 +634,8 @@ Web caps: parity ≤8 fetches; edge-case review mining ≤8. Source links mandat
 - **Does not produce an analytics plan** (out of scope this version) or a **standalone unit-economics model** (unit economics is used only as a reasoning filter in S3/ranking).
 - **Does not run interviews or execute the RATs** — it names the riskiest assumption to validate; the user runs it next.
 - Quick mode: no internet, no subagents.
+
+---
+
+> **Update check — do this at the very end (best-effort, ≤2s, never blocks).** After you've finished this skill's work and delivered the result — for a multi-turn chat (e.g. nmt-chat / nmt-diagnose), after your first substantive answer — read the installed version from `.nmt-version` (project root) and run
+> `v="$(cat .nmt-version 2>/dev/null)"; curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-product-requirements${v:+&v=$v}"` — on any error or timeout, skip silently. Compare that installed version with the feed's `latest`; if behind, add one line — the `<installed> → <latest>` gap, a one-line summary per newer entry, and "run $nmt-upgrade to update". If versions match or `.nmt-version` is absent, add nothing.

@@ -14,19 +14,11 @@ description: >-
 user-invocable: true
 ---
 
-> **Update check — best-effort, ≤2s, never blocks.** Before the steps below, run
-> `curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-diagnose"`; on any error
-> or timeout, skip silently. Compare `.nmt-version` (project root) with the feed's `latest`. If
-> behind, print one line — the `<installed> → <latest>` gap, a one-line summary per newer entry,
-> and "run $nmt-upgrade to update" — then continue. If it matches or `.nmt-version` is absent, continue.
+# Diagnose — the Next Move Theory product diagnostic
 
-# Diagnose — the Next Move Theory product diagnostic v1
+A chat-first diagnostic for a live product. It finds your real risks and best growth moves, says which one to tackle first, and points you to the skill that does it.
 
-A chat-first diagnostic that finds **everything** the methodology can see in a product — all risks, all growth points, the risky assumptions inside your current initiatives — then prioritizes the first move and routes you to the skill that executes it.
-
-> **One breath.** `$nmt-diagnose` is Phase I of the Algorithm made conversational (`the-algorithm.md` Step 1 *challenge the goal* + Step 2 *diagnose the current state*, walked over the cause-and-effect chain to profit, §2). It is **comprehensive on findings, focused on action**: it surfaces all the risks and growth points and current-initiative assumptions it can find — not just one headline — then applies focus as a recommendation on top (*"here's everything; here's what I'd tackle first and why"*), and routes to the right producer skill. It writes nothing by default; it recommends the next skill, and you launch it.
-
-> **Two front doors.** New idea, no paying customers → `$nmt-market-research` (find and score paying segments). Live product — something's off, or you want the next move → **`$nmt-diagnose`** (find the constraints + growth points, then route, often back into `$nmt-market-research`, `$nmt-craft-value-proposition`, `$nmt-product-requirements`, or `$nmt-craft-go-to-market`). `$nmt-diagnose` decides which door you actually needed.
+> **New here, or not sure this is the right skill?** Start right here — or run `$nmt-chat`, describe your situation, and it points you to the right one. Quick map: **new idea →** `$nmt-market-research` · **live product or a metric moved →** `$nmt-diagnose` · **have customer interviews →** `$nmt-analyze-interviews` · **ready to build →** `$nmt-product-requirements` · **positioning / launch copy →** `$nmt-craft-value-proposition` → `$nmt-craft-go-to-market`.
 
 ---
 
@@ -121,21 +113,21 @@ Market with money
 
 ---
 
-## The flow — up to ~15 adaptive questions
+## The flow — a handful of adaptive questions (up to ~15)
 
-Chat-first. Ask only the questions that challenge the goal and narrow the findings; never run the full bank. Batch ~3–4 questions per section (respect the ≤15 budget and the user's time). "I don't know" is a valid, informative answer.
+Chat-first. **Make it feel like a few questions, not an interrogation.** Ask only the ones that challenge the goal and narrow the findings; never run the full bank. Start with the smallest set that lets you say something useful, and only go deeper if the situation needs it or the user wants the thorough pass. Batch ~3–4 at a time, cap at 15, respect the user's time. "I don't know" is a valid, informative answer.
 
-### 0 — Orientation (helicopter)
-Before the first question, a short plain block:
-> **What this does:** finds the risks and growth points holding your product back — including risky assumptions in what you're already doing — then points you to the right next step. **How:** a focused set of questions (≤15). **Where you decide:** you confirm the goal and launch the recommended skill; I don't run it for you. **Honest caveat:** every finding is a hypothesis — the cheapest check comes first.
+### 0 — Orientation (one short block, then the first question)
+Before the first question, one short plain block — keep it tight:
+> **What this does:** finds the risks and growth moves holding your product back — including risky guesses in what you're already doing — then points you to the right next step. **A few quick questions** (more only if it helps). **You decide:** you confirm the goal and launch the recommended skill; I don't run it for you. **Honest caveat:** every finding is a guess to check — the cheapest check comes first.
 
-Then **document language** — default English; if the user writes in another language, offer to continue in it and hold that choice.
+Then **document language** — default English; if the user writes in another language, offer to continue in it and hold that choice. Then go straight to the first question.
 
 ### 1 — Challenge the chosen task / goal (mandatory gate, runs first)
 **Do not accept the task the user walked in with.** When they say *"I want to do X"* (a feature, an initiative, a metric):
-- Ask *"Why do you want this? In order to do what?"* and climb their **graph of business Jobs** 3–5 levels (5 Whys) — from feature/metric up to conversion, sales, margin, profit, the strategic goal.
-- **At each level up, look for a growth point** — a more interesting and/or more energy-efficient way to perform the higher-level business Job than the task they came in with. The real next move often sits one or two levels above the stated task (`the-algorithm §4 Step 1`, §6).
-- **Local vs global flag:** open to changing segment / model / market (global — founder/C-level only), or improving the current product (local)? The two are parallel tracks, not opposites.
+- Ask *"Why do you want this? In order to do what?"* and trace it up 3–5 levels (5 Whys) — from feature/metric to the bigger business result it really serves: conversion, sales, margin, profit, the strategic goal (in the method, climbing their **business-Job graph**).
+- **At each level up, look for a better move** — a more interesting or lower-effort way to hit that bigger result than the task they came in with. The real next move often sits one or two levels above the stated task.
+- **Tune vs. bigger bet:** open to changing segment / business model / market (a bigger bet — usually a founder / C-level call), or improving the current product (tuning what you have)? The two run in parallel, not as opposites.
 
 Artifact: the original task confirmed as worth pursuing, **or** a reframed higher-level goal (with the climb that justifies it) + the alternatives cut. Everything downstream is diagnosed against the *right* goal.
 
@@ -164,19 +156,29 @@ Map **all** weak nodes and **all** growth points the sweep surfaced. Trace each 
 
 ## Output
 
-### Chat (always) — the full inventory, then the priority
-1. **The goal, challenged** — the task confirmed, or a reframed higher-level goal with the climb that justifies it (*"you asked how to lift X; the higher-leverage goal on the Big Job above is Y"*).
-2. **Risky assumptions in your current initiatives** — one row per initiative: *initiative · what it assumes · the riskiest assumption (sinks it if wrong) · cheapest way to check.* (Omit if none described.)
-3. **All the risks** — every weak / broken node found, each traced to its upstream cause (not the symptom). Ranked by leverage, binding one first — the whole list shown.
-4. **All the growth points** — every value/growth opportunity found (kill a Job, Previous/Next Job, climb a level, adjacent Small Jobs, underserved criteria), one line each.
-5. **What I'd tackle first** (focus) — the single highest-leverage item and why; the rest stay visible as *next, not now*.
-6. **The route** — the recommended skill for that first item + why + the exact next action (you launch it). See the routing table.
-7. **The cheapest validation step** — every finding is a hypothesis; what to check first before committing.
+### Chat (always) — lead with the one move, then the ranked inventory
 
-Mark the **methodology's unique findings** (§ the growth lens) prominently — they're the point, not to be buried in a list.
+**Default is short. Lead with the single first move, then a tight, capped list — not a wall.** Open with the headline (1–3), then show the rest, capped. Depth is opt-in.
+
+1. **The goal, checked** — the task confirmed, or a reframed higher-leverage goal with the climb that justifies it (*"you asked how to lift X; the bigger result it really serves is Y, and that's the better thing to move"*).
+2. **Tackle this first** — the single highest-leverage move and why, in one or two sentences.
+3. **The cheapest way to check it** — every finding is a hypothesis; the one cheap test to run before committing. Then the route: the skill that does this first move + the exact next action (you launch it). See the routing table.
+
+Then, the fuller picture — **capped and ranked, not a dump:**
+
+4. **Top risks** — the top 3 weak spots, each traced to its real upstream cause (not the symptom), binding one first. Any others: one line each.
+5. **Top growth moves** — the top 3 ways to grow, plain-first, one line each; any others as a single line. The moves, in plain terms (term in parentheses):
+   - **remove a step they hate** — make an unwanted task disappear for the whole group, for good (**kill a Job**)
+   - **grab what they do right before or after you** — own the must-do task just ahead of or just behind the one you already do (**Previous / Next Job**)
+   - **do the bigger task for them** — make the bigger task the thing your product fully does, so a layer of small steps vanishes (**move up a level**)
+   - **serve a nearby group you're ignoring** — a sibling task right beside what you do, for a group next door (**adjacent Small Jobs**)
+   - **nail a need everyone handles badly** — a concrete bar the whole market underserves today (**underserved success criteria**)
+6. **Risky assumptions in what you're already doing** — one row per current initiative: *what you're doing · what it quietly assumes · the assumption that sinks it if wrong · cheapest way to check.* (Omit if none described.)
+
+**The one move + its cheapest check are the deliverable; the inventory is there if they want it.** Mark the **findings only this method surfaces** (§ the growth lens) so they don't get lost — they're the point.
 
 ### File (only if the user asks)
-Default: write nothing. On request, write **one** file (Rule 4): `Skills-Results/{project}/diagnose/{YYYY-MM-DD_HH-MM}_{project}-diagnose-result.{md|html}` (custom path / format per `../PRODUCER-CONTRACT.md §5, §2`). Contents = the seven chat blocks + a short "what you told me, treated as hypothesis" note (`§3`), with the Rule 3 disclaimers + Rule 23 attribution (`utm_source=diagnose&utm_medium=skill-artifact`).
+Default: write nothing. On request, write **one** file (Rule 4): `Skills-Results/{project}/diagnose/{YYYY-MM-DD_HH-MM}_{project}-diagnose-result.{md|html}` (custom path / format per `../PRODUCER-CONTRACT.md §5, §2`). Contents = the chat blocks above + a short "what you told me, treated as hypothesis" note, with the Rule 3 disclaimers + Rule 23 attribution (`utm_source=diagnose&utm_medium=skill-artifact`).
 
 ---
 
@@ -211,7 +213,11 @@ Per `../PRODUCER-CONTRACT.md`, this chat-first skill applies the contract partia
 ## Conversation conventions
 
 - **Language.** Default English; if the user writes in another language, offer to continue in it, then hold it. Canon files and URLs stay as-is.
-- **Plain words first, methodology in parentheses.** Reason in the canon; speak in the reader's own words. Never open a sentence, bullet, or heading with a methodology label — lead with the plain claim, attach the term after, once. (*"Your churn is the symptom; the real cause is that the product delivers less than the segment expects (value below their success criteria)."*)
+- **Plain words first, methodology term always present.** Reason in the canon; speak in the reader's own words. The methodology term is always there — we're teaching the vocabulary — what changes is its placement:
+  - **Common-word terms lead, plain, no parentheses:** *segment, problem, Aha moment, success criteria, State A / State B, consideration set, switching triggers, map of segments, job budget.* (*"the Aha moment — the point where the product clearly beats what they expected."*)
+  - **Jargon terms: plain explanation first, term in parentheses after, once:** Core Job, Big Job, Small / Micro Job, Critical Chain of Jobs, kill a Job, move up a level, Consideration Activators, RAT, ABCDX, null Solution, Previous / Next Job, value mechanic, Tax / Fake Job, Red Queen, Solution. (*"the bigger result they actually want (their **Big Job**)"*; *"the must-do task right before the one you do (the **Previous Job**)"*.) Never open a sentence, bullet, or heading with a jargon label; never stack two terms in one sentence; spell out **RAT** (Riskiest Assumption Test) and **ABCDX** on first use.
+  - **Never say to a user:** *Positive / Negative Prediction Error* → say *Aha moment / Problem*; *"switchable demand"* → *"demand you can win"*; *"the wedge"* → *"the underserved need that wins it for you"*; *"anti-segment"* → *"the group we deliberately don't serve."*
+  - Get the *Core Job* gloss right: the biggest task your product does completely on its own, end to end, and can't go higher than right now (not "the main thing your product does").
 - **Audience & examples** (`AGENTS.md` Rule 6, 19). US-based founder / PM vocabulary; Tier A/B recognizable brands (TurboTax, Stripe, Notion, Uber) — never a brand the reader must google.
 - **Job grammar, every time** (Rules 7, 8, 14). Jobs as `I want to + infinitive`, in quotes; name the level (Core / Big / Small / Micro); terms capitalized; in questions *to* customers use *task*, never *Job*.
 - **Diagnose before prescribing.** Don't answer a vague situation with a generic essay; establish the upstream anchors first, then route through the chain.
@@ -224,9 +230,9 @@ Per `../PRODUCER-CONTRACT.md`, this chat-first skill applies the contract partia
 
 1. **Eager core loaded** — `ajtbd-key-theses.md` and `rat-key-theses.md` read this run (mandatory), plus `the-algorithm.md` + `nmt-key-theses.md`.
 2. **The goal was challenged, not accepted** — a 5-Whys climb up the business-Job graph ran; the output states the goal confirmed or reframed, with the climb.
-3. **Comprehensive, not just the headline** — all risks and all growth points surfaced; current-initiative assumptions extracted (RAT) when initiatives were described; nothing dropped for the sake of one finding.
+3. **Led with the one move, then a capped inventory** — opened with the single first move + its cheapest check + the route; risks and growth moves shown top-3 each with any others one line, ranked, not dumped; nothing important dropped (the rest still appear, just lighter); current-initiative assumptions extracted (RAT) when initiatives were described.
 4. **Walked top-down + swept the whole chain** — symptoms traced to upstream causes (a downstream metric not treated as the problem at that metric); the binding constraint is the highest broken node.
-5. **Focus applied as priority, not as filter** — "tackle first" sits over the full visible list; the rest marked *next, not now*.
+5. **Focus applied as priority, not as filter** — "tackle first" leads; the rest stay visible, ranked, as *next, not now*.
 6. **Methodology's unique findings flagged** — the non-obvious results surfaced prominently.
 7. **Segment reasoned by Jobs** — not a demographic; ABCDX invoked for live bases.
 8. **Local-vs-global named** — moves respect the user's appetite; a global move flagged founder/C-level only.
@@ -242,3 +248,8 @@ Per `../PRODUCER-CONTRACT.md`, this chat-first skill applies the contract partia
 - It does not auto-launch the recommended skill (you launch it).
 - It is not a generic feature-by-feature audit — it surfaces what the methodology uniquely finds, then prioritizes.
 - It writes no file unless asked.
+
+---
+
+> **Update check — do this at the very end (best-effort, ≤2s, never blocks).** After you've finished this skill's work and delivered the result — for a multi-turn chat (e.g. nmt-chat / nmt-diagnose), after your first substantive answer — read the installed version from `.nmt-version` (project root) and run
+> `v="$(cat .nmt-version 2>/dev/null)"; curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-diagnose${v:+&v=$v}"` — on any error or timeout, skip silently. Compare that installed version with the feed's `latest`; if behind, add one line — the `<installed> → <latest>` gap, a one-line summary per newer entry, and "run $nmt-upgrade to update". If versions match or `.nmt-version` is absent, add nothing.

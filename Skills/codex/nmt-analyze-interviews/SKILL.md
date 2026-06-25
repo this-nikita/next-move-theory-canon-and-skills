@@ -15,17 +15,13 @@ description: >-
 user-invocable: true
 ---
 
-> **Update check — best-effort, ≤2s, never blocks.** Before the steps below, run
-> `curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-analyze-interviews"`; on any error
-> or timeout, skip silently. Compare `.nmt-version` (project root) with the feed's `latest`. If
-> behind, print one line — the `<installed> → <latest>` gap, a one-line summary per newer entry,
-> and "run $nmt-upgrade to update" — then continue. If it matches or `.nmt-version` is absent, continue.
-
 # Analyze Interviews v1
 
 > **v1 in one breath.** You already ran the interviews; this skill pulls the methodology out of them. It takes **one or many** interview files (transcripts, notes, sales calls, support logs, survey open-ends — AJTBD or not, good or bad), asks **which business task** you're solving (and helps you pick one if you can't), then reads **each interview in its own subagent** — a fan-out that keeps the run from ever overflowing context no matter how many large transcripts you load. Each interview is distilled to the AJTBD constructs with an **honest confidence** (a clean Core-Job extraction vs. a weak hypothesis) and **per-interview feedback** (what was found, what's missing, whether this interview can serve your task). The distillations are clustered into **segments by similar Core Jobs + similar success criteria + similar priority order**, and each segment's confidence is **computed from its supporting interviews' confidence**. Output — one report: data-quality summary, segments with personas, structured Solutions + Problems, a Consideration Set per segment, value hypotheses, and what to interview next.
 
 > **Producer contract (binding) — `../PRODUCER-CONTRACT.md`.** Six cross-cutting behaviors shared by all producer skills: (1) print a **helicopter-view** before the first question; (2) ask **Markdown or HTML** output; (3) treat **all** user input as hypothesis and emit a *"risks I see in what you gave me"* block — here the inputs are interviews, so this becomes the per-interview quality read; (4) print **validation framing** — extracted Jobs are hypotheses with a confidence, only as strong as the interviews behind them; (5) accept a **custom output path**; (6) Deep mode runs an **evidence floor + self-critic loop** and offers a **web-MCP fallback**. The hooks below wire each into this skill.
+
+> **New here, or not sure this is the right skill?** Start right here — or run `$nmt-chat`, describe your situation, and it points you to the right one. Quick map: **new idea →** `$nmt-market-research` · **live product or a metric moved →** `$nmt-diagnose` · **have customer interviews →** `$nmt-analyze-interviews` · **ready to build →** `$nmt-product-requirements` · **positioning / launch copy →** `$nmt-craft-value-proposition` → `$nmt-craft-go-to-market`.
 
 ## Where this skill sits
 
@@ -43,8 +39,8 @@ The **post-fieldwork counterpart to `$nmt-interview-guide`.** `nmt-interview-gui
 
 1. **Data-quality summary** — how many files, the type/quality mix (AJTBD / partial / non-AJTBD; well / poorly conducted), and whether the set can serve the chosen business task.
 2. **Segments by Core Jobs** — each with a persona (= the causal criteria), Core Jobs in canon grammar, Big Jobs, **a confidence level and the interviews it stands on.**
-3. **Existing Solutions + Problems** — structured (Solution = label + the sub-graph it installs; every Problem reconstructed on its `Job → Solution → Problem` chain).
-4. **Consideration Set per segment** — the four-slot State-A container, as its own block.
+3. **What they use today and where it falls short** — for each tool they hired, the set of tasks it does for them, and each problem traced to the task it botched (task → tool → problem). DIY counts as a tool.
+4. **What they weighed before choosing** — the options, how they compare, the named products plus a way in, and their fears (their consideration set), as its own block.
 5. **Value-creation hypotheses** — underserved success-criteria + a one-line mechanic direction (no feature list — that is `$nmt-craft-value-proposition`'s job).
 6. **Per-interview appendix** — what was extracted from each file, with anchor quotes and confidence.
 7. **Gaps + what to interview next** — what the current data cannot answer for the task, and whom to re-recruit (past-payment screener).
@@ -293,11 +289,17 @@ Always render the support transparently: *"Segment B — Emerging; stands on int
 
 ## STAGE 6 — Assemble the report
 
-Build the single file in this order (top attribution → disclaimers once → the sections below). Compute the data-quality summary last, from the finished work.
+Build the single file in this order (top attribution → disclaimers once → the sections below). Compute the **"What your calls are telling you"** Layer-1 block and the data-quality summary **last**, from the finished work — the Layer-1 block is the one-screen verdict (can the data answer the task · the top 2–3 segments with an anchor quote each · the single biggest data risk); §1 is its fuller breakdown.
 
 ### Report structure
 
 ```markdown
+## What your calls are telling you (read this first)
+- **Can these interviews answer "{business task}"?** {Yes / partly / not yet} — {one line on why}.
+- **The segments that showed up:** {top 2–3, most-supported first} — each one line + one anchor quote (interview #).
+  - {Segment name} ({Solid / Emerging / Hypothesis}): {one line}. *"{anchor quote}"* — #{n}.
+- **The single biggest data risk:** {e.g., "11 of 18 are hypothetical-heavy; segment sizes below are directional at best"}.
+
 ## 1. Data-quality summary
 - Files analyzed: {N}. Type mix: {AJTBD x / partial y / non-AJTBD z}. Quality: {clean a / directional b / weak c / not-usable d}.
 - **Can these interviews serve "{business task}"?** {Yes / partly / not yet} — {one line on the binding gap}.
@@ -314,14 +316,14 @@ Build the single file in this order (top attribution → disclaimers once → th
 **Big Jobs (motivation above the Core Jobs):** {…}
 **Anchor quotes:** {1–3 verbatim, with the interview #}.
 
-## 3. Existing Solutions + Problems (structured)
-{Per Solution the segment hires: the label · the sub-graph it installs (Core + Micro Jobs) · where it underperforms, each Problem on its Job → Solution → Problem chain. DIY counted as a Solution.}
+## 3. What they use today and where it falls short
+{For each tool the segment hired: the tool · the set of tasks choosing it does for them (its core + micro tasks) · where it underperforms, each problem traced to the task it botched (task → tool → problem). DIY counts as a tool. (Structurally: each tool is a Solution = label + the sub-graph it installs.)}
 
-## 4. Consideration Set per segment
-{The four slots: known Job Graphs · comparative efficiency · named products + entry path · fears. What they weigh before choosing, and what they'd need to learn/believe to switch.}
+## 4. What they weighed before choosing
+{The options they knew · how those compare · the named products plus a way in · their fears (their consideration set). What they weigh before choosing, and what they'd need to learn or believe to switch.}
 
 ## 5. Value-creation hypotheses
-{Underserved success-criteria intersections (the wedge) + a one-line mechanic direction per segment — no feature list. "What to build to deliver this is $nmt-craft-value-proposition's job."}
+{Underserved success-criteria intersections + a one-line mechanic direction per segment — no feature list. "What to build to deliver this is $nmt-craft-value-proposition's job."}
 
 ## 6. Per-interview appendix
 {One row/block per file: type & quality · Core Jobs found (+ per-Job confidence) · what's present · what's missing · serves-the-task verdict. In HTML, a <details> block.}
@@ -373,3 +375,8 @@ Everything Quick does, plus a web wave **after** synthesis: subagents take the n
 - It does not size the market quantitatively or build a unit-economics model — separate skills.
 - It does not turn a value hypothesis into features or a PRD — that's `$nmt-craft-value-proposition` → `$nmt-product-requirements`.
 - It never fabricates a Job, a quote, or a confidence — thin data is reported as thin.
+
+---
+
+> **Update check — do this at the very end (best-effort, ≤2s, never blocks).** After you've finished this skill's work and delivered the result — for a multi-turn chat (e.g. nmt-chat / nmt-diagnose), after your first substantive answer — read the installed version from `.nmt-version` (project root) and run
+> `v="$(cat .nmt-version 2>/dev/null)"; curl -fsSL --max-time 2 "https://nextmovetheory.com/version?skill=nmt-analyze-interviews${v:+&v=$v}"` — on any error or timeout, skip silently. Compare that installed version with the feed's `latest`; if behind, add one line — the `<installed> → <latest>` gap, a one-line summary per newer entry, and "run $nmt-upgrade to update". If versions match or `.nmt-version` is absent, add nothing.
